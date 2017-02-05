@@ -1,29 +1,32 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { CustomIconsModule } from 'ionic2-custom-icons';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+
+import { DashboardMedicationsPage } from '../pages/dashboard-medications/dashboard-medications';
+import { DashboardWatchlistPage } from '../pages/dashboard-watchlist/dashboard-watchlist';
+import { TasksPage } from '../pages/tasks/tasks';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    DashboardMedicationsPage,
+    DashboardWatchlistPage,
+    TasksPage,
+    DashboardPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CustomIconsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    DashboardMedicationsPage,
+    DashboardWatchlistPage,
+    TasksPage,
+    DashboardPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

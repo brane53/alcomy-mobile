@@ -1,10 +1,44 @@
 <ion-menu [content]="appContent">
   <ion-content>
     <ion-list>
-      <ion-item>
-        <custom-icon color="primary" set="mdIcon" name="dashboard"></custom-icon>
+
+      <ion-list-header>
+        My Stuff
+      </ion-list-header>
+
+      <button ion-item detail-none no-lines>
+        <custom-icon set="mdIcons" name="account_circle" item-left></custom-icon>
+        PROFILE
+      </button>
+      <button ion-item detail-none no-lines>
+        <ion-icon name="settings" item-left></ion-icon>
+        SETTINGS
+      </button>
+
+      <ion-list-header>
+        Modules
+      </ion-list-header>
+
+      <button ion-item detail-none no-lines >
+        <custom-icon set="mdIcons" name="dashboard" item-left class="alc-fg-color alc-dashboard-primary"></custom-icon>
         DASHBOARD
-      </ion-item>
+      </button>
+      <button ion-item detail-none no-lines>
+        <custom-icon set="mdIcons" name="people" item-left class="alc-fg-color alc-residents-primary"></custom-icon>
+        RESIDENTS
+      </button>
+      <button ion-item detail-none no-lines>
+        <custom-icon set="mdIcons" name="face" item-left class="alc-fg-color alc-staff-primary"></custom-icon>
+        STAFF
+      </button>
+      <button ion-item detail-none no-lines>
+        <custom-icon set="mdIcons" name="business" item-left class="alc-fg-color alc-company-primary"></custom-icon>
+        COMPANY
+      </button>
+      <button ion-item detail-none no-lines>
+        <custom-icon set="mdIcons" name="message" item-left class="alc-fg-color alc-messages-primary"></custom-icon>
+        MESSAGES
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>

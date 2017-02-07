@@ -48,11 +48,17 @@
   @if $filename == local_pharmacy {
   $char: "\E007";
 }
-  @if $filename == remove_red_eye {
+  @if $filename == message {
   $char: "\E008";
 }
-  @if $filename == sms_failed {
+  @if $filename == people {
   $char: "\E009";
+}
+  @if $filename == remove_red_eye {
+  $char: "\E00A";
+}
+  @if $filename == sms_failed {
+  $char: "\E00B";
 }
 
 @return $char;
@@ -89,6 +95,12 @@
 }
 .mdIcons-local_pharmacy {
   @include mdIcons(local_pharmacy);
+}
+.mdIcons-message {
+  @include mdIcons(message);
+}
+.mdIcons-people {
+  @include mdIcons(people);
 }
 .mdIcons-remove_red_eye {
   @include mdIcons(remove_red_eye);

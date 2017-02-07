@@ -17,7 +17,9 @@ import { DashboardTabsPage } from '../pages/dashboard-tabs/dashboard-tabs';
     DashboardTabsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      
+    }),
     CustomIconsModule
   ],
   bootstrap: [IonicApp],

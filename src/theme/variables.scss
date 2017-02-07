@@ -24,20 +24,41 @@ $font-path: "../assets/fonts";
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$residents-primary: $mdc-red-500;
+
 $dashboard-primary: $mdc-light-blue-500;
+$dashboard-accent: $mdc-amber-a400;
+
+$residents-primary: $mdc-red-500;
+$resident-accent: $mdc-amber-a400;
+
 $staff-primary: $mdc-amber-500;
+$staff-accent: $mdc-cyan-a400;
+
 $company-primary: $mdc-green-500;
+$company-accent: $mdc-red-a400;
+
+$alcomy-toolbar: $mdc-grey-900;
 
 $colors: (
   primary:    $dashboard-primary,
   secondary:  #FFC400,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:(
-    base: #212121,
-    contrast: blue
-  )
+  dark:       #263238,
+
+  dashboard-primary: $dashboard-primary,
+  dashboard-accent: $dashboard-accent,
+  
+  residents-primary: $residents-primary,
+  resident-accent: $resident-accent,
+
+  staff-primary: $staff-primary,
+  staff-accent: $staff-accent,
+
+  company-primary: $company-primary,
+  company-accent: $company-accent,
+
+  alcomy-toolbar: $alcomy-toolbar
   
 );
 
@@ -48,7 +69,7 @@ $colors: (
 
 $tabs-ios-tab-icon-color: 616161;
 $tabs-ios-tab-text-color: #616161;
-
+$tabs-ios-tab-opacity: .5;
 
 // App Material Design Variables
 // --------------------------------------------------
@@ -65,6 +86,7 @@ $tabs-md-tab-opacity: .5;
 
 $tabs-wp-tab-icon-color: 616161;
 $tabs-wp-tab-text-color: #616161;
+$tabs-ios-tab-opacity: .5;
 
 
 // App Theme

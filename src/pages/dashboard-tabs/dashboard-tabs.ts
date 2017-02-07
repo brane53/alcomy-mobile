@@ -5,9 +5,9 @@ import { DashboardMedicationsPage } from '../dashboard-medications/dashboard-med
 import { DashboardWatchlistPage } from '../dashboard-watchlist/dashboard-watchlist';
 
 @Component({
-  templateUrl: 'dashboard.html'
+  templateUrl: 'dashboard-tabs.html'
 })
-export class DashboardPage {
+export class DashboardTabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
   tab1Root: any = TasksPage;

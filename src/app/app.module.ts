@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { DashboardMedicationsPage } from '../pages/dashboard-medications/dashboard-medications';
 import { DashboardWatchlistPage } from '../pages/dashboard-watchlist/dashboard-watchlist';
 import { TasksPage } from '../pages/tasks/tasks';
-import { DashboardPage } from '../pages/dashboard/dashboard';
+import { DashboardTabsPage } from '../pages/dashboard-tabs/dashboard-tabs';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
     DashboardMedicationsPage,
     DashboardWatchlistPage,
     TasksPage,
-    DashboardPage
+    DashboardTabsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -26,7 +26,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
     DashboardMedicationsPage,
     DashboardWatchlistPage,
     TasksPage,
-    DashboardPage
+    DashboardTabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

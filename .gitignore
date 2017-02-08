@@ -16,7 +16,6 @@ npm-debug.log*
 .sass-cache/
 .tmp/
 .versions/
-.tmp-custom-icons/
 coverage/
 dist/
 node_modules/
@@ -33,3 +32,5 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+.tmp-custom-icons

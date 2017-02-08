@@ -1,0 +1,76 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  // Save All overrides Save
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.files.saveAll"
+  },
+  // Move cursor to end of line
+  {
+    "key": "shift+space",
+    "command": "cursorEnd",
+    "when": "editorTextFocus"
+  },
+  // Open Keyboard Shortcuts
+  {
+    "key": "ctrl+k k",
+    "command": "workbench.action.openGlobalKeybindings"
+  },
+  // Open User Settings
+  {
+    "key": "ctrl+k s",
+    "command": "workbench.action.openWorkspaceSettings"
+  },
+  // Open Themes
+  {
+    "key": "ctrl+k t",
+    "command": "workbench.action.selectTheme"
+  },
+  {
+    "key": "ctrl+alt+right",
+    "command": "workbench.action.focusNextGroup"
+  },
+  {
+    "key": "ctrl+alt+left",
+    "command": "workbench.action.focusPreviousGroup"
+  },
+  {
+    "key": "alt+t",
+    "command": "workbench.action.tasks.runTask"
+  },
+  {
+    "key": "shift+alt+t",
+    "command": "workbench.action.tasks.terminate"
+  },
+  // {
+  //   "key": "ctrl+enter",
+  //   "command": "-task.new",
+  //   "when": "editorTextFocus"
+  // },
+
+  // File Extension Switcher Keybindings
+  {
+    "key": "ctrl+shift+k",
+    "command": "fileextswitch",
+    "args": { "extensions": [".html"] }, 
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "fileextswitch",
+    "args": { "extensions": [".js", ".ts"] }, 
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "fileextswitch",
+    "args": { "extensions": [".css", ".scss"] }, 
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+;",
+    "command": "fileextswitch",
+    "args": { "extensions": [".spec.ts"] }, 
+    "when": "editorTextFocus"
+  }
+]

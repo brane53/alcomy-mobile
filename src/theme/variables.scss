@@ -43,7 +43,7 @@ $messages-accent: $mdc-light-blue-a400;
 $alcomy-toolbar: $mdc-grey-900;
 
 $colors: (
-  primary:    black,
+  primary:    $dashboard-primary,
   secondary:  #FFC400,
   danger:     #f53d3d,
   light:      #f4f4f4,
@@ -70,7 +70,7 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-$tabs-ios-tab-icon-color: 616161;
+$tabs-ios-tab-icon-color: #616161;
 $tabs-ios-tab-text-color: #616161;
 $tabs-ios-tab-opacity: .5;
 
@@ -87,7 +87,7 @@ $tabs-md-tab-opacity: .5;
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
-$tabs-wp-tab-icon-color: 616161;
+$tabs-wp-tab-icon-color: #616161;
 $tabs-wp-tab-text-color: #616161;
 $tabs-ios-tab-opacity: .5;
 

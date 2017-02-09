@@ -1,15 +1,16 @@
 page-tasks {
+	
     ion-checkbox{
-        button.item-cover{
-            width: 15%;
-        }
+			button.item-cover{
+					width: 15%;
+			}
     }
 
     .task-item {
-        &.time {
-            font-size: 1.0rem;
-            margin-top: 5px;
-        }
+			&.time {
+				font-size: 1.0rem;
+				margin-top: 5px;
+			}
     }
 
 

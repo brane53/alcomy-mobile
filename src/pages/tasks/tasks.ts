@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, ModalController } from 'ionic-angular';
 import { Task } from '../../app/models/models';
+import { NewTaskModalPage } from '../new-task-modal/new-task-modal';
 
 @Component({
   selector: 'page-tasks',
@@ -29,7 +30,8 @@ export class TasksPage {
       isComplete: false
     }
   ];
-
+  
+  
   constructor(public navCtrl: NavController, public modal: ModalController) {
     
   }
@@ -38,6 +40,11 @@ export class TasksPage {
     let newTask = new Task(description)
     this.tasks.push(newTask);
     
+  }
+
+  openNewTaskModal(){
+    let taskModal = this.modal.create(NewTaskModalPage);
+    taskModal.present();
   }
 
 }

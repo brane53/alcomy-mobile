@@ -9,6 +9,7 @@ import { DashboardMedicationsPage } from '../pages/dashboard-medications/dashboa
 import { DashboardWatchlistPage } from '../pages/dashboard-watchlist/dashboard-watchlist';
 
 import { ResidentsTabsPage } from '../pages/residents-tabs/residents-tabs';
+import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
 
 
 
@@ -21,6 +22,7 @@ import { ResidentsTabsPage } from '../pages/residents-tabs/residents-tabs';
     TasksPage,
     DashboardTabsPage,
     ResidentsTabsPage,
+    NewTaskModalPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -35,7 +37,8 @@ import { ResidentsTabsPage } from '../pages/residents-tabs/residents-tabs';
     TasksPage,
     DashboardMedicationsPage,
     DashboardWatchlistPage,
-    ResidentsTabsPage
+    ResidentsTabsPage,
+    NewTaskModalPage
     
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

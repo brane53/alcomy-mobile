@@ -13,19 +13,22 @@ export class TasksPage {
 
   tasks: Task[] = [
     {
+      id: '1',
       description: 'Do the laundry',
-      isComplete: false,
-      time: '7:00am'
+      isComplete: false
     },
     {
+      id: '2',
       description: 'Do groceries',
       isComplete: false
     },
     {
+      id: '3',
       description: 'Cook Dinner for Brane',
       isComplete: false
     },
     {
+      id: '4',
       description: "Rub Brane's feet",
       isComplete: false
     }
@@ -37,14 +40,21 @@ export class TasksPage {
   }
 
   addTask(description: string){
-    let newTask = new Task(description)
-    this.tasks.push(newTask);
+    if(description){
+      let newTask = new Task(description)
+      this.tasks.push(newTask);
+      return;
+    }
     
-  }
+  };
+
+  deleteTask(index: number) {
+    this.tasks.splice(index, 1);
+  };
 
   openNewTaskModal(){
     let taskModal = this.modal.create(NewTaskModalPage);
     taskModal.present();
-  }
+  };
 
 }

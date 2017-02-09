@@ -26,7 +26,7 @@ import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
-      
+      iconMode: 'md'
     }),
     CustomIconsModule
   ],

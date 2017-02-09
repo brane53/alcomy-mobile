@@ -4,16 +4,27 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>TASKS</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
   <!--Quick Add Task input and button-->
   <ion-toolbar>
 
-    <ion-input #newTask placeholder="Add New Task" (keyup.enter)="addTask(newTask.value)">
+    <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addTask(newTask.value); newTask.value=null">
     </ion-input>
 
     <ion-buttons right>
-      <button ion-button icon-only item-right clear="true" (click)="addTask(newTask.value)">
+      <button ion-button icon-only item-right clear="true" (click)="addTask(newTask.value); newTask.value=null">
         <ion-icon color="dashboard-primary" name="add-circle"></ion-icon>
       </button>
     </ion-buttons>
@@ -24,16 +35,25 @@
 
 <ion-content>
   <ion-list>
+    <ion-item-sliding *ngFor="let task of tasks; let i = index">
 
-    <button ion-item *ngFor="let task of tasks">
-      <ion-checkbox color="dashboard-accent" [(ngModel)]="task.isComplete"></ion-checkbox>
-      <ion-label>
-        <p>
-          {{task.description}}
-        </p>
-        <p class="task-item time" *ngIf="task.time">7:00am</p>
-      </ion-label>
-    </button>
+      <button ion-item>
+        <ion-checkbox color="dashboard-accent" [(ngModel)]="task.isComplete"></ion-checkbox>
+        <ion-label>
+          <p>
+            {{task.description}}
+          </p>
+          <p class="task-item time" *ngIf="task.time">7:00am</p>
+        </ion-label>
+      </button>
+
+      <ion-item-options side="left">
+        <button color="danger" ion-button (click)="deleteTask(i)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
     
   </ion-list>
 

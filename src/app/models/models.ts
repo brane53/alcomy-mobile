@@ -1,4 +1,5 @@
 export class Task {
+  id: string;
   description: string;
   isComplete: boolean;
   time?: string;

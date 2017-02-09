@@ -8,5 +8,24 @@
 </ion-header>
 
 <ion-content>
+<<<<<<< HEAD
   <custom-icon set="mdIcon" name="dashboard"></custom-icon>
+=======
+  <ion-list>
+
+    <ion-list-header>
+      <ion-input #newTask placeholder="Add New Task" (keyup.enter)="addTask(newTask.value)"></ion-input>
+      <button ion-button item-right (click)="addTask(newTask.value)">
+        ADD
+      </button>
+    </ion-list-header>
+
+    <button ion-item *ngFor="let task of tasks">
+      <ion-checkbox [(ngModel)]="task.isComplete"></ion-checkbox>
+      <ion-label>
+        {{task.description}}
+      </ion-label>
+    </button>
+  </ion-list>
+>>>>>>> 72edcf5530561cd54f526477d848188a5a1aad22
 </ion-content>

@@ -1,15 +1,41 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+
+import { NavController, Platform } from 'ionic-angular';
+import { Task } from '../../app/models/models';
 
 @Component({
-  selector: 'tasks-home',
-  templateUrl: 'tasks.html'
+  selector: 'page-tasks',
+  templateUrl: 'tasks.html',
 })
 export class TasksPage {
 
-  constructor(public navCtrl: NavController) {
+  tasks: Task[] = [
+    {
+      description: 'Do the laundry',
+      isComplete: false
+    },
+    {
+      description: 'Do groceries',
+      isComplete: false
+    },
+    {
+      description: 'Cook Dinner for Brane',
+      isComplete: false
+    },
+    {
+      description: "Rub Brane's feet",
+      isComplete: false
+    }
+  ];
 
+  constructor(public navCtrl: NavController) {
+    
+  }
+
+  addTask(description: string){
+    let newTask = new Task(description)
+    this.tasks.push(newTask);
   }
 
 }

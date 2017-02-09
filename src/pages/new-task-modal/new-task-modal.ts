@@ -19,4 +19,8 @@ export class NewTaskModalPage {
     console.log('ionViewDidLoad NewTaskModalPage');
   }
 
+  close(){
+    this.navCtrl.pop();
+  }
+
 }

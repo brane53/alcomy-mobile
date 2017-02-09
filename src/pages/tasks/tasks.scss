@@ -4,4 +4,13 @@ page-tasks {
             width: 15%;
         }
     }
+
+    .task-item {
+        &.time {
+            font-size: 1.0rem;
+            margin-top: 5px;
+        }
+    }
+
+
 }

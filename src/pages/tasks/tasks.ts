@@ -13,7 +13,8 @@ export class TasksPage {
   tasks: Task[] = [
     {
       description: 'Do the laundry',
-      isComplete: false
+      isComplete: false,
+      time: '7:00am'
     },
     {
       description: 'Do groceries',
@@ -29,13 +30,14 @@ export class TasksPage {
     }
   ];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modal: ModalController) {
     
   }
 
   addTask(description: string){
     let newTask = new Task(description)
     this.tasks.push(newTask);
+    
   }
 
 }

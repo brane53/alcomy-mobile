@@ -3,14 +3,19 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+
     <ion-title>TASKS</ion-title>
+
     <ion-buttons right>
-      <button ion-button icon-only>
+      <!--Quick Add Button-->
+      <button ion-button icon-only (click)="openQuickAdd($event)">
         <ion-icon name="add"></ion-icon>
       </button>
+      <!--Notifications Button-->
       <button ion-button icon-only>
         <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
       </button>
+      <!--More Menu Button-->
       <button ion-button icon-only>
         <ion-icon name="more"></ion-icon>
       </button>

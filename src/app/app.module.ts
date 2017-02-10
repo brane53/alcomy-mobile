@@ -11,6 +11,9 @@ import { DashboardWatchlistPage } from '../pages/dashboard-watchlist/dashboard-w
 import { ResidentsTabsPage } from '../pages/residents-tabs/residents-tabs';
 import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
 
+// Popover Pages
+import { QuickAddMenuPage } from '../pages/popovers/quick-add-menu/quick-add-menu';
+
 
 
 
@@ -22,7 +25,8 @@ import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
     TasksPage,
     DashboardTabsPage,
     ResidentsTabsPage,
-    NewTaskModalPage
+    NewTaskModalPage,
+    QuickAddMenuPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -38,7 +42,8 @@ import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
     DashboardMedicationsPage,
     DashboardWatchlistPage,
     ResidentsTabsPage,
-    NewTaskModalPage
+    NewTaskModalPage,
+    QuickAddMenuPage
     
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

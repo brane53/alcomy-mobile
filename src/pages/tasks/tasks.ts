@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 
-import { NavController, Platform, ModalController } from 'ionic-angular';
+import { NavController, Platform, ModalController, PopoverController } from 'ionic-angular';
 import { Task } from '../../app/models/models';
 import { NewTaskModalPage } from '../new-task-modal/new-task-modal';
+import { QuickAddMenuPage } from '../popovers/quick-add-menu/quick-add-menu';
 
 @Component({
   selector: 'page-tasks',
@@ -35,7 +36,7 @@ export class TasksPage {
   ];
   
   
-  constructor(public navCtrl: NavController, public modal: ModalController) {
+  constructor(public navCtrl: NavController, public modal: ModalController, public popCtrl: PopoverController) {
     
   }
 
@@ -56,5 +57,12 @@ export class TasksPage {
     let taskModal = this.modal.create(NewTaskModalPage);
     taskModal.present();
   };
+
+  openQuickAdd(event){
+    let quickAddMenu = this.popCtrl.create(QuickAddMenuPage);
+    quickAddMenu.present({
+      ev: event
+    });
+  }
 
 }

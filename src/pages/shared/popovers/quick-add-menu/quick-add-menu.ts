@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
-import { NewTaskPage } from '../../new-task/new-task';
+import { NewTaskPage } from '../../forms/new-task/new-task';
+
+
 
 /*
   Generated class for the QuickAddMenu page.

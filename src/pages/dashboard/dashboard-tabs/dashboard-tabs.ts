@@ -4,6 +4,8 @@ import { TasksPage } from '../tasks/tasks';
 import { DashboardMedicationsPage } from '../dashboard-medications/dashboard-medications';
 import { DashboardWatchlistPage } from '../dashboard-watchlist/dashboard-watchlist';
 
+
+
 @Component({
   templateUrl: 'dashboard-tabs.html'
 })

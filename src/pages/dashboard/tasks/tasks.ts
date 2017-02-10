@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
-
 import { NavController, Platform, ModalController, PopoverController } from 'ionic-angular';
-import { Task } from '../../app/models/models';
-import { NewTaskPage } from '../new-task/new-task';
-import { QuickAddMenuPage } from '../popovers/quick-add-menu/quick-add-menu';
+import { Task } from "../../../app/models/models";
+import { NewTaskPage } from '../../shared/forms/new-task/new-task';
+import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 
 @Component({
   selector: 'page-tasks',

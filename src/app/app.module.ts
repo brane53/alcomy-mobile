@@ -8,13 +8,13 @@ import { TasksPage } from '../pages/tasks/tasks';
 import { DashboardMedicationsPage } from '../pages/dashboard-medications/dashboard-medications';
 import { DashboardWatchlistPage } from '../pages/dashboard-watchlist/dashboard-watchlist';
 
-import { ResidentsTabsPage } from '../pages/residents-tabs/residents-tabs';
-import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
+import { ResidentsTabsPage } from '../pages/residents/residents-tabs/residents-tabs';
+
+// Forms
+import { NewTaskPage } from '../pages/new-task/new-task';
 
 // Popover Pages
 import { QuickAddMenuPage } from '../pages/popovers/quick-add-menu/quick-add-menu';
-
-
 
 
 @NgModule({
@@ -25,14 +25,15 @@ import { QuickAddMenuPage } from '../pages/popovers/quick-add-menu/quick-add-men
     TasksPage,
     DashboardTabsPage,
     ResidentsTabsPage,
-    NewTaskModalPage,
+    NewTaskPage,
     QuickAddMenuPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
       iconMode: 'md'
     }),
-    CustomIconsModule
+    CustomIconsModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +43,7 @@ import { QuickAddMenuPage } from '../pages/popovers/quick-add-menu/quick-add-men
     DashboardMedicationsPage,
     DashboardWatchlistPage,
     ResidentsTabsPage,
-    NewTaskModalPage,
+    NewTaskPage,
     QuickAddMenuPage
     
   ],

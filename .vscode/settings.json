@@ -95,10 +95,11 @@
     ],
     // TYPESCRIPT IMPORTER CONFIGURATION
         "tsimporter.filesToScan": [
-            "./app/**/*.ts"
+            "node_modules/**/*.ts",
+            "src/**/*.ts"
         ],
         "tsimporter.filesToExclude": [
-            "./app/**/*.spec.ts"
+            "src/**/*.spec.ts"
         ],
         "typescript.referencesCodeLens.enabled": true
       }

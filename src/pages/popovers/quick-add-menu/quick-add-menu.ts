@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { NewTaskPage } from '../../new-task/new-task';
 
 /*
   Generated class for the QuickAddMenu page.
@@ -13,10 +14,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class QuickAddMenuPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController, public viewCtrl: ViewController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuickAddMenuPage');
+  }
+
+  presentNewTaskPage(){
+    let modal = this.modal.create(NewTaskPage)
+    modal.present();
+    this.viewCtrl.dismiss();
   }
 
 }

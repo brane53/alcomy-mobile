@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 import { NavController, Platform, ModalController, PopoverController } from 'ionic-angular';
 import { Task } from '../../app/models/models';
-import { NewTaskModalPage } from '../new-task-modal/new-task-modal';
+import { NewTaskPage } from '../new-task/new-task';
 import { QuickAddMenuPage } from '../popovers/quick-add-menu/quick-add-menu';
 
 @Component({
@@ -53,12 +53,12 @@ export class TasksPage {
     this.tasks.splice(index, 1);
   };
 
-  openNewTaskModal(){
-    let taskModal = this.modal.create(NewTaskModalPage);
+  presentNewTaskPage(){
+    let taskModal = this.modal.create(NewTaskPage);
     taskModal.present();
   };
 
-  openQuickAdd(event){
+  presentQuickAdd(event){
     let quickAddMenu = this.popCtrl.create(QuickAddMenuPage);
     quickAddMenu.present({
       ev: event

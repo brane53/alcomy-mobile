@@ -8,7 +8,7 @@
 
     <ion-buttons right>
       <!--Quick Add Button-->
-      <button ion-button icon-only (click)="openQuickAdd($event)">
+      <button ion-button icon-only (click)="presentQuickAdd($event)">
         <ion-icon name="add"></ion-icon>
       </button>
       <!--Notifications Button-->
@@ -64,7 +64,7 @@
 
   <!--Add New Task FAB-->
   <ion-fab bottom right>
-    <button ion-fab color="dashboard-accent" (click)="openNewTaskModal()">
+    <button ion-fab color="dashboard-accent" (click)="presentNewTaskPage()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>

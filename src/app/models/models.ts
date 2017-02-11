@@ -21,3 +21,32 @@ export class Resident {
   medications?: any[];
   
 }
+
+export class PrnRecord {
+  id?: string;
+  
+  reasonGiven: string;
+  givenAt: Date
+  givenBy: Employee
+  followUpDateTime: Date
+}
+
+export class PrnMedication {
+  id?: string;
+  brandName: string;
+  genericName: string;
+  description?: string;
+  instructions?: string
+
+}
+
+export class Employee {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  birthDate?: Date;
+  profileUrl?: string;
+
+
+}

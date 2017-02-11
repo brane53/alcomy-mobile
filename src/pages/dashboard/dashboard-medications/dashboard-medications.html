@@ -42,41 +42,53 @@
 </ion-header>
 
 <!--Main Content Area-->
-<ion-content>
-  <div [ngSwitch]="medTabButton">
+<ion-content [ngSwitch]="medTabButton">
 
-    <ion-list *ngSwitchDefault>
-      <button ion-item detail-none *ngFor="let resident of residents">
-        <ion-avatar item-left>
-          <ion-img src="../../../assets/avatars/{{resident.profileUrl}}"></ion-img>
-        </ion-avatar>
-        <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
-        <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>
-      </button>
-    </ion-list>
+  <!--PASS Page-->
+  <ion-list *ngSwitchDefault>
+    <button ion-item detail-none *ngFor="let resident of residents">
+      <ion-avatar item-left>
+        <ion-img src="../../../assets/avatars/{{resident.profileUrl}}"></ion-img>
+      </ion-avatar>
+      <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
+      <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>
+    </button>
+  </ion-list>
 
-    <ion-card *ngSwitchCase="'prn'" class="prn-card">
-      <ion-grid>
-        <ion-row center>
-          <ion-col>
-            <h2>Tylonal</h2>
-            <p>acetaminophen</p>
-            <p class="label">Given by <i>Ilija Vrajich</i></p>
-            <p class="label">Today @ 9:00AM</p>
-          </ion-col>
-          <button ion-button small="true" (click)="presentPrnResponse()">
-            RESPONSE
-          </button>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
+  <!--PRN Page-->
 
-    <div *ngSwitchCase="'order'">
-      You have no medictions on order
-    </div>
-    <div *ngSwitchCase="'audit'">
-      You have no medictions on audit
-    </div>
+  <!--PRN Card-->
+  <ion-card class="prn-card" *ngSwitchCase="'prn'">
+    <ion-grid>
+      <ion-row center>
+        <ion-col>
+          <h2>Tylonal</h2>
+          <p class="subheader"><i>acetaminophen</i></p>
+          <p class="label">Given by <i>Ilija Vrajich</i></p>
+          <p class="label">Today @ 9:00AM</p>
+        </ion-col>
+        <button ion-button small="true" (click)="presentPrnResponse()">
+          RESPONSE
+        </button>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 
+  <!--Give PRN Medication Button-->
+  <ion-fab bottom right *ngSwitchCase="'prn'" >
+    <button ion-fab color="dashboard-accent">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <!--ORDER Page-->
+  <div *ngSwitchCase="'order'">
+    You have no medictions on order
   </div>
+
+  <!--AUDIT Page-->
+  <div *ngSwitchCase="'audit'">
+    You have no medictions on audit
+  </div>
+
 </ion-content>

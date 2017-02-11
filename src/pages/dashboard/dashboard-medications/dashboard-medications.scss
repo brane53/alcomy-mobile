@@ -1,15 +1,19 @@
+@import '../../../theme/material-colors';
+
 page-dashboard-medications {
   .prn-card {
     padding: 16px 16px;
+
+    .subheader {
+      color: $mdc-text-dk-54
+    }
     
     .label {
       font-size: 1.2rem;
-      color: #8F8F8F;
+      color: $mdc-text-dk-38;
     }
 
 
   }
-
-  
 
 }

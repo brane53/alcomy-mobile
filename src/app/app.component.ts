@@ -6,7 +6,7 @@ import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-t
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.component.html'
 })
 export class MyApp {
   rootPage = DashboardTabsPage;

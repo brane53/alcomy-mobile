@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, ModalController } from 'ionic-angular';
+import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
+import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashboard-medication-tabs';
+import { Resident } from '../../../app/models/models';
+import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
 
 /*
   Generated class for the DashboardMedicationsPage page.
@@ -13,10 +17,73 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class DashboardMedicationsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  residents: Resident[] = [
+    {
+      id: '1',
+      firstName: 'Brane',
+      lastName: 'Vrajich',
+      middleName: '',
+      profileUrl: 'brane.jpg',
+      medications: [
+        {
+          name: 'Tylonal'
+        },
+        {
+          name: 'Tylonal'
+        },
+        {
+          name: 'Tylonal'
+        },
+      ]
+    },
+    {
+      id: '2',
+      firstName: 'Justin',
+      lastName: 'Kunz',
+      middleName: 'Don',
+      profileUrl: 'justin.jpg',
+      medications: [
+        {
+          name: 'Tylonal'
+        },
+        {
+          name: 'Tylonal'
+        }
+      ]
+    },
+    {
+      id: '3',
+      firstName: 'Josh',
+      lastName: 'Wood',
+      middleName: 'Thomas',
+      profileUrl: 'josh.jpg',
+      medications: [
+        {
+          name: 'Tylonal'
+        }
+      ]
+    }
+
+  ];
+
+  medTabButton: string = 'pass';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popCtrl: PopoverController, public modal: ModalController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardMedicationsPagePage');
+  }
+
+  presentQuickAdd(event) {
+    let quickAddMenu = this.popCtrl.create(QuickAddMenuPage);
+    quickAddMenu.present({
+      ev: event
+    });
+  }
+
+  presentPrnResponse(){
+    let modal = this.modal.create(PrnResponsePage);
+    modal.present();
   }
 
 }

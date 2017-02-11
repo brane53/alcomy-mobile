@@ -9,4 +9,15 @@ export class Task {
     this.isComplete = isComplete;
     
   }
+
+}
+
+export class Resident {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  profileUrl?: string;
+  medications?: any[];
+  
 }

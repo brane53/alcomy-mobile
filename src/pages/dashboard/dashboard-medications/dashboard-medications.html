@@ -1,21 +1,82 @@
-<!--
-  Generated template for the DashboardMedicationsPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar color="dashboard-primary">
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>MEDICATIONS</ion-title>
+
+    <ion-title>
+      Medications
+    </ion-title>
+
+    <ion-buttons right>
+      <!--Quick Add Button-->
+      <button ion-button icon-only (click)="presentQuickAdd($event)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <!--Notifications Button-->
+      <button ion-button icon-only>
+        <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+      </button>
+      <!--More Menu Button-->
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
+  <ion-segment mode="md" [(ngModel)]="medTabButton" color="dashboard-primary">
+    <ion-segment-button value="pass">
+      PASS
+    </ion-segment-button>
+    <ion-segment-button value="prn">
+      PRN
+    </ion-segment-button>
+    <ion-segment-button value="order">
+      ORDER
+    </ion-segment-button>
+    <ion-segment-button value="audit">
+      AUDIT
+    </ion-segment-button>
+  </ion-segment>
 
 </ion-header>
 
-
+<!--Main Content Area-->
 <ion-content>
+  <div [ngSwitch]="medTabButton">
 
+    <ion-list *ngSwitchDefault>
+      <button ion-item detail-none *ngFor="let resident of residents">
+        <ion-avatar item-left>
+          <ion-img src="../../../assets/avatars/{{resident.profileUrl}}"></ion-img>
+        </ion-avatar>
+        <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
+        <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>
+      </button>
+    </ion-list>
+
+    <ion-card *ngSwitchCase="'prn'" class="prn-card">
+      <ion-grid>
+        <ion-row center>
+          <ion-col>
+            <h2>Tylonal</h2>
+            <p>acetaminophen</p>
+            <p class="label">Given by <i>Ilija Vrajich</i></p>
+            <p class="label">Today @ 9:00AM</p>
+          </ion-col>
+          <button ion-button small="true" (click)="presentPrnResponse()">
+            RESPONSE
+          </button>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <div *ngSwitchCase="'order'">
+      You have no medictions on order
+    </div>
+    <div *ngSwitchCase="'audit'">
+      You have no medictions on audit
+    </div>
+
+  </div>
 </ion-content>

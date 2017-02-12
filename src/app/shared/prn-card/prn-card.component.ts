@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PrnMedication } from '../../models/models';
+import { PrnRecord } from '../../models/models';
 
 @Component({
   selector: 'prn-card',
@@ -7,7 +7,7 @@ import { PrnMedication } from '../../models/models';
 })
 export class PrnCardComponent implements OnInit {
 
-  @Input() medication: PrnMedication;
+  @Input() prn: PrnRecord;
   constructor() { }
 
   ngOnInit() { }

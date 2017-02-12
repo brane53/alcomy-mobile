@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import * as moment from 'moment';
 import { NavController, NavParams, PopoverController, ModalController } from 'ionic-angular';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashboard-medication-tabs';
-import { Resident } from '../../../app/models/models';
+import { Resident, PrnRecord } from '../../../app/models/models';
 import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
 
 /*
@@ -66,12 +67,35 @@ export class DashboardMedicationsPage {
 
   ];
 
+  givenAt: string = moment().subtract(4, 'hours').format();
+  followUpTime: string = moment().add(2, 'hours').format();
+
+  prnRecords: PrnRecord[] = [
+    {
+      id: '1',
+      medication: {
+        brandName: 'Tylonal',
+        genericName: 'acetaminophen',
+        description: 'Used to relieve pain',
+        instructions: 'You can give no more than 2 tablets every 6 hours'
+      },
+      reasonGiven: 'Resident complained of having a headache',
+      givenAt: this.givenAt,
+      givenBy: {
+        firstName: 'Ilija',
+        lastName: 'Vrajich'
+      },
+      followUpDateTime: this.followUpTime
+
+    }
+  ];
   medTabButton: string = 'pass';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public popCtrl: PopoverController, public modal: ModalController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardMedicationsPagePage');
+    
   }
 
   presentQuickAdd(event) {

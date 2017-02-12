@@ -24,19 +24,21 @@ export class Resident {
 
 export class PrnRecord {
   id?: string;
-  
+  medication: Medication;
   reasonGiven: string;
-  givenAt: Date
-  givenBy: Employee
-  followUpDateTime: Date
+  givenAt: string;
+  givenBy: Employee;
+  followUpDateTime: string;
+  response?: string;
+  responseNotes?: string;
 }
 
-export class PrnMedication {
+export class Medication {
   id?: string;
   brandName: string;
   genericName: string;
   description?: string;
-  instructions?: string
+  instructions?: string;
 
 }
 

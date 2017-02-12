@@ -1,12 +1,12 @@
-<ion-card class="prn-card" *ngSwitchCase="'prn'">
+<ion-card class="prn-card">
   <ion-grid>
     <ion-row center>
 
       <ion-col>
-        <h2>Tylonal</h2>
-        <p class="subheader"><i>acetaminophen</i></p>
-        <p class="label">Given by <i>Ilija Vrajich</i></p>
-        <p class="label">Today @ 9:00AM</p>
+        <h2>{{prn.medication.brandName}}</h2>
+        <p class="subheader"><i>{{prn.medication.brandName}}</i></p>
+        <p class="label">Given by <i>{{prn.givenBy.firstName}} {{prn.givenBy.lastName}}</i></p>
+        <p class="label">{{prn.givenAt}}</p>
       </ion-col>
 
       <button ion-button small="true" (click)="presentPrnResponse()">

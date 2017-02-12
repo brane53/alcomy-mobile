@@ -36,3 +36,15 @@
     color: $messages-primary;
 }
 
+ion-slides.card-slides {
+    height: initial;
+    .swiper-container, .swiper-slide, .swiper-wrapper, .swiper-slide, .swiper-pagination-progress .swiper-pagination-progressbar, .swiper-container-vertical > .swiper-pagination-progress,
+    .swiper-container-3d .swiper-slide-shadow-left,
+    .swiper-container-3d .swiper-slide-shadow-right,
+    .swiper-container-3d .swiper-slide-shadow-top,
+    .swiper-container-3d .swiper-slide-shadow-bottom,
+    .swiper-container-cube .swiper-slide, .swiper-container-cube .swiper-cube-shadow, .swiper-zoom-container, .swiper-scrollbar-drag, .swiper-lazy-preloader:after {
+        height: initial;
+    }
+}
+

@@ -67,9 +67,6 @@ export class DashboardMedicationsPage {
 
   ];
 
-  givenAt: string = moment().subtract(4, 'hours').format();
-  followUpTime: string = moment().add(2, 'hours').format();
-
   prnRecords: PrnRecord[] = [
     {
       id: '1',
@@ -80,12 +77,29 @@ export class DashboardMedicationsPage {
         instructions: 'You can give no more than 2 tablets every 6 hours'
       },
       reasonGiven: 'Resident complained of having a headache',
-      givenAt: this.givenAt,
+      givenAt: moment().subtract(4, 'hours').format(),
       givenBy: {
         firstName: 'Ilija',
         lastName: 'Vrajich'
       },
-      followUpDateTime: this.followUpTime
+      followUpDateTime: moment().add(2, 'hours').format()
+
+    },
+    {
+      id: '1',
+      medication: {
+        brandName: 'Tylonal',
+        genericName: 'acetaminophen',
+        description: 'Used to relieve pain',
+        instructions: 'You can give no more than 2 tablets every 6 hours'
+      },
+      reasonGiven: 'Resident complained of having a headache',
+      givenAt: moment().subtract(4, 'hours').format(),
+      givenBy: {
+        firstName: 'Ilija',
+        lastName: 'Vrajich'
+      },
+      followUpDateTime: moment().add(2, 'hours').format()
 
     }
   ];

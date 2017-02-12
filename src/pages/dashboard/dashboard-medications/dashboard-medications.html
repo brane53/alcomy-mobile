@@ -58,7 +58,22 @@
   <!--PRN Page-->
 
   <!--PRN Card-->
-  <prn-card prn="prn"></prn-card>
+  <div *ngSwitchCase="'prn'">
+    <div *ngFor="let resident of residents" >
+      <ion-toolbar>
+        <ion-title>
+          {{ resident.firstName }} {{ resident.lastName }}
+        </ion-title>
+      </ion-toolbar>
+
+      <ion-slides class="card-slides" >
+        <ion-slide *ngFor="let prn of prnRecords">
+          <prn-card [prn]="prn" ></prn-card>
+        </ion-slide>
+      </ion-slides>
+
+    </div>
+  </div>
 
   <!--Give PRN Medication Button-->
   <ion-fab bottom right *ngSwitchCase="'prn'" >

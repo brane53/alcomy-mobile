@@ -4,12 +4,12 @@
 
       <ion-col>
         <h2>{{prn.medication.brandName}}</h2>
-        <p class="subheader"><i>{{prn.medication.brandName}}</i></p>
+        <p class="subheader"><i>{{prn.medication.genericName}}</i></p>
         <p class="label">Given by <i>{{prn.givenBy.firstName}} {{prn.givenBy.lastName}}</i></p>
-        <p class="label">{{prn.givenAt}}</p>
+        <p class="label">{{prn.givenAt | amCalendar}}</p>
       </ion-col>
 
-      <button ion-button small="true" (click)="presentPrnResponse()">
+      <button ion-button outline small="true" (click)="presentPrnResponse()">
         RESPONSE
       </button>
       

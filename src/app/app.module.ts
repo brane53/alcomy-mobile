@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { CustomIconsModule } from 'ionic2-custom-icons';
+import { MomentModule } from 'angular2-moment';
 
 import { MyApp } from './app.component';
 // Dashboard Pages
@@ -19,47 +20,49 @@ import { NewWatchItemPage } from '../pages/shared/forms/new-watch-item/new-watch
 // Popover Pages
 import { QuickAddMenuPage } from '../pages/shared/popovers/quick-add-menu/quick-add-menu';
 import { PrnResponsePage } from '../pages/shared/forms/prn-response/prn-response';
+import { PrnCardComponent } from './shared/prn-card/prn-card.component';
 
 
 
 
 @NgModule({
   imports: [
-    FormsModule,
-    IonicModule.forRoot(MyApp, {
-      iconMode: 'md'
-    }),
-
-    CustomIconsModule
-    
+  FormsModule,
+  IonicModule.forRoot(MyApp, {
+    iconMode: 'md'
+  }),
+  MomentModule,
+  CustomIconsModule
+  
   ],
   declarations: [
-    MyApp,
-    DashboardTabsPage,
-    DashboardMedicationsPage,
-    DashboardWatchlistPage,
-    TasksPage,
-    ResidentsTabsPage,
-    ResidentsListPage,
-    ResidentsGroupsPage,
-    NewTaskPage,
-    NewWatchItemPage,
-    QuickAddMenuPage,
-    PrnResponsePage
+  MyApp,
+  DashboardTabsPage,
+  DashboardMedicationsPage,
+  DashboardWatchlistPage,
+  TasksPage,
+  ResidentsTabsPage,
+  ResidentsListPage,
+  ResidentsGroupsPage,
+  NewTaskPage,
+  NewWatchItemPage,
+  QuickAddMenuPage,
+  PrnResponsePage,
+  PrnCardComponent
   ],
   entryComponents: [
-    MyApp,
-    DashboardTabsPage,
-    DashboardMedicationsPage,
-    DashboardWatchlistPage,
-    TasksPage,
-    ResidentsTabsPage,
-    ResidentsListPage,
-    ResidentsGroupsPage,
-    NewTaskPage,
-    NewWatchItemPage,
-    QuickAddMenuPage,
-    PrnResponsePage
+  MyApp,
+  DashboardTabsPage,
+  DashboardMedicationsPage,
+  DashboardWatchlistPage,
+  TasksPage,
+  ResidentsTabsPage,
+  ResidentsListPage,
+  ResidentsGroupsPage,
+  NewTaskPage,
+  NewWatchItemPage,
+  QuickAddMenuPage,
+  PrnResponsePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
   bootstrap: [IonicApp]

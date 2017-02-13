@@ -1,4 +1,4 @@
-<ion-menu [content]="appContent">
+<ion-menu id="main" [content]="appContent">
   <ion-content>
     <ion-list>
 
@@ -39,6 +39,78 @@
       <button ion-item detail-none no-lines>
         <custom-icon set="mdIcons" name="message" item-left class="alc-fg-color alc-messages-primary"></custom-icon>
         MESSAGES
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-menu id="notifications" side="right" type="overlay" mode="md"  [content]="appContent">
+  <ion-header>
+    <ion-toolbar color="dashboard-primary">
+      <ion-title class="text-center">
+        Notifications
+      </ion-title>
+    </ion-toolbar>
+    <ion-segment mode="md" [(ngModel)]="notificationButtons" color="dashboard-primary">
+      <ion-segment-button value="alerts">
+        ALERTS
+      </ion-segment-button>
+      <ion-segment-button value="reminders">
+        REMINDERS
+      </ion-segment-button>
+      <ion-segment-button value="messages">
+        MESSAGES
+      </ion-segment-button>
+    </ion-segment>
+  </ion-header>
+
+  <ion-content [ngSwitch]="notificationButtons">
+    <ion-list *ngSwitchDefault>
+      <button ion-item detail-none >
+        Alert 1
+        <button ion-button icon-only clear color="dark-text-54" *ngIf="!isExpanded" (click)="expand()" item-right>
+          <custom-icon set="mdIcons" name="expand_more"></custom-icon>
+        </button>
+
+        <button ion-button icon-only clear color="dark-text-54" *ngIf="isExpanded" (click)="expand()" item-right>
+          <custom-icon set="mdIcons" name="expand_less"></custom-icon>
+        </button>
+
+      </button>
+      <ion-item *ngIf="isExpanded" class="hidden-content">
+        <div >
+          lskdfowif lksfj lsj flaksjf ls fks fksj flasdfad faf f sf  fkajpfaowjf alfj oijfw. lskdfowif lksfj lsj flaksjf ls fks fksj flasdfad faf f sf  fkajpfaowjf alfj oijfw.
+        </div>
+      </ion-item>
+      <button ion-item detail-none>
+        Alert 2
+      </button>
+      <button ion-item detail-none>
+        Alert 3
+      </button>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'reminders'">
+      <button ion-item detail-none>
+        Reminder 1
+      </button>
+      <button ion-item detail-none>
+        Reminder 2
+      </button>
+      <button ion-item detail-none>
+        Reminder 3
+      </button>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'messages'">
+      <button ion-item detail-none>
+        Message 1
+      </button>
+      <button ion-item detail-none>
+        Message 2
+      </button>
+      <button ion-item detail-none>
+        Message 3
       </button>
     </ion-list>
   </ion-content>

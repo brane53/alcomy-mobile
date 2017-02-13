@@ -4,7 +4,7 @@
         // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
         "editor.tabCompletion": true,
         // Controls the font size.
-        "editor.fontSize": 16,
+        "editor.fontSize": 14,
         "editor.formatOnPaste": true,
         "editor.renderLineHighlight": "all",
         "editor.tabSize": 2,

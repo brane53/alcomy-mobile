@@ -10,6 +10,8 @@ import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-t
 })
 export class MyApp {
   rootPage = DashboardTabsPage;
+  notificationButtons = 'alerts'
+  isExpanded = false;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -19,4 +21,13 @@ export class MyApp {
       Splashscreen.hide();
     });
   }
+
+  expand(){
+    if(this.isExpanded){
+      this.isExpanded = false;
+      return;
+    }
+    this.isExpanded = true;
+  }
+
 }

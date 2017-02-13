@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment';
-import { NavController, NavParams, PopoverController, ModalController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, ModalController, MenuController } from 'ionic-angular';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashboard-medication-tabs';
 import { Resident, PrnRecord } from '../../../app/models/models';
@@ -105,7 +105,7 @@ export class DashboardMedicationsPage {
   ];
   medTabButton: string = 'pass';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popCtrl: PopoverController, public modal: ModalController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popCtrl: PopoverController, public modal: ModalController, public menu: MenuController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardMedicationsPagePage');

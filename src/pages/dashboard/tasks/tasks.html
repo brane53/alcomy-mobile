@@ -11,15 +11,19 @@
       <button ion-button icon-only (click)="presentQuickAdd($event)">
         <ion-icon name="add"></ion-icon>
       </button>
+
       <!--Notifications Button-->
-      <button ion-button icon-only>
-        <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
-      </button>
-      <!--More Menu Button-->
+    <button ion-button icon-only (click)="menu.toggle('notifications')" right>
+      <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+    </button>
+
+    <!--More Menu Button-->
       <button ion-button icon-only>
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
+    
+
   </ion-navbar>
 
   <!--Quick Add Task input and button-->

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, Platform, ModalController, PopoverController } from 'ionic-angular';
+import { NavController, Platform, ModalController, PopoverController, MenuController } from 'ionic-angular';
 import { Task } from "../../../app/models/models";
 import { NewTaskPage } from '../../shared/forms/new-task/new-task';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
@@ -35,7 +35,7 @@ export class TasksPage {
   ];
   
   
-  constructor(public navCtrl: NavController, public modal: ModalController, public popCtrl: PopoverController) {
+  constructor(public navCtrl: NavController, public modal: ModalController, public popCtrl: PopoverController, public menu: MenuController) {
     
   }
 

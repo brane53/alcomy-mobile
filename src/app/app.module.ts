@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 // Dashboard Pages
 import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';'../pages/dashboard/dashboard-medication-tabs/dashboard-medication-tabs';
 import { DashboardMedicationsPage } from '../pages/dashboard/dashboard-medications/dashboard-medications';
+import { PassMedicationsPage } from '../pages/dashboard/pass-medications/pass-medications';
 import { DashboardWatchlistPage } from '../pages/dashboard/dashboard-watchlist/dashboard-watchlist';
 import { TasksPage } from '../pages/dashboard/tasks/tasks';
 // Residents Pages
@@ -40,6 +41,7 @@ import { PrnCardComponent } from './shared/prn-card/prn-card.component';
   DashboardTabsPage,
   DashboardMedicationsPage,
   DashboardWatchlistPage,
+  PassMedicationsPage,
   TasksPage,
   ResidentsTabsPage,
   ResidentsListPage,
@@ -54,6 +56,7 @@ import { PrnCardComponent } from './shared/prn-card/prn-card.component';
   MyApp,
   DashboardTabsPage,
   DashboardMedicationsPage,
+  PassMedicationsPage,
   DashboardWatchlistPage,
   TasksPage,
   ResidentsTabsPage,

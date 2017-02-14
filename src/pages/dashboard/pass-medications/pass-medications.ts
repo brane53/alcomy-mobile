@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Resident } from '../../../app/models/models';
 
 /*
   Generated class for the PassMedications page.
@@ -12,11 +13,16 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'pass-medications.html'
 })
 export class PassMedicationsPage {
+  resident: Resident;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.resident = this.navParams.get('resident');
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PassMedicationsPage');
   }
+
+  
 
 }

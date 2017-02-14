@@ -46,7 +46,7 @@
 
   <!--PASS Page-->
   <ion-list *ngSwitchDefault>
-    <button ion-item detail-none *ngFor="let resident of residents">
+    <button ion-item detail-none *ngFor="let resident of residents" (click)="passMed(resident)">
       <ion-avatar item-left>
         <img [src]="resident.profileUrl">
       </ion-avatar>

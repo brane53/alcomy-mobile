@@ -5,6 +5,7 @@ import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add
 import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashboard-medication-tabs';
 import { Resident, PrnRecord } from '../../../app/models/models';
 import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
+import { PassMedicationsPage } from '../pass-medications/pass-medications';
 
 /*
   Generated class for the DashboardMedicationsPage page.
@@ -122,6 +123,12 @@ export class DashboardMedicationsPage {
   presentPrnResponse(){
     let modal = this.modal.create(PrnResponsePage);
     modal.present();
+  }
+
+  passMed(resident: Resident) {
+    this.navCtrl.push(PassMedicationsPage, {
+      resident: resident
+    });
   }
 
 }

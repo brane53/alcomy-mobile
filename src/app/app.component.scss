@@ -15,10 +15,14 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+app-component {
+    .toolbar {
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-/*.list button {
-    border-bottom: 0.55px solid #c8c7cc;
-}*/
+}
 
 .alc-fg-color.alc-dashboard-primary {
     color: $dashboard-primary;

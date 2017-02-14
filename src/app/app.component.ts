@@ -6,6 +6,7 @@ import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-t
 
 
 @Component({
+  selector: 'app-component',
   templateUrl: 'app.component.html'
 })
 export class MyApp {

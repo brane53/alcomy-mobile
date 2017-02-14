@@ -48,7 +48,7 @@
   <ion-list *ngSwitchDefault>
     <button ion-item detail-none *ngFor="let resident of residents">
       <ion-avatar item-left>
-        <ion-img src="../../../assets/avatars/{{resident.profileUrl}}"></ion-img>
+        <img [src]="resident.profileUrl">
       </ion-avatar>
       <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
       <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>

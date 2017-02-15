@@ -44,7 +44,9 @@
   </ion-content>
 </ion-menu>
 
+<!--Notification Menu-->
 <ion-menu id="notifications" side="right" type="overlay" mode="md"  [content]="appContent">
+  <!--Header-->
   <ion-header>
     <ion-toolbar color="dashboard-primary">
       <ion-title class="text-center">
@@ -75,6 +77,7 @@
 
   <ion-content [ngSwitch]="notificationButtons">
 
+    <!--All Notifications-->
     <ion-list *ngSwitchDefault>
       <div *ngFor="let n of notifications">
         <button ion-item no-lines detail-none >

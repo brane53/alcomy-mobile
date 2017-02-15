@@ -22,6 +22,7 @@ import { NewWatchItemPage } from '../pages/shared/forms/new-watch-item/new-watch
 import { QuickAddMenuPage } from '../pages/shared/popovers/quick-add-menu/quick-add-menu';
 import { PrnResponsePage } from '../pages/shared/forms/prn-response/prn-response';
 import { PrnCardComponent } from './shared/prn-card/prn-card.component';
+import { WatchItemDetailPage } from '../pages/dashboard/watch-item-detail/watch-item-detail';
 
 
 
@@ -50,7 +51,8 @@ import { PrnCardComponent } from './shared/prn-card/prn-card.component';
   NewWatchItemPage,
   QuickAddMenuPage,
   PrnResponsePage,
-  PrnCardComponent
+  PrnCardComponent,
+  WatchItemDetailPage
   ],
   entryComponents: [
   MyApp,
@@ -65,7 +67,8 @@ import { PrnCardComponent } from './shared/prn-card/prn-card.component';
   NewTaskPage,
   NewWatchItemPage,
   QuickAddMenuPage,
-  PrnResponsePage
+  PrnResponsePage,
+  WatchItemDetailPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
   bootstrap: [IonicApp]

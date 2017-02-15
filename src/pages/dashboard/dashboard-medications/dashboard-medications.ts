@@ -25,7 +25,7 @@ export class DashboardMedicationsPage {
       firstName: 'Brane',
       lastName: 'Vrajich',
       middleName: '',
-      profileUrl: '../../../assets/avatars/brane.jpg',
+      profileUrl: 'assets/avatars/brane.jpg',
       medications: [
         {
           name: 'Tylonal'
@@ -43,7 +43,7 @@ export class DashboardMedicationsPage {
       firstName: 'Justin',
       lastName: 'Kunz',
       middleName: 'Don',
-      profileUrl: '../../../assets/avatars/justin.jpg',
+      profileUrl: 'assets/avatars/justin.jpg',
       medications: [
         {
           name: 'Tylonal'
@@ -58,7 +58,7 @@ export class DashboardMedicationsPage {
       firstName: 'Josh',
       lastName: 'Wood',
       middleName: 'Thomas',
-      profileUrl: '../../../assets/avatars/josh.jpg',
+      profileUrl: 'assets/avatars/josh.jpg',
       medications: [
         {
           name: 'Tylonal'

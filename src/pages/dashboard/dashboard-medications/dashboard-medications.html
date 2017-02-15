@@ -14,7 +14,7 @@
         <ion-icon name="add"></ion-icon>
       </button>
       <!--Notifications Button-->
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="menu.toggle('notifications')">
         <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
       </button>
       <!--More Menu Button-->
@@ -48,7 +48,7 @@
   <ion-list *ngSwitchDefault>
     <button ion-item detail-none *ngFor="let resident of residents" (click)="passMed(resident)">
       <ion-avatar item-left>
-        <img [src]="resident.profileUrl">
+        <ion-img [src]="resident.profileUrl"></ion-img>
       </ion-avatar>
       <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
       <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>

@@ -52,3 +52,26 @@ export class Employee {
 
 
 }
+
+export class Permission {
+  id: string;
+  title: string;
+  code: string
+}
+
+export class User {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  permissions?: Permission[];
+  notifications?: Notification[]
+}
+
+export class Notification {
+  id?: string;
+  type: string;
+  source: string;
+  event: string;
+  dismissed: boolean;
+  data: Object;
+}

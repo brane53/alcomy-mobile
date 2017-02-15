@@ -21,6 +21,23 @@ app-component {
         padding-left: 0;
         padding-right: 0;
     }
+    ion-menu#notifications {
+        .segment-button span {
+            position: absolute;
+            right: 5px;
+        }
+    }
+
+    ion-label .notification-item-details {
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: justify;
+        text-transform: none;
+    }
+    ion-label .notification-item-title {
+        font-weight: 600;
+        font-size: 16px;
+    }
 
 }
 

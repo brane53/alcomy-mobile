@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
+import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 
 /*
   Generated class for the ResidentsList page.
@@ -13,7 +14,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ResidentsListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, public popCtrl: PopoverController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsListPage');

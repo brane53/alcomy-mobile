@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ResidentsListPage } from '../residents-list/residents-list';
+import { ResidentsGroupsPage } from '../residents-groups/residents-groups';
 
 /*
   Generated class for the ResidentsTabs page.
@@ -12,6 +14,10 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'residents-tabs.html'
 })
 export class ResidentsTabsPage {
+
+
+  tab1Root: any = ResidentsListPage;
+  tab2Root: any = ResidentsGroupsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 

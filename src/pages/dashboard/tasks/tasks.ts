@@ -57,11 +57,4 @@ export class TasksPage {
     taskModal.present();
   };
 
-  presentQuickAdd(event){
-    let quickAddMenu = this.popCtrl.create(QuickAddMenuPage);
-    quickAddMenu.present({
-      ev: event
-    });
-  }
-
 }

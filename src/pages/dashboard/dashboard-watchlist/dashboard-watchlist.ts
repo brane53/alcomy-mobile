@@ -76,11 +76,4 @@ export class DashboardWatchlistPage {
     this.navCtrl.push(WatchItemDetailPage);
   }
 
-  presentQuickAdd(event) {
-    let quickAddMenu = this.popCtrl.create(QuickAddMenuPage);
-    quickAddMenu.present({
-      ev: event
-    });
-  }
-
 }

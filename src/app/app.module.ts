@@ -23,6 +23,8 @@ import { QuickAddMenuPage } from '../pages/shared/popovers/quick-add-menu/quick-
 import { PrnResponsePage } from '../pages/shared/forms/prn-response/prn-response';
 import { PrnCardComponent } from './shared/prn-card/prn-card.component';
 import { WatchItemDetailPage } from '../pages/dashboard/watch-item-detail/watch-item-detail';
+import { MenuButtonToggleDirective } from './shared/menu-button-toggle/menu-button-toggle.directive';
+import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
 
 
 
@@ -39,6 +41,7 @@ import { WatchItemDetailPage } from '../pages/dashboard/watch-item-detail/watch-
   ],
   declarations: [
   MyApp,
+  // Pages
   DashboardTabsPage,
   DashboardMedicationsPage,
   DashboardWatchlistPage,
@@ -51,8 +54,12 @@ import { WatchItemDetailPage } from '../pages/dashboard/watch-item-detail/watch-
   NewWatchItemPage,
   QuickAddMenuPage,
   PrnResponsePage,
+  WatchItemDetailPage,
+  // Components
   PrnCardComponent,
-  WatchItemDetailPage
+  // Directives
+  MenuButtonToggleDirective,
+  QuickAddDirective
   ],
   entryComponents: [
   MyApp,

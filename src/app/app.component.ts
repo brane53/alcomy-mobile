@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';
 import { Notification } from './models/models';
 import * as moment from 'moment';
+import { ResidentsTabsPage } from '../pages/residents/residents-tabs/residents-tabs';
 
 
 @Component({
@@ -61,9 +62,9 @@ export class MyApp {
   ]
 
 
+  @ViewChild('appContent') nav: NavController;
 
-
-  constructor(platform: Platform) {
+  constructor(platform: Platform, public menu: MenuController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -78,6 +79,16 @@ export class MyApp {
       return;
     }
     this.isExpanded = true;
+  }
+
+  dashboard(){
+    this.menu.close('main');
+    this.nav.setRoot(DashboardTabsPage);
+  }
+
+  residents(){
+    this.menu.close('main');
+    this.nav.setRoot(ResidentsTabsPage);
   }
 
 }

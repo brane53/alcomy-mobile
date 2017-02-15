@@ -113,13 +113,6 @@ export class DashboardMedicationsPage {
     
   }
 
-  presentQuickAdd(event) {
-    let quickAddMenu = this.popCtrl.create(QuickAddMenuPage);
-    quickAddMenu.present({
-      ev: event
-    });
-  }
-
   presentPrnResponse(){
     let modal = this.modal.create(PrnResponsePage);
     modal.present();

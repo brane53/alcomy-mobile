@@ -37,6 +37,7 @@ app-component {
     ion-label .notification-item-title {
         font-weight: 600;
         font-size: 16px;
+        color: $dark-text-87
     }
 
 }
@@ -81,4 +82,34 @@ ion-slides.card-slides {
     white-space: normal;
     text-align: justify;
 }
+
+.indicator {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    
+    &.active {
+      background-color: $money;
+    }
+    &.inactive {
+      background-color: $mdc-grey-500;
+    }
+  }
+
+  .card-indicator-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+  }
+  .card-indicator {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border-color: $mdc-grey-500;
+
+    &.active {
+        border-color: $mdc-grey-900;
+    }
+
+  }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { NavController, NavParams, PopoverController, ModalController, MenuController } from 'ionic-angular';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
@@ -6,6 +6,8 @@ import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashbo
 import { Resident, PrnRecord } from '../../../app/models/models';
 import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
 import { PassMedicationsPage } from '../pass-medications/pass-medications';
+import { MockResidentsService } from '../../../app/core/residents-mock.service';
+import { MockMedicationsService } from '../../../app/core/medications-mock.service';
 
 /*
   Generated class for the DashboardMedicationsPage page.
@@ -19,98 +21,30 @@ import { PassMedicationsPage } from '../pass-medications/pass-medications';
 })
 export class DashboardMedicationsPage {
 
-  residents: Resident[] = [
-    {
-      id: '1',
-      firstName: 'Brane',
-      lastName: 'Vrajich',
-      middleName: '',
-      profileUrl: 'assets/avatars/brane.jpg',
-      medications: [
-        {
-          name: 'Tylonal'
-        },
-        {
-          name: 'Tylonal'
-        },
-        {
-          name: 'Tylonal'
-        },
-      ]
-    },
-    {
-      id: '2',
-      firstName: 'Justin',
-      lastName: 'Kunz',
-      middleName: 'Don',
-      profileUrl: 'assets/avatars/justin.jpg',
-      medications: [
-        {
-          name: 'Tylonal'
-        },
-        {
-          name: 'Tylonal'
-        }
-      ]
-    },
-    {
-      id: '3',
-      firstName: 'Josh',
-      lastName: 'Wood',
-      middleName: 'Thomas',
-      profileUrl: 'assets/avatars/josh.jpg',
-      medications: [
-        {
-          name: 'Tylonal'
-        }
-      ]
-    }
+  residents: Resident[];
 
-  ];
-
-  prnRecords: PrnRecord[] = [
-    {
-      id: '1',
-      medication: {
-        brandName: 'Tylonal',
-        genericName: 'acetaminophen',
-        description: 'Used to relieve pain',
-        instructions: 'You can give no more than 2 tablets every 6 hours'
-      },
-      reasonGiven: 'Resident complained of having a headache',
-      givenAt: moment().subtract(4, 'hours').format(),
-      givenBy: {
-        firstName: 'Ilija',
-        lastName: 'Vrajich'
-      },
-      followUpDateTime: moment().add(2, 'hours').format()
-
-    },
-    {
-      id: '1',
-      medication: {
-        brandName: 'Tylonal',
-        genericName: 'acetaminophen',
-        description: 'Used to relieve pain',
-        instructions: 'You can give no more than 2 tablets every 6 hours'
-      },
-      reasonGiven: 'Resident complained of having a headache',
-      givenAt: moment().subtract(4, 'hours').format(),
-      givenBy: {
-        firstName: 'Ilija',
-        lastName: 'Vrajich'
-      },
-      followUpDateTime: moment().add(2, 'hours').format()
-
-    }
-  ];
+  prnRecords: PrnRecord[];
   medTabButton: string = 'pass';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popCtrl: PopoverController, public modal: ModalController, public menu: MenuController) {}
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public popCtrl: PopoverController, 
+    public modal: ModalController, 
+    public menu: MenuController, 
+    private mockResidents: MockResidentsService, 
+    private mockMedications: MockMedicationsService) {
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardMedicationsPagePage');
     
+  }
+
+  ngOnInit(){
+    this.residents = this.mockResidents.residents;
+    this.prnRecords = this.mockMedications.prnRecords;
   }
 
   presentPrnResponse(){

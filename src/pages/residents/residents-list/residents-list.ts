@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
+import { Resident } from '../../../app/models/models';
+import { MockResidentsService } from '../../../app/core/residents-mock.service';
 
 /*
   Generated class for the ResidentsList page.
@@ -12,12 +14,18 @@ import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add
   selector: 'page-residents-list',
   templateUrl: 'residents-list.html'
 })
-export class ResidentsListPage {
+export class ResidentsListPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, public popCtrl: PopoverController) {}
+  residents: Resident[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, public popCtrl: PopoverController, private mockResidents: MockResidentsService) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsListPage');
+  }
+
+  ngOnInit(){
+    this.residents = this.mockResidents.residents;
   }
 
 }

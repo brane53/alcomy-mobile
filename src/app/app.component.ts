@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
@@ -6,71 +6,36 @@ import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-t
 import { Notification } from './models/models';
 import * as moment from 'moment';
 import { ResidentsTabsPage } from '../pages/residents/residents-tabs/residents-tabs';
+import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
+import { MockNotificationService } from './core/notification-mock.service';
 
 
 @Component({
   selector: 'app-component',
   templateUrl: 'app.component.html'
 })
-export class MyApp {
+export class MyApp implements OnInit {
   rootPage = DashboardTabsPage;
   notificationButtons = 'all'
   isExpanded = false;
 
 
-  notifications: Notification[] = [
-    {
-      id: '1',
-      type: 'alert',
-      source: 'watchlist',
-      event: 'ITEM_CREATE',
-      dismissed: false,
-      data: {
-        title: 'Skin Tear',
-        createdBy: 'Ilija Vrajich',
-        createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(30, 'minutes').format(),
-        images: ['assets/watchlist/skin_tear.jpg'],
-        notes: ''
-      }
-    },
-    {
-      id: '2',
-      type: 'alert',
-      source: 'watchlist',
-      event: 'BM',
-      dismissed: false,
-      data: {
-        title: 'Bowel Movement',
-        createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(40, 'minutes').format(),
-        lastBM: moment().subtract(4, 'days').format()
-      }
-    },
-    {
-      id: '3',
-      type: 'reminder',
-      source: 'medications',
-      event: 'ORDER_MEDICATION',
-      dismissed: false,
-      data: {
-        title: 'Order Medication',
-        createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(2, 'hours').format()
-      }
-    }
-  ]
+  notifications: Notification[];
 
 
   @ViewChild('appContent') nav: NavController;
 
-  constructor(platform: Platform, public menu: MenuController) {
+  constructor(platform: Platform, public menu: MenuController, private mockNotification: MockNotificationService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+  }
+
+  ngOnInit(){
+    this.notifications = this.mockNotification.notifications;
   }
 
   expand(){
@@ -89,6 +54,11 @@ export class MyApp {
   residents(){
     this.menu.close('main');
     this.nav.setRoot(ResidentsTabsPage);
+  }
+
+  staff() {
+    this.menu.close('main');
+    this.nav.setRoot(StaffTabsPage);
   }
 
 }

@@ -29,6 +29,25 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let resident of residents">
+      <ion-avatar item-left>
+        <img [src]="resident.profileUrl">
+      </ion-avatar>
+      <ion-label>
+        {{ resident.firstName }} {{ resident.lastName }}
+      </ion-label>
 
+      <span class="indicator active" item-right></span>
+    </button>
+  </ion-list>
+
+
+  <!--Create Employee Button-->
+  <ion-fab bottom right>
+    <button ion-fab color="residents-accent">
+        <ion-icon name="add"></ion-icon>
+      </button>
+  </ion-fab>
 </ion-content>

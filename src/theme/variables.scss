@@ -54,9 +54,11 @@ $messages-accent: $mdc-light-blue-a400;
 
 $alcomy-toolbar: $mdc-grey-900;
 
+$money: $mdc-green-500;
+
 $colors: (
   primary:    $dashboard-primary,
-  secondary:  #FFC400,
+  money:      $money,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #263238,
@@ -68,7 +70,7 @@ $colors: (
   dashboard-accent: $dashboard-accent,
   
   residents-primary: $residents-primary,
-  resident-accent: $resident-accent,
+  residents-accent: $resident-accent,
 
   staff-primary: $staff-primary,
   staff-accent: $staff-accent,

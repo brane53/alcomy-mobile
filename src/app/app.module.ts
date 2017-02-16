@@ -25,6 +25,13 @@ import { PrnCardComponent } from './shared/prn-card/prn-card.component';
 import { WatchItemDetailPage } from '../pages/dashboard/watch-item-detail/watch-item-detail';
 import { MenuButtonToggleDirective } from './shared/menu-button-toggle/menu-button-toggle.directive';
 import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
+import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
+import { StaffListPage } from '../pages/staff/staff-list/staff-list';
+import { StaffGroupsPage } from '../pages/staff/staff-groups/staff-groups';
+import { MockResidentsService } from './core/residents-mock.service';
+import { MockMedicationsService } from './core/medications-mock.service';
+import { MockNotificationService } from './core/notification-mock.service';
+import { MockEmployeeService } from './core/employee-mock.service';
 
 
 
@@ -55,6 +62,9 @@ import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
   QuickAddMenuPage,
   PrnResponsePage,
   WatchItemDetailPage,
+  StaffTabsPage,
+  StaffListPage,
+  StaffGroupsPage,
   // Components
   PrnCardComponent,
   // Directives
@@ -75,9 +85,18 @@ import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
   NewWatchItemPage,
   QuickAddMenuPage,
   PrnResponsePage,
-  WatchItemDetailPage
+  WatchItemDetailPage,
+  StaffTabsPage,
+  StaffListPage,
+  StaffGroupsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}],
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MockResidentsService,
+    MockMedicationsService,
+    MockNotificationService,
+    MockEmployeeService
+  ],
   bootstrap: [IonicApp]
 })
 export class AppModule {}

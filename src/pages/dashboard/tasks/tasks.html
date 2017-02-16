@@ -27,14 +27,14 @@
   </ion-navbar>
 
   <!--Quick Add Task input and button-->
-  <ion-toolbar>
+  <ion-toolbar color="white">
 
     <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addTask(newTask.value); newTask.value=null">
     </ion-input>
 
     <ion-buttons right>
       <button ion-button icon-only item-right clear="true" (click)="addTask(newTask.value); newTask.value=null">
-        <ion-icon color="dashboard-primary" name="add-circle"></ion-icon>
+        <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-buttons>
 

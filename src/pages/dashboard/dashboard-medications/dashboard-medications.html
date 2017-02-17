@@ -66,16 +66,9 @@
         </ion-title>
       </ion-toolbar>
 
-      <ion-slides class="card-slides">
-        <ng-container *ngFor="let prn of prnRecords">
-          <ion-slide>
-            <prn-card [prn]="prn" ></prn-card>
-          </ion-slide>
-          <!--<div class="card-indicator-container">
-            <span class="card-indicator"></span>
-          </div>-->
-        </ng-container>
-      </ion-slides>
+      <card-slider [prnRecords]="prnRecords">
+        
+      </card-slider>
 
     </div>
   </div>

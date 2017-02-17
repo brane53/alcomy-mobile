@@ -32,6 +32,7 @@ import { MockResidentsService } from './core/residents-mock.service';
 import { MockMedicationsService } from './core/medications-mock.service';
 import { MockNotificationService } from './core/notification-mock.service';
 import { MockEmployeeService } from './core/employee-mock.service';
+import { CardSliderComponent } from './shared/card-slider/card-slider.component';
 
 
 
@@ -67,6 +68,7 @@ import { MockEmployeeService } from './core/employee-mock.service';
   StaffGroupsPage,
   // Components
   PrnCardComponent,
+  CardSliderComponent,
   // Directives
   MenuButtonToggleDirective,
   QuickAddDirective

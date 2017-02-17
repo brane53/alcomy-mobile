@@ -1,5 +1,6 @@
 // http://ionicframework.com/docs/v2/theming/
 @import "../theme/variables";
+@import "../theme/material-colors";
 
 // App Global Sass
 // --------------------------------------------------
@@ -94,22 +95,5 @@ ion-slides.card-slides {
     &.inactive {
       background-color: $mdc-grey-500;
     }
-  }
-
-  .card-indicator-container {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-  }
-  .card-indicator {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    border-color: $mdc-grey-500;
-
-    &.active {
-        border-color: $mdc-grey-900;
-    }
-
   }
 

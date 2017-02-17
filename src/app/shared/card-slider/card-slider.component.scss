@@ -17,11 +17,16 @@ card-slider {
       width: 10px;
       border-radius: 50%;
       border: 1px solid $mdc-grey-500;
+      &.complete {
+          background-color: $mdc-green-500;
+          border-color: $mdc-green-500;
+      }
 
       &.active {
           border-color: $mdc-grey-600;
           border-width: 0.2rem;
       }
+      
 
     }
 

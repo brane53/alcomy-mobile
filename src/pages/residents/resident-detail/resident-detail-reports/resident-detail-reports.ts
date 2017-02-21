@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App, ViewController, Events } from 'ionic-angular';
+import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
 
 /*
   Generated class for the ResidentDetailReports page.
@@ -13,10 +14,19 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ResidentDetailReportsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  resident: any;
+
+  constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
+    this.resident = navParams.data.resident;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentDetailReportsPage');
+  }
+
+  goBack() {
+    //this.events.publish('resident-detail-closed');
+    this.app.getRootNav().push(ResidentsTabsPage);
   }
 
 }

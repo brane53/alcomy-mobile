@@ -1,32 +1,37 @@
 <ion-tabs class="residents-tabs" tabsHighlight="true" tabsPlacement="bottom">
   <ion-tab [root]="tab1Root" 
-  tabTitle="List" 
+  tabTitle="Facesheet"
+  [rootParams]="resident" 
   customIconSet="mdIcons" 
   customIconName="face">
   </ion-tab>
 
   <ion-tab [root]="tab2Root" 
-  tabTitle="Groups" 
+  tabTitle="Meds" 
+  [rootParams]="resident"
   customIconSet="mdIcons" 
   customIconName="local_pharmacy">
   </ion-tab>
 
   <ion-tab [root]="tab3Root" 
-  tabTitle="Groups" 
+  tabTitle="Care" 
+  [rootParams]="resident"
   customIconSet="mdIcons" 
-  customIconName="">
+  customIconName="healing">
   </ion-tab>
 
   <ion-tab [root]="tab4Root" 
-  tabTitle="Groups" 
+  tabTitle="Notebook" 
+  [rootParams]="resident"
   customIconSet="mdIcons" 
-  customIconName="group_work">
+  customIconName="account_balance_wallet">
   </ion-tab>
 
   <ion-tab [root]="tab5Root" 
-  tabTitle="Groups" 
+  tabTitle="Reports" 
+  [rootParams]="resident"
   customIconSet="mdIcons" 
-  customIconName="group_work">
+  customIconName="pie_chart">
   </ion-tab>
 
 </ion-tabs>

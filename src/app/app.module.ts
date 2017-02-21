@@ -33,6 +33,12 @@ import { MockMedicationsService } from './core/medications-mock.service';
 import { MockNotificationService } from './core/notification-mock.service';
 import { MockEmployeeService } from './core/employee-mock.service';
 import { CardSliderComponent } from './shared/card-slider/card-slider.component';
+import { ResidentDetailTabsPage } from '../pages/residents/resident-detail/resident-detail-tabs/resident-detail-tabs';
+import { ResidentDetailFacesheetPage } from '../pages/residents/resident-detail/resident-detail-facesheet/resident-detail-facesheet';
+import { ResidentDetailMedicationsPage } from '../pages/residents/resident-detail/resident-detail-medications/resident-detail-medications';
+import { ResidentDetailCarePage } from '../pages/residents/resident-detail/resident-detail-care/resident-detail-care';
+import { ResidentDetailNotebookPage } from '../pages/residents/resident-detail/resident-detail-notebook/resident-detail-notebook';
+import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/resident-detail-reports/resident-detail-reports';
 
 
 
@@ -58,6 +64,12 @@ import { CardSliderComponent } from './shared/card-slider/card-slider.component'
   ResidentsTabsPage,
   ResidentsListPage,
   ResidentsGroupsPage,
+  ResidentDetailTabsPage,
+  ResidentDetailFacesheetPage,
+  ResidentDetailMedicationsPage,
+  ResidentDetailCarePage,
+  ResidentDetailNotebookPage,
+  ResidentDetailReportsPage,
   NewTaskPage,
   NewWatchItemPage,
   QuickAddMenuPage,
@@ -83,6 +95,12 @@ import { CardSliderComponent } from './shared/card-slider/card-slider.component'
   ResidentsTabsPage,
   ResidentsListPage,
   ResidentsGroupsPage,
+  ResidentDetailTabsPage,
+  ResidentDetailFacesheetPage,
+  ResidentDetailMedicationsPage,
+  ResidentDetailCarePage,
+  ResidentDetailNotebookPage,
+  ResidentDetailReportsPage,
   NewTaskPage,
   NewWatchItemPage,
   QuickAddMenuPage,

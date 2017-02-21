@@ -17,8 +17,15 @@ export class Resident {
   firstName: string;
   lastName: string;
   middleName?: string;
+  birthDate?: string;
+  ssn?: string;
+  gender?: string;
+  code?: string;
+  isAmbulatory?: boolean;
+  isVerbal?: boolean;
+  religion?: string;
   profileUrl?: string;
-  medications?: any[];
+  medications?: Medication[];
   
 }
 
@@ -39,6 +46,30 @@ export class Medication {
   genericName: string;
   description?: string;
   instructions?: string;
+  strength?: {amount: string; measurement: string;};
+  form?: string
+  
+}
+
+export class MedicationPrescription {
+  id?: string;
+  resident: Resident;
+  prescriber: Specialist;
+  medication: Medication;
+  dosage: Dosage;
+  routeOfAdministration
+  schedule
+  instructions
+}
+
+export class Dosage {
+  amount: number;
+  measurement?: string;
+  form?: string
+
+}
+
+export class Specialist {
 
 }
 

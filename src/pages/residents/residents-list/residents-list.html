@@ -30,8 +30,9 @@
 
 
 <ion-content>
+  <!--Resident LIst-->
   <ion-list>
-    <button ion-item *ngFor="let resident of residents">
+    <button ion-item *ngFor="let resident of residents" (click)="goToDetails(resident)">
       <ion-avatar item-left>
         <img [src]="resident.profileUrl">
       </ion-avatar>

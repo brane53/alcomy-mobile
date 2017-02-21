@@ -1,3 +1,6 @@
-page-resident-detail-tabs {
+@import '../../../../theme/variables';
+@import '../../../../theme/mixins';
 
+page-resident-detail-tabs {
+  @include tabColor($residents-primary);
 }

@@ -1,3 +1,37 @@
-page-resident-detail-facesheet {
+@import '../../../../theme/variables';
+@import '../../../../theme/material-colors';
 
+page-resident-detail-facesheet {
+  ion-content {
+    background-color: $mdc-grey-200;
+  }
+
+  .card-header {
+    border-bottom: 0.55px solid $dark-text-12;
+    padding-top: 0;
+    //background-color: $mdc-light-blue-500;
+  }
+
+    .banner {
+      border-bottom: 0.55px solid $dark-text-12;
+      padding: 16px 0;
+
+      .avatar {
+        height: 96px;
+        width: 96px;
+        border-radius: 50%;
+      }
+
+      ion-row {
+        justify-content: center;
+      }
+
+      .header-text {
+        margin-top: 10px;
+      }
+
+    }
+
+  ion-card-content {
+  }
 }

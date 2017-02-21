@@ -6,8 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>resident-detail-reports</ion-title>
+  <ion-navbar color="residents-primary">
+    <ion-buttons left>
+      <button ion-button clear icon-only (click)="goBack()">
+        <custom-icon set="mdIcons" name="arrow_back"></custom-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{resident.firstName}} {{resident.lastName}}</ion-title>
   </ion-navbar>
 
 </ion-header>

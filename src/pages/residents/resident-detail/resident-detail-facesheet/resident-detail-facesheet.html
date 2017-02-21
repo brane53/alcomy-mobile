@@ -6,13 +6,66 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>resident-detail-facesheet</ion-title>
+  <ion-navbar color="residents-primary">
+    <ion-buttons left>
+      <button ion-button clear icon-only (click)="goBack()">
+        <custom-icon set="mdIcons" name="arrow_back"></custom-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{resident.firstName}} {{resident.lastName}}</ion-title>
   </ion-navbar>
 
+  <ion-segment mode="md" [(ngModel)]="facesheetTabButton" color="residents-primary">
+    <ion-segment-button value="general">
+      GENERAL
+    </ion-segment-button>
+    <ion-segment-button value="medical">
+      MEDICAL
+    </ion-segment-button>
+    <ion-segment-button value="emergency">
+      EMERGENCY
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content [ngSwitch]="facesheetTabButton">
+
+  <div *ngSwitchCase="'general'">
+    <ion-card class="basic-info-card">
+      <ion-item class="card-header">
+        <h2 class="title">Basic Information</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="edit"></custom-icon>
+        </button>
+      </ion-item>
+        <div class="banner">
+          <ion-grid>
+            <ion-row>
+              <img [src]="resident.profileUrl" class="avatar">
+            </ion-row>
+            <ion-row>
+              <h3 class="header-text">
+                {{resident.firstName}} {{resident.middleName}} {{resident.lastName}}
+              </h3>
+            </ion-row>
+          </ion-grid>
+        </div>
+      <ion-card-content>
+        
+        <ion-row *ngFor="let info of residentBasicInfo">
+          <ion-col>
+            <p>{{info.label}}</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{info.value}}</p>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-card>
+  </div>
 
 </ion-content>

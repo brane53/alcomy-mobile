@@ -25,7 +25,7 @@ export class Resident {
   isVerbal?: boolean;
   religion?: string;
   profileUrl?: string;
-  medications?: Medication[];
+  medications?: Medication[] | number;
   
 }
 

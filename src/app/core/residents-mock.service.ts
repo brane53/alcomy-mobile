@@ -8,8 +8,8 @@ export class MockResidentsService {
   residents: Resident[] = [
     {
       id: '1',
-      firstName: 'Brane',
-      lastName: 'Vrajich',
+      firstName: 'Blake',
+      lastName: 'Kenworthy',
       middleName: '',
       gender: 'male',
       birthDate: moment('1987-11-10').format(),
@@ -18,21 +18,38 @@ export class MockResidentsService {
       isAmbulatory: true,
       isVerbal: true,
       religion: 'LDS',
-      profileUrl: 'assets/avatars/brane.jpg'
+      profileUrl: 'assets/avatars/blake.jpg',
+      medications: 3
+      
     },
     {
       id: '2',
       firstName: 'Justin',
       lastName: 'Kunz',
       middleName: 'Don',
-      profileUrl: 'assets/avatars/justin.jpg'
+      gender: 'male',
+      birthDate: moment('1987-01-09').format(),
+      ssn: '888-888-8888',
+      code: 'DNR',
+      isAmbulatory: true,
+      isVerbal: true,
+      religion: 'LDS',
+      profileUrl: 'assets/avatars/justin.jpg',
+      medications: 2
     },
     {
       id: '3',
       firstName: 'Josh',
       lastName: 'Wood',
       middleName: 'Thomas',
-      profileUrl: 'assets/avatars/josh.jpg'
+      gender: 'male',
+      birthDate: moment('1986-11-19').format(),
+      code: 'DNR',
+      isAmbulatory: true,
+      isVerbal: false,
+      religion: 'LDS',
+      profileUrl: 'assets/avatars/josh.jpg',
+      medications: 1
     }
 
   ];

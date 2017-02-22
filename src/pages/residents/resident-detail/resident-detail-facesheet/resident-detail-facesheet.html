@@ -39,20 +39,19 @@
           <custom-icon set="mdIcons" name="edit"></custom-icon>
         </button>
       </ion-item>
-        <div class="banner">
-          <ion-grid>
-            <ion-row>
-              <img [src]="resident.profileUrl" class="avatar">
-            </ion-row>
-            <ion-row>
-              <h3 class="header-text">
-                {{resident.firstName}} {{resident.middleName}} {{resident.lastName}}
-              </h3>
-            </ion-row>
-          </ion-grid>
-        </div>
+      <div class="banner">
+        <ion-grid>
+          <ion-row>
+            <img [src]="resident.profileUrl" class="avatar">
+          </ion-row>
+          <ion-row>
+            <h3 class="header-text">
+              {{resident.firstName}} {{resident.middleName}} {{resident.lastName}}
+            </h3>
+          </ion-row>
+        </ion-grid>
+      </div>
       <ion-card-content>
-        
         <ion-row *ngFor="let info of residentBasicInfo">
           <ion-col>
             <p>{{info.label}}</p>
@@ -62,10 +61,176 @@
             <p>{{info.value}}</p>
           </ion-col>
         </ion-row>
+      </ion-card-content>
 
+    </ion-card>
+
+    <!--Weight Log Card-->
+    <ion-card class="weight-log-card">
+      <ion-item class="card-header">
+        <h2 class="title">Weight Log</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="edit"></custom-icon>
+        </button>
+      </ion-item>
+      <ion-card-content class="card-content">
+        <ion-row class="table-header">
+          <ion-col>
+            Date
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            Weight
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row" *ngFor="let record of resident.weightLog">
+          <ion-col>
+            <p>{{record.date | amDateFormat:'MM/DD/YYYY'}}</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{record.weight}}</p>
+          </ion-col>
+        </ion-row>
       </ion-card-content>
 
     </ion-card>
   </div>
 
+  <!--Medical Information-->
+  <div *ngSwitchCase="'medical'">
+    <ion-card class="weight-log-card">
+      <ion-item class="card-header">
+        <h2 class="title">Medical History</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-card class="weight-log-card">
+      <ion-item class="card-header">
+        <h2 class="title">Allergies</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-card class="weight-log-card">
+      <ion-item class="card-header">
+        <h2 class="title">Physicians</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-card class="weight-log-card">
+      <ion-item class="card-header">
+        <h2 class="title">Insurance Information</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-card class="weight-log-card">
+      <ion-item class="card-header">
+        <h2 class="title">Medical Events</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
+      </ion-item>
+
+    </ion-card>
+
+  </div>
+
+
+  <!--Emergency Contact Information-->
+  <div *ngSwitchCase="'emergency'">
+    <!--Weight Log Card-->
+    <ion-card class="emergency-contact-card" *ngFor="let contact of resident.emergencyContacts; let i=index">
+      <ion-item class="card-header">
+        <h2 class="title">Emergency Contact #{{i + 1}}</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="edit"></custom-icon>
+        </button>
+      </ion-item>
+      <ion-card-content class="card-content">
+
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>First Name</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.firstName}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>Last Name</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.lastName}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>Relationship</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.relationship}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>Home Phone</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.homePhone}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>Mobile Phone</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.cellPhone}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>City</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.address.city}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>State</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.address.state}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="tabel-row">
+          <ion-col>
+            <p>Zip</p>
+          </ion-col>
+          <ion-col>
+            <p>{{contact.address.zip}}</p>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+
+    </ion-card>
+  </div>
 </ion-content>

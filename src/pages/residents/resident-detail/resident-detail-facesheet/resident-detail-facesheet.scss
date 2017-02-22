@@ -2,9 +2,11 @@
 @import '../../../../theme/material-colors';
 
 page-resident-detail-facesheet {
-  ion-content {
-    background-color: $mdc-grey-200;
+
+  div.scroll-content {
+    background-color: $mdc-grey-100;
   }
+
 
   .card-header {
     border-bottom: 0.55px solid $dark-text-12;
@@ -12,26 +14,42 @@ page-resident-detail-facesheet {
     //background-color: $mdc-light-blue-500;
   }
 
-    .banner {
-      border-bottom: 0.55px solid $dark-text-12;
-      padding: 16px 0;
+  ion-card-header {
+    border-bottom: 0.55px solid $dark-text-12;
+  }
 
-      .avatar {
-        height: 96px;
-        width: 96px;
-        border-radius: 50%;
-      }
+  .banner {
+    border-bottom: 0.55px solid $dark-text-12;
+    padding: 16px 0;
 
-      ion-row {
-        justify-content: center;
-      }
-
-      .header-text {
-        margin-top: 10px;
-      }
-
+    .avatar {
+      height: 96px;
+      width: 96px;
+      border-radius: 50%;
     }
 
-  ion-card-content {
+    ion-row {
+      justify-content: center;
+    }
+    .item + .card-content {
+      padding-top: 16px;
+    }
+
+    .header-text {
+      margin-top: 10px;
+    }
+
   }
+
+  .card-content {
+    padding-top: 13px;
+  }
+  
+
+  .table-header {
+    font-weight: 500;
+  }
+
+
+
 }

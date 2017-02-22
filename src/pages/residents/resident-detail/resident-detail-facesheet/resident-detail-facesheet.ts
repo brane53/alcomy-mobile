@@ -13,9 +13,11 @@ export class ResidentDetailFacesheetPage {
   resident: Resident;
   facesheetTabButton: string = "general";
   residentBasicInfo: any;
+  residentEmergency: any;
 
   constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
     this.resident = navParams.data.resident;
+
     this.residentBasicInfo = [
       {
         label: 'Date of Birth',

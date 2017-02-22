@@ -26,6 +26,8 @@ export class Resident {
   religion?: string;
   profileUrl?: string;
   medications?: Medication[] | number;
+  weightLog?: Object[];
+  emergencyContacts?: Object[];
   
 }
 

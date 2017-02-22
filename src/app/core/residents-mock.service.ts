@@ -19,7 +19,51 @@ export class MockResidentsService {
       isVerbal: true,
       religion: 'LDS',
       profileUrl: 'assets/avatars/blake.jpg',
-      medications: 3
+      medications: 3,
+      weightLog: [
+        {
+          date: moment().subtract(4, 'days').format(),
+          weight: '145 lbs'
+        },
+        {
+          date: moment().subtract(7, 'days').format(),
+          weight: '145 lbs'
+        },
+        {
+          date: moment().subtract(14, 'days').format(),
+          weight: '147 lbs'
+        },
+        {
+          date: moment().subtract(30, 'days').format(),
+          weight: '148 lbs'
+        }
+      ],
+      emergencyContacts: [
+        {
+          firstName: 'Jill',
+          lastName: 'Kenworkth',
+          relationship: 'Daughter',
+          homePhone: '555-555-5555',
+          cellPhone: '444-444-4444',
+          address: {
+            city: 'Provo',
+            state: 'UT',
+            zip: '84602'
+          }
+        },
+        {
+          firstName: 'Jake',
+          lastName: 'Kenworkth',
+          relationship: 'Son-in-Law',
+          homePhone: '111-111-1111',
+          cellPhone: '222-222-2222',
+          address: {
+            city: 'Provo',
+            state: 'UT',
+            zip: '84602'
+          }
+        }
+      ]
       
     },
     {
@@ -35,7 +79,38 @@ export class MockResidentsService {
       isVerbal: true,
       religion: 'LDS',
       profileUrl: 'assets/avatars/justin.jpg',
-      medications: 2
+      medications: 2,
+      weightLog: [
+        {
+          date: moment().subtract(4, 'days').format(),
+          weight: '145 lbs'
+        },
+        {
+          date: moment().subtract(7, 'days').format(),
+          weight: '145 lbs'
+        },
+        {
+          date: moment().subtract(14, 'days').format(),
+          weight: '147 lbs'
+        },
+        {
+          date: moment().subtract(30, 'days').format(),
+          weight: '148 lbs'
+        }
+      ],
+      emergencyContacts: [
+        {
+          firstName: 'Sky',
+          lastName: 'Kunz',
+          relationship: 'Wife',
+          cellPhone: '444-444-4444',
+          address: {
+            city: 'Orem',
+            state: 'UT',
+            zip: '84602'
+          }
+        }
+      ]
     },
     {
       id: '3',
@@ -49,7 +124,39 @@ export class MockResidentsService {
       isVerbal: false,
       religion: 'LDS',
       profileUrl: 'assets/avatars/josh.jpg',
-      medications: 1
+      medications: 1,
+      weightLog: [
+        {
+          date: moment().subtract(4, 'days').format(),
+          weight: '145 lbs'
+        },
+        {
+          date: moment().subtract(7, 'days').format(),
+          weight: '145 lbs'
+        },
+        {
+          date: moment().subtract(14, 'days').format(),
+          weight: '147 lbs'
+        },
+        {
+          date: moment().subtract(30, 'days').format(),
+          weight: '148 lbs'
+        }
+      ],
+      emergencyContacts: [
+        {
+          firstName: 'Jenna',
+          lastName: 'Wood',
+          relationship: 'Wife',
+          homePhone: '555-555-5555',
+          cellPhone: '444-444-4444',
+          address: {
+            city: 'Provo',
+            state: 'UT',
+            zip: '84602'
+          }
+        }
+      ]
     }
 
   ];

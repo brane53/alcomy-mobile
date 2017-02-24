@@ -65,7 +65,7 @@ export class MockResidentsService {
         }
       ],
       facilityInfo: {
-        facilityName: 'Paradise Valley Care',
+        name: 'Paradise Valley Care',
         admissionDate: moment('2014-11-05').format(),
         room: '1'
       },

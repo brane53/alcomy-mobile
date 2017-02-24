@@ -36,8 +36,11 @@
     <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Basic Information</h2>
-        <button ion-button clear icon-only item-right>
+        <button ion-button clear icon-only item-right *ngIf="basicInfo">
           <custom-icon set="mdIcons" name="edit"></custom-icon>
+        </button>
+        <button ion-button clear icon-only item-right *ngIf="!basicInfo">
+          <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
       </ion-item>
       <div class="banner">
@@ -71,17 +74,20 @@
     <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Facility Information</h2>
-        <button ion-button clear icon-only item-right>
+        <button ion-button clear icon-only item-right *ngIf="facilityInfo">
           <custom-icon set="mdIcons" name="edit"></custom-icon>
         </button>
+        <button ion-button clear icon-only item-right *ngIf="!facilityInfo">
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
       </ion-item>
-      <ion-card-content class="card-content">
+      <ion-card-content class="card-content" *ngIf="facilityInfo">
         <ion-row>
           <ion-col>
             <p>Facility Name</p>
           </ion-col>
           <ion-col>
-            <p>{{facilityInfo.facilityName}}</p>
+            <p>{{facilityInfo.name ? facilityInfo.name : '-'}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -89,7 +95,7 @@
             <p>Admission Date</p>
           </ion-col>
           <ion-col>
-            <p>{{facilityInfo.admissionDate | amDateFormat:'MM/DD/YYYY'}}</p>
+            <p>{{facilityInfo.admissionDate ? (facilityInfo.admissionDate | amDateFormat:'MM/DD/YYYY') : '-'}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -97,7 +103,7 @@
             <p>Room</p>
           </ion-col>
           <ion-col>
-            <p>{{facilityInfo.room}}</p>
+            <p>{{facilityInfo.room || '-'}}</p>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -108,17 +114,20 @@
     <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Payment Information</h2>
-        <button ion-button clear icon-only item-right>
+        <button ion-button clear icon-only item-right *ngIf="paymentInfo">
           <custom-icon set="mdIcons" name="edit"></custom-icon>
         </button>
+        <button ion-button clear icon-only item-right *ngIf="!paymentInfo">
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
       </ion-item>
-      <ion-card-content class="card-content">
+      <ion-card-content class="card-content" *ngIf="paymentInfo">
         <ion-row>
           <ion-col>
             <p>Rate</p>
           </ion-col>
           <ion-col>
-            <p>{{paymentInfo.rate | currency:'USD':true}}</p>
+            <p>{{paymentInfo.rate ? (paymentInfo.rate | currency:'USD':true) : '-'}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -126,7 +135,7 @@
             <p>Method</p>
           </ion-col>
           <ion-col>
-            <p>{{paymentInfo.method}}</p>
+            <p>{{paymentInfo.method || '-'}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -134,7 +143,7 @@
             <p>Bill To</p>
           </ion-col>
           <ion-col>
-            <p>{{paymentInfo.billTo}}</p>
+            <p>{{paymentInfo.billTo || '-'}}</p>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -149,7 +158,7 @@
           <custom-icon set="mdIcons" name="edit"></custom-icon>
         </button>
       </ion-item>
-      <ion-card-content class="card-content">
+      <ion-card-content class="card-content" *ngIf="resident.weightLog">
         <ion-row class="table-header">
           <ion-col>
             Date

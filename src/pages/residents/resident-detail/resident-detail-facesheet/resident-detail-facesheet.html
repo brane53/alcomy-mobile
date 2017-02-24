@@ -31,8 +31,9 @@
 
 <ion-content [ngSwitch]="facesheetTabButton">
 
+  <!--General Information-->
   <div *ngSwitchCase="'general'">
-    <ion-card class="basic-info-card">
+    <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Basic Information</h2>
         <button ion-button clear icon-only item-right>
@@ -52,7 +53,7 @@
         </ion-grid>
       </div>
       <ion-card-content>
-        <ion-row *ngFor="let info of residentBasicInfo">
+        <ion-row *ngFor="let info of basicInfo">
           <ion-col>
             <p>{{info.label}}</p>
           </ion-col>
@@ -65,8 +66,83 @@
 
     </ion-card>
 
+
+    <!--Facility Card-->
+    <ion-card class="info-card">
+      <ion-item class="card-header">
+        <h2 class="title">Facility Information</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="edit"></custom-icon>
+        </button>
+      </ion-item>
+      <ion-card-content class="card-content">
+        <ion-row>
+          <ion-col>
+            <p>Facility Name</p>
+          </ion-col>
+          <ion-col>
+            <p>{{facilityInfo.facilityName}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>Admission Date</p>
+          </ion-col>
+          <ion-col>
+            <p>{{facilityInfo.admissionDate | amDateFormat:'MM/DD/YYYY'}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>Room</p>
+          </ion-col>
+          <ion-col>
+            <p>{{facilityInfo.room}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+
+    </ion-card>
+
+    <!--Payment Card-->
+    <ion-card class="info-card">
+      <ion-item class="card-header">
+        <h2 class="title">Payment Information</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="edit"></custom-icon>
+        </button>
+      </ion-item>
+      <ion-card-content class="card-content">
+        <ion-row>
+          <ion-col>
+            <p>Rate</p>
+          </ion-col>
+          <ion-col>
+            <p>{{paymentInfo.rate | currency:'USD':true}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>Method</p>
+          </ion-col>
+          <ion-col>
+            <p>{{paymentInfo.method}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>Bill To</p>
+          </ion-col>
+          <ion-col>
+            <p>{{paymentInfo.billTo}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+
+    </ion-card>
+
     <!--Weight Log Card-->
-    <ion-card class="weight-log-card">
+    <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Weight Log</h2>
         <button ion-button clear icon-only item-right>
@@ -99,7 +175,7 @@
 
   <!--Medical Information-->
   <div *ngSwitchCase="'medical'">
-    <ion-card class="weight-log-card">
+    <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Medical History</h2>
         <button ion-button clear icon-only item-right>
@@ -109,7 +185,7 @@
 
     </ion-card>
 
-    <ion-card class="weight-log-card">
+    <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Allergies</h2>
         <button ion-button clear icon-only item-right>
@@ -119,7 +195,7 @@
 
     </ion-card>
 
-    <ion-card class="weight-log-card">
+    <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Physicians</h2>
         <button ion-button clear icon-only item-right>
@@ -129,7 +205,7 @@
 
     </ion-card>
 
-    <ion-card class="weight-log-card">
+    <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Insurance Information</h2>
         <button ion-button clear icon-only item-right>
@@ -139,7 +215,7 @@
 
     </ion-card>
 
-    <ion-card class="weight-log-card">
+    <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Medical Events</h2>
         <button ion-button clear icon-only item-right>
@@ -155,7 +231,7 @@
   <!--Emergency Contact Information-->
   <div *ngSwitchCase="'emergency'">
     <!--Weight Log Card-->
-    <ion-card class="emergency-contact-card" *ngFor="let contact of resident.emergencyContacts; let i=index">
+    <ion-card class="info-card" *ngFor="let contact of resident.emergencyContacts; let i=index">
       <ion-item class="card-header">
         <h2 class="title">Emergency Contact #{{i + 1}}</h2>
         <button ion-button clear icon-only item-right>

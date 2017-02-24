@@ -63,7 +63,17 @@ export class MockResidentsService {
             zip: '84602'
           }
         }
-      ]
+      ],
+      facilityInfo: {
+        facilityName: 'Paradise Valley Care',
+        admissionDate: moment('2014-11-05').format(),
+        room: '1'
+      },
+      paymentInfo: {
+        rate: 5500,
+        method: 'Check',
+        billTo: 'Jill Kenworthy'
+      } 
       
     },
     {

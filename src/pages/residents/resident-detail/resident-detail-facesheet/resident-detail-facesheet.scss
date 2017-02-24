@@ -31,9 +31,6 @@ page-resident-detail-facesheet {
     ion-row {
       justify-content: center;
     }
-    .item + .card-content {
-      padding-top: 16px;
-    }
 
     .header-text {
       margin-top: 10px;
@@ -41,7 +38,7 @@ page-resident-detail-facesheet {
 
   }
 
-  .card-content {
+  .info-card .item ~ .card-content {
     padding-top: 13px;
   }
   

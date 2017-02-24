@@ -12,13 +12,15 @@ export class ResidentDetailFacesheetPage {
 
   resident: Resident;
   facesheetTabButton: string = "general";
-  residentBasicInfo: any;
+  basicInfo: any;
+  facilityInfo: any;
+  paymentInfo: any;
   residentEmergency: any;
 
   constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
     this.resident = navParams.data.resident;
 
-    this.residentBasicInfo = [
+    this.basicInfo = [
       {
         label: 'Date of Birth',
         value: moment(this.resident.birthDate).format('MM/DD/YYYY') || '-'
@@ -49,6 +51,9 @@ export class ResidentDetailFacesheetPage {
       },
  
     ]
+
+    this.facilityInfo = this.resident.facilityInfo;
+    this.paymentInfo = this.resident.paymentInfo;
   }
 
   private yesOrNo(boolean){

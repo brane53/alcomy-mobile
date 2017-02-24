@@ -28,6 +28,8 @@ export class Resident {
   medications?: Medication[] | number;
   weightLog?: Object[];
   emergencyContacts?: Object[];
+  facilityInfo?: Object;
+  paymentInfo?: Object
   
 }
 

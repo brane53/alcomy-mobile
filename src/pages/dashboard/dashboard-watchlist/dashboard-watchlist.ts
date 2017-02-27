@@ -16,8 +16,7 @@ import { MockResidentsService } from '../../../app/core/residents-mock.service';
   templateUrl: 'dashboard-watchlist.html'
 })
 export class DashboardWatchlistPage {
-
-
+  title: string = 'Watchlist';
   residents: Resident[];
 
   constructor(
@@ -26,7 +25,7 @@ export class DashboardWatchlistPage {
   public popCtrl: PopoverController, 
   public menu: MenuController, 
   private residentService: MockResidentsService) {
-    
+
     this.residents = residentService.residents;
 
   }

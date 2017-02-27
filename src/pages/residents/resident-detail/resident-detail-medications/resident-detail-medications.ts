@@ -13,6 +13,7 @@ import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
   templateUrl: 'resident-detail-medications.html'
 })
 export class ResidentDetailMedicationsPage {
+  title: string = 'Medications';
   resident: any;
 
   constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {

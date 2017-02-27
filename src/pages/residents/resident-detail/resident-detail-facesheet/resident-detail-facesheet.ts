@@ -9,7 +9,7 @@ import * as moment from 'moment';
   templateUrl: 'resident-detail-facesheet.html'
 })
 export class ResidentDetailFacesheetPage {
-
+  title: string = 'Facesheet';
   resident: Resident;
   facesheetTabButton: string = "general";
   basicInfo: any;

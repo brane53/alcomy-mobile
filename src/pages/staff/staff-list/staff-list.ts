@@ -14,7 +14,7 @@ import { MockEmployeeService } from '../../../app/core/employee-mock.service';
   templateUrl: 'staff-list.html'
 })
 export class StaffListPage implements OnInit {
-
+  title: string = 'Staff List';
   employees: Employee[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mockEmployees: MockEmployeeService) {}

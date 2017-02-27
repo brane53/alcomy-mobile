@@ -16,7 +16,7 @@ import { ResidentDetailTabsPage } from '../resident-detail/resident-detail-tabs/
   templateUrl: 'residents-list.html'
 })
 export class ResidentsListPage implements OnInit {
-
+  title: string = 'Resident List';
   residents: Resident[];
 
   constructor(

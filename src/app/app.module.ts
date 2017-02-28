@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { CustomIconsModule } from 'ionic2-custom-icons';
 import { MomentModule } from 'angular2-moment';
+import { NgPipesModule } from 'ngx-pipes';
 
 import { MyApp } from './app.component';
 // Dashboard Pages
@@ -49,6 +50,7 @@ import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/re
   IonicModule.forRoot(MyApp, {
     iconMode: 'md'
   }),
+  NgPipesModule,
   MomentModule,
   CustomIconsModule
   

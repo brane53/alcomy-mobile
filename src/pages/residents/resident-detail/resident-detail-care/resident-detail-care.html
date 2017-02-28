@@ -12,7 +12,7 @@
         <custom-icon set="mdIcons" name="arrow_back"></custom-icon>
       </button>
     </ion-buttons>
-    <ion-title>{{resident.firstName}} {{resident.lastName}}</ion-title>
+    <ion-title>{{resident.firstName | ucfirst}} {{resident.lastName | ucfirst}}</ion-title>
   </ion-navbar>
 
 </ion-header>

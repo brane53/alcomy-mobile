@@ -12,7 +12,7 @@
         <custom-icon set="mdIcons" name="arrow_back"></custom-icon>
       </button>
     </ion-buttons>
-    <ion-title>{{resident.firstName}} {{resident.lastName}}</ion-title>
+    <ion-title>{{resident.firstName | ucfirst}} {{resident.lastName | ucfirst}}</ion-title>
   </ion-navbar>
 
   <ion-segment mode="md" [(ngModel)]="facesheetTabButton" color="residents-primary">
@@ -50,7 +50,7 @@
           </ion-row>
           <ion-row>
             <h3 class="header-text">
-              {{resident.firstName}} {{resident.middleName}} {{resident.lastName}}
+              {{resident.firstName | ucfirst}} {{resident.middleName | ucfirst}} {{resident.lastName | ucfirst}}
             </h3>
           </ion-row>
         </ion-grid>
@@ -103,7 +103,7 @@
             <p>Room</p>
           </ion-col>
           <ion-col>
-            <p>{{facilityInfo.room || '-'}}</p>
+            <p>{{facilityInfo.room ? facilityInfo.room : '-'}}</p>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -135,7 +135,7 @@
             <p>Method</p>
           </ion-col>
           <ion-col>
-            <p>{{paymentInfo.method || '-'}}</p>
+            <p>{{paymentInfo.method ? (paymentInfo.method | ucfirst) : '-'}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -143,7 +143,7 @@
             <p>Bill To</p>
           </ion-col>
           <ion-col>
-            <p>{{paymentInfo.billTo || '-'}}</p>
+            <p>{{paymentInfo.billTo ? (paymentInfo.billTo | ucwords) : '-'}}</p>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -170,11 +170,11 @@
         </ion-row>
         <ion-row class="tabel-row" *ngFor="let record of resident.weightLog">
           <ion-col>
-            <p>{{record.date | amDateFormat:'MM/DD/YYYY'}}</p>
+            <p>{{record.date ? (record.date | amDateFormat:'MM/DD/YYYY') : '-'}}</p>
           </ion-col>
           <ion-col></ion-col>
           <ion-col>
-            <p>{{record.weight}}</p>
+            <p>{{record.weight ? record.weight : '-'}}</p>
           </ion-col>
         </ion-row>
       </ion-card-content>

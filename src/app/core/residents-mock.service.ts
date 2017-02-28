@@ -8,8 +8,8 @@ export class MockResidentsService {
   residents: Resident[] = [
     {
       id: '1',
-      firstName: 'Blake',
-      lastName: 'Kenworthy',
+      firstName: 'blake',
+      lastName: 'kenworthy',
       middleName: '',
       gender: 'male',
       birthDate: moment('1987-11-10').format(),
@@ -71,15 +71,15 @@ export class MockResidentsService {
       },
       paymentInfo: {
         rate: 5500,
-        method: 'Check',
+        method: 'check',
         billTo: 'Jill Kenworthy'
       } 
       
     },
     {
       id: '2',
-      firstName: 'Justin',
-      lastName: 'Kunz',
+      firstName: 'justin',
+      lastName: 'kunz',
       middleName: 'Don',
       gender: 'male',
       birthDate: moment('1987-01-09').format(),
@@ -124,8 +124,8 @@ export class MockResidentsService {
     },
     {
       id: '3',
-      firstName: 'Josh',
-      lastName: 'Wood',
+      firstName: 'josh',
+      lastName: 'wood',
       middleName: 'Thomas',
       gender: 'male',
       birthDate: moment('1986-11-19').format(),

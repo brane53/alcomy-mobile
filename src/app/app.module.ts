@@ -39,6 +39,7 @@ import { ResidentDetailMedicationsPage } from '../pages/residents/resident-detai
 import { ResidentDetailCarePage } from '../pages/residents/resident-detail/resident-detail-care/resident-detail-care';
 import { ResidentDetailNotebookPage } from '../pages/residents/resident-detail/resident-detail-notebook/resident-detail-notebook';
 import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/resident-detail-reports/resident-detail-reports';
+import { YesNoPipe } from './shared/pipes/yesNo.pipe';
 
 
 
@@ -83,7 +84,9 @@ import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/re
   CardSliderComponent,
   // Directives
   MenuButtonToggleDirective,
-  QuickAddDirective
+  QuickAddDirective,
+  // Pipes
+  YesNoPipe
   ],
   entryComponents: [
   MyApp,

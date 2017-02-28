@@ -12,7 +12,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'residents-groups.html'
 })
 export class ResidentsGroupsPage {
-
+  title: string = 'Groups';
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {

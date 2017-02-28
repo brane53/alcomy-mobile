@@ -13,7 +13,7 @@ import { MockEmployeeService } from '../../../app/core/employee-mock.service';
   templateUrl: 'staff-groups.html'
 })
 export class StaffGroupsPage implements OnInit {
-
+  title: string = 'Groups';
   staffGroups: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mockEmployees: MockEmployeeService) {}

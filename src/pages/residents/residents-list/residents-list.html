@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title>Resident List</ion-title>
+    <ion-title>{{title}}</ion-title>
 
     <ion-buttons right>
       <!--Quick Add Button-->
@@ -37,7 +37,7 @@
         <img [src]="resident.profileUrl">
       </ion-avatar>
       <ion-label>
-        {{ resident.firstName }} {{ resident.lastName }}
+        {{ resident.firstName | ucfirst }} {{ resident.lastName | ucfirst }}
       </ion-label>
 
       <span class="indicator active" item-right></span>

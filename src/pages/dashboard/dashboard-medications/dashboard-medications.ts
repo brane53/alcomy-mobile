@@ -20,7 +20,7 @@ import { MockMedicationsService } from '../../../app/core/medications-mock.servi
   templateUrl: 'dashboard-medications.html'
 })
 export class DashboardMedicationsPage {
-
+  title: string = 'Medications';
   residents: Resident[];
 
   prnRecords: PrnRecord[];

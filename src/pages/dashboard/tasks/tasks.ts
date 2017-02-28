@@ -11,7 +11,7 @@ import { StatusBar } from 'ionic-native';
   templateUrl: 'tasks.html',
 })
 export class TasksPage {
-
+  title: string = 'Tasks';
   tasks: Task[] = [
     {
       id: '1',

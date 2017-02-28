@@ -13,6 +13,7 @@ import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
   templateUrl: 'resident-detail-reports.html'
 })
 export class ResidentDetailReportsPage {
+  title: string = 'Reports';
 
   resident: any;
 

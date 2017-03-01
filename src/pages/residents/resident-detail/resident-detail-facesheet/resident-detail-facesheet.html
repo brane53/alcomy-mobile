@@ -34,6 +34,7 @@
   <!--General Information-->
   <div *ngSwitchCase="'general'">
     <ion-card class="info-card">
+      <!--Card Header-->
       <ion-item class="card-header">
         <h2 class="title">Basic Information</h2>
         <button ion-button clear icon-only item-right *ngIf="basicInfo">
@@ -43,6 +44,7 @@
           <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
       </ion-item>
+      <!--Card Banner-->
       <div class="banner">
         <ion-grid>
           <ion-row>
@@ -55,6 +57,7 @@
           </ion-row>
         </ion-grid>
       </div>
+      <!--Card Content-->
       <ion-card-content>
         <ion-row *ngFor="let info of basicInfo">
           <ion-col>
@@ -62,7 +65,7 @@
           </ion-col>
           <ion-col></ion-col>
           <ion-col>
-            <p>{{info.value}}</p>
+            <p>{{info.value }}</p>
           </ion-col>
         </ion-row>
       </ion-card-content>

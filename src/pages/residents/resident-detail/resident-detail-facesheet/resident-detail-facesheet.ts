@@ -56,16 +56,6 @@ export class ResidentDetailFacesheetPage {
     this.paymentInfo = this.resident.paymentInfo;
   }
 
-  private yesOrNo(boolean){
-    if(boolean){
-      return 'Yes';
-    }
-    else {
-      return 'No';
-    }
-
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentDetailFacesheetPage');
   }

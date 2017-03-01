@@ -15,6 +15,17 @@ import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
 export class ResidentDetailMedicationsPage {
   title: string = 'Medications';
   resident: any;
+  medicationTabButton: string = 'list';
+  medicationRecords: any = {
+    genericName: 'atorvastatin',
+    brandName: 'lipitor',
+    strength: {
+      amount: 325,
+      measurement: 'mg'
+    },
+    form: 'tablet',
+    
+  }
 
   constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
     this.resident = navParams.data.resident;

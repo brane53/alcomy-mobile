@@ -1,5 +1,6 @@
 import './polyfills.ts';
 
+import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/proxy.js';
 import 'zone.js/dist/sync-test';
@@ -11,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform } from 'ionic-angular';
-import { ConfigMock } from './mocks';
+import { ConfigMock } from './mocks/mocks';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
@@ -23,13 +24,15 @@ __karma__.loaded = function (): void {
 };
 
 // First, initialize the Angular testing environment.
-getTestBed().initTestEnvironment(
+TestBed.initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  platformBrowserDynamicTesting()
 );
 
+console.log('Test File', TestBed);
+
 // Then we find all the tests.
-let context: any = require.context('./', true, /\.spec\.ts/);
+let context: any = require.context('./', true, /\.spec\.ts$/);
 
 // And load the modules.
 context.keys().map(context);

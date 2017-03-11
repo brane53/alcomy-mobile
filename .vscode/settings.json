@@ -102,5 +102,16 @@
             "src/**/*.spec.ts"
         ],
         
-        "typescript.referencesCodeLens.enabled": true
+        "typescript.referencesCodeLens.enabled": true,
+        "bracketPairColorizer.consecutivePairColors": [
+          //"()",
+          //"[]",
+          "{}",
+          [
+            "Gold",
+            "Orchid",
+            "LightSkyBlue"
+          ],
+          "Red"
+        ]
       }

@@ -36,8 +36,11 @@ export class TasksPage {
   ];
   
   
-  constructor(public platform: Platform, public navCtrl: NavController, public modal: ModalController, public popCtrl: PopoverController, public menu: MenuController) {
-    platform.ready().then(()=>{
+  constructor(
+  public platform: Platform, 
+  public navCtrl: NavController, 
+  public modal: ModalController) {
+    this.platform.ready().then(()=>{
       StatusBar.backgroundColorByHexString('#00838f');
 
     });

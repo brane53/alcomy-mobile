@@ -39,11 +39,11 @@ export class ResidentDetailFacesheetPage {
       },
       {
         label: 'Ambulatory?',
-        value: this.yesOrNo(this.resident.isAmbulatory) || '-'
+        value: this.resident.isAmbulatory !== undefined ? this.yesOrNo(this.resident.isAmbulatory) : '-'
       },
       {
         label: 'Verbal?',
-        value: this.yesOrNo(this.resident.isVerbal) || '-'
+        value: this.resident.isVerbal !== undefined ? this.yesOrNo(this.resident.isVerbal) : '-'
       },
       {
         label: 'Code',
@@ -63,6 +63,19 @@ export class ResidentDetailFacesheetPage {
   goBack(){
     //this.events.publish('resident-detail-closed');
     this.app.getRootNav().push(ResidentsTabsPage);
+  }
+
+  yesOrNo(bool: boolean) {
+    if (typeof bool !== 'boolean') {
+      throw "parameter should be a boolean";
+      
+    }
+    if (bool === true) {
+      return 'Yes';
+    }
+    else if (bool === false) {
+      return 'No';
+    }
   }
 
 }

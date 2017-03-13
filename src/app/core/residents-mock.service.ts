@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resident } from '../models/models';
+import { Resident, Medication, MedicationRecord } from '../models/models';
 import * as moment from 'moment';
 
 @Injectable()
@@ -19,7 +19,6 @@ export class MockResidentsService {
       isVerbal: true,
       religion: 'LDS',
       profileUrl: 'assets/avatars/blake.jpg',
-      medications: 3,
       weightLog: [
         {
           date: moment().subtract(4, 'days').format(),
@@ -73,14 +72,42 @@ export class MockResidentsService {
         rate: 5500,
         method: 'check',
         billTo: 'Jill Kenworthy'
-      } 
-      
+      },
+      medications: [
+        {
+          id: '1',
+          brandName: 'lipitor',
+          genericName: 'atorvastatin',
+          description: 'used along with a proper diet to help lower "bad" cholesterol and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) in the blood. It belongs to a group of drugs known as "statins." It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks.',
+          instructions: 'take 1 tablet by mouth every day',
+          createDate: moment().subtract(6, 'months').format(),
+          createdBy: {
+            id: '1',
+            firstName: 'ilija',
+            lastName: 'vrajich',
+          },
+          startDate: moment().subtract(6, 'months').format(),
+          status: 'active',
+          endDate: null,
+          strength: {
+            amount: 10,
+            measurement: 'mg'
+          },
+          form: 'tablet',
+          dosage: {
+            amount: 1,
+            form: 'tablet'
+          },
+          startQuantity: 31,
+
+        }
+      ]
     },
     {
       id: '2',
       firstName: 'justin',
       lastName: 'kunz',
-      middleName: 'Don',
+      middleName: 'don',
       gender: 'male',
       birthDate: moment('1987-01-09').format(),
       ssn: '888-888-8888',
@@ -126,7 +153,7 @@ export class MockResidentsService {
       id: '3',
       firstName: 'josh',
       lastName: 'wood',
-      middleName: 'Thomas',
+      middleName: 'thomas',
       gender: 'male',
       birthDate: moment('1986-11-19').format(),
       code: 'DNR',

@@ -30,44 +30,52 @@
 
 
 <ion-content [ngSwitch]="medicationTabButton">
-  <div *ngSwitchCase="'general'">
-    <ion-card class="info-card">
+
+  <!--Medication List-->
+  <div *ngSwitchCase="'list'">
+    <ion-card class="info-card" *ngFor="let medication of medicationRecords">
       <!--Card Header-->
       <ion-item class="card-header">
-        <h2 class="title">Basic Information</h2>
-        <button ion-button clear icon-only item-right *ngIf="basicInfo">
+        <h2 class="title">{{ medication.brandName | ucfirst }}</h2>
+        <p class="subtitle"><i>{{ medication.genericName }}</i></p>
+        <button ion-button clear icon-only item-right>
           <custom-icon set="mdIcons" name="edit"></custom-icon>
-        </button>
-        <button ion-button clear icon-only item-right *ngIf="!basicInfo">
-          <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
       </ion-item>
       <!--Card Banner-->
       <div class="banner">
         <ion-grid>
           <ion-row>
-            <img [src]="resident.profileUrl" class="avatar">
+            
           </ion-row>
           <ion-row>
-            <h3 class="header-text">
-              {{resident.firstName | ucfirst}} {{resident.middleName | ucfirst}} {{resident.lastName | ucfirst}}
-            </h3>
+          
           </ion-row>
         </ion-grid>
       </div>
       <!--Card Content-->
       <ion-card-content>
-        <ion-row *ngFor="let info of basicInfo">
+        <ion-row>
           <ion-col>
-            <p>{{info.label}}</p>
+
           </ion-col>
           <ion-col></ion-col>
           <ion-col>
-            <p>{{info.value }}</p>
+
           </ion-col>
         </ion-row>
       </ion-card-content>
 
     </ion-card>
   </div>
+
+  <!--Medication MAR-->
+  <div *ngSwitchCase="'mar'">
+
+  </div>
+  <!--Medication Scripts-->
+  <div *ngSwitchCase="'scripts'">
+
+  </div>
+
 </ion-content>

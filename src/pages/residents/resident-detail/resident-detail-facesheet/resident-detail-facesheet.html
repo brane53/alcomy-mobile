@@ -37,11 +37,8 @@
       <!--Card Header-->
       <ion-item class="card-header">
         <h2 class="title">Basic Information</h2>
-        <button ion-button clear icon-only item-right *ngIf="basicInfo">
+        <button ion-button clear icon-only item-right>
           <custom-icon set="mdIcons" name="edit"></custom-icon>
-        </button>
-        <button ion-button clear icon-only item-right *ngIf="!basicInfo">
-          <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
       </ion-item>
       <!--Card Banner-->
@@ -59,13 +56,76 @@
       </div>
       <!--Card Content-->
       <ion-card-content>
-        <ion-row *ngFor="let info of basicInfo">
+        <!--Date of Birth-->
+        <ion-row>
           <ion-col>
-            <p>{{info.label}}</p>
+            <p>Date of Birth</p>
           </ion-col>
           <ion-col></ion-col>
           <ion-col>
-            <p>{{info.value }}</p>
+            <p>
+              {{ this.resident.birthDate ? (this.resident.birthDate | amDateFormat:'MM/DD/YYYY') : '-' }}
+            </p>
+          </ion-col>
+        </ion-row>
+        <!--Gender-->
+        <ion-row>
+          <ion-col>
+            <p>Gender</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{ this.resident.gender ? (this.resident.gender | ucfirst) : '-' }}</p>
+          </ion-col>
+        </ion-row>
+        <!--SSN-->
+        <ion-row>
+          <ion-col>
+            <p>SSN</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{ this.resident.ssn  ? this.resident.ssn : '-' }}</p>
+          </ion-col>
+        </ion-row>
+        <!--Religion-->
+        <ion-row>
+          <ion-col>
+            <p>Religion</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{ this.resident.religion ? this.resident.religion : '-' }}</p>
+          </ion-col>
+        </ion-row>
+        <!--Ambulatory-->
+        <ion-row>
+          <ion-col>
+            <p>Ambulatory?</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{ this.resident.isAmbulatory | yesOrNo }}</p>
+          </ion-col>
+        </ion-row>
+        <!--Verbal-->
+        <ion-row>
+          <ion-col>
+            <p>Verbal?</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{ this.resident.isVerbal | yesOrNo }}</p>
+          </ion-col>
+        </ion-row>
+        <!--Code-->
+        <ion-row>
+          <ion-col>
+            <p>Code</p>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col>
+            <p>{{ this.resident.code }}</p>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -238,7 +298,6 @@
     </ion-card>
 
   </div>
-
 
   <!--Emergency Contact Information-->
   <div *ngSwitchCase="'emergency'">

@@ -25,8 +25,11 @@ export class MyApp implements OnInit {
 
   @ViewChild('appContent') nav: NavController;
 
-  constructor(platform: Platform, public menu: MenuController, private mockNotification: MockNotificationService) {
-    platform.ready().then(() => {
+  constructor(
+    private platform: Platform, 
+    public menu: MenuController, 
+    private mockNotification: MockNotificationService) {
+    this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();

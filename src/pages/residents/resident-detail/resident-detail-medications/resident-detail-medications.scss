@@ -1,3 +1,45 @@
 page-resident-detail-medications {
 
+  div.scroll-content {
+    background-color: $mdc-grey-100;
+  }
+
+.card-header {
+    border-bottom: 0.55px solid $dark-text-12;
+    padding-top: 0;
+    //background-color: $mdc-light-blue-500;
+  }
+
+  ion-card-header {
+    border-bottom: 0.55px solid $dark-text-12;
+  }
+
+  .banner {
+    border-bottom: 0.55px solid $dark-text-12;
+    padding: 16px 0;
+
+    .avatar {
+      height: 96px;
+      width: 96px;
+      border-radius: 50%;
+    }
+
+    ion-row {
+      justify-content: center;
+    }
+
+    .header-text {
+      margin-top: 10px;
+    }
+
+  }
+
+  .info-card .item ~ .card-content {
+    padding-top: 13px;
+  }
+  
+
+  .table-header {
+    font-weight: 500;
+  }
 }

@@ -10,7 +10,7 @@ export class MockMedicationsService {
     {
       id: '1',
       medication: {
-        brandName: 'Tylonal',
+        brandName: 'tylonal',
         genericName: 'acetaminophen',
         description: 'Used to relieve pain',
         instructions: 'You can give no more than 2 tablets every 6 hours'
@@ -27,7 +27,7 @@ export class MockMedicationsService {
     {
       id: '2',
       medication: {
-        brandName: 'Tylonal',
+        brandName: 'tylonal',
         genericName: 'acetaminophen',
         description: 'Used to relieve pain',
         instructions: 'You can give no more than 2 tablets every 6 hours'

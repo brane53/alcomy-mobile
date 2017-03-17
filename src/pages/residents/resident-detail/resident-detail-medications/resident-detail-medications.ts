@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, App, ViewController, Events } from 'ionic-angular';
 import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
+import { MedicationRecord } from '../../../../app/models/models';
+import * as moment from 'moment';
 
 /*
   Generated class for the ResidentDetailMedications page.
@@ -15,17 +17,8 @@ import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
 export class ResidentDetailMedicationsPage {
   title: string = 'Medications';
   resident: any;
-  medicationTabButton: string = 'list';
-  medicationRecords: any = {
-    genericName: 'atorvastatin',
-    brandName: 'lipitor',
-    strength: {
-      amount: 325,
-      measurement: 'mg'
-    },
-    form: 'tablet',
-    
-  }
+  medicationTabButton: string = "list";
+  medicationRecords: MedicationRecord[];
 
   constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
     this.resident = navParams.data.resident;
@@ -33,6 +26,8 @@ export class ResidentDetailMedicationsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentDetailMedicationsPage');
+
+    this.medicationRecords = this.resident.medications;
   }
 
   goBack() {

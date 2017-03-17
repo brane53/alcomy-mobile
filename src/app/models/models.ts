@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 export class Person {
   firstName: string;
   lastName: string;
@@ -5,19 +7,25 @@ export class Person {
   gender?: string;
 }
 
-export class Task {
-  id: string;
-  description: string;
-  isComplete: boolean;
-  time?: string;
-
-  constructor(description: string, isComplete: boolean = false) {
-    this.description = description;
-    this.isComplete = isComplete;
-    
-  }
-
+export class Address {
+  street?: string = '';
+  city?: string = '';
+  state?: string = '';
+  zip?: string = '';
 }
+
+export class Device {
+  pushToken?: string;
+  canPush?: boolean;
+}
+
+export class PhoneNumber {
+  number: string;
+  type: string; // mobile, home, work, fax, etc.
+  isPrimary: boolean;
+}
+
+
 
 export class Resident extends Person {
   id?: string;
@@ -127,8 +135,10 @@ export class User {
   id?: string;
   firstName: string;
   lastName: string;
+  profileUrl?: string;
   permissions?: Permission[];
-  notifications?: Notification[]
+  notifications?: Notification[];
+  pushDevices?: Device[];
 }
 
 export class Notification {
@@ -140,3 +150,35 @@ export class Notification {
   data: Object;
 }
 
+export class Contact {
+  phoneNumbers: PhoneNumber[];
+  email: string;
+  addresses: Address[];
+
+}
+
+export class Facility {
+  legalName?: string = '';
+  displayName?: string = '';
+  address?: Address;
+  licenseNumber?: string = ''
+  contacts?: Contact[]; // These are the official contacts for the facility
+}
+
+
+export class Task {
+  id?: string;
+  description?: string;
+  isComplete?: boolean;
+  time?: string;
+  createdOn: string = moment().format();
+  createdBy: User;
+  assignments: User[]
+
+  constructor(description: string = '', isComplete: boolean = false) {
+    this.description = description;
+    this.isComplete = isComplete;
+
+  }
+
+}

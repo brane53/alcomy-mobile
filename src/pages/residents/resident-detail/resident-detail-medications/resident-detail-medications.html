@@ -36,6 +36,9 @@
     <ion-card class="info-card" *ngFor="let medication of medicationRecords">
       <!--Card Header-->
       <ion-item class="card-header">
+        
+        <custom-icon set="alcomyIcons" name="syringe" item-left></custom-icon>
+        
         <h2 class="title">{{ medication.brandName | ucfirst }}</h2>
         <p class="subtitle"><i>{{ medication.genericName }}</i></p>
         <button ion-button clear icon-only item-right>
@@ -46,10 +49,10 @@
       <div class="banner">
         <ion-grid>
           <ion-row>
-            
+            {{medication.instructions}}
           </ion-row>
           <ion-row>
-          
+
           </ion-row>
         </ion-grid>
       </div>

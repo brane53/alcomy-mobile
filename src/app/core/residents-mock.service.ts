@@ -88,7 +88,7 @@ export class MockResidentsService {
           },
           startDate: moment().subtract(6, 'months').format(),
           status: 'active',
-          endDate: null,
+          endDate: '',
           strength: {
             amount: 10,
             measurement: 'mg'
@@ -99,7 +99,8 @@ export class MockResidentsService {
             form: 'tablet'
           },
           startQuantity: 31,
-
+          imageUrl: 'assets/medications/lipitor.jpg',
+          quantity: 31
         }
       ]
     },

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "306173730422",
+    "firebase_url": "https://alcomydev1.firebaseio.com",
+    "project_id": "alcomydev1",
+    "storage_bucket": "alcomydev1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306173730422:android:b02b21eb71e8ec3c",
+        "android_client_info": {
+          "package_name": "com.alcomy.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306173730422-vjkgndltumeto4afsg1h5t0rmdk0djha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATBTwP4o9Z2ITEFRW5N5mEmns0e2NRWAY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

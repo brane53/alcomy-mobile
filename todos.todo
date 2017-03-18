@@ -6,3 +6,110 @@ Notes:
     ointments
     aerosols
     patches
+
+
+MODELS:
+  ☐ Person
+      - id: string
+      - firstName: string
+      - lastName: string
+      - middlename?: string
+      - gender?: string
+
+  ☐ Resident extends Person
+      - ssn: number
+      - dateOfBirth: Date
+      - religion: string
+      - isDNR?: boolean
+      - isAmbulatory?: boolean
+      - isVerbal?: boolean
+      - isActive?: boolean
+      - isDeceased?: boolean
+      - imageUrl?: string
+
+  ☐ Contact
+      - phoneNumber: PhoneNumber[]
+      - address: Address
+      - email: string[]
+
+  ☐ PersonContact extends Person, Contact
+
+  ☐ Employee extends PersonContact
+      - ssn: number
+      - dateOfBirth: Date
+      
+  ☐ GenericContact
+  ☐ FamilyMember
+  ☐ Physician extends Contact
+  ☐ Nurse extends Contact
+  ☐ Specialist extends Contact
+  ☐ BusinessContact exends Contact
+      - name
+      - contacts: PersonContact[]
+  ☐ Pharmacy
+  ☐ Medication
+    - id: string
+    - genericName: string 
+    - brandName: string
+    - strength: string 
+    - dosage: string
+    - description
+    - instruction
+    ☐ MedicationScript
+    ☐ CentrallyStoredMedication
+  ☐ Task
+    ☐ CareTask
+    ☐ MedicationTask
+    ☐ GeneralTask
+  ☐ CareItem
+
+  ☐ User
+    - id: string
+    - firstName: string
+    - lastName: string
+    - profileUrl: string
+
+  ☐ Facility
+    - id: string
+    - name: string
+    - licenseNumber: string
+    - createdOn: Date
+
+  ☐ Account
+    - id?: string
+    - companyName
+    - createdOn: Date
+
+    ☐ Subscription
+      - id?: string
+      - name: string
+      - startDate: Date
+      - endDate: Date
+      - cost: number
+      - duration: number
+      - subscribers: accounts[]
+  ☐ Note
+  ☐ Notification
+    ☐ AlertNotification
+    ☐ ReminderNotification
+    ☐ MessageNotification
+  ☐ Address
+    - streetAddress: string
+    - city: string
+    - state: string
+    - zip: number
+  ☐ PhoneNumber
+    - number: string
+    - type: string
+    - isPrimary: boolean
+  ☐ Email
+    - address: string
+    - type: string
+    - isPrimary: boolean
+  ☐ Position
+    - title: string
+  ☐ Role
+  ☐ Comment
+  ☐ PhoneNumber
+  
+

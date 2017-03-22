@@ -3,9 +3,9 @@
     <ion-row center>
 
       <ion-col>
-        <h2>{{prn.medication.brandName}}</h2>
-        <p class="subheader"><i>{{prn.medication.genericName}}</i></p>
-        <p class="label">Given by <i>{{prn.givenBy.firstName}} {{prn.givenBy.lastName}}</i></p>
+        <h2>{{ prn.medication.brandName | ucfirst }}</h2>
+        <p class="subheader"><i>{{ prn.medication.genericName }}</i></p>
+        <p class="label">Given by <i>{{ prn.givenBy.firstName | ucfirst }} {{ prn.givenBy.lastName | ucfirst }}</i></p>
         <p class="label">{{prn.givenAt | amCalendar}}</p>
       </ion-col>
 

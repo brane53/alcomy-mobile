@@ -1,8 +1,10 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { CustomIconsModule } from 'ionic2-custom-icons';
 import { MomentModule } from 'angular2-moment';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgPipesModule } from 'ngx-pipes';
 
 import { MyApp } from './app.component';
@@ -41,20 +43,41 @@ import { ResidentDetailCarePage } from '../pages/residents/resident-detail/resid
 import { ResidentDetailNotebookPage } from '../pages/residents/resident-detail/resident-detail-notebook/resident-detail-notebook';
 import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/resident-detail-reports/resident-detail-reports';
 import { YesNoPipe } from './shared/pipes/yesNo.pipe';
+import { AccountService } from './core/account.service';
+import { AuthService } from './core/auth.service';
+import { EmployeeService } from './core/employee.service';
+import { FacilityService } from './core/facility.service';
+import { MedicationsService } from './core/medications.service';
+import { NotificationService } from './core/notification.service';
+import { ResidentsService } from './core/residents.service';
+import { UserService } from './core/user.service';
+import { NewFacilityPage } from '../pages/shared/forms/new-facility/new-facility';
+import { NewResidentPage } from '../pages/shared/forms/new-resident/new-resident';
+import { NewMedicationPage } from '../pages/shared/forms/new-medication/new-medication';
+import { LoginPage } from '../pages/login/login';
 
-
+export const firebaseConfig = {
+  apiKey: "AIzaSyDHd9xFhtxKsJaCrZUaj4DXFGDwXATft_o",
+  authDomain: "alcomydev1.firebaseapp.com",
+  databaseURL: "https://alcomydev1.firebaseio.com",
+  storageBucket: "alcomydev1.appspot.com",
+  messagingSenderId: "306173730422"
+};
 
 
 @NgModule({
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(MyApp, {
       iconMode: 'md'
     }),
+    FlexLayoutModule,
     NgPipesModule,
     MomentModule,
     CustomIconsModule
-  
+    
   ],
   declarations: [
     MyApp,
@@ -81,6 +104,13 @@ import { YesNoPipe } from './shared/pipes/yesNo.pipe';
     StaffTabsPage,
     StaffListPage,
     StaffGroupsPage,
+    // Form Pages
+    NewFacilityPage,
+    NewResidentPage,
+    NewMedicationPage,
+    NewTaskPage,
+    NewWatchItemPage,
+    LoginPage,
     // Components
     PrnCardComponent,
     CardSliderComponent,
@@ -106,17 +136,33 @@ import { YesNoPipe } from './shared/pipes/yesNo.pipe';
     ResidentDetailCarePage,
     ResidentDetailNotebookPage,
     ResidentDetailReportsPage,
-    NewTaskPage,
-    NewWatchItemPage,
     QuickAddMenuPage,
     PrnResponsePage,
     WatchItemDetailPage,
     StaffTabsPage,
     StaffListPage,
-    StaffGroupsPage
+    StaffGroupsPage,
+
+    // Form Pages
+    NewFacilityPage,
+    NewResidentPage,
+    NewMedicationPage,
+    NewTaskPage,
+    NewWatchItemPage,
+    LoginPage
   ],
   providers: [
+    // AccountService,
+    // AuthService,
+    // EmployeeService,
+    // FacilityService,
+    // MedicationsService,
+    // NotificationService,
+    // ResidentsService,
+    // UserService,
+    
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    // Mock Services
     MockResidentsService,
     MockMedicationsService,
     MockNotificationService,

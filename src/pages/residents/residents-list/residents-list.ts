@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, MenuController, PopoverController, App } from 'ionic-angular';
+import { NavController, NavParams, MenuController, PopoverController, App, Platform } from 'ionic-angular';
+import { StatusBar } from 'ionic-native';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { Resident } from '../../../app/models/models';
 import { MockResidentsService } from '../../../app/core/residents-mock.service';
@@ -21,11 +22,18 @@ export class ResidentsListPage implements OnInit {
 
   constructor(
   private app: App,
+  public platform: Platform,
   public navCtrl: NavController, 
   public navParams: NavParams, 
   public menu: MenuController, 
   public popCtrl: PopoverController, 
-  private mockResidents: MockResidentsService) {}
+  private mockResidents: MockResidentsService) {
+
+    this.platform.ready().then(() => {
+      StatusBar.backgroundColorByHexString('#C62828');
+
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsListPage');

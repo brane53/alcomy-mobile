@@ -51,7 +51,7 @@
         <ion-img [src]="resident.profileUrl"></ion-img>
       </ion-avatar>
       <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
-      <ion-badge color="dashboard-accent" item-right>{{ resident.medications }}</ion-badge>
+      <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>
     </button>
   </ion-list>
 
@@ -62,7 +62,7 @@
     <div *ngFor="let resident of residents" >
       <ion-toolbar>
         <ion-title>
-          {{ resident.firstName }} {{ resident.lastName }}
+          {{ resident.firstName | ucfirst }} {{ resident.lastName | ucfirst }}
         </ion-title>
       </ion-toolbar>
 

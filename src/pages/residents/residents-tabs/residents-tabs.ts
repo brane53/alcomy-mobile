@@ -19,7 +19,9 @@ export class ResidentsTabsPage {
   tab1Root: any = ResidentsListPage;
   tab2Root: any = ResidentsGroupsPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsTabsPage');

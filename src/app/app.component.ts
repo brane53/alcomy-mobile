@@ -8,6 +8,7 @@ import * as moment from 'moment';
 import { ResidentsTabsPage } from '../pages/residents/residents-tabs/residents-tabs';
 import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
 import { MockNotificationService } from './core/notification-mock.service';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -15,7 +16,8 @@ import { MockNotificationService } from './core/notification-mock.service';
   templateUrl: 'app.component.html'
 })
 export class MyApp implements OnInit {
-  rootPage = DashboardTabsPage;
+  //rootPage = DashboardTabsPage;
+  rootPage = LoginPage;
   notificationButtons = 'all'
   isExpanded = false;
 

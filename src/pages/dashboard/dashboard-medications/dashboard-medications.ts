@@ -22,7 +22,6 @@ import { MockMedicationsService } from '../../../app/core/medications-mock.servi
 export class DashboardMedicationsPage {
   title: string = 'Medications';
   residents: Resident[];
-
   prnRecords: PrnRecord[];
   medTabButton: string = 'pass';
   currentPrnCardIndex: number = 0;

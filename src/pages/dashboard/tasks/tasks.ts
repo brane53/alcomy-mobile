@@ -41,7 +41,7 @@ export class TasksPage {
   public navCtrl: NavController, 
   public modal: ModalController) {
     this.platform.ready().then(()=>{
-      StatusBar.backgroundColorByHexString('#00838f');
+      StatusBar.backgroundColorByHexString('#0277BD');
 
     });
   }

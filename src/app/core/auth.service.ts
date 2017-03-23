@@ -30,6 +30,10 @@ export class AuthService {
     });
   }
 
+  signup(){
+    return this.auth.createUser()
+  }
+
   logout(): void {
     this.auth.logout();
   }

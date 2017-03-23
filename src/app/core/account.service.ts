@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, AngularFireAuth, FirebaseListObservable, FirebaseObjectObservable, FirebaseAuthState } from 'angularfire2';
-import { User } from '../models/models';
+import { User, Role } from '../models/models';
+import * as moment from 'moment';
 @Injectable()
 export class AccountService {
   id: string; // id of the current company account
@@ -15,28 +16,74 @@ export class AccountService {
   }
 
   // create a new company account
-  createAccount(user: User, company){
-    // user object that is to be created in firebase
-    let newUser: User = {
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
+  createAccount(user: User, account){
+
+
+    let accountInfo = {
+      companyName: account.companyName,
+      createdOn: moment().format()
+    }
+
+    let defaultRole: Role = {
+      name: 'Account Owner',
+      isCustom: false,
+      isGlobal: true,
+      createdOn: moment().format(),
+      createdBy: 'Alcomy',
       permissions: [
-        'READ',
-        'WRITE'
+        {
+          name: 'Users',
+          level: 'full'
+        },
+        {
+          name: 'Users',
+          level: 'full'
+        },
+        {
+          name: 'Users',
+          level: 'full'
+        },
+        {
+          name: 'Users',
+          level: 'full'
+        },
+        {
+          name: 'Users',
+          level: 'full'
+        }
       ]
     }
 
+    // create the user in firebase
     const promise = this.auth.createUser({email: user.email, password: user.password});
 
     promise
     .then((state: FirebaseAuthState) => {
-      let accountKey = this.af.database.list('/accounts').push(undefined).key;
-      let employeeKey = this.af.database.list(`/employees`).push(undefined).key;
+      // create the keys for account and employees
+      let accountKey = this.af.database.list(`/accounts`).push(undefined).key;
+      let employeeKey = this.af.database.list(`/employeePrimaryInfo`).push(undefined).key;
+      let roleKey = this.af.database.list(`/roles/${accountKey}`).push(undefined).key;
+
+      // user object that is to be created in firebase
+      let userInfo: User = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        roles: [
+          roleKey
+        ]
+      };
+
+      let dataToSave = {};
+
+      dataToSave[`/accounts/${accountKey}`] = accountInfo;
+      dataToSave[`/employeePrimaryInfo/${employeeKey}`] = userInfo;
+      dataToSave[`/roles/${accountKey}/${roleKey}`] = 
       
-      return this.af.database.list(`/users/${state.uid}`).push(newUser);
+      return this.af.database.list(`/users/${state.uid}`).push(userInfo);
     })
     .catch((err) => {
+      // Delete the user that was created
 
     })
   }

@@ -113,7 +113,7 @@ export class MedicationHistoryRecord {
 
 export class MedicationStatusHistory {
   status: string;
-  date: Date;
+  date: Date; 
   restartDate?: Date;
   changeDate?: Date;
 }
@@ -150,11 +150,7 @@ export class Employee extends Person {
 
 }
 
-export class Permission {
-  id?: string;
-  title?: string;
-  code?: string
-}
+
 
 export class User {
   id?: string;
@@ -163,6 +159,7 @@ export class User {
   email?: string;
   password?: string;
   profileUrl?: string;
+  roles?: string[];
   permissions?: Permission[] | string[];
   notifications?: Notification[];
   pushDevices?: Device[];
@@ -190,14 +187,37 @@ export class Index {
 }
 
 export class Facility {
-  legalName?: string = '';
-  displayName?: string = '';
+  legalName?: string;
+  displayName?: string;
+  status?: string; // whether the facility is active or not
   address?: Address;
-  licenseNumber?: string = '';
+  licenseNumber?: string;
   contacts?: Contact[]; // These are the official contacts for the facility
   users?: Array<any>;
 }
 
+export class Permission {
+  id?: string;
+  name?: string;
+  level?: string;
+}
+
+export class Role {
+  name?: string;
+  isCustom?: boolean;
+  isGlobal?: boolean;
+  createdOn?: string;
+  createdBy?: boolean;
+  facilityRestrictions?: string;
+  modules?: UIModule[];
+  permissions?: Permission[];
+}
+
+export class UIModule {
+  id?: string;
+  name?: string;
+  uiElements?: string[];
+}
 
 export class Task {
   id?: string;

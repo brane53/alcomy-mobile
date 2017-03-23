@@ -152,14 +152,14 @@ export const firebaseConfig = {
     LoginPage
   ],
   providers: [
-    // AccountService,
-    // AuthService,
-    // EmployeeService,
-    // FacilityService,
-    // MedicationsService,
-    // NotificationService,
-    // ResidentsService,
-    // UserService,
+    AccountService,
+    AuthService,
+    EmployeeService,
+    FacilityService,
+    MedicationsService,
+    NotificationService,
+    ResidentsService,
+    UserService,
     
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     // Mock Services

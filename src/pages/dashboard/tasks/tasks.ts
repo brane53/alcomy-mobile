@@ -4,7 +4,7 @@ import { NavController, Platform, ModalController, PopoverController, MenuContro
 import { Task } from "../../../app/models/models";
 import { NewTaskPage } from '../../shared/forms/new-task/new-task';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
-import { StatusBar } from 'ionic-native';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'page-tasks',
@@ -39,9 +39,10 @@ export class TasksPage {
   constructor(
   public platform: Platform, 
   public navCtrl: NavController, 
-  public modal: ModalController) {
+  public modal: ModalController,
+  private statusBar: StatusBar) {
     this.platform.ready().then(()=>{
-      StatusBar.backgroundColorByHexString('#0277BD');
+      statusBar.backgroundColorByHexString('#0277BD');
 
     });
   }

@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Platform, NavController, MenuController } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';
 import { Notification } from './models/models';
@@ -16,8 +17,8 @@ import { LoginPage } from '../pages/login/login';
   templateUrl: 'app.component.html'
 })
 export class MyApp implements OnInit {
-  //rootPage = DashboardTabsPage;
-  rootPage = LoginPage;
+  rootPage = DashboardTabsPage;
+  //rootPage = LoginPage;
   notificationButtons = 'all'
   isExpanded = false;
 
@@ -28,14 +29,16 @@ export class MyApp implements OnInit {
   @ViewChild('appContent') nav: NavController;
 
   constructor(
-    private platform: Platform, 
-    public menu: MenuController, 
-    private mockNotification: MockNotificationService) {
+  private platform: Platform, 
+  public menu: MenuController, 
+  private mockNotification: MockNotificationService,
+  private statusBar: StatusBar,
+  private splashScreen: SplashScreen) {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+      statusBar.styleDefault();
+      splashScreen.hide();
     });
   }
 

@@ -7,6 +7,10 @@ import { MyApp } from '../../../app/app.component';
 import { TasksPage } from './tasks';
 import { MomentModule } from 'angular2-moment';
 import { PlatformMock, MenuMock, NavMock, ModalMock, ConfigMock } from '../../../mocks/mocks';
+import { FormsModule } from '@angular/forms';
+import { CustomIconsModule } from 'ionic2-custom-icons';
+import { NgPipesModule } from 'ngx-pipes';
+import { StatusBar } from '@ionic-native/status-bar';
 
 let component: TasksPage;
 let fixture: ComponentFixture<TasksPage>;
@@ -16,8 +20,16 @@ let el = HTMLElement;
 
 describe('Component: TasksPage', () => {
   // async beforeEach
-  beforeEach( () => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        IonicModule.forRoot(TasksPage),
+        MomentModule,
+        FormsModule,
+        MomentModule,
+        CustomIconsModule,
+        NgPipesModule
+      ],
       declarations: [ 
         TasksPage 
       ],
@@ -26,25 +38,17 @@ describe('Component: TasksPage', () => {
         { provide: Platform, useClass: PlatformMock },
         { provide: Config, useClass: ConfigMock},
         { provide: NavController, useClass: NavMock },
-        { provide: ModalController, useClass: ModalMock}
-      ],
-      imports: [
-        IonicModule,
-        MomentModule
+        { provide: ModalController, useClass: ModalMock},
+        StatusBar
       ],
       schemas: [NO_ERRORS_SCHEMA]
     });
-    //.compileComponents(); // compile template and css
-
-    console.log('BRANE', TestBed);
-  });
+  }));
 
   
   beforeEach(() => {
     fixture = TestBed.createComponent(TasksPage);
     component = fixture.componentInstance;
-
-    console.log('FIXTURE: ');
   });
     
 

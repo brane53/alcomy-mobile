@@ -9,6 +9,8 @@ import { CustomIconsModule } from 'ionic2-custom-icons';
 import { FormsModule } from '@angular/forms';
 import { PlatformMock, MenuMock, ConfigMock } from '../mocks/mocks';
 import { MockNotificationService } from './core/notification-mock.service';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 let component: MyApp;
 let fixture: ComponentFixture<MyApp>;
@@ -16,34 +18,30 @@ let fixture: ComponentFixture<MyApp>;
 describe('Component: Root Component', () => {
 
   beforeEach(async(() => {
-    console.log('TestBed: ',TestBed);
     TestBed.configureTestingModule({
-
-      declarations: [
-        MyApp
-      ],
-
-      providers: [
-        App, Form, Keyboard, DomController, MenuController, NavController,
-        {provide: Platform, useClass: PlatformMock},
-        {provide: Config},
-        MockNotificationService
-      ],
-
       imports: [
-        IonicModule.forRoot(MyApp, {
-          iconMode: 'md'
-        }),
+        IonicModule.forRoot(MyApp),
         FormsModule,
         MomentModule,
         CustomIconsModule,
         NgPipesModule
 
       ],
+      declarations: [
+        MyApp
+      ],
+      providers: [
+        {provide: Config, useClass: ConfigMock},
+        MenuController,
+        NavController,
+        {provide: Platform, useClass: PlatformMock},
+        StatusBar,
+        SplashScreen,
+        MockNotificationService
+      ],
+
       schemas: [NO_ERRORS_SCHEMA]
 
-    }).compileComponents().then(()=>{
-      console.log('TestBed Fixture: ', TestBed.createComponent(MyApp));
     });
   }));
 
@@ -51,7 +49,6 @@ describe('Component: Root Component', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MyApp);
     component = fixture.componentInstance;
-    console.log('AppFixture', fixture);
   });
     
 
@@ -61,13 +58,11 @@ describe('Component: Root Component', () => {
   });
 
   it('is created', () => {
-    console.log('APP fixture: ', fixture);
     expect(fixture).toBeTruthy();
     expect(component).toBeTruthy();
-
   });
 
-  it('initialises with a root page of HomePage', () => {
+  it('initialises with a root page of DashboardTabsPage', () => {
     expect(component['rootPage']).toBe(DashboardTabsPage);
   });
 

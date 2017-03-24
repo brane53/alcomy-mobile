@@ -61,8 +61,7 @@
     // TSLINT
         "tslint.rulesDirectory": "./node_modules/codelyzer",
     // TYPESCRIPT
-        "typescript.tsdk": "node_modules/typescript/lib",
-        "typescript.check.workspaceVersion": false,
+        //"typescript.tsdk": "node_modules/typescript/lib",
     // VS ICONS
         "vsicons.dontShowNewVersionMessage": false,
         "vsicons.associations.files": [

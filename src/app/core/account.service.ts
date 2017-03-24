@@ -78,9 +78,9 @@ export class AccountService {
 
       dataToSave[`/accounts/${accountKey}`] = accountInfo;
       dataToSave[`/employeePrimaryInfo/${employeeKey}`] = userInfo;
-      dataToSave[`/roles/${accountKey}/${roleKey}`] = 
+      dataToSave[`/roles/${accountKey}/${roleKey}`] = defaultRole;
       
-      return this.af.database.list(`/users/${state.uid}`).push(userInfo);
+      //return this.af.database.list(`/users/${state.uid}`).push(userInfo);
     })
     .catch((err) => {
       // Delete the user that was created

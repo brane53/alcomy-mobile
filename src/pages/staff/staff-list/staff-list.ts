@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 import { Employee } from '../../../app/models/models';
 import { MockEmployeeService } from '../../../app/core/employee-mock.service';
-import { StatusBar } from 'ionic-native';
+import { StatusBar } from '@ionic-native/status-bar';
 
 /*
   Generated class for the StaffList page.
@@ -18,9 +18,14 @@ export class StaffListPage implements OnInit {
   title: string = 'Staff List';
   employees: Employee[];
 
-  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, private mockEmployees: MockEmployeeService) {
+  constructor(
+  public platform: Platform, 
+  public navCtrl: NavController, 
+  public navParams: NavParams, 
+  private mockEmployees: MockEmployeeService,
+  private statusBar: StatusBar) {
     this.platform.ready().then(() => {
-      StatusBar.backgroundColorByHexString('#FF8F00');
+      statusBar.backgroundColorByHexString('#FF8F00');
 
     });
   }

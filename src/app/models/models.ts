@@ -207,7 +207,7 @@ export class Role {
   isCustom?: boolean;
   isGlobal?: boolean;
   createdOn?: string;
-  createdBy?: boolean;
+  createdBy?: string;
   facilityRestrictions?: string;
   modules?: UIModule[];
   permissions?: Permission[];

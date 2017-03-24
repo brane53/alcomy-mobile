@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   signup(){
-    return this.auth.createUser()
+    //return this.auth.createUser()
   }
 
   logout(): void {

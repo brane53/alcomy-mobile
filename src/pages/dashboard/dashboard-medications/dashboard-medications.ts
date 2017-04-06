@@ -27,12 +27,12 @@ export class DashboardMedicationsPage {
   currentPrnCardIndex: number = 0;
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public popCtrl: PopoverController, 
-    public modal: ModalController, 
-    public menu: MenuController, 
-    private mockResidents: MockResidentsService, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public popCtrl: PopoverController,
+    public modal: ModalController,
+    public menu: MenuController,
+    private mockResidents: MockResidentsService,
     private mockMedications: MockMedicationsService) {
 
   }

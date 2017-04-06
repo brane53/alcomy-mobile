@@ -11,7 +11,8 @@
     "ionic2-custom-icons": "ionic2-custom-icons",
     "build:before": "ionic2-custom-icons",
     "serve:before": "ionic2-custom-icons",
-    "test": "karma start ./test-config/karma.conf.js"
+    "test": "karma start ./test-config/karma.conf.js",
+    "start": "ionic serve -l"
   },
   "config": {
     "ionic_copy": "./config/copy.config.js",

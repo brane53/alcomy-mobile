@@ -7,9 +7,9 @@ import { MomentModule } from 'angular2-moment';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgPipesModule } from 'ngx-pipes';
 
-import { MyApp } from './app.component';
+import { MyAppComponent } from './app.component';
 // Dashboard Pages
-import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';'../pages/dashboard/dashboard-medication-tabs/dashboard-medication-tabs';
+import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';
 import { DashboardMedicationsPage } from '../pages/dashboard/dashboard-medications/dashboard-medications';
 import { PassMedicationsPage } from '../pages/dashboard/pass-medications/pass-medications';
 import { DashboardWatchlistPage } from '../pages/dashboard/dashboard-watchlist/dashboard-watchlist';
@@ -43,25 +43,27 @@ import { ResidentDetailCarePage } from '../pages/residents/resident-detail/resid
 import { ResidentDetailNotebookPage } from '../pages/residents/resident-detail/resident-detail-notebook/resident-detail-notebook';
 import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/resident-detail-reports/resident-detail-reports';
 import { YesNoPipe } from './shared/pipes/yesNo.pipe';
-import { AccountService } from './core/account.service';
-import { AuthService } from './core/auth.service';
-import { EmployeeService } from './core/employee.service';
-import { FacilityService } from './core/facility.service';
-import { MedicationsService } from './core/medications.service';
-import { NotificationService } from './core/notification.service';
-import { ResidentsService } from './core/residents.service';
-import { UserService } from './core/user.service';
+// import { AccountService } from './core/account.service';
+// import { AuthService } from './core/auth.service';
+// import { EmployeeService } from './core/employee.service';
+// import { FacilityService } from './core/facility.service';
+// import { MedicationsService } from './core/medications.service';
+// import { NotificationService } from './core/notification.service';
+// import { ResidentsService } from './core/residents.service';
+// import { UserService } from './core/user.service';
 import { NewFacilityPage } from '../pages/shared/forms/new-facility/new-facility';
 import { NewResidentPage } from '../pages/shared/forms/new-resident/new-resident';
 import { NewMedicationPage } from '../pages/shared/forms/new-medication/new-medication';
 import { LoginPage } from '../pages/login/login';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDHd9xFhtxKsJaCrZUaj4DXFGDwXATft_o",
-  authDomain: "alcomydev1.firebaseapp.com",
-  databaseURL: "https://alcomydev1.firebaseio.com",
-  storageBucket: "alcomydev1.appspot.com",
-  messagingSenderId: "306173730422"
+  apiKey: 'AIzaSyDHd9xFhtxKsJaCrZUaj4DXFGDwXATft_o',
+  authDomain: 'alcomydev1.firebaseapp.com',
+  databaseURL: 'https://alcomydev1.firebaseio.com',
+  storageBucket: 'alcomydev1.appspot.com',
+  messagingSenderId: '306173730422'
 };
 
 
@@ -70,17 +72,16 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     ReactiveFormsModule,
-    IonicModule.forRoot(MyApp, {
+    IonicModule.forRoot(MyAppComponent, {
       iconMode: 'md'
     }),
     FlexLayoutModule,
     NgPipesModule,
     MomentModule,
     CustomIconsModule
-    
   ],
   declarations: [
-    MyApp,
+    MyAppComponent,
     // Pages
     DashboardTabsPage,
     DashboardMedicationsPage,
@@ -121,7 +122,7 @@ export const firebaseConfig = {
     YesNoPipe
   ],
   entryComponents: [
-    MyApp,
+    MyAppComponent,
     DashboardTabsPage,
     DashboardMedicationsPage,
     PassMedicationsPage,
@@ -152,15 +153,16 @@ export const firebaseConfig = {
     LoginPage
   ],
   providers: [
-    AccountService,
-    AuthService,
-    EmployeeService,
-    FacilityService,
-    MedicationsService,
-    NotificationService,
-    ResidentsService,
-    UserService,
-    
+    StatusBar,
+    SplashScreen,
+    // AccountService,
+    // AuthService,
+    // EmployeeService,
+    // FacilityService,
+    // MedicationsService,
+    // NotificationService,
+    // ResidentsService,
+    // UserService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     // Mock Services
     MockResidentsService,

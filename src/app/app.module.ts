@@ -1,4 +1,6 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -70,7 +72,9 @@ export const firebaseConfig = {
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
+    BrowserModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     IonicModule.forRoot(MyAppComponent, {
       iconMode: 'md'

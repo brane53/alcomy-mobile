@@ -101,5 +101,6 @@
         "tsimporter.filesToExclude": [
             "src/**/*.spec.ts"
         ],
-        "typescript.referencesCodeLens.enabled": true
-      }
+        "typescript.referencesCodeLens.enabled": true,
+        "vsicons.presets.angular": true
+    }

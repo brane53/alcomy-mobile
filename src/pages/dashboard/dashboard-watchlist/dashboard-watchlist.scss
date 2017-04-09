@@ -1,3 +1,47 @@
+@import '../../../theme/variables';
+
 page-dashboard-watchlist {
+  
+
+  .watch-item-card {
+    .title {
+      font-weight: 500;
+      color: $dark-text-87
+    }
+    ion-item {
+      border-bottom: 0.55px solid $dark-text-12;
+    }
+    ion-card-content {
+      padding-bottom: 0;
+
+      ion-row {
+        margin-top: 10px;
+      }
+      .notes {
+        padding-top: 10px;
+        color: $dark-text-54;
+      }
+      .user {
+        color: $dark-text-38;
+        font-size: 12px;
+      }
+      .time {
+        color: $dark-text-38;
+        font-size: 12px;
+        text-align: right;
+
+      }
+
+    }
+    ion-col {
+      justify-content: center;
+    }
+  }
+
+  .card-button {
+    button > div {
+      text-align: center;
+    }
+  }
 
 }

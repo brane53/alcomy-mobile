@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, MenuController } from 'ionic-angular';
+import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
+import { Resident } from '../../../app/models/models';
+import { WatchItemDetailPage } from '../watch-item-detail/watch-item-detail';
+import { MockResidentsService } from '../../../app/core/residents-mock.service';
 
 /*
   Generated class for the DashboardWatchlist page.
@@ -12,11 +16,26 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'dashboard-watchlist.html'
 })
 export class DashboardWatchlistPage {
+  title: string = 'Watchlist';
+  residents: Resident[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+  public navCtrl: NavController, 
+  public navParams: NavParams, 
+  public popCtrl: PopoverController, 
+  public menu: MenuController, 
+  private residentService: MockResidentsService) {
+
+    this.residents = residentService.residents;
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardWatchlistPage');
+  }
+
+  goToWatchItemDetail(){
+    this.navCtrl.push(WatchItemDetailPage);
   }
 
 }

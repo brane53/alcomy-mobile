@@ -5,16 +5,16 @@
     </button>
 
     <ion-title>
-      Medications
+      {{title}}
     </ion-title>
 
     <ion-buttons right>
       <!--Quick Add Button-->
-      <button ion-button icon-only (click)="presentQuickAdd($event)">
+      <button ion-button icon-only quickAdd>
         <ion-icon name="add"></ion-icon>
       </button>
       <!--Notifications Button-->
-      <button ion-button icon-only>
+      <button ion-button icon-only menuButtonToggle="notificationst">
         <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
       </button>
       <!--More Menu Button-->
@@ -45,10 +45,10 @@
 <ion-content [ngSwitch]="medTabButton">
 
   <!--PASS Page-->
-  <ion-list *ngSwitchDefault>
-    <button ion-item detail-none *ngFor="let resident of residents">
+  <ion-list *ngSwitchCase="'pass'">
+    <button ion-item detail-none *ngFor="let resident of residents" (click)="passMed(resident)">
       <ion-avatar item-left>
-        <ion-img src="../../../assets/avatars/{{resident.profileUrl}}"></ion-img>
+        <ion-img [src]="resident.profileUrl"></ion-img>
       </ion-avatar>
       <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
       <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>
@@ -58,21 +58,20 @@
   <!--PRN Page-->
 
   <!--PRN Card-->
-  <ion-card class="prn-card" *ngSwitchCase="'prn'">
-    <ion-grid>
-      <ion-row center>
-        <ion-col>
-          <h2>Tylonal</h2>
-          <p class="subheader"><i>acetaminophen</i></p>
-          <p class="label">Given by <i>Ilija Vrajich</i></p>
-          <p class="label">Today @ 9:00AM</p>
-        </ion-col>
-        <button ion-button small="true" (click)="presentPrnResponse()">
-          RESPONSE
-        </button>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+  <div *ngSwitchCase="'prn'">
+    <div *ngFor="let resident of residents" >
+      <ion-toolbar>
+        <ion-title>
+          {{ resident.firstName | ucfirst }} {{ resident.lastName | ucfirst }}
+        </ion-title>
+      </ion-toolbar>
+
+      <card-slider [prnRecords]="prnRecords">
+        
+      </card-slider>
+
+    </div>
+  </div>
 
   <!--Give PRN Medication Button-->
   <ion-fab bottom right *ngSwitchCase="'prn'" >
@@ -88,7 +87,7 @@
 
   <!--AUDIT Page-->
   <div *ngSwitchCase="'audit'">
-    You have no medictions on audit
+    You have no medictions to audit
   </div>
 
 </ion-content>

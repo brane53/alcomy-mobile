@@ -1,3 +1,9 @@
+@import '../../../theme/variables';
 page-dashboard-tabs {
-    
+  .residents-tabs {
+    custom-icon:before {
+      color: red;
+    }
+
+  }
 }

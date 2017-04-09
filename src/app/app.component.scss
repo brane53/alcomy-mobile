@@ -1,5 +1,6 @@
 // http://ionicframework.com/docs/v2/theming/
 @import "../theme/variables";
+@import "../theme/material-colors";
 
 // App Global Sass
 // --------------------------------------------------
@@ -15,10 +16,32 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+app-component {
+    .toolbar {
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    ion-menu#notifications {
+        .segment-button span {
+            position: absolute;
+            right: 5px;
+        }
+    }
 
-/*.list button {
-    border-bottom: 0.55px solid #c8c7cc;
-}*/
+    ion-label .notification-item-details {
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: justify;
+        text-transform: none;
+    }
+    ion-label .notification-item-title {
+        font-weight: 600;
+        font-size: 16px;
+        color: $dark-text-87
+    }
+
+}
 
 .alc-fg-color.alc-dashboard-primary {
     color: $dashboard-primary;
@@ -35,4 +58,42 @@
 .alc-fg-color.alc-messages-primary {
     color: $messages-primary;
 }
+
+ion-slides.card-slides {
+    height: initial;
+    .swiper-container, .swiper-slide, .swiper-wrapper, .swiper-slide, .swiper-pagination-progress .swiper-pagination-progressbar, .swiper-container-vertical > .swiper-pagination-progress,
+    .swiper-container-3d .swiper-slide-shadow-left,
+    .swiper-container-3d .swiper-slide-shadow-right,
+    .swiper-container-3d .swiper-slide-shadow-top,
+    .swiper-container-3d .swiper-slide-shadow-bottom,
+    .swiper-container-cube .swiper-slide, .swiper-container-cube .swiper-cube-shadow, .swiper-zoom-container, .swiper-scrollbar-drag, .swiper-lazy-preloader:after {
+        height: initial;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+.hidden-content ion-label {
+    text-transform: none;
+    font-size: 0.8em;
+    padding: 1em 0;
+    white-space: normal;
+    text-align: justify;
+}
+
+.indicator {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    
+    &.active {
+      background-color: $money;
+    }
+    &.inactive {
+      background-color: $mdc-grey-500;
+    }
+  }
 

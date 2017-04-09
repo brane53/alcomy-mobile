@@ -1,0 +1,12 @@
+@mixin tabColor($color){
+  .tabs {
+    .tab-button[aria-selected=true], .tab-button[aria-selected=true] .tab-button-icon {
+      color: $color;
+    }
+
+    &[tabsHighlight=true] .tab-highlight {
+      background-color: $color;
+    }
+
+  }
+}  

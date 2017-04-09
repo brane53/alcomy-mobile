@@ -10,12 +10,71 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Watchlist</ion-title>
+
+    <ion-title>
+      {{title}}
+    </ion-title>
+
+    <ion-buttons right>
+      <!--Quick Add Button-->
+      <button ion-button icon-only quickAdd>
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <!--Notifications Button-->
+      <button ion-button icon-only menuButtonToggle="notifications">
+        <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+      </button>
+      <!--More Menu Button-->
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+
+  <ion-card class="watch-item-card">
+    <ion-item>
+      <ion-avatar item-left>
+        <ion-img src="assets/avatars/blake.jpg"></ion-img>
+      </ion-avatar>
+      <h2 class="title">Skin Tear</h2>
+      <p>Blake Kenworthy</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p class="notes">
+        I went to get Blake from a nap and noticed this terrible skin tear on this right hand.
+      </p>
+      <ion-row>
+        <ion-col>
+          <p class="user">Ilija Vrajich</p>
+        </ion-col>
+        <ion-col></ion-col>
+        <ion-col>
+          <p class="time">40 min ago</p>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+    <ion-row class="card-button">
+      <ion-col></ion-col>
+
+      <button ion-button clear small>
+        <div>Resolve</div>
+      </button>
+      <button ion-button clear small (click)="goToWatchItemDetail()">
+        <div>Details</div>
+      </button>
+  
+
+
+    </ion-row>
+
+  </ion-card>
 
 </ion-content>

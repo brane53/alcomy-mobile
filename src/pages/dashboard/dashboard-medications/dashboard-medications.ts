@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, PopoverController, ModalController } from 'ionic-angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import * as moment from 'moment';
+import { NavController, NavParams, PopoverController, ModalController, MenuController, Slides } from 'ionic-angular';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashboard-medication-tabs';
-import { Resident } from '../../../app/models/models';
+import { Resident, PrnRecord } from '../../../app/models/models';
 import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
+import { PassMedicationsPage } from '../pass-medications/pass-medications';
+import { MockResidentsService } from '../../../app/core/residents-mock.service';
+import { MockMedicationsService } from '../../../app/core/medications-mock.service';
 
 /*
   Generated class for the DashboardMedicationsPage page.
@@ -16,74 +20,44 @@ import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
   templateUrl: 'dashboard-medications.html'
 })
 export class DashboardMedicationsPage {
-
-  residents: Resident[] = [
-    {
-      id: '1',
-      firstName: 'Brane',
-      lastName: 'Vrajich',
-      middleName: '',
-      profileUrl: 'brane.jpg',
-      medications: [
-        {
-          name: 'Tylonal'
-        },
-        {
-          name: 'Tylonal'
-        },
-        {
-          name: 'Tylonal'
-        },
-      ]
-    },
-    {
-      id: '2',
-      firstName: 'Justin',
-      lastName: 'Kunz',
-      middleName: 'Don',
-      profileUrl: 'justin.jpg',
-      medications: [
-        {
-          name: 'Tylonal'
-        },
-        {
-          name: 'Tylonal'
-        }
-      ]
-    },
-    {
-      id: '3',
-      firstName: 'Josh',
-      lastName: 'Wood',
-      middleName: 'Thomas',
-      profileUrl: 'josh.jpg',
-      medications: [
-        {
-          name: 'Tylonal'
-        }
-      ]
-    }
-
-  ];
-
+  title: string = 'Medications';
+  residents: Resident[];
+  prnRecords: PrnRecord[];
   medTabButton: string = 'pass';
+  currentPrnCardIndex: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popCtrl: PopoverController, public modal: ModalController) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public popCtrl: PopoverController,
+    public modal: ModalController,
+    public menu: MenuController,
+    private mockResidents: MockResidentsService,
+    private mockMedications: MockMedicationsService) {
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardMedicationsPagePage');
+    
   }
 
-  presentQuickAdd(event) {
-    let quickAddMenu = this.popCtrl.create(QuickAddMenuPage);
-    quickAddMenu.present({
-      ev: event
-    });
+  ngOnInit(){
+    this.residents = this.mockResidents.residents;
+    this.prnRecords = this.mockMedications.prnRecords;
   }
 
   presentPrnResponse(){
     let modal = this.modal.create(PrnResponsePage);
     modal.present();
   }
+
+  passMed(resident: Resident) {
+    this.navCtrl.push(PassMedicationsPage, {
+      resident: resident
+    });
+  }
+
+  
 
 }

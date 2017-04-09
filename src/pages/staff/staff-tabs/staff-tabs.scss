@@ -1,0 +1,8 @@
+@import '../../../theme/variables';
+@import '../../../theme/mixins';
+
+page-staff-tabs {
+    
+  @include tabColor($staff-primary);
+  
+}

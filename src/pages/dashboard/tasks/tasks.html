@@ -4,33 +4,37 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title>Tasks</ion-title>
+    <ion-title>{{title}}</ion-title>
 
     <ion-buttons right>
       <!--Quick Add Button-->
-      <button ion-button icon-only (click)="presentQuickAdd($event)">
+      <button ion-button icon-only quickAdd>
         <ion-icon name="add"></ion-icon>
       </button>
+
       <!--Notifications Button-->
-      <button ion-button icon-only>
-        <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
-      </button>
-      <!--More Menu Button-->
+    <button ion-button icon-only menuButtonToggle="notifications" right>
+      <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+    </button>
+
+    <!--More Menu Button-->
       <button ion-button icon-only>
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
+    
+
   </ion-navbar>
 
   <!--Quick Add Task input and button-->
-  <ion-toolbar>
+  <ion-toolbar color="white">
 
     <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addTask(newTask.value); newTask.value=null">
     </ion-input>
 
     <ion-buttons right>
       <button ion-button icon-only item-right clear="true" (click)="addTask(newTask.value); newTask.value=null">
-        <ion-icon color="dashboard-primary" name="add-circle"></ion-icon>
+        <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-buttons>
 

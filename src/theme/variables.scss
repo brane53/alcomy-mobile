@@ -24,6 +24,18 @@ $font-path: "../assets/fonts";
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+$light-text: $mdc-text-dk-54;
+
+$dark-text-87: $mdc-text-dk-87;
+$dark-text-54: $mdc-text-dk-54;
+$dark-text-38: $mdc-text-dk-38;
+$dark-text-12: $mdc-text-dk-12;
+
+$light-text-100: $mdc-text-lt-100;
+$light-text-70: $mdc-text-lt-70;
+$light-text-50: $mdc-text-lt-50;
+$light-text-12: $mdc-text-lt-12;
+
 
 $dashboard-primary: $mdc-light-blue-500;
 $dashboard-accent: $mdc-pink-a200;
@@ -42,18 +54,23 @@ $messages-accent: $mdc-light-blue-a400;
 
 $alcomy-toolbar: $mdc-grey-900;
 
+$money: $mdc-green-500;
+
 $colors: (
   primary:    $dashboard-primary,
-  secondary:  #FFC400,
+  money:      $money,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #263238,
+  white: white,
+
+
 
   dashboard-primary: $dashboard-primary,
   dashboard-accent: $dashboard-accent,
   
   residents-primary: $residents-primary,
-  resident-accent: $resident-accent,
+  residents-accent: $resident-accent,
 
   staff-primary: $staff-primary,
   staff-accent: $staff-accent,
@@ -61,7 +78,18 @@ $colors: (
   company-primary: $company-primary,
   company-accent: $company-accent,
 
-  alcomy-toolbar: $alcomy-toolbar
+  alcomy-toolbar: $alcomy-toolbar,
+
+
+  dark-text-87: $dark-text-87,
+  dark-text-54: $dark-text-54,
+  dark-text-38: $dark-text-38,
+  dark-text-12: $dark-text-12,
+
+  light-text-100: $light-text-100,
+  light-text-70: $light-text-70,
+  light-text-50: $light-text-50,
+  light-text-12: $light-text-12
   
 );
 
@@ -73,6 +101,8 @@ $colors: (
 $tabs-ios-tab-icon-color: #616161;
 $tabs-ios-tab-text-color: #616161;
 $tabs-ios-tab-opacity: .5;
+
+$card-ios-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 
 // App Material Design Variables
 // --------------------------------------------------

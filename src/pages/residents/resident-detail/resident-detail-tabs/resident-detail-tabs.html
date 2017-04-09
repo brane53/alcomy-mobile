@@ -1,0 +1,37 @@
+<ion-tabs class="residents-tabs" tabsHighlight="true" tabsPlacement="bottom">
+  <ion-tab [root]="tab1Root" 
+  tabTitle="Facesheet"
+  [rootParams]="resident" 
+  customIconSet="mdIcons" 
+  customIconName="face">
+  </ion-tab>
+
+  <ion-tab [root]="tab2Root" 
+  tabTitle="Meds" 
+  [rootParams]="resident"
+  customIconSet="mdIcons" 
+  customIconName="local_pharmacy">
+  </ion-tab>
+
+  <ion-tab [root]="tab3Root" 
+  tabTitle="Care" 
+  [rootParams]="resident"
+  customIconSet="mdIcons" 
+  customIconName="healing">
+  </ion-tab>
+
+  <ion-tab [root]="tab4Root" 
+  tabTitle="Notebook" 
+  [rootParams]="resident"
+  customIconSet="mdIcons" 
+  customIconName="account_balance_wallet">
+  </ion-tab>
+
+  <ion-tab [root]="tab5Root" 
+  tabTitle="Reports" 
+  [rootParams]="resident"
+  customIconSet="mdIcons" 
+  customIconName="pie_chart">
+  </ion-tab>
+
+</ion-tabs>

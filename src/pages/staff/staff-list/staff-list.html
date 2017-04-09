@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="staff-primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{title}}</ion-title>
+
+    <ion-buttons right>
+      <!--Quick Add Button-->
+      <button ion-button icon-only quickAdd>
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+      <!--Notifications Button-->
+      <button ion-button icon-only menuButtonToggle="notifications" right>
+      <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+    </button>
+
+      <!--More Menu Button-->
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-select>
+      <ion-option value="nes" selected="true">Current</ion-option>
+      <ion-option value="n64">Past Employees</ion-option>
+    </ion-select>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let employee of employees">
+      <ion-avatar item-left>
+        <img [src]="employee.profileUrl">
+      </ion-avatar>
+      <ion-label>
+        {{ employee.firstName }} {{ employee.lastName }}
+      </ion-label>
+
+      <span class="indicator active" item-right></span>
+    </button>
+  </ion-list>
+
+
+  <!--Create Employee Button-->
+  <ion-fab bottom right>
+    <button ion-fab color="staff-accent">
+        <ion-icon name="add"></ion-icon>
+      </button>
+  </ion-fab>
+</ion-content>

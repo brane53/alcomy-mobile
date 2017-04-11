@@ -1,7 +1,7 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule, Platform, MenuController, App, Form, Keyboard, DomController, NavController, Config } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { MyAppComponent } from './app.component';
 import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';
 import { NgPipesModule } from 'ngx-pipes';
 import { MomentModule } from 'angular2-moment';
@@ -12,15 +12,16 @@ import { MockNotificationService } from './core/notification-mock.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-let component: MyApp;
-let fixture: ComponentFixture<MyApp>;
+
+let component: MyAppComponent;
+let fixture: ComponentFixture<MyAppComponent>;
 
 describe('Component: Root Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyAppComponent),
         FormsModule,
         MomentModule,
         CustomIconsModule,
@@ -28,7 +29,7 @@ describe('Component: Root Component', () => {
 
       ],
       declarations: [
-        MyApp
+        MyAppComponent
       ],
       providers: [
         {provide: Config, useClass: ConfigMock},
@@ -45,12 +46,12 @@ describe('Component: Root Component', () => {
     });
   }));
 
-  
+
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyApp);
+    fixture = TestBed.createComponent(MyAppComponent);
     component = fixture.componentInstance;
   });
-    
+
 
   afterEach(() => {
     fixture.destroy();

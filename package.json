@@ -1,5 +1,6 @@
 {
   "name": "alcomy-mobile",
+  "version": "0.1.0",
   "author": "Brane Vrajich",
   "homepage": "",
   "private": true,
@@ -50,8 +51,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.3.0",
-    "@ionic/cli-build-ionic-angular": "0.0.3",
-    "@ionic/cli-plugin-cordova": "0.0.9",
+    "@ionic/cli-build-ionic-angular": "0.0.4",
+    "@ionic/cli-plugin-cordova": "0.0.10",
     "@types/jasmine": "^2.5.46",
     "@types/node": "^7.0.8",
     "angular2-template-loader": "^0.6.2",

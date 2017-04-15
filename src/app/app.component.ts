@@ -9,6 +9,7 @@ import { ResidentsTabsPage } from '../pages/residents/residents-tabs/residents-t
 import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
 import { MockNotificationService } from './core/notification-mock.service';
 // import { LoginPage } from '../pages/login/login';
+import { NewResidentPage } from '../pages/shared/forms/new-resident/new-resident';
 
 
 @Component({
@@ -16,8 +17,9 @@ import { MockNotificationService } from './core/notification-mock.service';
   templateUrl: 'app.component.html'
 })
 export class MyAppComponent implements OnInit {
-  rootPage = DashboardTabsPage;
+   rootPage = DashboardTabsPage;
   // rootPage = LoginPage;
+  //rootPage = NewResidentPage;
   notificationButtons = 'all';
   isExpanded = false;
 

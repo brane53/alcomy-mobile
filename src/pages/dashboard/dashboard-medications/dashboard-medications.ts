@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as moment from 'moment';
 import { NavController, NavParams, PopoverController, ModalController, MenuController, Slides } from 'ionic-angular';
-import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashboard-medication-tabs';
 import { Resident, PrnRecord } from '../../../app/models/models';
 import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
@@ -9,17 +8,11 @@ import { PassMedicationsPage } from '../pass-medications/pass-medications';
 import { MockResidentsService } from '../../../app/core/residents-mock.service';
 import { MockMedicationsService } from '../../../app/core/medications-mock.service';
 
-/*
-  Generated class for the DashboardMedicationsPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-dashboard-medications',
   templateUrl: 'dashboard-medications.html'
 })
-export class DashboardMedicationsPage {
+export class DashboardMedicationsPage implements OnInit  {
   title: string = 'Medications';
   residents: Resident[];
   prnRecords: PrnRecord[];
@@ -38,16 +31,15 @@ export class DashboardMedicationsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardMedicationsPagePage');
-    
+    console.log('ionViewDidLoad DashboardMedicationsPage');
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.residents = this.mockResidents.residents;
     this.prnRecords = this.mockMedications.prnRecords;
   }
 
-  presentPrnResponse(){
+  presentPrnResponse() {
     let modal = this.modal.create(PrnResponsePage);
     modal.present();
   }
@@ -58,6 +50,6 @@ export class DashboardMedicationsPage {
     });
   }
 
-  
+
 
 }

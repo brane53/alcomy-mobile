@@ -1,18 +1,62 @@
-<!--
-  Generated template for the NewResident page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>new-resident</ion-title>
+    <ion-title>New Resident</ion-title>
+    <ion-buttons right>
+      <!--Close Button-->
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <form [formGroup]="newResidentForm" novalidate>
+
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+      <div>
+        <span *ngIf="newResidentForm.get('firstName').status === INVALID">Must Enter Your Name</span>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Middle Name</ion-label>
+      <ion-input type="text" formControlName="middleName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row nowrap>
+        <ion-item>
+          <ion-label floating>Gender</ion-label>
+          <ion-select formControlName="gender">
+            <ion-option *ngFor="let gender of genders" multiple="true" [value]="gender">{{gender | ucfirst}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Birth Date</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" formControlName="birthDate"></ion-datetime>
+        </ion-item>
+      </ion-row>
+
+      <!--Form Buttons-->
+      <ion-row class="form-buttons" nowrap justify-content-center>
+        <button ion-button block color="primary">Save</button>
+        <button ion-button block color="primary" clear (click)="close()">Cancel</button>
+      </ion-row>
+
+    </ion-grid>
+
+  </form>
 
 </ion-content>

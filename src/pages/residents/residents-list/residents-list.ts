@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, MenuController, PopoverController, App, Platform } from 'ionic-angular';
+import { NavController, NavParams, MenuController, PopoverController, App, Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { Resident } from '../../../app/models/models';
 import { MockResidentsService } from '../../../app/core/residents-mock.service';
 import { ResidentDetailTabsPage } from '../resident-detail/resident-detail-tabs/resident-detail-tabs';
+import { NewResidentPage } from '../../shared/forms/new-resident/new-resident';
 
 /*
   Generated class for the ResidentsList page.
@@ -23,10 +24,11 @@ export class ResidentsListPage implements OnInit {
   constructor(
   private app: App,
   public platform: Platform,
-  public navCtrl: NavController, 
-  public navParams: NavParams, 
-  public menu: MenuController, 
-  public popCtrl: PopoverController, 
+  public navCtrl: NavController,
+  public navParams: NavParams,
+  public menu: MenuController,
+  private modal: ModalController,
+  public popCtrl: PopoverController,
   private mockResidents: MockResidentsService,
   private statusBar: StatusBar) {
 
@@ -44,12 +46,20 @@ export class ResidentsListPage implements OnInit {
     this.residents = this.mockResidents.residents;
   }
 
-  goToDetails(resident: Resident){
+  goToDetails(resident: Resident) {
     let rootNav = this.app.getRootNav();
-    let currentNav = this.app.getActiveNav()
+    let currentNav = this.app.getActiveNav();
     rootNav.push(ResidentDetailTabsPage, {
       resident: resident
     });
+  }
+
+  openNewResidentModal() {
+    let newResidentModal = this.modal.create(NewResidentPage);
+    newResidentModal.onDidDismiss(resident => {
+      console.log(resident);
+    });
+    newResidentModal.present();
   }
 
 }

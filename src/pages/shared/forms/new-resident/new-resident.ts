@@ -1,22 +1,42 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-/*
-  Generated class for the NewResident page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-new-resident',
   templateUrl: 'new-resident.html'
 })
-export class NewResidentPage {
+export class NewResidentPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  newResidentForm: FormGroup;
+  genders: string[];
+
+  constructor(private viewCtrl: ViewController, public navParams: NavParams, private fb: FormBuilder) {
+
+    this.genders = ['male', 'female'];
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewResidentPage');
+  }
+
+  ngOnInit() {
+    this.createForm();
+  }
+
+  createForm() {
+    this.newResidentForm = this.fb.group({
+      firstName: ['', Validators.required],
+      middleName: [''],
+      lastName: ['', Validators.required],
+      gender: [null, Validators.required],
+      birthDate: [null]
+    });
+  }
+
+  close() {
+    this.viewCtrl.dismiss();
   }
 
 }

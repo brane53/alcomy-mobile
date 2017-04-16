@@ -54,10 +54,14 @@ export class ResidentsListPage implements OnInit {
     });
   }
 
-  openNewResidentModal() {
+  openNewResidentModal(resident) {
+    let data;
+
     let newResidentModal = this.modal.create(NewResidentPage);
     newResidentModal.onDidDismiss(resident => {
-      console.log(resident);
+      if (resident) {
+        console.log(resident);
+      }
     });
     newResidentModal.present();
   }

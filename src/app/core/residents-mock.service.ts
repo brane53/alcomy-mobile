@@ -252,4 +252,8 @@ export class MockResidentsService {
 
   ];
   constructor() { }
+
+  createResident(resident: Resident) {
+    
+  }
 }

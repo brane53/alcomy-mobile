@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>New Resident</ion-title>
+    <ion-title>{{title}}</ion-title>
     <ion-buttons right>
       <!--Close Button-->
       <button ion-button icon-only (click)="close()">
@@ -16,7 +16,7 @@
 <ion-content padding>
 
   <form [formGroup]="newResidentForm" novalidate>
-
+    <!--First Name Row-->
     <ion-item>
       <ion-label floating>First Name</ion-label>
       <ion-input type="text" formControlName="firstName"></ion-input>
@@ -24,23 +24,24 @@
         <span *ngIf="newResidentForm.get('firstName').status === INVALID">Must Enter Your Name</span>
       </div>
     </ion-item>
-
+    <!--Middle Name Row-->
     <ion-item>
       <ion-label floating>Middle Name</ion-label>
       <ion-input type="text" formControlName="middleName"></ion-input>
     </ion-item>
-
+    <!--Last Name Row-->
     <ion-item>
       <ion-label floating>Last Name</ion-label>
       <ion-input type="text" formControlName="lastName"></ion-input>
     </ion-item>
 
+    <!--Gender and Birth Date Row-->
     <ion-grid>
       <ion-row nowrap>
         <ion-item>
           <ion-label floating>Gender</ion-label>
           <ion-select formControlName="gender">
-            <ion-option *ngFor="let gender of genders" multiple="true" [value]="gender">{{gender | ucfirst}}</ion-option>
+            <ion-option *ngFor="let gender of genders" [value]="gender">{{gender | ucfirst}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
@@ -49,14 +50,48 @@
         </ion-item>
       </ion-row>
 
-      <!--Form Buttons-->
-      <ion-row class="form-buttons" nowrap justify-content-center>
-        <button ion-button block color="primary">Save</button>
-        <button ion-button block color="primary" clear (click)="close()">Cancel</button>
-      </ion-row>
+      <!--Social Security Number Row-->
+      <ion-item>
+        <ion-label floating>Social Security Number</ion-label>
+        <ion-input type="text" formControlName="ssn"></ion-input>
+      </ion-item>
+
+      <!--Religion Row-->
+      <ion-item>
+        <ion-label floating>Religion</ion-label>
+        <ion-input type="text" formControlName="religion"></ion-input>
+      </ion-item>
+
+      <!--Is Ambulatory Row-->
+      <ion-item>
+        <ion-label>Is Ambulatory?</ion-label>
+        <ion-select formControlName="isAmbulatory">
+          <ion-option value=true>Yes</ion-option>
+          <ion-option value=false>No</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!--Is Verbal Row-->
+      <ion-item>
+        <ion-label>Is Verbal?</ion-label>
+        <ion-select formControlName="isVerbal">
+          <ion-option value=true>Yes</ion-option>
+          <ion-option value=false>No</ion-option>
+        </ion-select>
+      </ion-item>
 
     </ion-grid>
 
   </form>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <!--Form Buttons-->
+    <ion-buttons right>
+      <button ion-button color="primary" (click)="submit()">Save</button>
+      <button ion-button color="dark-text-54" (click)="close()">Cancel</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

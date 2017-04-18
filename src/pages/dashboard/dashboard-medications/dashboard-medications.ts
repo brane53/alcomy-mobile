@@ -25,7 +25,7 @@ export class DashboardMedicationsPage implements OnInit  {
     public popCtrl: PopoverController,
     public modal: ModalController,
     public menu: MenuController,
-    private mockResidents: MockResidentsService,
+    private residentsService: MockResidentsService,
     private mockMedications: MockMedicationsService) {
 
   }
@@ -35,7 +35,9 @@ export class DashboardMedicationsPage implements OnInit  {
   }
 
   ngOnInit() {
-    this.residents = this.mockResidents.residents;
+    this.residentsService.residents$.subscribe(residents => {
+      this.residents = residents;
+    });
     this.prnRecords = this.mockMedications.prnRecords;
   }
 

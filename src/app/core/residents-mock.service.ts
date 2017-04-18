@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Resident } from '../models/models';
 import * as moment from 'moment';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class MockResidentsService {
 
-  residents: Resident[] = [
+  private mockResidents: Resident[] = [
     {
       id: '1',
       firstName: 'blake',
@@ -251,9 +252,13 @@ export class MockResidentsService {
     }
 
   ];
+
+  // Behavior Subject of type resident array whose starting value is mockResidents
+  residents$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(this.mockResidents);
   constructor() { }
 
   createResident(resident: Resident) {
-    
+    this.mockResidents.push(resident);
+    this.residents$.next(this.mockResidents);
   }
 }

@@ -29,7 +29,7 @@ export class ResidentsListPage implements OnInit {
   public menu: MenuController,
   private modal: ModalController,
   public popCtrl: PopoverController,
-  private mockResidents: MockResidentsService,
+  private residentsService: MockResidentsService,
   private statusBar: StatusBar) {
 
     this.platform.ready().then(() => {
@@ -43,7 +43,9 @@ export class ResidentsListPage implements OnInit {
   }
 
   ngOnInit(){
-    this.residents = this.mockResidents.residents;
+    this.residentsService.residents$.subscribe(residents => {
+      this.residents = residents;
+    });
   }
 
   goToDetails(resident: Resident) {
@@ -61,6 +63,7 @@ export class ResidentsListPage implements OnInit {
     newResidentModal.onDidDismiss(resident => {
       if (resident) {
         console.log(resident);
+        this.residentsService.createResident(resident);
       }
     });
     newResidentModal.present();

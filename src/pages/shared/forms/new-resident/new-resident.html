@@ -20,23 +20,24 @@
     <ion-item>
       <ion-label floating>First Name</ion-label>
       <ion-input type="text" formControlName="firstName"></ion-input>
-      <div>
-        <span *ngIf="newResidentForm.get('firstName').status === INVALID">Must Enter Your Name</span>
-      </div>
     </ion-item>
+    <p class="form-error-message" ngxErrors="firstName" ngxError="required" when="touched">First name required</p>
+
     <!--Middle Name Row-->
     <ion-item>
       <ion-label floating>Middle Name</ion-label>
       <ion-input type="text" formControlName="middleName"></ion-input>
     </ion-item>
+
     <!--Last Name Row-->
     <ion-item>
       <ion-label floating>Last Name</ion-label>
       <ion-input type="text" formControlName="lastName"></ion-input>
     </ion-item>
+    <p class="form-error-message" ngxErrors="lastName" ngxError="required" when="touched">Last name required</p>
 
-    <!--Gender and Birth Date Row-->
     <ion-grid>
+      <!--Gender and Birth Date Row-->
       <ion-row nowrap>
         <ion-item>
           <ion-label floating>Gender</ion-label>
@@ -49,39 +50,44 @@
           <ion-datetime displayFormat="MM/DD/YYYY" formControlName="birthDate"></ion-datetime>
         </ion-item>
       </ion-row>
-
-      <!--Social Security Number Row-->
-      <ion-item>
-        <ion-label floating>Social Security Number</ion-label>
-        <ion-input type="text" formControlName="ssn"></ion-input>
-      </ion-item>
-
-      <!--Religion Row-->
-      <ion-item>
-        <ion-label floating>Religion</ion-label>
-        <ion-input type="text" formControlName="religion"></ion-input>
-      </ion-item>
-
-      <!--Is Ambulatory Row-->
-      <ion-item>
-        <ion-label>Is Ambulatory?</ion-label>
-        <ion-select formControlName="isAmbulatory">
-          <ion-option value=true>Yes</ion-option>
-          <ion-option value=false>No</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <!--Is Verbal Row-->
-      <ion-item>
-        <ion-label>Is Verbal?</ion-label>
-        <ion-select formControlName="isVerbal">
-          <ion-option value=true>Yes</ion-option>
-          <ion-option value=false>No</ion-option>
-        </ion-select>
-      </ion-item>
-
+      <!--Error Messages-->
+      <ion-row>
+        <div ngxErrors="gender">
+          <p class="form-error-message" ngxError="required" when="touched">Gender required</p>
+        </div>
+        <div></div>
+      </ion-row>
     </ion-grid>
 
+    <!--Social Security Number Row-->
+    <ion-item>
+      <ion-label floating>Social Security Number</ion-label>
+      <ion-input type="text" formControlName="ssn"></ion-input>
+    </ion-item>
+
+    <!--Religion Row-->
+    <ion-item>
+      <ion-label floating>Religion</ion-label>
+      <ion-input type="text" formControlName="religion"></ion-input>
+    </ion-item>
+
+    <!--Is Ambulatory Row-->
+    <ion-item>
+      <ion-label>Is Ambulatory?</ion-label>
+      <ion-select formControlName="isAmbulatory">
+        <ion-option value=true>Yes</ion-option>
+        <ion-option value=false>No</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!--Is Verbal Row-->
+    <ion-item>
+      <ion-label>Is Verbal?</ion-label>
+      <ion-select formControlName="isVerbal">
+        <ion-option value=true>Yes</ion-option>
+        <ion-option value=false>No</ion-option>
+      </ion-select>
+    </ion-item>
   </form>
 
 </ion-content>

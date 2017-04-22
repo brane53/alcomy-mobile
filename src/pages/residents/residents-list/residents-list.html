@@ -13,16 +13,16 @@
       </button>
 
       <!--Notifications Button-->
-    <button ion-button icon-only menuButtonToggle="notifications" right>
+      <button ion-button icon-only menuButtonToggle="notifications" right>
       <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
     </button>
 
-    <!--More Menu Button-->
+      <!--More Menu Button-->
       <button ion-button icon-only>
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
-    
+
 
   </ion-navbar>
 
@@ -33,9 +33,14 @@
   <!--Resident LIst-->
   <ion-list>
     <button ion-item *ngFor="let resident of residents" (click)="goToDetails(resident)">
-      <ion-avatar item-left>
+      <ion-avatar *ngIf="resident.profileUrl" item-left>
         <img [src]="resident.profileUrl">
       </ion-avatar>
+      <ion-avatar *ngIf="!resident.profileUrl" item-left>
+        <img *ngIf="resident.gender === 'male'" src="assets/avatars/avatar-5.svg">
+        <img *ngIf="resident.gender === 'female'" src="assets/avatars/avatar-9.svg">
+      </ion-avatar>
+      
       <ion-label>
         {{ resident.firstName | ucfirst }} {{ resident.lastName | ucfirst }}
       </ion-label>

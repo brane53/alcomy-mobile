@@ -8,6 +8,7 @@ import { CustomIconsModule } from 'ionic2-custom-icons';
 import { MomentModule } from 'angular2-moment';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgPipesModule } from 'ngx-pipes';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 import { MyAppComponent } from './app.component';
 // Dashboard Pages
@@ -81,6 +82,7 @@ export const firebaseConfig = {
     }),
     FlexLayoutModule,
     NgPipesModule,
+    NgxErrorsModule,
     MomentModule,
     CustomIconsModule
   ],

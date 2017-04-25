@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, MenuController, PopoverController, App, Platform, ModalController } from 'ionic-angular';
+import {
+  NavController,
+  NavParams, MenuController,
+  PopoverController,
+  App,
+  Platform,
+  ModalController,
+  ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { Resident } from '../../../app/models/models';
 import { MockResidentsService } from '../../../app/core/residents-mock.service';
 import { ResidentDetailTabsPage } from '../resident-detail/resident-detail-tabs/resident-detail-tabs';
@@ -27,6 +33,7 @@ export class ResidentsListPage implements OnInit {
   public navCtrl: NavController,
   public navParams: NavParams,
   public menu: MenuController,
+  private toast: ToastController,
   private modal: ModalController,
   public popCtrl: PopoverController,
   private residentsService: MockResidentsService,
@@ -42,7 +49,7 @@ export class ResidentsListPage implements OnInit {
     console.log('ionViewDidLoad ResidentsListPage');
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.residentsService.residents$.subscribe(residents => {
       this.residents = residents;
     });
@@ -60,10 +67,23 @@ export class ResidentsListPage implements OnInit {
     let data;
 
     let newResidentModal = this.modal.create(NewResidentPage);
+
     newResidentModal.onDidDismiss(resident => {
       if (resident) {
         console.log(resident);
-        this.residentsService.createResident(resident);
+        this.residentsService.createResident(resident)
+        .then((promise) => {
+          console.log('Submission successful')
+          let toast = this.toast.create({
+            message: 'Resident created successfully',
+            duration: 3000,
+            position: 'top',
+            cssClass: 'toast-success'
+          });
+          
+          toast.present();
+          
+        });
       }
     });
     newResidentModal.present();

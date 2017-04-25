@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Resident } from '../../../../app/models/models';
 
 @Component({
@@ -14,7 +14,7 @@ export class NewResidentPage implements OnInit {
   resident: Resident;
 
   // Constructor
-  constructor(private viewCtrl: ViewController, public navParams: NavParams, private fb: FormBuilder) {
+  constructor(private viewCtrl: ViewController, public navParams: NavParams, private fb: FormBuilder, private toast: ToastController) {
 
     this.genders = ['male', 'female'];
 
@@ -55,7 +55,28 @@ export class NewResidentPage implements OnInit {
   }
 
   submit() {
+
+    console.log(this.newResidentForm.errors);
+    let areErrors = false;
+    
     // submit implementation
+    if (areErrors) {
+      for (var control in this.newResidentForm.controls) {
+        
+        if (this.newResidentForm.controls.hasOwnProperty(control)) {
+          this.newResidentForm.get(control).markAsTouched({ onlySelf: false });
+        }
+      }
+
+      let toast = this.toast.create({
+        message: 'Required fields not valid',
+        duration: 3000,
+        position: 'top',
+        cssClass: 'toast-error'
+      });
+      toast.present();
+      return;
+    }
     this.viewCtrl.dismiss(this.newResidentForm.value);
   }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resident } from '../models/models';
 import * as moment from 'moment';
-import { BehaviorSubject } from 'rxjs';
+import { Observable, Observer, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class MockResidentsService {
@@ -253,12 +253,27 @@ export class MockResidentsService {
 
   ];
 
+  currentResident$: BehaviorSubject<Resident>;
+
+
   // Behavior Subject of type resident array whose starting value is mockResidents
   residents$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(this.mockResidents);
   constructor() { }
 
-  createResident(resident: Resident) {
-    this.mockResidents.push(resident);
-    this.residents$.next(this.mockResidents);
+  createResident(resident: Resident): Promise<any> {
+    let promise: Promise<any>;
+
+    return promise = new Promise((resolve, reject) => {
+      if (resident) {
+        this.mockResidents.push(resident);
+        this.residents$.next(this.mockResidents);
+        resolve('Success!');
+      } else {
+        reject('Error')
+      }
+    })
+
   }
+
+
 }

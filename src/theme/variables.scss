@@ -55,11 +55,12 @@ $messages-accent: $mdc-light-blue-a400;
 $alcomy-toolbar: $mdc-grey-900;
 
 $money: $mdc-green-500;
+$danger: $mdc-red-400;
 
 $colors: (
   primary:    $dashboard-primary,
   money:      $money,
-  danger:     #f53d3d,
+  danger:     $danger,
   light:      #f4f4f4,
   dark:       #263238,
   white: white,

@@ -101,7 +101,7 @@
             "src/**/*.spec.ts"
         ],
         
-        "typescript.referencesCodeLens.enabled": true,
+        "typescript.referencesCodeLens.enabled": false,
         "bracketPairColorizer.consecutivePairColors": [
           //"()",
           //"[]",

@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { AngularFireModule } from 'angularfire2';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { AngularFireModule } from 'angularfire2';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { CustomIconsModule } from 'ionic2-custom-icons';
@@ -60,23 +61,25 @@ import { NewMedicationPage } from '../pages/shared/forms/new-medication/new-medi
 import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AlcomyMockApi } from './core/alcomyMockApi';
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyDHd9xFhtxKsJaCrZUaj4DXFGDwXATft_o',
-  authDomain: 'alcomydev1.firebaseapp.com',
-  databaseURL: 'https://alcomydev1.firebaseio.com',
-  storageBucket: 'alcomydev1.appspot.com',
-  messagingSenderId: '306173730422'
-};
+// export const firebaseConfig = {
+//   apiKey: 'AIzaSyDHd9xFhtxKsJaCrZUaj4DXFGDwXATft_o',
+//   authDomain: 'alcomydev1.firebaseapp.com',
+//   databaseURL: 'https://alcomydev1.firebaseio.com',
+//   storageBucket: 'alcomydev1.appspot.com',
+//   messagingSenderId: '306173730422'
+// };
 
 
 @NgModule({
   imports: [
-    AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    InMemoryWebApiModule.forRoot(AlcomyMockApi),
     IonicModule.forRoot(MyAppComponent, {
       iconMode: 'md'
     }),

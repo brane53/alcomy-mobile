@@ -102,3 +102,11 @@ ion-slides.card-slides {
     color: red;
     padding-left: 16px;
 }
+
+.toast-success .toast-wrapper {
+    background-color: $money;
+}
+
+.toast-error .toast-wrapper {
+    background-color: $danger;
+}

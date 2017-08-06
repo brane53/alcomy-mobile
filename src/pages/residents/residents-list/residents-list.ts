@@ -50,9 +50,15 @@ export class ResidentsListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.residentsService.residents$.subscribe(residents => {
-      this.residents = residents;
-    });
+    // this.residentsService.residents$.subscribe(residents => {
+    //   this.residents = residents;
+    // });
+
+    this.residentsService.residents$
+      .subscribe(
+        residents => { this.residents = residents; },
+        error => { console.log('The Error: ', error); }
+      );
   }
 
   goToDetails(resident: Resident) {
@@ -71,8 +77,9 @@ export class ResidentsListPage implements OnInit {
     newResidentModal.onDidDismiss(resident => {
       if (resident) {
         console.log(resident);
+        // create resident when data from form comes back sucessfully
         this.residentsService.createResident(resident)
-        .then((promise) => {
+        .subscribe((res) => {
           console.log('Submission successful')
           let toast = this.toast.create({
             message: 'Resident created successfully',
@@ -82,6 +89,7 @@ export class ResidentsListPage implements OnInit {
           });
           
           toast.present();
+          this.residentsService.getResidents();
           
         });
       }

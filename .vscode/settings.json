@@ -113,5 +113,6 @@
           ],
           "Red"
         ],
-        "vsicons.presets.angular": true
+        "vsicons.presets.angular": true,
+        "typescript.check.tscVersion": false
     }

@@ -113,5 +113,6 @@
             "LightSkyBlue"
           ],
           "Red"
-        ]
+        ],
+        "vsicons.presets.angular": true
       }

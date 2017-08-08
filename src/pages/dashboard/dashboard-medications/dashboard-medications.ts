@@ -35,9 +35,9 @@ export class DashboardMedicationsPage implements OnInit  {
   }
 
   ngOnInit() {
-    this.residentsService.residents$.subscribe(residents => {
-      this.residents = residents;
-    });
+    // this.residentsService.residents$.subscribe(residents => {
+    //   this.residents = residents;
+    // });
     this.prnRecords = this.mockMedications.prnRecords;
   }
 

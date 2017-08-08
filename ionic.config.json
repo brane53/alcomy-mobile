@@ -1,6 +1,5 @@
 {
   "name": "alcomy-mobile",
   "app_id": "510577a5",
-  "v2": true,
-  "typescript": true
+  "type": "ionic-angular"
 }

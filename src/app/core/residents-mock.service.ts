@@ -262,7 +262,7 @@ export class MockResidentsService {
 
 
   // Behavior Subject of type resident array whose starting value is mockResidents
-  residents$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(null);
+  residents$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(this.mockResidents);
 
   constructor(private http: Http) {
     this.getResidents();

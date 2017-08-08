@@ -37,7 +37,7 @@
       <!--Card Header-->
       <ion-item class="card-header">
         <h2 class="title">Basic Information</h2>
-        <button ion-button clear icon-only item-right>
+        <button ion-button clear icon-only item-right (click)="editBasicInfo(resident)">
           <custom-icon set="mdIcons" name="edit"></custom-icon>
         </button>
       </ion-item>
@@ -45,7 +45,11 @@
       <div class="banner">
         <ion-grid>
           <ion-row>
-            <img [src]="resident.profileUrl" class="avatar">
+            <img *ngIf="resident.profileUrl" [src]="resident.profileUrl" class="avatar">
+            <ion-avatar *ngIf="!resident.profileUrl">
+              <img class="avatar" *ngIf="resident.gender === 'male'" src="assets/avatars/avatar-5.svg">
+              <img class="avatar" *ngIf="resident.gender === 'female'" src="assets/avatars/avatar-9.svg">
+            </ion-avatar>
           </ion-row>
           <ion-row>
             <h3 class="header-text">
@@ -85,7 +89,7 @@
           </ion-col>
           <ion-col></ion-col>
           <ion-col>
-            <p>{{ this.resident.ssn  ? this.resident.ssn : '-' }}</p>
+            <p>{{ this.resident.ssn ? this.resident.ssn : '-' }}</p>
           </ion-col>
         </ion-row>
         <!--Religion-->

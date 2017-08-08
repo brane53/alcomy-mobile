@@ -1,0 +1,9 @@
+Forms:
+  ☐ Create Data Model
+  ☐ Create Form Model via Form Builder
+  ☐ Create validation rules
+  ☐ Create form elements
+  ☐ Create error messages for form elements
+  ☐ Create submission error and success toasts
+  ☐ Create form/data submission logic
+  ☐ Create accessability rules

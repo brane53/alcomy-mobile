@@ -51,6 +51,10 @@ export class ConfigMock {
   public setTransition(): void {
     return;
   }
+
+  public setModeConfig(): void {
+    return;
+  }
 }
 
 export class FormMock {

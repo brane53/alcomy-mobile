@@ -61,8 +61,7 @@
     // TSLINT
         "tslint.rulesDirectory": "./node_modules/codelyzer",
     // TYPESCRIPT
-        "typescript.tsdk": "node_modules/typescript/lib",
-        "typescript.check.workspaceVersion": false,
+        //"typescript.tsdk": "node_modules/typescript/lib",
     // VS ICONS
         "vsicons.dontShowNewVersionMessage": false,
         "vsicons.associations.files": [
@@ -102,7 +101,7 @@
             "src/**/*.spec.ts"
         ],
         
-        "typescript.referencesCodeLens.enabled": true,
+        "typescript.referencesCodeLens.enabled": false,
         "bracketPairColorizer.consecutivePairColors": [
           //"()",
           //"[]",
@@ -114,5 +113,7 @@
           ],
           "Red"
         ],
-        "vsicons.presets.angular": true
-      }
+
+        "vsicons.presets.angular": true,
+        "typescript.check.tscVersion": false
+    }

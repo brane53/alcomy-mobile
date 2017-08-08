@@ -59,7 +59,7 @@
 
   <!--PRN Card-->
   <div *ngSwitchCase="'prn'">
-    <div *ngFor="let resident of residents" >
+    <div *ngFor="let resident of prnRecords" >
       <ion-toolbar>
         <ion-title>
           {{ resident.firstName | ucfirst }} {{ resident.lastName | ucfirst }}

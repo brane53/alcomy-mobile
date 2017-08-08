@@ -97,3 +97,16 @@ ion-slides.card-slides {
     }
   }
 
+.form-error-message {
+    font-size: 9pt;
+    color: red;
+    padding-left: 16px;
+}
+
+.toast-success .toast-wrapper {
+    background-color: $money;
+}
+
+.toast-error .toast-wrapper {
+    background-color: $danger;
+}

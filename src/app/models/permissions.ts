@@ -19,10 +19,6 @@ export const PERMISSIONS = {
     RESIDENT_PAYMENT: {
       name: 'Users',
       level: 'full'
-    },
-    RESIDENT_PAYMENT: {
-      name: 'Users',
-      level: 'full'
     }
 
 }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, App, ViewController, Events } from 'ionic-angular';
+import { NavController, NavParams, App, ViewController, Events, ModalController } from 'ionic-angular';
 import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
 import { Resident } from '../../../../app/models/models';
 import * as moment from 'moment';
+import { NewResidentPage } from '../../../shared/forms/new-resident/new-resident';
 
 @Component({
   selector: 'page-resident-detail-facesheet',
@@ -16,30 +17,55 @@ export class ResidentDetailFacesheetPage {
   paymentInfo: any;
   residentEmergency: any;
 
-  constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
+  constructor(private app: App, 
+  private viewCtrl: ViewController, 
+  private modal: ModalController, 
+  public navCtrl: NavController, 
+  public navParams: NavParams, 
+  private events: Events) {
+
     this.resident = navParams.data.resident;
     this.facilityInfo = this.resident.facilityInfo;
     this.paymentInfo = this.resident.paymentInfo;
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentDetailFacesheetPage');
   }
 
-  goBack(){
-    //this.events.publish('resident-detail-closed');
+  editBasicInfo(resident) {
+
+    let newResidentModal = this.modal.create(NewResidentPage, resident);
+    newResidentModal.onDidDismiss((data: Resident) => {
+      if (data) {
+        console.log(data);
+        this.resident.firstName = data.firstName;
+        this.resident.middleName = data.middleName;
+        this.resident.lastName = data.lastName;
+        this.resident.gender = data.gender;
+        this.resident.ssn = data.ssn;
+        this.resident.religion = data.religion;
+        this.resident.isAmbulatory = data.isAmbulatory;
+        this.resident.isVerbal = data.isVerbal;
+      }
+
+    });
+    newResidentModal.present();
+  }
+
+  goBack() {
+    // this.events.publish('resident-detail-closed');
     this.app.getRootNav().push(ResidentsTabsPage);
   }
 
   yesOrNo(bool: boolean) {
     if (typeof bool !== 'boolean') {
-      throw "parameter should be a boolean";
-      
+      throw 'parameter should be a boolean';
     }
     if (bool === true) {
       return 'Yes';
-    }
-    else if (bool === false) {
+    } else if (bool === false) {
       return 'No';
     }
   }

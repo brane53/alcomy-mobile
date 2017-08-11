@@ -8,7 +8,8 @@ import { Resident } from '../models/models';
 export class ResidentsService {
 
   selectedResident: BehaviorSubject<Resident>;
-  constructor(http: Http) {
+  
+  constructor(private http: Http) {
 
   }
 

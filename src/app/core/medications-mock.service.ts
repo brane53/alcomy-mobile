@@ -3,7 +3,7 @@ import { PrnRecord } from '../models/models';
 import * as moment from 'moment';
 
 @Injectable()
-export class MockMedicationsService {
+export class MedicationsMockService {
 
 
   prnRecords: PrnRecord[] = [

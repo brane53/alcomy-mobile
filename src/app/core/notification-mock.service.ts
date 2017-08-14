@@ -3,7 +3,7 @@ import { Notification } from '../models/models';
 import * as moment from 'moment';
 
 @Injectable()
-export class MockNotificationService {
+export class NotificationMockService {
 
   notifications: Notification[] = [
     {

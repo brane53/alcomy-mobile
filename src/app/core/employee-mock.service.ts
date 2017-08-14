@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Employee } from '../models/models';
 
 @Injectable()
-export class MockEmployeeService {
+export class EmployeeMockService {
 
   employees: Employee[] = [
     {

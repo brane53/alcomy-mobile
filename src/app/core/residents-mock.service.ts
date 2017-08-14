@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class MockResidentsService {
+export class ResidentsMockService {
 
   private mockResidents: Resident[] = [
     {

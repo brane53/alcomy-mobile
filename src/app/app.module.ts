@@ -35,10 +35,10 @@ import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
 import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
 import { StaffListPage } from '../pages/staff/staff-list/staff-list';
 import { StaffGroupsPage } from '../pages/staff/staff-groups/staff-groups';
-import { MockResidentsService } from './core/residents-mock.service';
-import { MockMedicationsService } from './core/medications-mock.service';
-import { MockNotificationService } from './core/notification-mock.service';
-import { MockEmployeeService } from './core/employee-mock.service';
+import { ResidentsMockService } from './core/residents-mock.service';
+import { MedicationsMockService } from './core/medications-mock.service';
+import { NotificationMockService } from './core/notification-mock.service';
+import { EmployeeMockService } from './core/employee-mock.service';
 import { CardSliderComponent } from './shared/card-slider/card-slider.component';
 import { ResidentDetailTabsPage } from '../pages/residents/resident-detail/resident-detail-tabs/resident-detail-tabs';
 import { ResidentDetailFacesheetPage } from '../pages/residents/resident-detail/resident-detail-facesheet/resident-detail-facesheet';
@@ -47,14 +47,14 @@ import { ResidentDetailCarePage } from '../pages/residents/resident-detail/resid
 import { ResidentDetailNotebookPage } from '../pages/residents/resident-detail/resident-detail-notebook/resident-detail-notebook';
 import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/resident-detail-reports/resident-detail-reports';
 import { YesNoPipe } from './shared/pipes/yesNo.pipe';
-// import { AccountService } from './core/account.service';
-// import { AuthService } from './core/auth.service';
-// import { EmployeeService } from './core/employee.service';
-// import { FacilityService } from './core/facility.service';
-// import { MedicationsService } from './core/medications.service';
-// import { NotificationService } from './core/notification.service';
-// import { ResidentsService } from './core/residents.service';
-// import { UserService } from './core/user.service';
+import { AuthService } from './core/auth.service';
+import { AccountService } from './core/account.service';
+import { EmployeeService } from './core/employee.service';
+import { FacilityService } from './core/facility.service';
+import { MedicationsService } from './core/medications.service';
+import { NotificationService } from './core/notification.service';
+import { ResidentsService } from './core/residents.service';
+import { UserService } from './core/user.service';
 import { NewFacilityPage } from '../pages/shared/forms/new-facility/new-facility';
 import { NewResidentPage } from '../pages/shared/forms/new-resident/new-resident';
 import { NewMedicationPage } from '../pages/shared/forms/new-medication/new-medication';
@@ -62,19 +62,10 @@ import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AlcomyMockApi } from './core/alcomyMockApi';
-
-// export const firebaseConfig = {
-//   apiKey: 'AIzaSyDHd9xFhtxKsJaCrZUaj4DXFGDwXATft_o',
-//   authDomain: 'alcomydev1.firebaseapp.com',
-//   databaseURL: 'https://alcomydev1.firebaseio.com',
-//   storageBucket: 'alcomydev1.appspot.com',
-//   messagingSenderId: '306173730422'
-// };
-
+import { TaskHeaderComponent } from './shared/task-header/task-header.component';
 
 @NgModule({
   imports: [
-    // AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -128,7 +119,8 @@ import { AlcomyMockApi } from './core/alcomyMockApi';
     MenuButtonToggleDirective,
     QuickAddDirective,
     // Pipes
-    YesNoPipe
+    YesNoPipe,
+    TaskHeaderComponent
   ],
   entryComponents: [
     MyAppComponent,
@@ -164,20 +156,15 @@ import { AlcomyMockApi } from './core/alcomyMockApi';
   providers: [
     StatusBar,
     SplashScreen,
-    // AccountService,
-    // AuthService,
-    // EmployeeService,
-    // FacilityService,
-    // MedicationsService,
-    // NotificationService,
-    // ResidentsService,
-    // UserService,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    // Mock Services
-    MockResidentsService,
-    MockMedicationsService,
-    MockNotificationService,
-    MockEmployeeService
+    {provide: AccountService, useClase: },
+    {provide: AuthService, useClase: },
+    {provide: EmployeeService, useClase: EmployeeMockService},
+    {provide: FacilityService, useClase: },
+    { provide: MedicationsService, useClase: MedicationsMockService},
+    { provide: NotificationService, useClase: NotificationMockService},
+    {provide: ResidentsService, useClase: ResidentsMockService},
+    {provide: UserService, useClase: },
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   bootstrap: [IonicApp]
 })

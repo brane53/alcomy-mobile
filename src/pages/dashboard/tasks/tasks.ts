@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, Platform, ModalController, MenuController } from 'ionic-angular';
+import { NavController, Platform, ModalController } from 'ionic-angular';
 import { Task } from '../../../app/models/models';
 import { NewTaskPage } from '../../shared/forms/new-task/new-task';
 import { StatusBar } from '@ionic-native/status-bar';

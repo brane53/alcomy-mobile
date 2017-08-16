@@ -35,10 +35,14 @@ import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
 import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
 import { StaffListPage } from '../pages/staff/staff-list/staff-list';
 import { StaffGroupsPage } from '../pages/staff/staff-groups/staff-groups';
+// Mock Services
+import { AccountMockService } from './core/account-mock.service';
+import { AuthMockService } from './core/auth-mock.service'
 import { ResidentsMockService } from './core/residents-mock.service';
 import { MedicationsMockService } from './core/medications-mock.service';
 import { NotificationMockService } from './core/notification-mock.service';
 import { EmployeeMockService } from './core/employee-mock.service';
+// 
 import { CardSliderComponent } from './shared/card-slider/card-slider.component';
 import { ResidentDetailTabsPage } from '../pages/residents/resident-detail/resident-detail-tabs/resident-detail-tabs';
 import { ResidentDetailFacesheetPage } from '../pages/residents/resident-detail/resident-detail-facesheet/resident-detail-facesheet';
@@ -63,6 +67,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AlcomyMockApi } from './core/alcomyMockApi';
 import { TaskHeaderComponent } from './shared/task-header/task-header.component';
+import { FacilityMockService } from './core/facility-mock.service';
+import { UserMockService } from './core/user-mock.service';
 
 @NgModule({
   imports: [
@@ -156,15 +162,15 @@ import { TaskHeaderComponent } from './shared/task-header/task-header.component'
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: AccountService, useClase: },
-    {provide: AuthService, useClase: },
-    {provide: EmployeeService, useClase: EmployeeMockService},
-    {provide: FacilityService, useClase: },
-    { provide: MedicationsService, useClase: MedicationsMockService},
-    { provide: NotificationService, useClase: NotificationMockService},
-    {provide: ResidentsService, useClase: ResidentsMockService},
-    {provide: UserService, useClase: },
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    {provide: AccountService, useClass: AccountMockService},
+    {provide: AuthService, useClass: AuthMockService},
+    {provide: EmployeeService, useClass: EmployeeMockService},
+    {provide: FacilityService, useClass: FacilityMockService},
+    {provide: MedicationsService, useClass: MedicationsMockService},
+    {provide: NotificationService, useClass: NotificationMockService},
+    {provide: ResidentsService, useClass: ResidentsMockService},
+    {provide: UserService, useClass: UserMockService},
+    {provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   bootstrap: [IonicApp]
 })

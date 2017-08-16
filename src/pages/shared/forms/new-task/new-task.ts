@@ -8,10 +8,10 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-new-task',
+  selector: 'page-new-task-form',
   templateUrl: 'new-task.html'
 })
-export class NewTaskPage {
+export class NewTaskFormPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     

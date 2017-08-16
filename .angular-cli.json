@@ -1,12 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    //"version": "1.0.0-beta.22-1",
     "name": "ionic2-tdd"
   },
   "apps": [
     {
-      "root": "src/app",
+      "root": "src",
       "outDir": "dist",
       "assets": [
         "assets"
@@ -17,7 +16,7 @@
       "test": "test.ts",
       "tsconfig": "",
       "testTsconfig": "",
-      "prefix": "app",
+      "prefix": "",
       "styles": [
         "styles.css"
       ],

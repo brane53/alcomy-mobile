@@ -1,3 +1,12 @@
-<p>
-  task-header works!
-</p>
+<ion-toolbar color="white">
+
+  <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addTask(newTask.value)">
+  </ion-input>
+
+  <ion-buttons right>
+    <button ion-button icon-only item-right clear="true" (click)="addTask(newTask.value)">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+  </ion-buttons>
+
+</ion-toolbar>

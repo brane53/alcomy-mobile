@@ -27,7 +27,7 @@
   </ion-navbar>
 
   <!--Quick Add Task input and button-->
-  <ion-toolbar color="white">
+  <!--<ion-toolbar color="white">
 
     <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addTask(newTask.value); newTask.value=null">
     </ion-input>
@@ -38,8 +38,9 @@
       </button>
     </ion-buttons>
 
-  </ion-toolbar>
-
+  </ion-toolbar>-->
+  <task-header (taskAdd)="onTaskAdd($event)">
+  </task-header>
 </ion-header>
 
 <ion-content>

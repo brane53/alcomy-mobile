@@ -4,10 +4,10 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Resident } from '../../../../app/models/models';
 
 @Component({
-  selector: 'page-new-resident',
+  selector: 'page-new-resident-form',
   templateUrl: 'new-resident.html'
 })
-export class NewResidentPage implements OnInit {
+export class NewResidentFormPage implements OnInit {
   title: string;
   newResidentForm: FormGroup;
   genders: string[];

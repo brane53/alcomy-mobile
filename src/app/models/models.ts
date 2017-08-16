@@ -224,9 +224,9 @@ export class Task {
   description?: string;
   isComplete?: boolean;
   time?: string;
-  createdOn?: string = moment().format();
+  createdOn?: string;
   createdBy?: User;
-  assignments?: User[]
+  assignments?: User[];
 
   constructor(description: string = '', isComplete: boolean = false) {
     this.description = description;

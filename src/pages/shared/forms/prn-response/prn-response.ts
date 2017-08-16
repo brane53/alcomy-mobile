@@ -8,10 +8,10 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-prn-response',
+  selector: 'page-prn-response-form',
   templateUrl: 'prn-response.html'
 })
-export class PrnResponsePage {
+export class PrnResponseFormPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 

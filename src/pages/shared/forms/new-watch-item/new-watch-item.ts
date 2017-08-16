@@ -8,10 +8,10 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-new-watch-item',
+  selector: 'page-new-watch-item-form',
   templateUrl: 'new-watch-item.html'
 })
-export class NewWatchItemPage {
+export class NewWatchItemFormPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 

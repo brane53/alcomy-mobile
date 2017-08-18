@@ -1,5 +1,6 @@
 {
   "name": "alcomy-mobile",
   "app_id": "510577a5",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {}
 }

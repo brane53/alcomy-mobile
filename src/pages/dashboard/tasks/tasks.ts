@@ -26,26 +26,30 @@ export class TasksPage {
     });
   }
 
+  ionViewDidLoad() {
+    this.taskService.getTasks();
+  }
+
   public onTaskAdd(task) {
     
   }
 
   addTask(description: string) {
     if (description) {
-      let newTask = new Task(description);
-      this.tasks.push(newTask);
-      return;
+      //this.taskService.addTask()
     }
 
   };
 
   deleteTask(index: number) {
-    this.tasks.splice(index, 1);
+    //this.tasks.splice(index, 1);
   };
 
-  presentNewTaskPage() {
+  presentNewTaskFormPage() {
     let taskModal = this.modal.create(NewTaskFormPage);
     taskModal.present();
   };
+
+  
 
 }

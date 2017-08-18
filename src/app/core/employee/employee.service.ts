@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
-import { Employee } from '../models/models';
+import { Employee } from '../../models/models';
 
 @Injectable()
 export class EmployeeService {
-  constructor(private af: AngularFire) {
 
-  }
+  // TODO: Change staffGroups type
+  staffGroups: any;
+  employees: Employee[];
+
+  constructor() {}
 
   // GET /employees - Get all employees or filters set of employees
   public getEmployees(query?) {

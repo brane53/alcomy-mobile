@@ -7,9 +7,9 @@ import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-t
 import { Notification } from './models/models';
 import { ResidentsTabsPage } from '../pages/residents/residents-tabs/residents-tabs';
 import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
-import { MockNotificationService } from './core/notification-mock.service';
+import { NotificationService } from './core/notification/notification.service';
 // import { LoginPage } from '../pages/login/login';
-import { NewResidentPage } from '../pages/shared/forms/new-resident/new-resident';
+import { NewResidentFormPage } from '../pages/shared/forms/new-resident/new-resident';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class MyAppComponent implements OnInit {
   constructor(
   private platform: Platform,
   public menu: MenuController,
-  private mockNotification: MockNotificationService,
+  private notificationService: NotificationService,
   private statusBar: StatusBar,
   private splashScreen: SplashScreen) {
     this.platform.ready().then(() => {
@@ -44,7 +44,7 @@ export class MyAppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.notifications = this.mockNotification.notifications;
+    this.notifications = this.notificationService.notifications;
   }
 
   expand() {

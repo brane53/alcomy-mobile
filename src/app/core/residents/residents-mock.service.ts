@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Resident } from '../models/models';
+import { Resident } from '../../models/models';
 import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';

@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 // import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
 import { BehaviorSubject } from 'rxjs';
-import { Resident } from '../models/models';
+import { Resident } from '../../models/models';
 
 @Injectable()
 export class ResidentsService {
 
   selectedResident: BehaviorSubject<Resident>;
+
+  // TODO: Change type
+  residents$: any;
 
   constructor(private http: Http) {
 
@@ -24,7 +27,7 @@ export class ResidentsService {
   }
 
   // POST /residents - Creates a resident
-  public addResident(resident: Resident, facilityId: string) {
+  public addResident(resident: Resident, facilityId: number) {
 
   }
 

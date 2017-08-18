@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 
-import { NewTaskPage } from './forms/new-task/new-task';
-import { NewWatchItemPage } from './forms/new-watch-item/new-watch-item';
+import { NewTaskFormPage } from './forms/new-task/new-task';
+import { NewWatchItemFormPage } from './forms/new-watch-item/new-watch-item';
 import { QuickAddMenuPage } from './popovers/quick-add-menu/quick-add-menu';
 
 
@@ -12,18 +12,18 @@ import { QuickAddMenuPage } from './popovers/quick-add-menu/quick-add-menu';
     IonicModule
   ],
   exports: [
-    NewTaskPage,
-    NewWatchItemPage,
+    NewTaskFormPage,
+    NewWatchItemFormPage,
     QuickAddMenuPage
   ],
   declarations: [
-    NewTaskPage,
-    NewWatchItemPage,
+    NewTaskFormPage,
+    NewWatchItemFormPage,
     QuickAddMenuPage
   ],
   entryComponents: [
-    NewTaskPage,
-    NewWatchItemPage,
+    NewTaskFormPage,
+    NewWatchItemFormPage,
     QuickAddMenuPage
   ],
   providers: [

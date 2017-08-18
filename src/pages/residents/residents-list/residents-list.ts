@@ -8,10 +8,11 @@ import {
   ModalController,
   ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Resident } from '../../../app/models/models';
-import { MockResidentsService } from '../../../app/core/residents-mock.service';
+import { Resident, Facility } from '../../../app/models/models';
+import { ResidentsService } from '../../../app/core/residents/residents.service';
 import { ResidentDetailTabsPage } from '../resident-detail/resident-detail-tabs/resident-detail-tabs';
-import { NewResidentPage } from '../../shared/forms/new-resident/new-resident';
+import { NewResidentFormPage } from '../../shared/forms/new-resident/new-resident';
+import { FacilityService } from '../../../app/core/facility/facility.service';
 
 /*
   Generated class for the ResidentsList page.
@@ -26,6 +27,7 @@ import { NewResidentPage } from '../../shared/forms/new-resident/new-resident';
 export class ResidentsListPage implements OnInit {
   title: string = 'Resident List';
   residents: Resident[];
+  currentFacility: Facility;
 
   constructor(
   private app: App,
@@ -36,7 +38,8 @@ export class ResidentsListPage implements OnInit {
   private toast: ToastController,
   private modal: ModalController,
   public popCtrl: PopoverController,
-  private residentsService: MockResidentsService,
+  private residentsService: ResidentsService,
+  private facilityService: FacilityService,
   private statusBar: StatusBar) {
 
     this.platform.ready().then(() => {
@@ -47,6 +50,10 @@ export class ResidentsListPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsListPage');
+    
+    this.facilityService.currentFacility$.subscribe(data => {
+      this.currentFacility = data;
+    })
   }
 
   ngOnInit() {
@@ -72,14 +79,14 @@ export class ResidentsListPage implements OnInit {
   openNewResidentModal(resident) {
     let data;
 
-    let newResidentModal = this.modal.create(NewResidentPage);
+    let newResidentModal = this.modal.create(NewResidentFormPage);
 
     newResidentModal.onDidDismiss(resident => {
       if (resident) {
         console.log(resident);
         // create resident when data from form comes back sucessfully
-        this.residentsService.createResident(resident)
-        .subscribe((res) => {
+        this.residentsService.addResident(resident, facilityId)
+        /* .subscribe((res) => {
           console.log('Submission successful')
           let toast = this.toast.create({
             message: 'Resident created successfully',
@@ -87,11 +94,11 @@ export class ResidentsListPage implements OnInit {
             position: 'top',
             cssClass: 'toast-success'
           });
-          
+
           toast.present();
           this.residentsService.getResidents();
           
-        });
+        }); */
       }
     });
     newResidentModal.present();

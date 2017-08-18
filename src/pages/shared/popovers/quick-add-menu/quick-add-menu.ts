@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
-import { NewTaskPage } from '../../forms/new-task/new-task';
+import { NewTaskFormPage } from '../../forms/new-task/new-task';
 
 
 
@@ -22,8 +22,8 @@ export class QuickAddMenuPage {
     console.log('ionViewDidLoad QuickAddMenuPage');
   }
 
-  presentNewTaskPage(){
-    let modal = this.modal.create(NewTaskPage)
+  presentNewTaskFormPage(){
+    let modal = this.modal.create(NewTaskFormPage)
     modal.present();
     this.viewCtrl.dismiss();
   }

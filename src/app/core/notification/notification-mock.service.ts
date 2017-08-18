@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Notification } from '../models/models';
+import { Notification } from '../../models/models';
 import * as moment from 'moment';
 
 @Injectable()
@@ -46,6 +46,9 @@ export class NotificationMockService {
         createdOn: moment().subtract(2, 'hours').format()
       }
     }
-  ]
+  ];
+
+
+  
   constructor() { }
 }

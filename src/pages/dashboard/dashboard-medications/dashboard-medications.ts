@@ -3,10 +3,10 @@ import * as moment from 'moment';
 import { NavController, NavParams, PopoverController, ModalController, MenuController, Slides } from 'ionic-angular';
 import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashboard-medication-tabs';
 import { Resident, PrnRecord } from '../../../app/models/models';
-import { PrnResponsePage } from '../../shared/forms/prn-response/prn-response';
+import { PrnResponseFormPage } from '../../shared/forms/prn-response/prn-response';
 import { PassMedicationsPage } from '../pass-medications/pass-medications';
-import { MockResidentsService } from '../../../app/core/residents-mock.service';
-import { MockMedicationsService } from '../../../app/core/medications-mock.service';
+import { ResidentsMockService } from '../../../app/core/residents/residents.service';
+import { MedicationsMockService } from '../../../app/core/medications/medications.service';
 
 @Component({
   selector: 'page-dashboard-medications',
@@ -25,8 +25,8 @@ export class DashboardMedicationsPage implements OnInit  {
     public popCtrl: PopoverController,
     public modal: ModalController,
     public menu: MenuController,
-    private residentsService: MockResidentsService,
-    private mockMedications: MockMedicationsService) {
+    private residentsService: ResidentsMockService,
+    private medicationsService: MedicationsMockService) {
 
   }
 
@@ -38,11 +38,11 @@ export class DashboardMedicationsPage implements OnInit  {
     // this.residentsService.residents$.subscribe(residents => {
     //   this.residents = residents;
     // });
-    this.prnRecords = this.mockMedications.prnRecords;
+    this.prnRecords = this.medicationsService.prnRecords;
   }
 
   presentPrnResponse() {
-    let modal = this.modal.create(PrnResponsePage);
+    let modal = this.modal.create(PrnResponseFormPage);
     modal.present();
   }
 

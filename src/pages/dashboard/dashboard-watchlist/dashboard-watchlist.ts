@@ -3,7 +3,7 @@ import { NavController, NavParams, PopoverController, MenuController } from 'ion
 import { QuickAddMenuPage } from '../../shared/popovers/quick-add-menu/quick-add-menu';
 import { Resident } from '../../../app/models/models';
 import { WatchItemDetailPage } from '../watch-item-detail/watch-item-detail';
-import { MockResidentsService } from '../../../app/core/residents-mock.service';
+import { ResidentsService } from '../../../app/core/residents/residents.service';
 
 /*
   Generated class for the DashboardWatchlist page.
@@ -24,7 +24,7 @@ export class DashboardWatchlistPage implements OnInit {
   public navParams: NavParams, 
   public popCtrl: PopoverController, 
   public menu: MenuController, 
-  private residentsService: MockResidentsService) {
+  private residentsService: ResidentsService) {
 
 
   }

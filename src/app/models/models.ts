@@ -168,11 +168,11 @@ export class User {
 
 export class Notification {
   id?: string;
-  type: string;
-  source: string;
-  event: string;
-  dismissed: boolean;
-  data: Object;
+  type?: string;
+  source?: string;
+  event?: string;
+  dismissed?: boolean;
+  data?: Object;
 }
 
 export class Contact {
@@ -223,10 +223,10 @@ export class Task {
   id?: string;
   description?: string;
   isComplete?: boolean;
-  time?: string;
+  dueDate?: string;
   createdOn?: string;
   createdBy?: User;
-  assignments?: User[];
+  assignedTo?: User[];
 
   constructor(description: string = '', isComplete: boolean = false) {
     this.description = description;

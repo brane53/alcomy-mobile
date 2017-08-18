@@ -1,34 +1,30 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
 import { BehaviorSubject } from 'rxjs';
-import { Facility } from '../models/models';
-import { AccountService } from './account.service';
+import { Facility } from '../../models/models';
+import { Observable } from 'rxjs/Observable';
+import { AccountService } from '../account/account.service';
 
 
 @Injectable()
 export class FacilityService {
-  currentFacility: FirebaseObjectObservable<Facility>;
-  facilities: FirebaseListObservable<Facility[]>;
+  currentFacility$: BehaviorSubject<Facility>;
+  facilities$: Observable<Facility[]>;
 
-  constructor(private af: AngularFire, private account: AccountService) {
+  constructor(private account: AccountService) {
 
   }
 
   // Add a new facility to a company account
-  addFacility(facility: Facility){
-    const account = this.af.database.list(`/facilitiesByAccount/${this.account.id}`);
-    const promise = account.push(facility);
+  addFacility(facility: Facility) {
 
-    promise.catch((err)=> {
-      console.log('Facility did not get added', err);
-    });
   }
 
   // Update a facility's information
 
   // Get a list of facilities accessable by the current user
-  getFacilities(userId: string){
-    this.facilities = this.af.database.list('/facilitiesByAccount');
+  getFacilities(userId: string) {
+    
   }
   // Get a facility by it's id
   

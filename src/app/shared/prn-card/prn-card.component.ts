@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PrnRecord } from '../../models/models';
-import { PrnResponsePage } from '../../../pages/shared/forms/prn-response/prn-response';
+import { PrnResponseFormPage } from '../../../pages/shared/forms/prn-response/prn-response';
 import { ModalController } from 'ionic-angular';
 
 @Component({
@@ -15,8 +15,8 @@ export class PrnCardComponent implements OnInit {
   ngOnInit() { }
 
   presentPrnResponse() {
-    let modal = this.modal.create(PrnResponsePage);
+    let modal = this.modal.create(PrnResponseFormPage);
     modal.present();
-  }  
+  }
 
 }

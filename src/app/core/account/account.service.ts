@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, Role } from '../models/models';
+import { User, Role } from '../../models/models';
 import * as moment from 'moment';
 @Injectable()
 export class AccountService {
@@ -20,11 +20,12 @@ export class AccountService {
     let accountInfo = {
       companyName: account.companyName,
       createdOn: moment().format()
-    }
-  
+    };
+
+    // TODO: Fix all this crap below
 
     // create the user in firebase
-    const promise = this.auth.createUser({email: user.email, password: user.password});
+    // const promise = this.auth.createUser({email: user.email, password: user.password});
 
     /*promise
     .then((state: FirebaseAuthState) => {

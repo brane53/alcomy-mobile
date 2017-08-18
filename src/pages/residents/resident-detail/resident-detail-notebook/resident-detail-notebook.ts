@@ -16,7 +16,12 @@ export class ResidentDetailNotebookPage {
   title: string = 'Notebook';
   resident: any;
 
-  constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
+  constructor(
+    private app: App,
+    private viewCtrl: ViewController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private events: Events) {
     this.resident = navParams.data.resident;
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Employee } from '../models/models';
+import { Employee } from '../../models/models';
 
 @Injectable()
 export class EmployeeMockService {

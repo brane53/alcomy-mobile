@@ -85,7 +85,7 @@ export class ResidentsListPage implements OnInit {
       if (resident) {
         console.log(resident);
         // create resident when data from form comes back sucessfully
-        this.residentsService.addResident(resident, facilityId)
+        // this.residentsService.addResident(resident, facilityId)
         /* .subscribe((res) => {
           console.log('Submission successful')
           let toast = this.toast.create({
@@ -97,7 +97,7 @@ export class ResidentsListPage implements OnInit {
 
           toast.present();
           this.residentsService.getResidents();
-          
+
         }); */
       }
     });

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PrnRecord } from '../models/models';
+import { PrnRecord } from '../../models/models';
 import * as moment from 'moment';
 
 @Injectable()

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AuthService } from '../../app/core/auth.service';
+import { AuthService } from '../../app/core/auth/auth.service';
 import { DashboardTabsPage } from '../dashboard/dashboard-tabs/dashboard-tabs';
 
 /*
@@ -16,7 +16,7 @@ import { DashboardTabsPage } from '../dashboard/dashboard-tabs/dashboard-tabs';
 export class LoginPage {
 
   constructor(
-  public navCtrl: NavController, 
+  public navCtrl: NavController,
   public navParams: NavParams,
   private auth: AuthService) {}
 
@@ -24,16 +24,16 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  login(email: string, password){
+  login(email: string, password) {
     this.auth.login(email, password)
-      .then(()=>{
+      .then(() => {
         this.navCtrl.setRoot(DashboardTabsPage);
       })
-      .catch((err)=>{
-        console.log('Problem')
-      })
+      .catch((err) => {
+        console.log('Problem');
+      });
   }
 
-  
+
 
 }

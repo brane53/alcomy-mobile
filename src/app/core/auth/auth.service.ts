@@ -17,7 +17,7 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  
+
 
   login(email: string, password: string): firebase.Promise<FirebaseAuthState> {
     return this.auth.login({

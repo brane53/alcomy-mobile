@@ -16,7 +16,7 @@ export class PrnResponseFormPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PrnResponsePage');
+    console.log('ionViewDidLoad PrnResponseFormPage');
   }
 
   close() {

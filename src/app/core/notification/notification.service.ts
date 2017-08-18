@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
+import { Notification } from '../../models/models';
 
 @Injectable()
 export class NotificationService {
-  constructor(private af: AngularFire) {
+
+  notifications: Notification[];
+
+  constructor() {
 
   }
 }

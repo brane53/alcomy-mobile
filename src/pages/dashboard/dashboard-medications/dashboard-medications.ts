@@ -5,8 +5,8 @@ import { DashboardMedicationTabsPage } from '../dashboard-medication-tabs/dashbo
 import { Resident, PrnRecord } from '../../../app/models/models';
 import { PrnResponseFormPage } from '../../shared/forms/prn-response/prn-response';
 import { PassMedicationsPage } from '../pass-medications/pass-medications';
-import { ResidentsMockService } from '../../../app/core/residents/residents.service';
-import { MedicationsMockService } from '../../../app/core/medications/medications.service';
+import { ResidentsService } from '../../../app/core/residents/residents.service';
+import { MedicationsService } from '../../../app/core/medications/medications.service';
 
 @Component({
   selector: 'page-dashboard-medications',
@@ -25,8 +25,8 @@ export class DashboardMedicationsPage implements OnInit  {
     public popCtrl: PopoverController,
     public modal: ModalController,
     public menu: MenuController,
-    private residentsService: ResidentsMockService,
-    private medicationsService: MedicationsMockService) {
+    private residentsService: ResidentsService,
+    private medicationsService: MedicationsService) {
 
   }
 

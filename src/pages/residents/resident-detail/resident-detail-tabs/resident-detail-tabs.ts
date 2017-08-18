@@ -24,17 +24,20 @@ export class ResidentDetailTabsPage {
   tab2Root: any = ResidentDetailMedicationsPage;
   tab3Root: any = ResidentDetailCarePage;
   tab4Root: any = ResidentDetailNotebookPage;
-  tab5Root: any = ResidentDetailReportsPage
+  tab5Root: any = ResidentDetailReportsPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private events: Events) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private events: Events) {
 
     this.resident = this.navParams.data;
     console.log('Resident: ', this.resident);
 
-    events.subscribe('resident-detail-closed', ()=>{
+    events.subscribe('resident-detail-closed', () => {
       this.pop();
-    })
-    
+    });
+
   }
 
   ionViewDidLoad() {

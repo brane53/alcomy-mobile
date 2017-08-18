@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, App, ViewController, Events, ModalController } from 'ionic-angular';
 import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
 import { Resident } from '../../../../app/models/models';
-import * as moment from 'moment';
-import { NewResidentPage } from '../../../shared/forms/new-resident/new-resident';
+import { NewResidentFormPage } from '../../../shared/forms/new-resident/new-resident';
 
 @Component({
   selector: 'page-resident-detail-facesheet',
@@ -11,17 +10,17 @@ import { NewResidentPage } from '../../../shared/forms/new-resident/new-resident
 })
 export class ResidentDetailFacesheetPage {
   title: string = 'Facesheet';
-  facesheetTabButton: string = "general";
+  facesheetTabButton: string = 'general';
   resident: Resident;
   facilityInfo: any;
   paymentInfo: any;
   residentEmergency: any;
 
-  constructor(private app: App, 
-  private viewCtrl: ViewController, 
-  private modal: ModalController, 
-  public navCtrl: NavController, 
-  public navParams: NavParams, 
+  constructor(private app: App,
+  private viewCtrl: ViewController,
+  private modal: ModalController,
+  public navCtrl: NavController,
+  public navParams: NavParams,
   private events: Events) {
 
     this.resident = navParams.data.resident;
@@ -36,7 +35,7 @@ export class ResidentDetailFacesheetPage {
 
   editBasicInfo(resident) {
 
-    let newResidentModal = this.modal.create(NewResidentPage, resident);
+    let newResidentModal = this.modal.create(NewResidentFormPage, resident);
     newResidentModal.onDidDismiss((data: Resident) => {
       if (data) {
         console.log(data);

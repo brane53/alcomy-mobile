@@ -17,7 +17,12 @@ export class ResidentDetailReportsPage {
 
   resident: any;
 
-  constructor(private app: App, private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private events: Events) {
+  constructor(
+    private app: App,
+    private viewCtrl: ViewController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private events: Events) {
     this.resident = navParams.data.resident;
   }
 
@@ -26,7 +31,7 @@ export class ResidentDetailReportsPage {
   }
 
   goBack() {
-    //this.events.publish('resident-detail-closed');
+    // this.events.publish('resident-detail-closed');
     this.app.getRootNav().push(ResidentsTabsPage);
   }
 

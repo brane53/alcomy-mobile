@@ -16,10 +16,10 @@ import { NewResidentFormPage } from '../pages/shared/forms/new-resident/new-resi
   selector: 'app-component',
   templateUrl: 'app.component.html'
 })
-export class MyAppComponent implements OnInit {
+export class AlcomyAppComponent implements OnInit {
    rootPage = DashboardTabsPage;
   // rootPage = LoginPage;
-  //rootPage = NewResidentPage;
+  // rootPage = NewResidentPage;
   notificationButtons = 'all';
   isExpanded = false;
 

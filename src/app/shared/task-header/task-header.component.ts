@@ -1,26 +1,23 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/models';
 
 @Component({
-  selector: 'app-task-header',
-  templateUrl: './task-header.component.html',
-  styleUrls: ['./task-header.component.scss']
+  selector: 'task-header',
+  templateUrl: './task-header.component.html'
 })
-export class TaskHeaderComponent implements OnInit {
+export class TaskHeaderComponent {
 
   newTask: Task = new Task();
 
   @Output()
-  taskAdd: EventEmitter<Task> = new EventEmitter();
+  quickTaskAdd: EventEmitter<Task> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
-  public addTask(text: string) {
+  public addQuickTask(text: string) {
     this.newTask.description = text;
-    this.taskAdd.emit(this.newTask);
+    this.quickTaskAdd.emit(this.newTask);
     this.newTask = new Task();
   }
 

@@ -2,7 +2,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -14,9 +13,9 @@ import { CustomIconsModule } from 'ionic2-custom-icons';
 // Native Plugins
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AlcomyMockApi } from './core/alcomyMockApi';
-import { TaskHeaderComponent } from './shared/task-header/task-header.component';
-import { MyAppComponent } from './app.component';
+import { AlcomyAppComponent } from './app.component';
+// Login Page
+import { LoginPage } from '../pages/login/login';
 // Dashboard Pages
 import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';
 import { DashboardMedicationsPage } from '../pages/dashboard/dashboard-medications/dashboard-medications';
@@ -57,7 +56,7 @@ import { EmployeeService } from './core/employee/employee.service';
 import { FacilityService } from './core/facility/facility.service';
 import { MedicationsService } from './core/medications/medications.service';
 import { NotificationService } from './core/notification/notification.service';
-import { ResidentsService } from './core/resident/residents.service';
+import { ResidentsService } from './core/residents/residents.service';
 import { TaskService } from './core/task/task.service';
 import { UserService } from './core/user/user.service';
 // Mock Services
@@ -73,7 +72,7 @@ import { UserMockService } from './core/user/user-mock.service';
 // Components
 import { CardSliderComponent } from './shared/card-slider/card-slider.component';
 import { YesNoPipe } from './shared/pipes/yesNo.pipe';
-import { LoginPage } from '../pages/login/login';
+import { TaskHeaderComponent } from './shared/task-header/task-header.component';
 
 @NgModule({
   imports: [
@@ -81,8 +80,7 @@ import { LoginPage } from '../pages/login/login';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    InMemoryWebApiModule.forRoot(AlcomyMockApi),
-    IonicModule.forRoot(MyAppComponent, {
+    IonicModule.forRoot(AlcomyAppComponent, {
       iconMode: 'md'
     }),
     FlexLayoutModule,
@@ -92,7 +90,7 @@ import { LoginPage } from '../pages/login/login';
     CustomIconsModule
   ],
   declarations: [
-    MyAppComponent,
+    AlcomyAppComponent,
     // Pages
     DashboardTabsPage,
     DashboardMedicationsPage,
@@ -126,15 +124,15 @@ import { LoginPage } from '../pages/login/login';
     // Components
     PrnCardComponent,
     CardSliderComponent,
+    TaskHeaderComponent,
     // Directives
     MenuButtonToggleDirective,
     QuickAddDirective,
     // Pipes
-    YesNoPipe,
-    TaskHeaderComponent
+    YesNoPipe
   ],
   entryComponents: [
-    MyAppComponent,
+    AlcomyAppComponent,
     DashboardTabsPage,
     DashboardMedicationsPage,
     PassMedicationsPage,

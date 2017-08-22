@@ -1,10 +1,10 @@
 <ion-toolbar color="white">
 
-  <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addTask(newTask.value)">
+  <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addQuickTask(newTask.value); newTask.clearTextInput()">
   </ion-input>
 
   <ion-buttons right>
-    <button ion-button icon-only item-right clear="true" (click)="addTask(newTask.value)">
+    <button ion-button icon-only item-right clear="true" (click)="addQuickTask(newTask.value); newTask.clearTextInput()">
         <ion-icon name="add-circle"></ion-icon>
       </button>
   </ion-buttons>

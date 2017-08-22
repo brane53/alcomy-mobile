@@ -5,6 +5,7 @@ import { Task } from '../../../app/models/models';
 import { NewTaskFormPage } from '../../shared/forms/new-task/new-task';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TaskService } from '../../../app/core/task/task.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'page-tasks',
@@ -13,7 +14,7 @@ import { TaskService } from '../../../app/core/task/task.service';
 // tslint:disable-next-line:component-class-suffix
 export class TasksPage {
   title = 'Tasks';
-
+  tasks: BehaviorSubject<Task[]>;
   constructor(
     public platform: Platform,
     public navCtrl: NavController,
@@ -27,22 +28,24 @@ export class TasksPage {
   }
 
   ionViewDidLoad() {
-    this.taskService.getTasks();
+    this.taskService.getTasks().subscribe(tasks$ => {
+      this.tasks = tasks$;
+    });
   }
 
-  public onTaskAdd(task) {
-    
+  public onQuickTaskAdd(task) {
+    this.taskService.addTask(task);
   }
 
   addTask(description: string) {
     if (description) {
-      //this.taskService.addTask()
+      // this.taskService.addTask()
     }
 
   };
 
   deleteTask(index: number) {
-    //this.tasks.splice(index, 1);
+    // this.tasks.splice(index, 1);
   };
 
   presentNewTaskFormPage() {
@@ -50,6 +53,6 @@ export class TasksPage {
     taskModal.present();
   };
 
-  
+
 
 }

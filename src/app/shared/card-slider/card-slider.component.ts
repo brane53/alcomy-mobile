@@ -28,7 +28,7 @@ export class CardSliderComponent implements OnInit {
   @ViewChild(Slides) slides: Slides;
   @Input() prnRecords: PrnRecord[];
   constructor() { }
-  
+
 
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class CardSliderComponent implements OnInit {
     this.currentPrnCardIndex = this.slides.getActiveIndex();
   }
 
-  toSlide(index: number){
+  toSlide(index: number) {
     this.slides.slideTo(index);
   }
 

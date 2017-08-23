@@ -8,7 +8,7 @@ export class MedicationsMockService {
 
   prnRecords: PrnRecord[] = [
     {
-      id: '1',
+      id: 1,
       medication: {
         brandName: 'tylonal',
         genericName: 'acetaminophen',
@@ -25,7 +25,7 @@ export class MedicationsMockService {
 
     },
     {
-      id: '2',
+      id: 2,
       medication: {
         brandName: 'tylonal',
         genericName: 'acetaminophen',

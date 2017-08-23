@@ -13,7 +13,7 @@ export class ResidentsMockService {
 
   private mockResidents: Resident[] = [
     {
-      id: '1',
+      id: 1,
       firstName: 'blake',
       lastName: 'kenworthy',
       middleName: '',
@@ -81,7 +81,7 @@ export class ResidentsMockService {
       },
       medications: [
         {
-          id: '1',
+          id: 1,
           brandName: 'lipitor',
           genericName: 'atorvastatin',
           description: 'used along with a proper diet to help lower "bad" cholesterol and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) in the blood. It belongs to a group of drugs known as "statins." It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks.',
@@ -95,7 +95,7 @@ export class ResidentsMockService {
           status: 'active',
           createDate: moment().subtract(6, 'months').format(),
           createdBy: {
-            id: '1',
+            id: 1,
             firstName: 'ilija',
             lastName: 'vrajich',
           },
@@ -110,7 +110,7 @@ export class ResidentsMockService {
       ]
     },
     {
-      id: '2',
+      id: 2,
       firstName: 'justin',
       lastName: 'kunz',
       middleName: 'don',
@@ -155,14 +155,14 @@ export class ResidentsMockService {
       ],
       medications: [
         {
-          id: '1',
+          id: 1,
           brandName: 'lipitor',
           genericName: 'atorvastatin',
           description: 'used along with a proper diet to help lower "bad" cholesterol and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) in the blood. It belongs to a group of drugs known as "statins." It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks.',
           instructions: 'take 1 tablet by mouth every day',
           createDate: moment().subtract(6, 'months').format(),
           createdBy: {
-            id: '1',
+            id: 1,
             firstName: 'ilija',
             lastName: 'vrajich',
           },
@@ -183,7 +183,7 @@ export class ResidentsMockService {
       ]
     },
     {
-      id: '3',
+      id: 3,
       firstName: 'josh',
       lastName: 'wood',
       middleName: 'thomas',
@@ -228,14 +228,14 @@ export class ResidentsMockService {
       ],
       medications: [
         {
-          id: '1',
+          id: 1,
           brandName: 'lipitor',
           genericName: 'atorvastatin',
           description: 'used along with a proper diet to help lower "bad" cholesterol and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) in the blood. It belongs to a group of drugs known as "statins." It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks.',
           instructions: 'take 1 tablet by mouth every day',
           createDate: moment().subtract(6, 'months').format(),
           createdBy: {
-            id: '1',
+            id: 1,
             firstName: 'ilija',
             lastName: 'vrajich',
           },

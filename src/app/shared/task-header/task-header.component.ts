@@ -16,9 +16,11 @@ export class TaskHeaderComponent {
 
 
   public addQuickTask(text: string) {
-    this.newTask.description = text;
-    this.quickTaskAdd.emit(this.newTask);
-    this.newTask = new Task();
+    if (text) {
+      this.newTask.description = text;
+      this.quickTaskAdd.emit(this.newTask);
+      this.newTask = new Task();
+    }
   }
 
 }

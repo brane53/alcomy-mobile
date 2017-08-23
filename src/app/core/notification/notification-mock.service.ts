@@ -7,7 +7,7 @@ export class NotificationMockService {
 
   notifications: Notification[] = [
     {
-      id: '1',
+      id: 1,
       type: 'alert',
       source: 'watchlist',
       event: 'ITEM_CREATE',
@@ -22,7 +22,7 @@ export class NotificationMockService {
       }
     },
     {
-      id: '2',
+      id: 2,
       type: 'alert',
       source: 'watchlist',
       event: 'BM',
@@ -35,7 +35,7 @@ export class NotificationMockService {
       }
     },
     {
-      id: '3',
+      id: 3,
       type: 'reminder',
       source: 'medications',
       event: 'ORDER_MEDICATION',

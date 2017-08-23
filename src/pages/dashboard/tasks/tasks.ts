@@ -37,18 +37,18 @@ export class TasksPage {
     this.taskService.addTask(task);
   }
 
-  addTask(description: string) {
+  public addTask(description: string) {
     if (description) {
       // this.taskService.addTask()
     }
 
   };
 
-  deleteTask(index: number) {
-    // this.tasks.splice(index, 1);
+  public deleteTask(taskId: number) {
+    this.taskService.deleteTask(taskId);
   };
 
-  presentNewTaskFormPage() {
+  public presentNewTaskFormPage() {
     let taskModal = this.modal.create(NewTaskFormPage);
     taskModal.present();
   };

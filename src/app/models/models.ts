@@ -28,14 +28,14 @@ export class PhoneNumber {
 }
 
 export class Pharmacy {
-  id?: string;
+  id?: number;
   name?: string;
   address?: Address;
   phoneNumbers?: PhoneNumber[];
 }
 
 export class Resident {
-  id?: string;
+  id?: number;
   firstName?: string;
   lastName?: string;
   middleName?: string;
@@ -56,7 +56,7 @@ export class Resident {
 }
 
 export class PrnRecord {
-  id?: string;
+  id?: number;
   medication: MedicationRecord;
   reasonGiven: string;
   givenAt: string;
@@ -88,7 +88,7 @@ export class MedicationInventoryItem {
 }
 
 export class MedicationRecord extends Medication {
-  id?: string;
+  id?: number;
   instructions?: string;
   status?: string; // whether the medication is active, on hold, discontinued
   statusHistory?: MedicationStatusHistory[];
@@ -119,7 +119,7 @@ export class MedicationStatusHistory {
 }
 
 export class MedicationPrescription {
-  id?: string;
+  id?: number;
   resident: Resident;
   prescriber: Specialist;
   medication: Medication;
@@ -141,7 +141,7 @@ export class Specialist {
 }
 
 export class Employee extends Person {
-  id?: string;
+  id?: number;
   birthDate?: Date;
   profileUrl?: string;
   hireDate?: Date;
@@ -153,7 +153,7 @@ export class Employee extends Person {
 
 
 export class User {
-  id?: string;
+  id?: number;
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -167,7 +167,7 @@ export class User {
 }
 
 export class Notification {
-  id?: string;
+  id?: number;
   type?: string;
   source?: string;
   event?: string;
@@ -197,7 +197,7 @@ export class Facility {
 }
 
 export class Permission {
-  id?: string;
+  id?: number;
   name?: string;
   level?: string;
 }
@@ -214,13 +214,13 @@ export class Role {
 }
 
 export class UIModule {
-  id?: string;
+  id?: number;
   name?: string;
   uiElements?: string[];
 }
 
 export class Task {
-  id?: string;
+  id?: number;
   description?: string;
   isComplete?: boolean;
   dueDate?: string;

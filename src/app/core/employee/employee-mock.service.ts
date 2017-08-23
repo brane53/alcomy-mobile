@@ -6,19 +6,19 @@ export class EmployeeMockService {
 
   employees: Employee[] = [
     {
-      id: '1',
+      id: 1,
       firstName: 'Ilija',
       lastName: 'Vrajich',
       profileUrl: 'assets/avatars/ilija.jpg'
     },
     {
-      id: '2',
+      id: 2,
       firstName: 'Tommy',
       lastName: 'Wells',
       profileUrl: 'assets/avatars/tommy.jpg'
     },
     {
-      id: '3',
+      id: 3,
       firstName: 'Ruth',
       lastName: 'Vrajich',
       profileUrl: 'assets/avatars/ruth.jpg'

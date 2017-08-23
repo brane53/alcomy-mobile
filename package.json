@@ -7,11 +7,12 @@
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic2-custom-icons": "ionic2-custom-icons",
+    "ionic:watch:before": "ionic2-custom-icons",
+    "ionic:build:before": "ionic2-custom-icons",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "ionic2-custom-icons": "ionic2-custom-icons",
-    "build:before": "ionic2-custom-icons",
-    "serve:before": "ionic2-custom-icons",
     "test": "karma start ./test-config/karma.conf.js",
     "start": "ionic serve -l"
   },
@@ -52,7 +53,7 @@
   },
   "devDependencies": {
     "@angular/cli": "^1.3.0",
-    "@ionic/app-scripts": "^2.1.3",
+    "@ionic/app-scripts": "^2.1.4",
     "@types/jasmine": "^2.5.46",
     "@types/node": "^7.0.8",
     "angular-in-memory-web-api": "^0.3.1",

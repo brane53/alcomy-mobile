@@ -11,9 +11,14 @@ export class TaskService {
 
   constructor(private http: Http) { }
 
-  // POST /tasks? 
+  // POST /tasks?
   public addTask(task) {
     // this.http.post()
+  }
+
+  // DELETE /tasks/:id
+  public deleteTask(taskId: number) {
+
   }
 
   public getTasks(): Observable<any>{

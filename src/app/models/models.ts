@@ -223,6 +223,8 @@ export class Task {
   id?: number;
   description?: string;
   isComplete?: boolean;
+  completedOn?: string;
+  completedBy?: User;
   dueDate?: string;
   createdOn?: string;
   createdBy?: User;

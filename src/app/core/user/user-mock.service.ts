@@ -5,7 +5,11 @@ import { User } from '../../models/models';
 @Injectable()
 export class UserMockService {
 
-  user: User;
+  currentUser: User = {
+    id: 1,
+    firstName: 'brane',
+    lastName: 'vrajich'
+  };
 
   constructor() { };
 

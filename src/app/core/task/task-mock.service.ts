@@ -3,6 +3,7 @@ import { Task } from '../../models/models';
 import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class TaskMockService {
@@ -21,7 +22,7 @@ export class TaskMockService {
 
   tasks$: BehaviorSubject<Task[]> = new BehaviorSubject(this.tasks);
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   // POST /tasks?
   public addTask(task) {
@@ -46,9 +47,15 @@ export class TaskMockService {
     // push this.tasks into the tasks$ observable.
     this.tasks$.next(this.tasks);
   }
-
+  
+  // GET /tasks get all tasks or a subset of tasks based on an included query string.
   public getTasks(query?: string): Observable<Task[]> {
     return this.tasks$;
+  }
+
+  // PUT /tasks/:id mark a task as complete
+  public completeTask(taskId) {
+    let user = this.userService.currentUser
   }
 
 }

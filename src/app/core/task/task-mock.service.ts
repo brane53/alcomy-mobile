@@ -47,15 +47,32 @@ export class TaskMockService {
     // push this.tasks into the tasks$ observable.
     this.tasks$.next(this.tasks);
   }
-  
+
   // GET /tasks get all tasks or a subset of tasks based on an included query string.
   public getTasks(query?: string): Observable<Task[]> {
     return this.tasks$;
   }
 
   // PUT /tasks/:id mark a task as complete
-  public completeTask(taskId) {
-    let user = this.userService.currentUser
+  public toggleTaskCompletion(taskId) {
+    let user = this.userService.currentUser;
+    this.tasks = this.tasks.map(task => {
+      if (task.id === taskId) {
+        if (task.isComplete === false) {
+          task.isComplete = true;
+          task.completedOn = moment().format();
+          task.completedBy = user;
+        } else {
+          task.isComplete = false;
+          task.completedOn = null;
+          task.completedBy = null;
+        }
+      }
+        return task;
+    });
+
+    this.tasks$.next(this.tasks);
+
   }
 
 }

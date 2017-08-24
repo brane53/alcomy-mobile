@@ -21,8 +21,12 @@ export class TaskService {
 
   }
 
-  public getTasks(): Observable<any>{
+  public getTasks(): Observable<any> {
     return this.http.get('/tasks');
+  }
+
+  public toggleTaskCompletion() {
+    
   }
 
 }

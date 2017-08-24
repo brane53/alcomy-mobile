@@ -10,6 +10,14 @@ export class UserService {
 
   }
 
+  public addUser() {
+
+  }
+
+  public getUser() {
+
+  }
+
 
 
 }

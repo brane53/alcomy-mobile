@@ -73,6 +73,8 @@ import { UserMockService } from './core/user/user-mock.service';
 import { CardSliderComponent } from './shared/card-slider/card-slider.component';
 import { YesNoPipe } from './shared/pipes/yesNo.pipe';
 import { TaskHeaderComponent } from './shared/task-header/task-header.component';
+import { TaskListComponent } from './shared/task-list/task-list.component';
+import { TaskListItemComponent } from './shared/task-list-item/task-list-item.component';
 
 @NgModule({
   imports: [
@@ -125,11 +127,13 @@ import { TaskHeaderComponent } from './shared/task-header/task-header.component'
     PrnCardComponent,
     CardSliderComponent,
     TaskHeaderComponent,
+    TaskListComponent,
+    TaskListItemComponent,
     // Directives
     MenuButtonToggleDirective,
     QuickAddDirective,
     // Pipes
-    YesNoPipe
+    YesNoPipe,
   ],
   entryComponents: [
     AlcomyAppComponent,

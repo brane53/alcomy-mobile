@@ -1,0 +1,22 @@
+<ion-list>
+  <ion-item-sliding *ngFor="let task of tasks; let i = index">
+
+    <button ion-item>
+        <ion-checkbox color="dashboard-accent" [(ngModel)]="task.isComplete"></ion-checkbox>
+        <ion-label>
+          <p>
+            {{task.description}}
+          </p>
+          <p class="task-item time" *ngIf="task.time">7:00am</p>
+        </ion-label>
+      </button>
+
+    <ion-item-options side="left">
+      <button color="danger" ion-button (click)="deleteTask(task.id)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+    </ion-item-options>
+
+  </ion-item-sliding>
+
+</ion-list>

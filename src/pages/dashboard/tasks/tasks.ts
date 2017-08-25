@@ -13,8 +13,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 // tslint:disable-next-line:component-class-suffix
 export class TasksPage {
+
   title = 'Tasks';
   tasks: BehaviorSubject<Task[]>;
+  
   constructor(
     public platform: Platform,
     public navCtrl: NavController,
@@ -35,6 +37,10 @@ export class TasksPage {
 
   public onQuickTaskAdd(task) {
     this.taskService.addTask(task);
+  }
+
+  public onToggleTaskComplete(task: Task) {
+    this.taskService.toggleTaskComplete(task.id);
   }
 
   public addTask(description: string) {

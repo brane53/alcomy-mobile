@@ -54,7 +54,7 @@ export class TaskMockService {
   }
 
   // PUT /tasks/:id mark a task as complete
-  public toggleTaskCompletion(taskId) {
+  public toggleTaskComplete(taskId) {
     let user = this.userService.currentUser;
     this.tasks = this.tasks.map(task => {
       if (task.id === taskId) {

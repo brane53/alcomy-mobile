@@ -16,17 +16,16 @@ export class TaskService {
     // this.http.post()
   }
 
+  public getTasks(): Observable<any> {
+    //return this.http.get('/tasks');
+  }
+
+  public toggleTaskComplete(taskId: number) {
+    
+  }
+
   // DELETE /tasks/:id
   public deleteTask(taskId: number) {
 
   }
-
-  public getTasks(): Observable<any> {
-    return this.http.get('/tasks');
-  }
-
-  public toggleTaskCompletion() {
-    
-  }
-
 }

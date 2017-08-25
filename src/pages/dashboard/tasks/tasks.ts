@@ -6,6 +6,7 @@ import { NewTaskFormPage } from '../../shared/forms/new-task/new-task';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TaskService } from '../../../app/core/task/task.service';
 import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-tasks',
@@ -15,7 +16,7 @@ import { BehaviorSubject } from 'rxjs';
 export class TasksPage {
 
   title = 'Tasks';
-  tasks: BehaviorSubject<Task[]>;
+  tasks$: Observable<Task[]>;
   
   constructor(
     public platform: Platform,
@@ -31,7 +32,7 @@ export class TasksPage {
 
   ionViewDidLoad() {
     this.taskService.getTasks().subscribe(tasks$ => {
-      this.tasks = tasks$;
+      this.tasks$ = tasks$;
     });
   }
 

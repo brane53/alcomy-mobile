@@ -1,21 +1,22 @@
 <ion-list>
-  <ion-item-sliding *ngFor="let task of tasks; let i = index">
+  <ion-item-sliding *ngFor="let task of (tasks | async); let i = index">
+    <task-list-item [task]="task" (toggleComplete)="onToggleTaskComplete($event)" (delete)="onTaskDelete($event)"></task-list-item>
 
-    <button ion-item>
-        <ion-checkbox color="dashboard-accent" [(ngModel)]="task.isComplete"></ion-checkbox>
-        <ion-label>
-          <p>
-            {{task.description}}
-          </p>
-          <p class="task-item time" *ngIf="task.time">7:00am</p>
-        </ion-label>
-      </button>
+    <!--<button ion-item>
+      <ion-checkbox color="dashboard-accent" [(ngModel)]="task.isComplete"></ion-checkbox>
+      <ion-label>
+        <p>
+          {{task.description}}
+        </p>
+        <p class="task-item time" *ngIf="task.time">7:00am</p>
+      </ion-label>
+    </button>
 
     <ion-item-options side="left">
-      <button color="danger" ion-button (click)="deleteTask(task.id)">
-          <ion-icon name="trash"></ion-icon>
-        </button>
-    </ion-item-options>
+      <button color="danger" ion-button (click)="">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item-options>-->
 
   </ion-item-sliding>
 

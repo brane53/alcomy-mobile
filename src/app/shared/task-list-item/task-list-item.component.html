@@ -1,3 +1,15 @@
-<p>
-  task-list-item works!
-</p>
+<button ion-item>
+      <ion-checkbox color="dashboard-accent" [(ngModel)]="task.isComplete"></ion-checkbox>
+      <ion-label>
+        <p>
+          {{task.description}}
+        </p>
+        <p class="task-item time" *ngIf="task.time">7:00am</p>
+      </ion-label>
+    </button>
+
+<ion-item-options side="left">
+  <button color="danger" ion-button (click)="">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+</ion-item-options>

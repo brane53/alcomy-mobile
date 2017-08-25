@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs';
-import { Task } from '../../models/models';
+import { Task, User } from '../../models/models';
 
 @Injectable()
 export class TaskService {
 
-  tasks$: BehaviorSubject<Task[]>;
+  private tasks: BehaviorSubject<Task[]>;
+  tasks$: Observable<User>;
 
   constructor(private http: Http) { }
 
@@ -17,7 +18,7 @@ export class TaskService {
   }
 
   public getTasks(): Observable<any> {
-    //return this.http.get('/tasks');
+    return this.http.get('/tasks');
   }
 
   public toggleTaskComplete(taskId: number) {

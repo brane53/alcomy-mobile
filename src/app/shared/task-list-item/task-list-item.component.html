@@ -5,12 +5,12 @@
       <p>
         {{task.description}}
       </p>
-      <p class="task-item time" *ngIf="task.time">7:00am</p>
+      <p class="task-item time" *ngIf="task.dueDate">7:00am</p>
     </ion-label>
   </button>
 
   <ion-item-options side="left">
-    <button color="danger" ion-button (click)="deleteTask(task.id)">
+    <button color="danger" ion-button (click)="deleteTask()">
       <ion-icon name="trash"></ion-icon>
     </button>
   </ion-item-options>

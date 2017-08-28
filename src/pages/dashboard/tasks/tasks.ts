@@ -16,7 +16,7 @@ import { Observable } from 'rxjs/Observable';
 export class TasksPage {
 
   title = 'Tasks';
-  tasks$: Observable<Task[]>;
+  tasks$;
   
   constructor(
     public platform: Platform,
@@ -31,12 +31,13 @@ export class TasksPage {
   }
 
   ionViewDidLoad() {
-    this.taskService.getTasks().subscribe(tasks$ => {
-      this.tasks$ = tasks$;
-    });
+    this.tasks$ = this.taskService.tasks;
+    // this.taskService.getTasks().subscribe(tasks => {
+    //   this.tasks$ = tasks;
+    // });
   }
 
-  public onQuickTaskAdd(task) {
+  public onQuickTaskAdd(task: Task) {
     this.taskService.addTask(task);
   }
 
@@ -51,7 +52,7 @@ export class TasksPage {
 
   };
 
-  public deleteTask(taskId: number) {
+  public onTaskDelete(taskId: number) {
     this.taskService.deleteTask(taskId);
   };
 

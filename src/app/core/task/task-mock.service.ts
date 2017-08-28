@@ -20,19 +20,21 @@ export class TaskMockService {
     }
   ];
 
-  private tasks: BehaviorSubject<Task[]> = new BehaviorSubject(this.fakeTasks);
-  tasks$: Observable<User[]> = this.tasks.asObservable();
+   tasks: BehaviorSubject<Task[]> = new BehaviorSubject(this.fakeTasks);
+  //tasks$: Observable<User[]> = this.tasks.asObservable();
 
   constructor(private userService: UserService) { }
 
   // POST /tasks?
   public addTask(task) {
-    let lastIndex = this.fakeTasks.length - 1;
-    if (lastIndex !== undefined) {
-      task.id = this.fakeTasks[lastIndex].id++;
-    } else {
+    
+    if (this.fakeTasks.length < 1) {
       task.id = 1;
+    } else {
+      let lastIndex = this.fakeTasks.length - 1;
+      task.id = this.fakeTasks[lastIndex].id++;
     }
+
     this.fakeTasks.push(task);
     this.tasks.next(this.fakeTasks);
   }
@@ -51,7 +53,7 @@ export class TaskMockService {
 
   // GET /tasks get all tasks or a subset of tasks based on an included query string.
   public getTasks(query?: string): Observable<Task[]> {
-    return this.tasks$;
+    return this.tasks;
   }
 
   // PUT /tasks/:id mark a task as complete

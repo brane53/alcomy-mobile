@@ -7,8 +7,9 @@ import { Task, User } from '../../models/models';
 @Injectable()
 export class TaskService {
 
-  private tasks: BehaviorSubject<Task[]>;
-  tasks$: Observable<User>;
+  tasks: BehaviorSubject<Task[]>;
+  tasks$: Observable<Task[]>;
+  
 
   constructor(private http: Http) { }
 

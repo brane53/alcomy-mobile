@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/models';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'task-list',
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TaskListComponent implements OnChanges {
 
-  @Input() tasks: Observable<Task[]>;
+  @Input() tasks: BehaviorSubject<Task[]>;
 
   @Output() toggleTaskComplete: EventEmitter<Task> = new EventEmitter();
 
@@ -30,8 +31,8 @@ export class TaskListComponent implements OnChanges {
   /**
    * onTaskDelete
    */
-  public onTaskDelete(task: Task) {
-    this.taskDelete.emit(task)
+  public onTaskDelete(taskId: Number) {
+    this.taskDelete.emit(taskId);
   }
 
 }

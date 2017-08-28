@@ -46,7 +46,9 @@
 
 <ion-content>
 
-  <task-list [tasks]="tasks$" (toggleTaskComplete)="onToggleTaskComplete($event)" (taskDelete)="onTaskDelete($event)"></task-list>
+  <task-list [tasks]="tasks$" 
+             (toggleTaskComplete)="onToggleTaskComplete($event)" 
+             (taskDelete)="onTaskDelete($event)"></task-list>
   <!-- <ion-list>
     <ion-item-sliding *ngFor="let task of tasks; let i = index">
 

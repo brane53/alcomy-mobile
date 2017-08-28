@@ -11,7 +11,7 @@ export class TaskListItemComponent implements OnInit {
 
   @Output() toggleComplete: EventEmitter<Task> = new EventEmitter();
 
-  @Output() delete: EventEmitter<Task> = new EventEmitter();
+  @Output() delete: EventEmitter<Number> = new EventEmitter();
 
   constructor() { }
 
@@ -19,11 +19,11 @@ export class TaskListItemComponent implements OnInit {
   }
 
   public toggleTaskComplete(task: Task) {
-    this.toggleComplete.emit(task)
+    this.toggleComplete.emit(task);
   }
 
-  public deleteTask(taskId: number) {
-    this.delete.emit(taskId);
+  public deleteTask() {
+    this.delete.emit(this.task.id);
   }
 
 }

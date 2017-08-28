@@ -22,8 +22,8 @@ export class TaskListItemComponent implements OnInit {
     this.toggleComplete.emit(task)
   }
 
-  public deleteTask(task: Task) {
-    this.delete.emit(task);
+  public deleteTask(taskId: number) {
+    this.delete.emit(taskId);
   }
 
 }

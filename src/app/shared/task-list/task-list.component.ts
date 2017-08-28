@@ -13,7 +13,7 @@ export class TaskListComponent implements OnChanges {
 
   @Output() toggleTaskComplete: EventEmitter<Task> = new EventEmitter();
 
-  @Output() taskDelete: EventEmitter<Task> = new EventEmitter();
+  @Output() taskDelete: EventEmitter<Number> = new EventEmitter();
 
   constructor() { }
 

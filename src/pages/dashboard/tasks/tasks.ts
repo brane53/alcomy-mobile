@@ -17,7 +17,9 @@ export class TasksPage {
 
   title = 'Tasks';
   tasks$;
-  
+  completionFilter: string = 'incomplete';
+  sort: string = '';
+
   constructor(
     public platform: Platform,
     public navCtrl: NavController,
@@ -31,19 +33,22 @@ export class TasksPage {
   }
 
   ionViewDidLoad() {
-    this.tasks$ = this.taskService.tasks;
+    this.tasks$ = this.taskService.tasks$;
     // this.taskService.getTasks().subscribe(tasks => {
     //   this.tasks$ = tasks;
     // });
   }
 
+
   public onQuickTaskAdd(task: Task) {
     this.taskService.addTask(task);
   }
 
-  public onToggleTaskComplete(task: Task) {
-    this.taskService.toggleTaskComplete(task.id);
+
+  public onToggleTaskComplete(taskId: number) {
+    this.taskService.toggleTaskComplete(taskId);
   }
+
 
   public addTask(description: string) {
     if (description) {
@@ -52,9 +57,11 @@ export class TasksPage {
 
   };
 
+
   public onTaskDelete(taskId: number) {
     this.taskService.deleteTask(taskId);
   };
+
 
   public presentNewTaskFormPage() {
     let taskModal = this.modal.create(NewTaskFormPage);

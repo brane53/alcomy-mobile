@@ -10,11 +10,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class TaskListComponent implements OnChanges {
 
-  @Input() tasks: BehaviorSubject<Task[]>;
+  @Input() tasks: Observable<Task[]>;
 
-  @Output() toggleTaskComplete: EventEmitter<Task> = new EventEmitter();
+  @Output() toggleTaskComplete: EventEmitter<number> = new EventEmitter();
 
-  @Output() taskDelete: EventEmitter<Number> = new EventEmitter();
+  @Output() taskDelete: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
@@ -24,14 +24,14 @@ export class TaskListComponent implements OnChanges {
 
   
 
-  public onToggleTaskComplete(task: Task) {
-    this.toggleTaskComplete.emit(task);
+  public onToggleTaskComplete(taskId: number) {
+    this.toggleTaskComplete.emit(taskId);
   }
 
   /**
    * onTaskDelete
    */
-  public onTaskDelete(taskId: Number) {
+  public onTaskDelete(taskId: number) {
     this.taskDelete.emit(taskId);
   }
 

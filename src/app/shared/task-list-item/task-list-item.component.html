@@ -1,6 +1,6 @@
 <ion-item-sliding>
   <button ion-item>
-    <ion-checkbox color="dashboard-accent" [(ngModel)]="task.isComplete"></ion-checkbox>
+    <ion-checkbox color="dashboard-accent" [checked]="task.isComplete" (ionChange)="toggleTaskComplete()"></ion-checkbox>
     <ion-label>
       <p>
         {{task.description}}
@@ -9,9 +9,16 @@
     </ion-label>
   </button>
 
-  <ion-item-options side="left">
+  <ion-item-options side="left" (ionSwipe)="toggleTaskComplete()">
+    <button color="money" ion-button expandable (click)="toggleTaskComplete()">
+      <custom-icon set="mdIcons" name="done"></custom-icon>
+    </button>
+  </ion-item-options>
+
+  <ion-item-options side="right">
     <button color="danger" ion-button (click)="deleteTask()">
       <ion-icon name="trash"></ion-icon>
     </button>
   </ion-item-options>
+
 </ion-item-sliding>

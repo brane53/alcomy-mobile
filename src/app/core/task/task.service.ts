@@ -7,7 +7,7 @@ import { Task, User } from '../../models/models';
 @Injectable()
 export class TaskService {
 
-  tasks: BehaviorSubject<Task[]>;
+  private tasks: BehaviorSubject<Task[]>;
   tasks$: Observable<Task[]>;
   
 
@@ -18,8 +18,20 @@ export class TaskService {
     // this.http.post()
   }
 
-  public getTasks(): Observable<any> {
-    return this.http.get('/tasks');
+  public getTasks() {
+    // Call out to a REST Api
+    // Push the value that comes back to this.tasks
+    this.http.get('/tasks')
+    .map(res => {
+      return res.json();
+    })
+    .subscribe(
+    tasks => {
+      this.tasks.next(tasks);
+    },
+    err => {
+      console.error(`Tasks were not returned. TaskService.getTasks()`);
+    });
   }
 
   public toggleTaskComplete(taskId: number) {
@@ -28,6 +40,6 @@ export class TaskService {
 
   // DELETE /tasks/:id
   public deleteTask(taskId: number) {
-
+    
   }
 }

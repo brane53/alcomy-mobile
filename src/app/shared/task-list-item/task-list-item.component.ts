@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ItemSliding } from 'ionic-angular'
 import { Task } from '../../models/models';
 
 @Component({
@@ -9,21 +10,25 @@ export class TaskListItemComponent implements OnInit {
 
   @Input() task: Task;
 
-  @Output() toggleComplete: EventEmitter<Task> = new EventEmitter();
+  @Output() toggleComplete: EventEmitter<number> = new EventEmitter();
 
-  @Output() delete: EventEmitter<Number> = new EventEmitter();
+  @Output() delete: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  public toggleTaskComplete(task: Task) {
-    this.toggleComplete.emit(task);
+  
+
+  public toggleTaskComplete() {
+    this.toggleComplete.emit(this.task.id);
+    
   }
 
   public deleteTask() {
     this.delete.emit(this.task.id);
+
   }
 
 }

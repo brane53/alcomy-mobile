@@ -12,7 +12,7 @@ export class TaskMockService {
     {
       id: 1,
       description: 'Do the laundry',
-      isComplete: false,
+      isComplete: true,
       completedOn: null,
       completedBy: null,
       createdOn: moment('2017-8-16').format(),
@@ -42,7 +42,7 @@ export class TaskMockService {
     task.createdOn = moment().format();
     task.createdBy = this.userService.currentUser;
     this.fakeTasks.push(task);
-    this.tasks.next(this.fakeTasks);
+    this.getTasks({completionType: 'incomplete'});
   }
 
 
@@ -74,8 +74,17 @@ export class TaskMockService {
 
 
   // GET /tasks get all tasks or a subset of tasks based on an included query string.
-  public getTasks(query?: string): Observable<Task[]> {
-    return this.tasks$;
+  // 'completionType=incomplete;sort=none'
+  public getTasks(query?: {completionType: string}) {
+    let filteredTasks = this.fakeTasks.filter(task => {
+      if (query.completionType === 'incomplete') {
+        return task.isComplete === false;
+      } else if (query.completionType === 'complete') {
+        return task.isComplete === true;
+      }
+        return true;
+    });
+    this.tasks.next(filteredTasks);
   }
 
 
@@ -96,7 +105,7 @@ export class TaskMockService {
       }
         return task;
     });
-    this.tasks.next(this.fakeTasks);
+    this.getTasks({completionType: 'incomplete'});
   }
 
 }

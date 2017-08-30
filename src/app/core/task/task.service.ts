@@ -18,7 +18,7 @@ export class TaskService {
     // this.http.post()
   }
 
-  public getTasks() {
+  public getTasks(query: Object) {
     // Call out to a REST Api
     // Push the value that comes back to this.tasks
     this.http.get('/tasks')

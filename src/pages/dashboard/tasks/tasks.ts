@@ -33,6 +33,7 @@ export class TasksPage {
   }
 
   ionViewDidLoad() {
+    this.taskService.getTasks({completionType: 'incomplete'});
     this.tasks$ = this.taskService.tasks$;
     // this.taskService.getTasks().subscribe(tasks => {
     //   this.tasks$ = tasks;

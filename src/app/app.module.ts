@@ -1,7 +1,7 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -80,7 +80,7 @@ import { TaskListItemComponent } from './shared/task-list-item/task-list-item.co
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     IonicModule.forRoot(AlcomyAppComponent, {
       iconMode: 'md'

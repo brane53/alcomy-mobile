@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs';
 import { Task, User } from '../../models/models';
@@ -14,8 +14,10 @@ export class TaskService {
   constructor(private http: Http) { }
 
   // POST /tasks?
-  public addTask(task) {
-    // this.http.post()
+  public addTask(task, params?: {completionType: string}) {
+    let queryParams = new HttpParams().set('completionType', params.completionType);
+    
+    this.http.post('/api/tasks', {params: queryParams})
   }
 
   public getTasks(query: Object) {

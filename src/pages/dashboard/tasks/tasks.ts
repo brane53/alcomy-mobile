@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TaskService } from '../../../app/core/task/task.service';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
+import { TASK_FILTERS } from '../../../config/tasks.config';
 
 @Component({
   selector: 'page-tasks',
@@ -15,8 +16,9 @@ import { Observable } from 'rxjs/Observable';
 // tslint:disable-next-line:component-class-suffix
 export class TasksPage {
 
-  title = 'Tasks';
-  tasks$;
+  title: string = 'Tasks';
+  tasks$: Observable<Task[]>;
+  completionOptions = TASK_FILTERS.completionOptions;
   completionFilter: string = 'incomplete';
   sort: string = '';
 
@@ -35,33 +37,26 @@ export class TasksPage {
   ionViewDidLoad() {
     this.taskService.getTasks({completionType: 'incomplete'});
     this.tasks$ = this.taskService.tasks$;
-    // this.taskService.getTasks().subscribe(tasks => {
-    //   this.tasks$ = tasks;
-    // });
   }
 
 
   public onQuickTaskAdd(task: Task) {
-    this.taskService.addTask(task);
+    this.taskService.addTask(task, {completionType: this.completionFilter});
   }
 
 
   public onToggleTaskComplete(taskId: number) {
-    this.taskService.toggleTaskComplete(taskId);
+    this.taskService.toggleTaskComplete(taskId, {completionType: this.completionFilter});
   }
 
 
-  public addTask(description: string) {
-    if (description) {
-      // this.taskService.addTask()
-    }
-
-  };
-
-
   public onTaskDelete(taskId: number) {
-    this.taskService.deleteTask(taskId);
+    this.taskService.deleteTask(taskId, {completionType: this.completionFilter});
   };
+
+  public onFilterChange(value){
+    this.taskService.getTasks({completionType: this.completionFilter});
+  }
 
 
   public presentNewTaskFormPage() {

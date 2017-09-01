@@ -26,13 +26,13 @@ export class TaskMockService {
     }
   ];
 
-  private tasks: BehaviorSubject<Task[]> = new BehaviorSubject(this.fakeTasks);
-  tasks$: Observable<User[]> = this.tasks.asObservable();
+  private tasks$$: BehaviorSubject<Task[]> = new BehaviorSubject(this.fakeTasks);
+  tasks$: Observable<User[]> = this.tasks$$.asObservable();
 
   constructor(private userService: UserService) { }
 
   // POST /tasks?
-  public addTask(task) {
+  public addTask(task, query) {
     if (this.fakeTasks.length < 1) {
       task.id = 1;
     } else {
@@ -42,13 +42,13 @@ export class TaskMockService {
     task.createdOn = moment().format();
     task.createdBy = this.userService.currentUser;
     this.fakeTasks.push(task);
-    this.getTasks({completionType: 'incomplete'});
+    this.getTasks(query);
   }
 
 
   // DELETE /tasks/:id - assigns fakeTasks to a new array consisting of all tasks except the task with the provided
   // id. fakeTasks is then pushed into the tasks behavior subject
-  public deleteTask(taskId) {
+  public deleteTask(taskId, query) {
     Observable.from(this.fakeTasks)
     .filter(task => {
       return task.id !== taskId;
@@ -61,7 +61,7 @@ export class TaskMockService {
       tasks => {
         // push this.tasks into the tasks$ observable.
         this.fakeTasks = tasks;
-        this.tasks.next(tasks);
+        this.tasks$$.next(tasks);
       },
       err => {
         console.log(`problem deleting tasks. TaskMockService.deleteTask(): ${err}`);
@@ -70,26 +70,32 @@ export class TaskMockService {
         console.log('deleted task');
       }
     );
+
+    this.getTasks(query);
   }
 
 
   // GET /tasks get all tasks or a subset of tasks based on an included query string.
   // 'completionType=incomplete;sort=none'
   public getTasks(query?: {completionType: string}) {
-    let filteredTasks = this.fakeTasks.filter(task => {
+    let filteredTasks = this.filterCompletionType(query);
+    this.tasks$$.next(filteredTasks);
+  }
+
+  private filterCompletionType(query) {
+    return this.fakeTasks.filter(task => {
       if (query.completionType === 'incomplete') {
         return task.isComplete === false;
       } else if (query.completionType === 'complete') {
         return task.isComplete === true;
       }
-        return true;
+      return true;
     });
-    this.tasks.next(filteredTasks);
   }
 
 
   // PUT /tasks/:id mark a task as complete
-  public toggleTaskComplete(taskId: number) {
+  public toggleTaskComplete(taskId: number, query: {completionType: string}) {
     let user = this.userService.currentUser;
     this.fakeTasks = this.fakeTasks.map(task => {
       if (task.id === taskId) {
@@ -105,7 +111,7 @@ export class TaskMockService {
       }
         return task;
     });
-    this.getTasks({completionType: 'incomplete'});
+    this.getTasks(query);
   }
 
 }

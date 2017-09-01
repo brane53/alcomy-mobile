@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 // import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
 import { BehaviorSubject } from 'rxjs';
 import { Resident } from '../../models/models';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ResidentsService {
@@ -10,9 +11,10 @@ export class ResidentsService {
   selectedResident: BehaviorSubject<Resident>;
 
   // TODO: Change type
-  residents$: any;
+  private residents$$: BehaviorSubject<Resident[]>;
+  residents$: Observable<Resident[]>;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
 
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Resident } from '../../models/models';
 import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ResidentsMockService {
 
-  private mockResidents: Resident[] = [
+  private fakeResidents: Resident[] = [
     {
       id: 1,
       firstName: 'blake',
@@ -262,33 +262,34 @@ export class ResidentsMockService {
 
 
   // Behavior Subject of type resident array whose starting value is mockResidents
-  residents$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(this.mockResidents);
+  private residents$$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(this.fakeResidents);
+  residents$: Observable<Resident[]> = this.residents$$.asObservable();
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.getResidents();
   }
 
   createResident(resident: Resident) {
     return this.http.post('api/residents', resident)
-      .map(this.extractData);
+      // .map(this.extractData);
   };
 
 
   getResidents() {
     this.http.get('api/residents')
-      .map(this.extractData)
+      // .map(this.extractData)
       .subscribe(
-        residents => this.residents$.next(residents),
+        residents => this.residents$$.next(this.fakeResidents),
         error => console.log('Error: ', error)
       );
       
   }
 
-  private extractData(res: Response) {
+ /*  private extractData(res: HttpResponse<any>) {
     let body = res.json();
     console.log('Body: ', body);
     return body.data;
-  }
+  } */
 
   private handleError(error) {
     // let errorMessage: string;

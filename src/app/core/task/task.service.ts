@@ -7,11 +7,11 @@ import { Task, User } from '../../models/models';
 @Injectable()
 export class TaskService {
 
-  private tasks: BehaviorSubject<Task[]>;
+  private tasks$$: BehaviorSubject<Task[]>;
   tasks$: Observable<Task[]>;
   
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   // POST /tasks?
   public addTask(task, params?: {completionType: string}) {
@@ -24,16 +24,14 @@ export class TaskService {
     // Call out to a REST Api
     // Push the value that comes back to this.tasks
     this.http.get('/tasks')
-    .map(res => {
-      return res.json();
-    })
     .subscribe(
-    tasks => {
-      this.tasks.next(tasks);
-    },
-    err => {
-      console.error(`Tasks were not returned. TaskService.getTasks()`);
-    });
+      (tasks: Task[]) => {
+        this.tasks$$.next(tasks);
+      },
+      err => {
+        console.error(`Tasks were not returned. TaskService.getTasks()`);
+      }
+    );
   }
 
   public toggleTaskComplete(taskId: number) {

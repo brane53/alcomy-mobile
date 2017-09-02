@@ -34,12 +34,12 @@ export class TaskService {
     );
   }
 
-  public toggleTaskComplete(taskId: number) {
+  public toggleTaskComplete(taskId: number, query) {
     
   }
 
   // DELETE /tasks/:id
-  public deleteTask(taskId: number) {
+  public deleteTask(taskId: number, query) {
     
   }
 }

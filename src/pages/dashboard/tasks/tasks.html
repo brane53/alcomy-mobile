@@ -27,18 +27,13 @@
   </ion-navbar>
 
   <!--Quick Add Task input and button-->
-  <!--<ion-toolbar color="white">
+  <ion-toolbar color="white">
 
-    <ion-input #newTask placeholder="Add Quick Task" (keyup.enter)="addTask(newTask.value); newTask.value=null">
-    </ion-input>
+    <ion-select [(ngModel)]="completionFilter" interface="popover" (ionChange)="onFilterChange($event)">
+      <ion-option *ngFor="let option of completionOptions" [value]="option.value">{{option.text}}</ion-option>
+    </ion-select>
 
-    <ion-buttons right>
-      <button ion-button icon-only item-right clear="true" (click)="addTask(newTask.value); newTask.value=null">
-        <ion-icon name="add-circle"></ion-icon>
-      </button>
-    </ion-buttons>
-
-  </ion-toolbar>-->
+  </ion-toolbar>
 
 
   <task-header (quickTaskAdd)="onQuickTaskAdd($event)"></task-header>

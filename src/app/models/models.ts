@@ -172,7 +172,15 @@ export class Notification {
   source?: string;
   event?: string;
   dismissed?: boolean;
-  data?: Object;
+  data?: {
+    title?: string,
+    createdBy?: string,
+    createdFor?: string,
+    createdOn?: string,
+    images?: string[],
+    notes?: string,
+    lastBM?: string
+  };
 }
 
 export class Contact {

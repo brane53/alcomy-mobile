@@ -20,11 +20,6 @@ export class AlcomyAppComponent implements OnInit {
    rootPage = DashboardTabsPage;
   // rootPage = LoginPage;
   // rootPage = NewResidentPage;
-  notificationButtons = 'all';
-  isExpanded = false;
-
-
-  notifications: Notification[];
 
 
   @ViewChild('appContent') nav: NavController;
@@ -32,7 +27,6 @@ export class AlcomyAppComponent implements OnInit {
   constructor(
   private platform: Platform,
   public menu: MenuController,
-  private notificationService: NotificationService,
   private statusBar: StatusBar,
   private splashScreen: SplashScreen) {
     this.platform.ready().then(() => {
@@ -44,15 +38,7 @@ export class AlcomyAppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.notifications = this.notificationService.notifications;
-  }
-
-  expand() {
-    if (this.isExpanded) {
-      this.isExpanded = false;
-      return;
-    }
-    this.isExpanded = true;
+    
   }
 
   dashboard() {

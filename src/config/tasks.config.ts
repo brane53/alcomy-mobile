@@ -12,4 +12,4 @@ export const TASK_BUTTONS = {
     color: 'dashboard-accent',
     icon: 'add'
   }
-}
+};

@@ -22,27 +22,10 @@ app-component {
         padding-left: 0;
         padding-right: 0;
     }
-    ion-menu#notifications {
-        .segment-button span {
-            position: absolute;
-            right: 5px;
-        }
-    }
-
-    ion-label .notification-item-details {
-        margin-top: 10px;
-        font-size: 14px;
-        text-align: justify;
-        text-transform: none;
-    }
-    ion-label .notification-item-title {
-        font-weight: 600;
-        font-size: 16px;
-        color: $dark-text-87
-    }
 
 }
 
+// color classes for the main menu buttons
 .alc-fg-color.alc-dashboard-primary {
     color: $dashboard-primary;
 }
@@ -71,19 +54,7 @@ ion-slides.card-slides {
     }
 }
 
-.text-center {
-    text-align: center;
-}
-
-
-.hidden-content ion-label {
-    text-transform: none;
-    font-size: 0.8em;
-    padding: 1em 0;
-    white-space: normal;
-    text-align: justify;
-}
-
+// status indicator dot that appears in the resident list
 .indicator {
     height: 10px;
     width: 10px;

@@ -49,6 +49,8 @@ import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
 import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
 import { StaffListPage } from '../pages/staff/staff-list/staff-list';
 import { StaffGroupsPage } from '../pages/staff/staff-groups/staff-groups';
+// Menu Pages
+import { NotificationMenuPage } from '../pages/shared/menus/notification-menu/notification-menu.component';
 // Real Services
 import { AuthService } from './core/auth/auth.service';
 import { AccountService } from './core/account/account.service';
@@ -75,6 +77,9 @@ import { YesNoPipe } from './shared/pipes/yesNo.pipe';
 import { TaskHeaderComponent } from './shared/task-header/task-header.component';
 import { TaskListComponent } from './shared/task-list/task-list.component';
 import { TaskListItemComponent } from './shared/task-list-item/task-list-item.component';
+import { AccordionComponent } from './shared/accordion/accordion.component';
+import { AccordionPanelComponent } from './shared/accordion-panel/accordion-panel.component';
+
 
 @NgModule({
   imports: [
@@ -123,12 +128,16 @@ import { TaskListItemComponent } from './shared/task-list-item/task-list-item.co
     NewTaskFormPage,
     NewWatchItemFormPage,
     LoginPage,
+    // Menu Pages
+    NotificationMenuPage,
     // Components
     PrnCardComponent,
     CardSliderComponent,
     TaskHeaderComponent,
     TaskListComponent,
     TaskListItemComponent,
+    AccordionComponent,
+    AccordionPanelComponent,
     // Directives
     MenuButtonToggleDirective,
     QuickAddDirective,

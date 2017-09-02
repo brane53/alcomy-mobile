@@ -12,7 +12,7 @@ export class TaskMockService {
     {
       id: 1,
       description: 'Do the laundry',
-      isComplete: true,
+      isComplete: false,
       completedOn: null,
       completedBy: null,
       createdOn: moment('2017-8-16').format(),

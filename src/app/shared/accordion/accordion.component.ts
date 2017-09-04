@@ -1,27 +1,35 @@
 import { Component, OnInit, OnDestroy, ContentChildren, QueryList, AfterContentInit, Input } from '@angular/core';
-import { AccordionPanelComponent } from '../accordion-panel/accordion-panel.component';
+import { PanelComponent } from '../accordion-panel/panel.component';
 import { coerceBooleanProperty } from '../../utils/coercion';
+
+export type AccordionDisplayMode = 'default' | 'flat';
 
 @Component({
   selector: 'accordion',
   templateUrl: 'accordion.component.html'
 })
-
 export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
-  // open strategy can be single or multiple. default: multiple
   // indicates how many panels can be open at once.
+  // when multi = true multiple panels can be open at the same time.
+  // when multi = false only a single panel can be open at any given time.
   @Input() get multi(): boolean { return this._multi; };
   set multi(val: boolean) { this._multi = coerceBooleanProperty(val); };
   private _multi = true;
 
-  @ContentChildren(AccordionPanelComponent) panels: QueryList<AccordionPanelComponent>;
+  // displayMode determines the elevation of the panel body. There are two modes:
+  //   default: creates a gutter style panel where the panel body is at a lower level than the panel header.
+  //   flat: creates a flat style panel where the panel body is at the same level as the panel header.
+  // The default is 'default'
+  @Input() dispayMode: AccordionDisplayMode = 'default';
+
+  @ContentChildren(PanelComponent) panels: QueryList<PanelComponent>;
 
   constructor() { }
 
   ngAfterContentInit() {
     
     this.panels.toArray().forEach(
-      (panel: AccordionPanelComponent) => {
+      (panel: PanelComponent) => {
         // subscribe to the toggle event of every panel
         panel.toggle.subscribe(() => {
           if (this.multi === true) {
@@ -43,7 +51,7 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
 
   ngOnDestroy() {
     this.panels.toArray().forEach(
-      (panel: AccordionPanelComponent) => {
+      (panel: PanelComponent) => {
         // unsubscribe from the toggle event of every panel
         panel.toggle.unsubscribe();
       }

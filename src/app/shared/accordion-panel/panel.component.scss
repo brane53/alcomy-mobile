@@ -1,22 +1,22 @@
 @import "../../../theme/variables";
 
-accordion-panel {
-  .panel {
-    border-bottom: 1px solid $dark-text-12;
-    background-color: $background;
-    &.opened {
-      box-shadow: 0 2px 4px $dark-text-12 inset;
-    }
-  } 
+panel {
+  display: block;
+  border-bottom: 1px solid $dark-text-12;
+
+  
+  
   .panel-header {
     display: flex;
     flex-direction: row;
     padding: 16px 0;
     background-color: $forground;
+    position: relative;
+    z-index: 4;
     
     &.opened {
       //box-shadow: 0 2px 4px $dark-text-12;
-      box-shadow: $whiteframe-shadow-2dp;
+      box-shadow: $panel-shadow-umbra-2dp, $panel-shadow-penumbra-2dp;
 
     }
 
@@ -78,6 +78,10 @@ accordion-panel {
     font-size: 14px;
     text-align: justify;
     text-transform: none;
+    background-color: $background;
+    box-shadow: $panel-shadow-ambient-2dp;
+    
     
   }
+
 }

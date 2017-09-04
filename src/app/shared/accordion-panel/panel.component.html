@@ -1,0 +1,24 @@
+<!--Panel Header-->
+<div class="panel-header" [ngClass]="{'opened': isOpen}">
+  <div class="header-icon">
+    <custom-icon set="mdIcons" name="local_pharmacy"></custom-icon>
+  </div>
+  <div class="header-info">
+    <div class="header-title">{{title}}</div>
+    <div class="header-summary">{{summary}}</div>
+  </div>
+  <div class="header-button">
+    <button ion-button icon-only clear color="dark-text-54" (click)="expand()">
+      <custom-icon set="mdIcons" name="expand_more" *ngIf="!isOpen"></custom-icon>
+      <custom-icon set="mdIcons" name="expand_less" *ngIf="isOpen"></custom-icon>
+    </button>
+  </div>
+</div>
+
+<!-- Panel Body -->
+<div class="panel-body" *ngIf="isOpen">
+  <div class="panel-content"></div>
+  <div class="panel-actions"></div>
+</div>
+
+

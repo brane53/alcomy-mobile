@@ -1,6 +1,6 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
@@ -189,6 +189,7 @@ import { PanelComponent } from './shared/accordion-panel/panel.component';
     {provide: TaskService, useClass: TaskMockService},
     {provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [IonicApp]
 })
 export class AppModule {}

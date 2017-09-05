@@ -3,8 +3,6 @@
 panel {
   display: block;
   border-bottom: 1px solid $dark-text-12;
-
-  
   
   .panel-header {
     display: flex;
@@ -13,12 +11,6 @@ panel {
     background-color: $forground;
     position: relative;
     z-index: 4;
-    
-    &.opened {
-      //box-shadow: 0 2px 4px $dark-text-12;
-      box-shadow: $panel-shadow-umbra-2dp, $panel-shadow-penumbra-2dp;
-
-    }
 
     .header-icon {
       display: flex;
@@ -73,15 +65,34 @@ panel {
       }
     }
   }
+
   .panel-body {
     height: 100px;
     font-size: 14px;
     text-align: justify;
     text-transform: none;
     background-color: $background;
-    box-shadow: $panel-shadow-ambient-2dp;
-    
-    
+   
   }
+
+  &.opened {
+    &.gutter {
+      .panel-header {
+        box-shadow: $panel-shadow-umbra-2dp, $panel-shadow-penumbra-2dp;
+      }
+      .panel-body {
+        box-shadow: $panel-shadow-ambient-2dp;
+      }
+    }
+    &.flat {
+      .panel-header {
+        border-bottom: none;
+      }
+      .panel-body {
+        background-color: $forground;
+      }
+    }
+  }
+
 
 }

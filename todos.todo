@@ -47,7 +47,13 @@ Notes:
       ☐ What happens if the physician changes?
       ☐ Is there a specific person at the pharmacy that you work with?
 
-
+  Fixes:
+    ☐ the ion-content component in the notification menu does not appear to
+    be calculating the header height or the footer height and as a result,
+    the header and footer float over the ion-content. ion-content does have a
+    "fullscreen" that when set to false should cause the content area to shrink
+    so that it falls inbetween header and footer instead of under them. However,
+    the property doesn't appear to be working.
 
 MODELS:
   ☐ Person

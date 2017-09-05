@@ -172,6 +172,7 @@ export class Notification {
   source?: string;
   event?: string;
   dismissed?: boolean;
+  url?: string;
   data?: {
     title?: string,
     createdBy?: string,

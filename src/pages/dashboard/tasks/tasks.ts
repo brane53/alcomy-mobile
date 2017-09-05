@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
 import { NavController, Platform, ModalController } from 'ionic-angular';
 import { Task } from '../../../app/models/models';
@@ -9,12 +9,14 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import { TASK_FILTERS } from '../../../config/tasks.config';
 
+import { Content } from 'ionic-angular';
+
 @Component({
   selector: 'page-tasks',
   templateUrl: 'tasks.html',
 })
 // tslint:disable-next-line:component-class-suffix
-export class TasksPage {
+export class TasksPage implements AfterViewInit {
 
   title: string = 'Tasks';
   tasks$: Observable<Task[]>;
@@ -22,12 +24,19 @@ export class TasksPage {
   completionFilter: string = 'incomplete';
   sort: string = '';
 
+  @ViewChild(Content) content: Content;
+
+  ngAfterViewInit() {
+    console.log(`Tasks Content Bottom: ${this.content._hdrHeight}`);
+  }
+
   constructor(
     public platform: Platform,
     public navCtrl: NavController,
     public modal: ModalController,
     private statusBar: StatusBar,
-    private taskService: TaskService) {
+    private taskService: TaskService
+  ) {
     this.platform.ready().then(() => {
       statusBar.backgroundColorByHexString('#0277BD');
 

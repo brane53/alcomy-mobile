@@ -21,7 +21,12 @@ export class PanelComponent implements OnInit {
   @Input() summary: string;
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
 
-  @HostBinding('class.opened') opened = this._isOpen;
+  @HostBinding('class.opened') get opened(): boolean {
+    if (this.isOpen) {
+      return true;
+    }
+    return false;
+  } ;
 
   @HostBinding('class.gutter') get gutter(): boolean {
     if (this.displayMode === 'default') {

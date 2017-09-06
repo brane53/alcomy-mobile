@@ -1,6 +1,6 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
@@ -78,7 +78,7 @@ import { TaskHeaderComponent } from './shared/task-header/task-header.component'
 import { TaskListComponent } from './shared/task-list/task-list.component';
 import { TaskListItemComponent } from './shared/task-list-item/task-list-item.component';
 import { AccordionComponent } from './shared/accordion/accordion.component';
-import { AccordionPanelComponent } from './shared/accordion-panel/accordion-panel.component';
+import { PanelComponent } from './shared/accordion-panel/panel.component';
 
 
 @NgModule({
@@ -137,7 +137,7 @@ import { AccordionPanelComponent } from './shared/accordion-panel/accordion-pane
     TaskListComponent,
     TaskListItemComponent,
     AccordionComponent,
-    AccordionPanelComponent,
+    PanelComponent,
     // Directives
     MenuButtonToggleDirective,
     QuickAddDirective,
@@ -189,6 +189,7 @@ import { AccordionPanelComponent } from './shared/accordion-panel/accordion-pane
     {provide: TaskService, useClass: TaskMockService},
     {provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [IonicApp]
 })
 export class AppModule {}

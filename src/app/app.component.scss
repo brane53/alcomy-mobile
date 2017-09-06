@@ -42,6 +42,8 @@ app-component {
     color: $messages-primary;
 }
 
+// Hack to get the card height to be correct
+
 ion-slides.card-slides {
     height: initial;
     .swiper-container, .swiper-slide, .swiper-wrapper, .swiper-slide, .swiper-pagination-progress .swiper-pagination-progressbar, .swiper-container-vertical > .swiper-pagination-progress,

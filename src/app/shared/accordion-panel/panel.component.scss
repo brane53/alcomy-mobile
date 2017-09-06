@@ -14,8 +14,8 @@ panel {
 
     .header-icon {
       display: flex;
-      width: 72px;
-      max-width: 72px;
+      width: 56px;
+      max-width: 56px;
       padding: 0 16px;
       align-items: center;
       custom-icon {
@@ -27,6 +27,7 @@ panel {
       display: flex;
       flex-direction: column;
       flex: 1;
+      padding-left: 16px;
       .header-title {
         font-weight: 600;
         font-size: 16px;
@@ -62,16 +63,33 @@ panel {
       }
       custom-icon {
         font-size: 2.0rem;
+        &.alert {
+          color: $alert;
+        }
+        &.reminder {
+          color: $reminder;
+        }
+        &.message {
+          color: $message;
+        }
       }
     }
   }
 
   .panel-body {
-    height: 100px;
+    display: flex;
+    flex-direction: column;
     font-size: 14px;
     text-align: justify;
     text-transform: none;
     background-color: $background;
+    position: relative;
+
+    .panel-actions {
+      height: 56px;
+      background-color: $forground;
+      border-top: 1px solid $dark-text-12
+    }
    
   }
 
@@ -80,7 +98,7 @@ panel {
       .panel-header {
         box-shadow: $panel-shadow-umbra-2dp, $panel-shadow-penumbra-2dp;
       }
-      .panel-body {
+      .panel-actions {
         box-shadow: $panel-shadow-ambient-2dp;
       }
     }

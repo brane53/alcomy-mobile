@@ -63,7 +63,7 @@ $panel-shadow-ambient-4dp: 0px 1px 10px 0px rgba(0, 0, 0, $shadow-ambient-shadow
 
 $panel-shadow-umbra-2dp: 0px 3px 5px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity) !default;
 $panel-shadow-penumbra-2dp: 0px 2px 2px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity) !default;
-$panel-shadow-ambient-2dp: 0px -1px 3px -1px rgba(0, 0, 0, $shadow-ambient-shadow-opacity) inset !default;
+$panel-shadow-ambient-2dp: 0px -1px 3px -1px rgba(0, 0, 0, $shadow-ambient-shadow-opacity) !default;
 
 // Background Colors
 $forground: $mdc-white;
@@ -102,6 +102,11 @@ $alcomy-toolbar: $mdc-grey-900;
 
 $money: $mdc-green-500;
 $danger: $mdc-red-400;
+
+// Notification Center Colors
+$alert: $mdc-red-400;
+$reminder: $mdc-amber-500;
+$message: $mdc-purple-500;
 
 $colors: (
   primary:    $dashboard-primary,

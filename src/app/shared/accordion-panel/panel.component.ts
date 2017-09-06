@@ -19,6 +19,18 @@ export class PanelComponent implements OnInit {
 
   @Input() title: string;
   @Input() summary: string;
+  // @Input() iconSet: string = 'mdIcons';
+  // @Input() iconName: string;
+  // @Input() iconColor: string;
+  @Input()
+  get button(): boolean {
+    return this._hasButton;
+  }
+  set button(val: boolean) {
+    this._hasButton = coerceBooleanProperty(val);
+  }
+  private _hasButton = true;
+
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
 
   @HostBinding('class.opened') get opened(): boolean {
@@ -30,8 +42,6 @@ export class PanelComponent implements OnInit {
 
   @HostBinding('class.gutter') get gutter(): boolean {
     if (this.displayMode === 'default') {
-      console.log(`DisplayMode: ${this.displayMode}`);
-      console.log('default true');
       return true;
     }
     return false;
@@ -39,8 +49,6 @@ export class PanelComponent implements OnInit {
 
   @HostBinding('class.flat') get flat(): boolean {
     if (this.displayMode === 'flat') {
-      console.log(`DisplayMode: ${this.displayMode}`);
-      console.log('flat true');
       return true;
     }
     return false;

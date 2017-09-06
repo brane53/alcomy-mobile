@@ -28,7 +28,8 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.headerHeight = this.header;
+    this.headerHeight = this.header.getElementRef().nativeElement.clientHeight;
+    console.log(`Header Height: ${this.headerHeight}`);
   }
 
   ionViewDidLoad() {

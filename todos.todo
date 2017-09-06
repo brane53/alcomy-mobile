@@ -1,13 +1,21 @@
 Notes:
 
   Work In Progress (WIP):
-    Dashboard medications is all messed up due to implementing an incomplete mock backend locally.
-    I think the best way to salvage everying is to just restart on the mock backend.
-    Check out residents-mock.service.ts and fix issues with Observables.
-    Consider breaking the medication service into multiple services for PRN meds and CS meds
-    Don't worry about keeping the local backend cohesive, i.e. making sure all the resident info is in presents. We just need the data
-    Assume we are getting the correct data back from the backend.
+    Dashboard Medications:
+      Dashboard medications is all messed up due to implementing an incomplete mock backend locally.
+      I think the best way to salvage everying is to just restart on the mock backend.
+      Check out residents-mock.service.ts and fix issues with Observables.
+      Consider breaking the medication service into multiple services for PRN meds and CS meds
+      Don't worry about keeping the local backend cohesive, i.e. making sure all the resident info is in presents. We just need the data
+      Assume we are getting the correct data back from the backend.
 
+    Accordion:
+      ☐ change accordion-panel to just "panel"
+      ☐ Panel items need the ability to slide and to emit events when sliding
+      ☐ Animate panel opening and closing
+      ☐ Add abilitiy for flat or guttered panels
+      ☐ break panel segments into their own components
+      
   Todos:
     ☐ Fix the text color theme for staff module
     ☐ Fix Dashboard Medications to display properly
@@ -39,7 +47,13 @@ Notes:
       ☐ What happens if the physician changes?
       ☐ Is there a specific person at the pharmacy that you work with?
 
-
+  Fixes:
+    ☐ the ion-content component in the notification menu does not appear to
+    be calculating the header height or the footer height and as a result,
+    the header and footer float over the ion-content. ion-content does have a
+    "fullscreen" that when set to false should cause the content area to shrink
+    so that it falls inbetween header and footer instead of under them. However,
+    the property doesn't appear to be working.
 
 MODELS:
   ☐ Person

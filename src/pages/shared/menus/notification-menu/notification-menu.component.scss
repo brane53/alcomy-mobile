@@ -1,37 +1,20 @@
 notification-menu {
-
   
-  .segment-button span {
-    position: absolute;
-    right: 5px;
-  }
-  // makes it so the header doesn't float on top of
-  // the notification list.
-  ion-header.header {
-    position: relative;
-  }
-  ion-label .notification-item-details {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: justify;
-    text-transform: none;
-  }
-  ion-label .notification-item-title {
-    font-weight: 600;
-    font-size: 16px;
-    color: $dark-text-87
-  }
-
-  .hidden-content ion-label {
-    text-transform: none;
-    font-size: 0.8em;
-    padding: 1em 0;
-    white-space: normal;
-    text-align: justify;
-  }
+  // .segment-button span {
+  //   position: absolute;
+  //   right: 5px;
+  // }
 
   .text-center {
     text-align: center;
+  }
+
+  // this is a hack to correct the issue where ion-content
+  // doesn't calculate and add margins to compensate for the
+  // header and footer height.
+  .scroll-content {
+    margin-top: 70px;
+    margin-bottom: 56px;
   }
   
 }

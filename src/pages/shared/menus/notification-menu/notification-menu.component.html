@@ -30,28 +30,39 @@
 <ion-content [ngSwitch]="notificationButtons">
 
   <!--All Notifications-->
-  <ion-list *ngSwitchDefault>
+
+  <accordion multi="false" displayMode="flat">
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+    <panel title="Last Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
+  </accordion>
+
+  <!-- <ion-list *ngSwitchDefault>
     <div *ngFor="let n of notifications">
       <button ion-item no-lines detail-none>
-          <custom-icon *ngIf="n.source === 'medications'" set="mdIcons" name="local_pharmacy" item-left></custom-icon>
-          <custom-icon *ngIf="n.source === 'watchlist'" set="mdIcons" name="remove_red_eye" item-left></custom-icon>
+        <custom-icon *ngIf="n.source === 'medications'" set="mdIcons" name="local_pharmacy" item-left></custom-icon>
+        <custom-icon *ngIf="n.source === 'watchlist'" set="mdIcons" name="remove_red_eye" item-left></custom-icon>
 
-          <div class="notification-item-title">
-            {{ n.data.title }}
-          </div>
+        <div class="notification-item-title">
+          {{ n.data.title }}
+        </div>
 
+        <div class="notification-item-details">
+          <p *ngIf="n.source === 'medications'">3 residents need their medications soon.</p>
+          <p *ngIf="n.source === 'watchlist' && n.event === 'BM'">It's been {{n.data.lastBM | amTimeAgo:true}} since {{n.data.createdFor}} has had a bowl movement.</p>
+          <p *ngIf="n.source === 'watchlist' && n.event === 'ITEM_CREATE'">{{n.data.createdBy}} created a new watch item for {{n.data.createdFor}}</p>
+        </div>
 
-          <div class="notification-item-details">
-            <p *ngIf="n.source === 'medications'">3 residents need their medications soon.</p>
-            <p *ngIf="n.source === 'watchlist' && n.event === 'BM'">It's been {{n.data.lastBM | amTimeAgo:true}} since {{n.data.createdFor}} has had a bowl movement.</p>
-            <p *ngIf="n.source === 'watchlist' && n.event === 'ITEM_CREATE'">{{n.data.createdBy}} created a new watch item for {{n.data.createdFor}}</p>
-          </div>
-
-          <button ion-button icon-only clear color="dark-text-54" (click)="expand()" item-right>
-            <custom-icon set="mdIcons" name="expand_more" *ngIf="!isExpanded"></custom-icon>
-            <custom-icon set="mdIcons" name="expand_less" *ngIf="isExpanded"></custom-icon>
-          </button>
-
+        <button ion-button icon-only clear color="dark-text-54" (click)="expand()" item-right>
+          <custom-icon set="mdIcons" name="expand_more" *ngIf="!isExpanded"></custom-icon>
+          <custom-icon set="mdIcons" name="expand_less" *ngIf="isExpanded"></custom-icon>
+        </button>
       </button>
       <ion-item *ngIf="isExpanded" no-lines class="hidden-content">
         <div>
@@ -65,7 +76,7 @@
 
   </ion-list>
 
-  <!-- Alerts List -->
+  <!-- Alerts List --
   <ion-list *ngSwitchCase="'alerts'">
     <button ion-item detail-none>
         Reminder 1
@@ -78,7 +89,7 @@
       </button>
   </ion-list>
 
-  <!-- Reminders List -->
+  <!-- Reminders List --
   <ion-list *ngSwitchCase="'reminders'">
     <button ion-item detail-none>
         Reminder 1
@@ -91,7 +102,7 @@
       </button>
   </ion-list>
 
-  <!-- Messages List -->
+  <!-- Messages List --
   <ion-list *ngSwitchCase="'messages'">
     <button ion-item detail-none>
         Message 1
@@ -102,5 +113,10 @@
     <button ion-item detail-none>
         Message 3
       </button>
-  </ion-list>
+  </ion-list> -->
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

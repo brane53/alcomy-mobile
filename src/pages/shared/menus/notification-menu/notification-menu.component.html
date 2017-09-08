@@ -31,27 +31,37 @@
 
   <!--All Notifications-->
 
-  <accordion multi="true" displayMode="flat">
-    <panel iconName="remove_red_eye" title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality.">
+  <accordion multi="true" displayMode="flat" *ngSwitchDefault>
+    <panel [title]="n.data.title" [summary]="n.data.summary" *ngFor="let n of notifications">
       <custom-icon panel-icon set="mdIcons" name="remove_red_eye"></custom-icon>
       <div panel-content>
-        Content
+        <ng-template notification-widget></ng-template>
       </div>
       <panel-actions>
         <button ion-button clear color="dashboard-primary">Details</button>
       </panel-actions>
     </panel>
-    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
-    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
-    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
-    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
-    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
-    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
-    <panel title="Test Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
-    <panel title="Last Notification" summary="This is a test panel and this is text to test the line wrapping functionality."></panel>
   </accordion>
 
-  <!-- <ion-list *ngSwitchDefault>
+  <accordion *ngSwitchCase="'alerts'"></accordion>
+  <accordion *ngSwitchCase="'reminders'"></accordion>
+  <accordion *ngSwitchCase="'messages'"></accordion>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+
+
+<!-- <ion-list *ngSwitchDefault>
     <div *ngFor="let n of notifications">
       <button ion-item no-lines detail-none>
         <custom-icon *ngIf="n.source === 'medications'" set="mdIcons" name="local_pharmacy" item-left></custom-icon>
@@ -122,9 +132,3 @@
         Message 3
       </button>
   </ion-list> -->
-</ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Footer</ion-title>
-  </ion-toolbar>
-</ion-footer>

@@ -168,13 +168,15 @@ export class User {
 
 export class Notification {
   id?: number;
-  type?: string;
-  source?: string;
-  event?: string;
+  type?: string;   // type of notification. To be used to determine the component to be loaded
+  source?: string; // the part of the app that generated the notification
+  event?: string;  // the action that triggered the notification
   dismissed?: boolean;
-  url?: string;
+  component?: any; // notification component to load
+  url?: string;    // link to send the user when the click they tab the notification
   data?: {
     title?: string,
+    summary?: string,
     createdBy?: string,
     createdFor?: string,
     createdOn?: string,

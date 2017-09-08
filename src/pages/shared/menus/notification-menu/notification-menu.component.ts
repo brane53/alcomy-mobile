@@ -11,9 +11,7 @@ import { Content, Header } from 'ionic-angular';
 export class NotificationMenuPage implements OnInit, AfterViewInit {
 
   notificationButtons = 'all';
-  isExpanded = false;
   notifications: Notification[];
-  headerHeight: number;
 
  @ViewChild(Content) content: Content;
  @ViewChild(Header) header: Header;
@@ -27,20 +25,12 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
     this.notifications = this.ns.notifications;
   }
 
-  ngAfterViewInit() {
-    this.headerHeight = this.header.getElementRef().nativeElement.clientHeight;
-    console.log(`Header Height: ${this.headerHeight}`);
-  }
-
   ionViewDidLoad() {
   }
 
-  expand() {
-    if (this.isExpanded) {
-      this.isExpanded = false;
-      return;
-    }
-    this.isExpanded = true;
+  ngAfterViewInit() {
   }
+
+
 
 }

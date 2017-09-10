@@ -12,18 +12,21 @@ panel {
     position: relative;
     z-index: 4;
 
-    .header-icon {
+    [panel-header-left] {
+      display: flex;
+    }
+
+    custom-icon[panel-header-left] {
       display: flex;
       width: 56px;
       max-width: 56px;
       padding: 0 16px;
       align-items: center;
-      custom-icon {
-        font-size: 24px;
-      }
+      font-size: 24px;
+      
     }
 
-    .header-info {
+    .panel-header-info {
       display: flex;
       flex-direction: column;
       flex: 1;

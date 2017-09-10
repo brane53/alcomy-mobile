@@ -1,12 +1,12 @@
 <!--Panel Header-->
 <div class="panel-header">
-  <div class="header-icon">
-    <ng-content select="[panel-icon]"></ng-content>
+
+  <ng-content select="[panel-header-left]"></ng-content>
+
+  <div class="panel-header-info">
+    <ng-content select="[panel-header-content]"></ng-content>
   </div>
-  <div class="header-info" *ngIf="title || summary">
-    <div class="header-title" *ngIf="title">{{title}}</div>
-    <div class="header-summary" *ngIf="summary">{{summary}}</div>
-  </div>
+  
   <div class="header-button" *ngIf="button">
     <button ion-button icon-only clear color="dark-text-54" (click)="expand()">
       <custom-icon set="mdIcons" name="expand_more" *ngIf="!isOpen"></custom-icon>
@@ -15,13 +15,15 @@
   </div>
 </div>
 
+
+
 <!-- Panel Body -->
 <div class="panel-body" *ngIf="isOpen">
   <div class="panel-content">
-    <ng-content select="[panel-content]"></ng-content>
+    <ng-content select="[panel-body-content]"></ng-content>
   </div>
   <div class="panel-actions">
-    <ng-content select="panel-actions"></ng-content>
+    <ng-content select="panel-body-actions"></ng-content>
   </div>
 </div>
 

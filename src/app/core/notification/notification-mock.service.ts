@@ -2,6 +2,15 @@ import { Injectable } from '@angular/core';
 import { Notification } from '../../models/models';
 import * as moment from 'moment';
 
+
+
+
+export const notificationIconLookup = {
+  watchlist: 'remove_red_eye',
+  medications: 'local_pharmacy'
+};
+
+
 @Injectable()
 export class NotificationMockService {
 

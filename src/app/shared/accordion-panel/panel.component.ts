@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation,
          HostBinding } from '@angular/core';
 import { coerceBooleanProperty } from '../../utils/coercion';
+import { ContentChildren } from '@angular/core';
 
 @Component({
   selector: 'panel',
@@ -16,12 +17,7 @@ export class PanelComponent implements OnInit {
   private _isOpen = false;
 
   @Input() displayMode = 'default';
-
-  @Input() title: string;
-  @Input() summary: string;
-  // @Input() iconSet: string = 'mdIcons';
-  // @Input() iconName: string;
-  // @Input() iconColor: string;
+  
   @Input()
   get button(): boolean {
     return this._hasButton;
@@ -30,6 +26,14 @@ export class PanelComponent implements OnInit {
     this._hasButton = coerceBooleanProperty(val);
   }
   private _hasButton = true;
+  
+
+  // @Input() title: string;
+  // @Input() summary: string;
+
+  //@ContentChildren()
+
+
 
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
 

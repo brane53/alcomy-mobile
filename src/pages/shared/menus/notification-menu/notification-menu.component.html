@@ -33,8 +33,9 @@
 
   <accordion multi="true" displayMode="flat" *ngSwitchDefault>
     <panel [title]="n.data.title" [summary]="n.data.summary" *ngFor="let n of notifications">
-      <custom-icon panel-icon set="mdIcons" name="remove_red_eye"></custom-icon>
-      <div panel-content>
+      <custom-icon panel-header-left set="mdIcons" name="remove_red_eye"></custom-icon>
+      
+      <div panel-body-content>
         <ng-template notification-widget></ng-template>
       </div>
       <panel-actions>

@@ -4,8 +4,12 @@
   <ng-content select="[panel-header-left]"></ng-content>
 
   <div class="panel-header-info">
+    <ng-content select="[panel-header-title]"></ng-content>
+    <ng-content select="[panel-header-summary]"></ng-content>
     <ng-content select="[panel-header-content]"></ng-content>
   </div>
+
+  <ng-content select="[panel-header-right]"></ng-content>
   
   <div class="header-button" *ngIf="button">
     <button ion-button icon-only clear color="dark-text-54" (click)="expand()">

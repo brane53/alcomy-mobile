@@ -26,12 +26,12 @@ export class PanelComponent implements OnInit {
     this._hasButton = coerceBooleanProperty(val);
   }
   private _hasButton = true;
-  
+
 
   // @Input() title: string;
   // @Input() summary: string;
 
-  //@ContentChildren()
+  // @ContentChildren()
 
 
 

@@ -34,12 +34,12 @@ panel {
       flex-direction: column;
       flex: 1;
       padding-left: 16px;
-      [header-title] {
+      [panel-header-title] {
         font-weight: 600;
         font-size: 16px;
         color: $dark-text-87
       }
-      [header-summary] {
+      [panel-header-summary] {
         font-size: 14px;
         color: $dark-text-54;
         display: block; /* or inline-block */
@@ -48,7 +48,7 @@ panel {
         overflow: hidden;
         max-height: 3.0rem;
         line-height: 1.5rem;
-        margin-top: 1rem;
+        margin-top: 0.2rem;
       }
     }
 
@@ -82,14 +82,15 @@ panel {
     }
   }
 
-  .panel-body {
+  [panel-body-content] {
     display: flex;
     flex-direction: column;
     font-size: 14px;
     text-align: justify;
     text-transform: none;
-    background-color: $background;
+    
     position: relative;
+    padding: 16px;
 
     .panel-actions {
       display: flex;
@@ -107,6 +108,9 @@ panel {
     &.gutter {
       .panel-header {
         box-shadow: $panel-shadow-umbra-2dp, $panel-shadow-penumbra-2dp;
+      }
+      [panel-body-content] {
+        background-color: $background;
       }
       .panel-actions {
         box-shadow: $panel-shadow-ambient-2dp;

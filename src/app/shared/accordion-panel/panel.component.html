@@ -23,12 +23,6 @@
 
 <!-- Panel Body -->
 <div class="panel-body" *ngIf="isOpen">
-  <div class="panel-content">
-    <ng-content select="[panel-body-content]"></ng-content>
-  </div>
-  <div class="panel-actions">
-    <ng-content select="panel-body-actions"></ng-content>
-  </div>
+  <ng-content select="[panel-body-content]"></ng-content>
+  <ng-content select="panel-body-actions"></ng-content>
 </div>
-
-

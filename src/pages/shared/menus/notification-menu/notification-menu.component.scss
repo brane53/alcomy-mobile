@@ -9,11 +9,16 @@ notification-menu {
     text-align: center;
   }
 
+  // This is a temporary hack so that the header doesn't cut off part of the content.
+  ion-header  {
+    position: relative;
+  }
+
   // this is a hack to correct the issue where ion-content
   // doesn't calculate and add margins to compensate for the
   // header and footer height.
   .scroll-content {
-    margin-top: 70px;
+    margin-top: 0;
     margin-bottom: 56px;
   }
 }

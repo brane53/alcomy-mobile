@@ -17,7 +17,7 @@ export class PanelComponent implements OnInit {
   private _isOpen = false;
 
   @Input() displayMode = 'default';
-  
+
   @Input()
   get button(): boolean {
     return this._hasButton;

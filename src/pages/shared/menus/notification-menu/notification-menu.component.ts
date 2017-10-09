@@ -12,6 +12,10 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
 
   notificationButtons = 'all';
   notifications: Notification[];
+  notificationIcons = {
+    watchlist: 'remove_red_eye',
+    medications: 'local_pharmacy'
+  };
 
  @ViewChild(Content) content: Content;
  @ViewChild(Header) header: Header;

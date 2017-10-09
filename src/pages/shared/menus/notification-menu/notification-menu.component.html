@@ -33,7 +33,7 @@
 
   <accordion multi="true" displayMode="flat" *ngSwitchDefault>
     <panel *ngFor="let n of notifications">
-      <custom-icon panel-header-left set="mdIcons" name="remove_red_eye"></custom-icon>
+      <custom-icon panel-header-left set="mdIcons" [name]="notificationIcons[n.source]"></custom-icon>
       <span panel-header-title>{{n.data.title}}</span>
       <span panel-header-summary>{{n.data.summary}}</span>
       <div panel-body-content>
@@ -54,7 +54,9 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Footer</ion-title>
+    <ion-buttons right>
+      <button ion-button color="primary">Dismiss All</button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>
 

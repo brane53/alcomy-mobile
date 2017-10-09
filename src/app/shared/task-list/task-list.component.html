@@ -1,6 +1,7 @@
 <ion-list>
     <task-list-item *ngFor="let task of tasks | async; let i = index" 
-                    [task]="task" 
+                    [task]="task"
+                    [checkbox]="checkbox"
                     (toggleComplete)="onToggleTaskComplete($event)" 
                     (delete)="onTaskDelete($event)"></task-list-item>
 

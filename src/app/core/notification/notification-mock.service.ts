@@ -23,10 +23,10 @@ export class NotificationMockService {
       dismissed: false,
       data: {
         title: 'Skin Tear',
-        summary: 'This is some text to represent a skin tear',
+        summary: 'Created for Justin Kunz by Ilija Vrajich',
         createdBy: 'Ilija Vrajich',
         createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(30, 'minutes').format(),
+        createdAt: moment().subtract(30, 'minutes').format(),
         images: ['assets/watchlist/skin_tear.jpg'],
         notes: ''
       }
@@ -39,9 +39,9 @@ export class NotificationMockService {
       dismissed: false,
       data: {
         title: 'Bowel Movement',
-        summary: 'It\'s been 3 days since Brane Vrajich has had a bowel movement',
+        summary: '3 days since BM for Brane Vrajich',
         createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(40, 'minutes').format(),
+        createdAt: moment().subtract(40, 'minutes').format(),
         lastBM: moment().subtract(4, 'days').format()
       }
     },
@@ -53,9 +53,9 @@ export class NotificationMockService {
       dismissed: false,
       data: {
         title: 'Order Medication',
-        summary: 'Medication needs to be ordered',
+        summary: '3 medicaitons need to be ordered',
         createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(2, 'hours').format()
+        createdAt: moment().subtract(2, 'hours').format()
       }
     }
   ];

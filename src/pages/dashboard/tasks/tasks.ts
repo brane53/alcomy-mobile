@@ -21,7 +21,25 @@ export class TasksPage implements AfterViewInit {
   title: string = 'Tasks';
   tasks$: Observable<Task[]>;
   completionOptions = TASK_FILTERS.completionOptions;
-  completionFilter: string = 'incomplete';
+  get completionFilter(): string {
+    return this._completionFilter;
+  }
+  set completionFilter(val) {
+    this._completionFilter = val;
+    switch (val) {
+      case 'all':
+        this.hasCheckbox = true;
+        break;
+    
+      default:
+        this.hasCheckbox = false;
+        break;
+    }
+  }
+  _completionFilter: string = 'incomplete';
+
+  hasCheckbox = false;
+
   sort: string = '';
 
   @ViewChild(Content) content: Content;

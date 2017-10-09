@@ -70,7 +70,7 @@ export class Medication {
   brandName: string;
   genericName: string;
   description?: string;
-  strength?: {amount: number; measurement: string;};
+  strength?: { amount: number; measurement: string; }; // this is the strength of one unit of the medication form
   form?: string;
   imageUrl?: string;
 }
@@ -124,15 +124,15 @@ export class MedicationPrescription {
   prescriber: Specialist;
   medication: Medication;
   dosage: Dosage;
-  routeOfAdministration
-  schedule
-  instructions
+  routeOfAdministration: string;
+  schedule;
+  instructions;
 }
 
 export class Dosage {
-  amount: number; // amount of a drug taken at any one time
+  amount?: number; // amount of a drug taken at any one time
   measurement?: string;
-  form?: string // 
+  form?: string; // 
 
 }
 
@@ -180,7 +180,7 @@ export class Notification {
     summary?: string,
     createdBy?: string | User,
     createdFor?: string | Resident,
-    createdOn?: string,
+    createdAt?: string,
     images?: string[],
     notes?: string,
     lastBM?: string

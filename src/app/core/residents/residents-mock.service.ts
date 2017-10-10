@@ -270,7 +270,7 @@ export class ResidentsMockService {
   }
 
   createResident(resident: Resident) {
-    return this.http.post('api/residents', resident)
+    return this.http.post('api/residents', resident);
       // .map(this.extractData);
   };
 

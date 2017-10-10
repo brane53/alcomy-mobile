@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Notification } from '../../models/models';
 import * as moment from 'moment';
+import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -14,7 +18,7 @@ export const notificationIconLookup = {
 @Injectable()
 export class NotificationMockService {
 
-  notifications: Notification[] = [
+  fakeNotifications: Notification[] = [
     {
       id: 1,
       type: 'alert',
@@ -60,7 +64,36 @@ export class NotificationMockService {
     }
   ];
 
+  notifications$$: BehaviorSubject<Notification[]> = new BehaviorSubject<Notification[]>(this.fakeNotifications);
+  notifications$: Observable<Notification[]> = this.notifications$$.asObservable();
+  notificationFilter$$: BehaviorSubject<string> = new BehaviorSubject<string>('all');
+
+  unreadNotifications$: Observable<Notification[]> = this.notificationFilter$$.map(val => {
+    return this.fakeNotifications.filter(n => {
+        return n.dismissed !== true;
+    })
+    .filter((n) => {
+      if (val === 'alert' || val === 'reminder' || val === 'message') {
+        return n.type === val;
+      }
+      return n;
+    });
+  });
 
 
-  constructor() { }
+
+  constructor(private http: HttpClient) {
+    this.getNotifications();
+  }
+
+  getNotifications() {
+    this.notifications$$.next(this.fakeNotifications);
+  }
+
+  dismissAllNotifications(){
+    this.fakeNotifications.forEach(n => {
+      n.dismissed = true;
+    });
+    this.getNotifications();
+  }
 }

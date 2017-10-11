@@ -29,8 +29,8 @@
 
 <ion-content [ngSwitch]="notificationButtons">
 
-  <!--All Notifications-->
 
+  <!--All Notifications-->
   <accordion multi="true" displayMode="flat" *ngSwitchDefault>
     <panel *ngFor="let n of notifications">
       <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
@@ -45,6 +45,7 @@
     </panel>
   </accordion>
 
+  <!--Alerts Notifications-->
   <accordion *ngSwitchCase="'alerts'">
     <ng-container *ngFor="let n of notifications">
       <panel *ngIf="filter === n.type">
@@ -60,7 +61,7 @@
       </panel>
     </ng-container>
   </accordion>
-
+  <!--Reminder Notifications-->
   <accordion *ngSwitchCase="'reminders'">
     <ng-container *ngFor="let n of notifications">
       <panel *ngIf="filter === n.type">
@@ -76,7 +77,7 @@
       </panel>
     </ng-container>
   </accordion>
-
+  <!--Message Notifications-->
   <accordion *ngSwitchCase="'messages'">
     <ng-container *ngFor="let n of notifications">
       <panel *ngIf="filter === n.type">

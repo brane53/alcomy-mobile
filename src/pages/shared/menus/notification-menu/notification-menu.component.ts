@@ -10,9 +10,7 @@ import { Content, Header } from 'ionic-angular';
 // tslint:disable-next-line:component-class-suffix
 export class NotificationMenuPage implements OnInit, AfterViewInit {
 
-  get notificationButtons() {
-    return this._notificationButtons;
-  }
+  get notificationButtons() { return this._notificationButtons; }
   set notificationButtons(val) {
     if (val === 'alerts') {
       this.filter = 'alert';
@@ -54,6 +52,11 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.ns.unreadNotifications$.map(notifications => {
+      this.alertCount = 0;
+      this.reminderCount = 0;
+      this.messageCount = 0;
+      this.totalCount = this.alertCount + this.reminderCount + this.messageCount;
+      
       notifications.forEach(n => {
         if(n.type === 'alert') {
           this.alertCount++;

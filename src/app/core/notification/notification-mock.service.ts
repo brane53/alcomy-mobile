@@ -68,15 +68,9 @@ export class NotificationMockService {
   notifications$: Observable<Notification[]> = this.notifications$$.asObservable();
   notificationFilter$$: BehaviorSubject<string> = new BehaviorSubject<string>('all');
 
-  unreadNotifications$: Observable<Notification[]> = this.notificationFilter$$.map(val => {
-    return this.fakeNotifications.filter(n => {
+  unreadNotifications$: Observable<Notification[]> = this.notifications$.map(notifications => {
+    return notifications.filter(n => {
         return n.dismissed !== true;
-    })
-    .filter((n) => {
-      if (val === 'alert' || val === 'reminder' || val === 'message') {
-        return n.type === val;
-      }
-      return n;
     });
   });
 
@@ -85,14 +79,14 @@ export class NotificationMockService {
   constructor(private http: HttpClient) {
   }
 
-  getNotifications(filter: string) {
-    this.notificationFilter$$.next(filter);
+  getNotifications() {
+    this.notifications$$.next(this.fakeNotifications);
   }
 
   dismissAllNotifications(){
     this.fakeNotifications.forEach(n => {
       n.dismissed = true;
     });
-    this.getNotifications('all');
+    this.getNotifications();
   }
 }

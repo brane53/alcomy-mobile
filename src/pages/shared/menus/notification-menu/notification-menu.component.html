@@ -8,19 +8,19 @@
     <ion-segment mode="md" [(ngModel)]="notificationButtons" color="white">
       <ion-segment-button value="all">
         ALL
-        <span>({{totalCount}})</span>
+        <span *ngIf="totalCount"> ({{totalCount}}) </span>
       </ion-segment-button>
       <ion-segment-button value="alerts">
         <ion-icon name="warning"></ion-icon>
-        <span>({{alertCount}})</span>
+        <span *ngIf="alertCount">({{alertCount}})</span>
       </ion-segment-button>
       <ion-segment-button value="reminders">
         <ion-icon name="alarm"></ion-icon>
-        <span>({{reminderCount}})</span>
+        <span *ngIf="reminderCount">({{reminderCount}})</span>
       </ion-segment-button>
       <ion-segment-button value="messages">
         <custom-icon set="mdIcons" name="message"></custom-icon>
-        <span>({{messageCount}})</span>
+        <span *ngIf="messageCount">({{messageCount}})</span>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>

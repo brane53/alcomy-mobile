@@ -83,17 +83,16 @@ export class NotificationMockService {
 
 
   constructor(private http: HttpClient) {
-    this.getNotifications();
   }
 
-  getNotifications() {
-    this.notifications$$.next(this.fakeNotifications);
+  getNotifications(filter: string) {
+    this.notificationFilter$$.next(filter);
   }
 
   dismissAllNotifications(){
     this.fakeNotifications.forEach(n => {
       n.dismissed = true;
     });
-    this.getNotifications();
+    this.getNotifications('all');
   }
 }

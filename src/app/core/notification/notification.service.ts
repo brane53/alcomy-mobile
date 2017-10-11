@@ -15,5 +15,7 @@ export class NotificationService {
 
   }
 
+  getNotifications() {}
+
   dismissAllNotifications() {}
 }

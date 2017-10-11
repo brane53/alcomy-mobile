@@ -8,19 +8,19 @@
     <ion-segment mode="md" [(ngModel)]="notificationButtons" color="white">
       <ion-segment-button value="all">
         ALL
-        <span>(5)</span>
+        <span>({{totalCount}})</span>
       </ion-segment-button>
       <ion-segment-button value="alerts">
         <ion-icon name="warning"></ion-icon>
-        <span>(3)</span>
+        <span>({{alertCount}})</span>
       </ion-segment-button>
       <ion-segment-button value="reminders">
         <ion-icon name="alarm"></ion-icon>
-        <span>(1)</span>
+        <span>({{reminderCount}})</span>
       </ion-segment-button>
       <ion-segment-button value="messages">
         <custom-icon set="mdIcons" name="message"></custom-icon>
-        <span>(1)</span>
+        <span>({{messageCount}})</span>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -31,7 +31,7 @@
 
   <!--All Notifications-->
 
-  <accordion multi="true" displayMode="flat" *ngSwitchCase="'all'">
+  <accordion multi="true" displayMode="flat" *ngSwitchDefault>
     <panel *ngFor="let n of notifications">
       <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
       <span panel-header-title>{{n.data.title}}</span>
@@ -46,45 +46,51 @@
   </accordion>
 
   <accordion *ngSwitchCase="'alerts'">
-    <panel *ngFor="let n of notifications">
-      <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
-      <span panel-header-title>{{n.data.title}}</span>
-      <span panel-header-summary>{{n.data.summary}}</span>
-      <div panel-body-content>
-        <ng-template notification-widget></ng-template>
-      </div>
-      <panel-actions>
-        <button ion-button clear color="dashboard-primary">Details</button>
-      </panel-actions>
-    </panel>
+    <ng-container *ngFor="let n of notifications">
+      <panel *ngIf="filter === n.type">
+        <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
+        <span panel-header-title>{{n.data.title}}</span>
+        <span panel-header-summary>{{n.data.summary}}</span>
+        <div panel-body-content>
+          <ng-template notification-widget></ng-template>
+        </div>
+        <panel-actions>
+          <button ion-button clear color="dashboard-primary">Details</button>
+        </panel-actions>
+      </panel>
+    </ng-container>
   </accordion>
 
   <accordion *ngSwitchCase="'reminders'">
-    <panel *ngFor="let n of notifications">
-      <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
-      <span panel-header-title>{{n.data.title}}</span>
-      <span panel-header-summary>{{n.data.summary}}</span>
-      <div panel-body-content>
-        <ng-template notification-widget></ng-template>
-      </div>
-      <panel-actions>
-        <button ion-button clear color="dashboard-primary">Details</button>
-      </panel-actions>
-    </panel>
+    <ng-container *ngFor="let n of notifications">
+      <panel *ngIf="filter === n.type">
+        <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
+        <span panel-header-title>{{n.data.title}}</span>
+        <span panel-header-summary>{{n.data.summary}}</span>
+        <div panel-body-content>
+          <ng-template notification-widget></ng-template>
+        </div>
+        <panel-actions>
+          <button ion-button clear color="dashboard-primary">Details</button>
+        </panel-actions>
+      </panel>
+    </ng-container>
   </accordion>
-  
+
   <accordion *ngSwitchCase="'messages'">
-    <panel *ngFor="let n of notifications">
-      <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
-      <span panel-header-title>{{n.data.title}}</span>
-      <span panel-header-summary>{{n.data.summary}}</span>
-      <div panel-body-content>
-        <ng-template notification-widget></ng-template>
-      </div>
-      <panel-actions>
-        <button ion-button clear color="dashboard-primary">Details</button>
-      </panel-actions>
-    </panel>
+    <ng-container *ngFor="let n of notifications">
+      <panel *ngIf="filter === n.type">
+        <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
+        <span panel-header-title>{{n.data.title}}</span>
+        <span panel-header-summary>{{n.data.summary}}</span>
+        <div panel-body-content>
+          <ng-template notification-widget></ng-template>
+        </div>
+        <panel-actions>
+          <button ion-button clear color="dashboard-primary">Details</button>
+        </panel-actions>
+      </panel>
+    </ng-container>
   </accordion>
 
 

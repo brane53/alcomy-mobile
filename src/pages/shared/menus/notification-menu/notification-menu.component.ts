@@ -15,13 +15,12 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
   }
   set notificationButtons(val) {
     if (val === 'alerts') {
-      this.changeNotificationFilter('alert');
+      this.filter = 'alert';
     } else if (val === 'reminders') {
-      this.changeNotificationFilter('reminder');
+      this.filter = 'reminder';
     } else if (val === 'messages') {
-      this.changeNotificationFilter('message');
+      this.filter = 'message';
     }
-
     this._notificationButtons = val;
   }
   _notificationButtons = 'all';
@@ -39,8 +38,14 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
     message: 'notification-message'
   };
 
- @ViewChild(Content) content: Content;
- @ViewChild(Header) header: Header;
+  filter: string = '';
+  alertCount: number = 0;
+  reminderCount: number = 0;
+  messageCount: number = 0;
+  totalCount: number = this.alertCount + this.reminderCount + this.messageCount;
+
+//  @ViewChild(Content) content: Content;
+//  @ViewChild(Header) header: Header;
 
 
   constructor(
@@ -48,20 +53,26 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.ns.unreadNotifications$.subscribe(notifications => {
+    this.ns.unreadNotifications$.map(notifications => {
+      notifications.forEach(n => {
+        if(n.type === 'alert') {
+          this.alertCount++;
+        } else if (n.type === 'reminder') {
+          this.reminderCount++;
+        } else if (n.type === 'message') {
+          this.messageCount++;
+        }
+      });
+      return notifications;
+    }).subscribe(notifications => {
       this.notifications = notifications;
     });
   }
 
   ionViewDidLoad() {
-    
   }
 
   ngAfterViewInit() {
-  }
-
-  changeNotificationFilter(filter: string){
-    this.ns.notificationFilter$$.next(filter);
   }
 
   dismissAllNotifications() {

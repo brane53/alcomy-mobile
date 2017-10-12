@@ -1,8 +1,10 @@
 notification-menu {
   
-  .segment-button span {
-    position: absolute;
-    right: 5px;
+  .segment-button {
+    span, ion-badge {
+      position: absolute;
+      right: 5px;
+    }
   }
 
   .text-center {

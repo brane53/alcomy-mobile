@@ -8,19 +8,19 @@
     <ion-segment mode="md" [(ngModel)]="notificationButtons" color="white">
       <ion-segment-button value="all">
         ALL
-        <span *ngIf="totalCount"> ({{totalCount}}) </span>
+        <ion-badge *ngIf="totalCount" mode="ios" color="dashboard-accent">{{totalCount}}</ion-badge>
       </ion-segment-button>
       <ion-segment-button value="alerts">
         <ion-icon name="warning"></ion-icon>
-        <span *ngIf="alertCount">({{alertCount}})</span>
+        <ion-badge *ngIf="alertCount" mode="ios" color="dashboard-accent">{{alertCount}}</ion-badge>
       </ion-segment-button>
       <ion-segment-button value="reminders">
         <ion-icon name="alarm"></ion-icon>
-        <span *ngIf="reminderCount">({{reminderCount}})</span>
+        <ion-badge *ngIf="reminderCount" mode="ios" color="dashboard-accent">{{reminderCount}}</ion-badge>
       </ion-segment-button>
       <ion-segment-button value="messages">
         <custom-icon set="mdIcons" name="message"></custom-icon>
-        <span *ngIf="messageCount">({{messageCount}})</span>
+        <ion-badge *ngIf="messageCount" mode="ios" color="dashboard-accent">{{messageCount}}</ion-badge>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -46,7 +46,7 @@
   </accordion>
 
   <!--Alerts Notifications-->
-  <accordion *ngSwitchCase="'alerts'">
+  <accordion multi="true" *ngSwitchCase="'alerts'">
     <ng-container *ngFor="let n of notifications">
       <panel *ngIf="filter === n.type">
         <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>

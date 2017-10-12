@@ -16,7 +16,7 @@ export class PanelComponent implements OnInit {
   set isOpen(val: boolean) { this._isOpen = coerceBooleanProperty(val); };
   private _isOpen = false;
 
-  @Input() displayMode = 'default';
+  @Input() displayMode;
 
   @Input()
   get button(): boolean {
@@ -26,14 +26,6 @@ export class PanelComponent implements OnInit {
     this._hasButton = coerceBooleanProperty(val);
   }
   private _hasButton = true;
-
-
-  // @Input() title: string;
-  // @Input() summary: string;
-
-  // @ContentChildren()
-
-
 
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
 
@@ -46,21 +38,26 @@ export class PanelComponent implements OnInit {
 
   @HostBinding('class.gutter') get gutter(): boolean {
     if (this.displayMode === 'default') {
+      console.log(`Default True: ${this.displayMode}`);
       return true;
+
     }
+    console.log(`Default False: ${this.displayMode}`);
     return false;
   };
 
   @HostBinding('class.flat') get flat(): boolean {
     if (this.displayMode === 'flat') {
+      console.log(`Flat True: ${this.displayMode}`);
       return true;
     }
+    console.log(`Flat False: ${this.displayMode}`);
     return false;
   };
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() { console.log('Panel Init') }
 
   expand() {
     this.toggle.emit();

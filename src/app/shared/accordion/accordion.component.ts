@@ -21,7 +21,7 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
   //   default: creates a gutter style panel where the panel body is at a lower level than the panel header.
   //   flat: creates a flat style panel where the panel body is at the same level as the panel header.
   // The default is 'default' obviously
-  @Input() displayMode: AccordionDisplayMode = 'default';
+  @Input() displayMode: AccordionDisplayMode;
 
   @ContentChildren(PanelComponent) panels: QueryList<PanelComponent>;
 
@@ -51,7 +51,7 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
         });
 
         panel.isOpen = false;
-
+        
         panel.displayMode = this.displayMode;
       }
     );
@@ -66,7 +66,7 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
     );
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
 
 }

@@ -40,7 +40,7 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
   alertCount: number = 0;
   reminderCount: number = 0;
   messageCount: number = 0;
-  totalCount: number = this.alertCount + this.reminderCount + this.messageCount;
+  totalCount: number;
 
 //  @ViewChild(Content) content: Content;
 //  @ViewChild(Header) header: Header;
@@ -55,7 +55,7 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
       this.alertCount = 0;
       this.reminderCount = 0;
       this.messageCount = 0;
-      this.totalCount = this.alertCount + this.reminderCount + this.messageCount;
+      
       
       notifications.forEach(n => {
         if(n.type === 'alert') {
@@ -66,6 +66,9 @@ export class NotificationMenuPage implements OnInit, AfterViewInit {
           this.messageCount++;
         }
       });
+
+      this.totalCount = this.alertCount + this.reminderCount + this.messageCount;
+      
       return notifications;
     }).subscribe(notifications => {
       this.notifications = notifications;

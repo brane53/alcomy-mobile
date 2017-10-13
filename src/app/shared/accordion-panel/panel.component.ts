@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation,
          HostBinding } from '@angular/core';
 import { coerceBooleanProperty } from '../../utils/coercion';
-import { ContentChildren } from '@angular/core';
+import { ContentChildren, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'panel',
@@ -9,7 +9,7 @@ import { ContentChildren } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 
-export class PanelComponent implements OnInit {
+export class PanelComponent implements OnInit, OnDestroy {
 
   @Input()
   get isOpen(): boolean { return this._isOpen; };
@@ -57,7 +57,8 @@ export class PanelComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { console.log('Panel Init') }
+  ngOnInit() { console.log('Panel Init'); }
+  ngOnDestroy() { console.log('Panel Destroyed'); }
 
   expand() {
     this.toggle.emit();

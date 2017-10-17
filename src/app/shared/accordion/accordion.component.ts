@@ -53,6 +53,7 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
         panel.isOpen = false;
         
         panel.displayMode = this.displayMode;
+        console.log(`Accordion displayMode: ${this.displayMode}`);
       }
     );
   }
@@ -64,9 +65,10 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
         panel.toggle.unsubscribe();
       }
     );
+    console.log('Accordion Destroy');
   }
 
-  ngOnInit() {}
+  ngOnInit() { console.log('Accordion Init'); }
 
 
 }

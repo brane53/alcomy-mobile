@@ -68,7 +68,7 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
     console.log('Accordion Destroy');
   }
 
-  ngOnInit() { console.log('Accordion Init'); }
+  ngOnInit() { console.log(`Accordion Init: ${this.displayMode}`); }
 
 
 }

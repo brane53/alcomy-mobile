@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, ContentChildren, QueryList, AfterContentInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, ContentChildren, QueryList, AfterContentInit, AfterContentChecked, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PanelComponent } from '../accordion-panel/panel.component';
 import { coerceBooleanProperty } from '../../utils/coercion';
+import { Subject } from 'rxjs';
 
 export type AccordionDisplayMode = 'default' | 'flat';
 
@@ -8,7 +9,7 @@ export type AccordionDisplayMode = 'default' | 'flat';
   selector: 'accordion',
   templateUrl: 'accordion.component.html'
 })
-export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
+export class AccordionComponent implements OnInit, AfterContentChecked, OnDestroy {
   // indicates how many panels can be open at once.
   // when multi = true multiple panels can be open at the same time.
   // when multi = false only a single panel can be open at any given time.
@@ -21,13 +22,15 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
   //   default: creates a gutter style panel where the panel body is at a lower level than the panel header.
   //   flat: creates a flat style panel where the panel body is at the same level as the panel header.
   // The default is 'default' obviously
-  @Input() displayMode: AccordionDisplayMode;
+  @Input() displayMode: AccordionDisplayMode = 'default';
 
   @ContentChildren(PanelComponent) panels: QueryList<PanelComponent>;
 
+  inputChanges = new Subject<SimpleChanges>();
+
   constructor() { }
 
-  ngAfterContentInit() {
+  ngAfterContentChecked() {
 
     this.panels.toArray().forEach(
       (panel: PanelComponent) => {
@@ -58,7 +61,14 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
     );
   }
 
+  // ngOnChanges(changes: SimpleChanges) {
+  //   this.inputChanges.next(changes);
+  // }
+
+  ngOnInit() { console.log(`Accordion Init: ${this.displayMode}`); }
+
   ngOnDestroy() {
+    // this.inputChanges.complete();
     this.panels.toArray().forEach(
       (panel: PanelComponent) => {
         // unsubscribe from the toggle event of every panel
@@ -68,7 +78,8 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
     console.log('Accordion Destroy');
   }
 
-  ngOnInit() { console.log(`Accordion Init: ${this.displayMode}`); }
+
+
 
 
 }

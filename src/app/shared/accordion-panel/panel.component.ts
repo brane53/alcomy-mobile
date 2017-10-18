@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation,
-         HostBinding } from '@angular/core';
+         HostBinding, Optional, Host, forwardRef, ChangeDetectorRef } from '@angular/core';
 import { coerceBooleanProperty } from '../../utils/coercion';
 import { ContentChildren, OnDestroy } from '@angular/core';
+import { AccordionComponent } from '../accordion/accordion.component';
+import { Subscription } from 'rxjs/Subscription';
+import {} from 'rxjs'
 
 @Component({
   selector: 'panel',
@@ -10,6 +13,8 @@ import { ContentChildren, OnDestroy } from '@angular/core';
 })
 
 export class PanelComponent implements OnInit, OnDestroy {
+
+  parentChangeSubscription = Subscription.EMPTY;
 
   @Input()
   get isOpen(): boolean { return this._isOpen; };
@@ -55,10 +60,25 @@ export class PanelComponent implements OnInit, OnDestroy {
     return false;
   };
 
-  constructor() { }
+  constructor(
+    //@Optional() @Host() public accordion: AccordionComponent,
+    //public changeDetectorRef: ChangeDetectorRef
+    ) {
+      
+      // this.parentChangeSubscription = accordion.inputChanges.subscribe(() => {
+      //   this.changeDetectorRef.markForCheck();
+      // });
 
-  ngOnInit() { console.log('Panel Init'); }
-  ngOnDestroy() { console.log('Panel Destroyed'); }
+    }
+
+  ngOnInit() {
+    console.log('Panel Init');
+  }
+
+  ngOnDestroy() {
+    console.log('Panel Destroyed');
+    //this.parentChangeSubscription.unsubscribe();
+  }
 
   expand() {
     this.toggle.emit();

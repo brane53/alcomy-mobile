@@ -6,7 +6,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
-      "url": "http://localhost:8100",
+      "url": "http://localhost:8100/ionic-lab",
       "webRoot": "${workspaceRoot}/www",
       "sourceMaps": true
     },
@@ -15,7 +15,7 @@
       "request": "attach",
       "name": "Attach to Chrome",
       "port": 8100,
-      "url": "http://localhost",
+      "url": "http://localhost/ionic-lab",
       "webRoot": "${workspaceRoot}/www",
       "sourceMaps": true
     }

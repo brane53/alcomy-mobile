@@ -9,7 +9,7 @@ export type AccordionDisplayMode = 'default' | 'flat';
   selector: 'accordion',
   templateUrl: 'accordion.component.html'
 })
-export class AccordionComponent implements OnInit, AfterContentChecked, OnDestroy {
+export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
   // indicates how many panels can be open at once.
   // when multi = true multiple panels can be open at the same time.
   // when multi = false only a single panel can be open at any given time.
@@ -22,15 +22,14 @@ export class AccordionComponent implements OnInit, AfterContentChecked, OnDestro
   //   default: creates a gutter style panel where the panel body is at a lower level than the panel header.
   //   flat: creates a flat style panel where the panel body is at the same level as the panel header.
   // The default is 'default' obviously
-  @Input() displayMode: AccordionDisplayMode = 'default';
+  //@Input() displayMode: AccordionDisplayMode = 'default';
 
   @ContentChildren(PanelComponent) panels: QueryList<PanelComponent>;
 
-  inputChanges = new Subject<SimpleChanges>();
 
   constructor() { }
 
-  ngAfterContentChecked() {
+  ngAfterContentInit() {
 
     this.panels.toArray().forEach(
       (panel: PanelComponent) => {
@@ -54,21 +53,18 @@ export class AccordionComponent implements OnInit, AfterContentChecked, OnDestro
         });
 
         panel.isOpen = false;
-        
-        panel.displayMode = this.displayMode;
-        console.log(`Accordion displayMode: ${this.displayMode}`);
+        // panel.displayMode = this.displayMode;
+        // console.log(`Accordion displayMode: ${this.displayMode}`);
       }
     );
   }
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   this.inputChanges.next(changes);
-  // }
 
-  ngOnInit() { console.log(`Accordion Init: ${this.displayMode}`); }
+  ngOnInit() {
+    // console.log(`Accordion Init: ${this.displayMode}`); 
+  }
 
   ngOnDestroy() {
-    // this.inputChanges.complete();
     this.panels.toArray().forEach(
       (panel: PanelComponent) => {
         // unsubscribe from the toggle event of every panel

@@ -31,24 +31,26 @@
 
 
   <!--All Notifications-->
-  <accordion multi="true" displayMode="flat" *ngSwitchDefault>
-    <panel *ngFor="let n of notifications">
+  <accordion multi="true" *ngSwitchDefault>
+    <ng-container *ngFor="let n of notifications">
+      <panel displayMode='default'>
       <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
-      <span panel-header-title>{{n.data.title}}</span>
-      <span panel-header-summary>{{n.data.summary}}</span>
-      <div panel-body-content>
-        <ng-template notification-widget></ng-template>
-      </div>
-      <panel-actions>
-        <button ion-button clear color="dashboard-primary">Details</button>
-      </panel-actions>
-    </panel>
+        <span panel-header-title>{{n.data.title}}</span>
+        <span panel-header-summary>{{n.data.summary}}</span>
+        <div panel-body-content>
+          <ng-template notification-widget></ng-template>
+        </div>
+        <panel-actions>
+          <button ion-button clear color="dashboard-primary">Details</button>
+        </panel-actions>
+      </panel>
+    </ng-container>
   </accordion>
 
   <!--Alerts Notifications-->
   <accordion multi="true" *ngSwitchCase="'alerts'">
     <ng-container *ngFor="let n of notifications">
-      <panel *ngIf="filter === n.type">
+      <panel *ngIf="filter === n.type" displayMode='default'>
         <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
         <span panel-header-title>{{n.data.title}}</span>
         <span panel-header-summary>{{n.data.summary}}</span>
@@ -64,7 +66,7 @@
   <!--Reminder Notifications-->
   <accordion *ngSwitchCase="'reminders'">
     <ng-container *ngFor="let n of notifications">
-      <panel *ngIf="filter === n.type">
+      <panel *ngIf="filter === n.type" displayMode='default'>
         <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
         <span panel-header-title>{{n.data.title}}</span>
         <span panel-header-summary>{{n.data.summary}}</span>
@@ -80,7 +82,7 @@
   <!--Message Notifications-->
   <accordion *ngSwitchCase="'messages'">
     <ng-container *ngFor="let n of notifications">
-      <panel *ngIf="filter === n.type">
+      <panel *ngIf="filter === n.type" displayMode='default'>
         <custom-icon panel-header-left set="mdIcons" [color]="iconColors[n.type]" [name]="notificationIcons[n.source]"></custom-icon>
         <span panel-header-title>{{n.data.title}}</span>
         <span panel-header-summary>{{n.data.summary}}</span>

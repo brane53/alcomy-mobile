@@ -14,22 +14,19 @@ import {} from 'rxjs'
 
 export class PanelComponent implements OnInit, OnDestroy {
 
-  parentChangeSubscription = Subscription.EMPTY;
-
   @Input()
   get isOpen(): boolean { return this._isOpen; };
   set isOpen(val: boolean) { this._isOpen = coerceBooleanProperty(val); };
   private _isOpen = false;
 
-  @Input() displayMode;
+  @Input()
+  get displayMode(): string { return this._displayMode; }
+  set displayMode(val: string) { this._displayMode = val; }
+  private _displayMode = 'default';
 
   @Input()
-  get button(): boolean {
-    return this._hasButton;
-  }
-  set button(val: boolean) {
-    this._hasButton = coerceBooleanProperty(val);
-  }
+  get button(): boolean { return this._hasButton; }
+  set button(val: boolean) { this._hasButton = coerceBooleanProperty(val); }
   private _hasButton = true;
 
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
@@ -60,16 +57,10 @@ export class PanelComponent implements OnInit, OnDestroy {
     return false;
   };
 
-  constructor(
-    //@Optional() @Host() public accordion: AccordionComponent,
-    //public changeDetectorRef: ChangeDetectorRef
-    ) {
-      
-      // this.parentChangeSubscription = accordion.inputChanges.subscribe(() => {
-      //   this.changeDetectorRef.markForCheck();
-      // });
+  constructor() {
 
-    }
+
+  }
 
   ngOnInit() {
     console.log('Panel Init');
@@ -77,7 +68,6 @@ export class PanelComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     console.log('Panel Destroyed');
-    //this.parentChangeSubscription.unsubscribe();
   }
 
   expand() {

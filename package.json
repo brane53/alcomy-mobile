@@ -9,8 +9,6 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     
-    "ionic:watch:before": "ionic2-custom-icons",
-    "ionic:build:before": "ionic2-custom-icons",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "test": "karma start ./test-config/karma.conf.js",

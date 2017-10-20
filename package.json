@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build",
+    "build": "ionic-app-scripts build --prod",
     "lint": "ionic-app-scripts lint",
     "ionic2-custom-icons": "ionic2-custom-icons",
     "ionic:watch:before": "ionic2-custom-icons",
@@ -40,8 +40,17 @@
     "@ultimate/ngxerrors": "^1.2.0",
     "angular2-moment": "^1.2.0",
     "angularfire2": "^2.0.0-beta.8",
+<<<<<<< HEAD
     "cordova-plugin-add-swift-support": "^1.7.0",
     "cordova-plugin-ionic": "^2.0.1",
+=======
+    "cordova-plugin-console": "^1.0.5",
+    "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-ionic": "^2.0.1",
+    "cordova-plugin-splashscreen": "^4.0.3",
+    "cordova-plugin-statusbar": "^2.2.1",
+    "cordova-plugin-whitelist": "^1.3.1",
+>>>>>>> 7aa69d72fa422c7604abb94cc7a64f67c22bff67
     "firebase": "^3.7.2",
     "ionic-angular": "3.7.1",
     "ionic2-custom-icons": "^0.5.1",
@@ -85,6 +94,7 @@
       "cordova-plugin-ionic": {
         "APP_ID": "9fcb205b",
         "CHANNEL_NAME": "Production",
+<<<<<<< HEAD
         "UPDATE_METHOD": "background",
         "UPDATE_API": "https://api.ionicjs.com",
         "MAX_STORE": "3"
@@ -94,6 +104,15 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {}
+=======
+        "UPDATE_METHOD": "background"
+      },
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-console": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {}
+>>>>>>> 7aa69d72fa422c7604abb94cc7a64f67c22bff67
     }
   }
 }

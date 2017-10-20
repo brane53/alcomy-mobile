@@ -8,7 +8,7 @@
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
-    //"ionic2-custom-icons": "ionic2-custom-icons",
+    
     "ionic:watch:before": "ionic2-custom-icons",
     "ionic:build:before": "ionic2-custom-icons",
     "ionic:build": "ionic-app-scripts build",

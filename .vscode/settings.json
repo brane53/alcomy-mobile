@@ -115,5 +115,6 @@
         ],
 
         "vsicons.presets.angular": true,
-        "typescript.check.tscVersion": false
+        "typescript.check.tscVersion": false,
+        "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
     }

@@ -85,21 +85,10 @@
         <variable name="APP_ID" value="9fcb205b" />
         <variable name="CHANNEL_NAME" value="Production" />
         <variable name="UPDATE_METHOD" value="background" />
-<<<<<<< HEAD
-        <variable name="UPDATE_API" value="https://api.ionicjs.com" />
-        <variable name="MAX_STORE" value="2" />
-    </plugin>
-    <plugin name="cordova-plugin-console" spec="~1.0.5" />
-    <plugin name="cordova-plugin-device" spec="~1.1.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
-    <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="~1.3.1" />
-=======
     </plugin>
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.1" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
->>>>>>> 7aa69d72fa422c7604abb94cc7a64f67c22bff67
 </widget>

@@ -15,13 +15,13 @@ Notes:
       ☐ Animate panel opening and closing
       ☐ Add abilitiy for flat or guttered panels
       ☐ break panel segments into their own components
-      
+
   Todos:
     ☐ Fix the text color theme for staff module
     ☐ Fix Dashboard Medications to display properly
-    
 
-  Common drug forms: 
+
+  Common drug forms:
     tablets
     capsules
     creams
@@ -84,7 +84,7 @@ MODELS:
   ☐ Employee extends PersonContact
       - ssn: number
       - dateOfBirth: Date
-      
+
   ☐ GenericContact
   ☐ FamilyMember
   ☐ Physician extends Contact
@@ -96,9 +96,9 @@ MODELS:
   ☐ Pharmacy
   ☐ Medication
     - id: string
-    - genericName: string 
+    - genericName: string
     - brandName: string
-    - strength: string 
+    - strength: string
     - dosage: string
     - description
     - instruction
@@ -158,5 +158,5 @@ MODELS:
   ☐ Role
   ☐ Comment
   ☐ PhoneNumber
-  
+
 

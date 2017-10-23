@@ -8,10 +8,12 @@ export class Person {
 }
 
 export class Address {
-  street?: string = '';
+  line1?: string = '';
+  line2?: string = '';
   city?: string = '';
-  state?: string = '';
-  zip?: string = '';
+  stateOrProvice?: string = '';
+  zipOrPostalCode?: string = '';
+  country?: string = '';
 }
 
 export class Device {
@@ -199,6 +201,7 @@ export class Index {
 }
 
 export class Facility {
+  id?: number
   legalName?: string;
   displayName?: string;
   status?: string; // whether the facility is active or not

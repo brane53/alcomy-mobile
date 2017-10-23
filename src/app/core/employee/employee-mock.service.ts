@@ -7,20 +7,20 @@ export class EmployeeMockService {
   employees: Employee[] = [
     {
       id: 1,
-      firstName: 'Ilija',
-      lastName: 'Vrajich',
+      firstName: 'ilija',
+      lastName: 'vrajich',
       profileUrl: 'assets/avatars/ilija.jpg'
     },
     {
       id: 2,
-      firstName: 'Tommy',
-      lastName: 'Wells',
+      firstName: 'tommy',
+      lastName: 'wells',
       profileUrl: 'assets/avatars/tommy.jpg'
     },
     {
       id: 3,
-      firstName: 'Ruth',
-      lastName: 'Vrajich',
+      firstName: 'ruth',
+      lastName: 'vrajich',
       profileUrl: 'assets/avatars/ruth.jpg'
     }
   ];

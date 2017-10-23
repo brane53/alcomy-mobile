@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build",
+    "build": "ionic build",
     "lint": "ionic-app-scripts lint",
     "ionic2-custom-icons": "ionic2-custom-icons",
     "ionic:watch:before": "ionic2-custom-icons",

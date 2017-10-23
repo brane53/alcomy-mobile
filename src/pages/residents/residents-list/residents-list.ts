@@ -68,7 +68,7 @@ export class ResidentsListPage implements OnInit {
     });
   }
 
-  openNewResidentModal(resident) {
+  openNewResidentModal() {
     let data;
 
     let newResidentModal = this.modal.create(NewResidentFormPage);

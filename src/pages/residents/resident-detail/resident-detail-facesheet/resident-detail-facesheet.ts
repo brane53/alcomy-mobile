@@ -14,7 +14,6 @@ export class ResidentDetailFacesheetPage {
   resident: Resident;
   facilityInfo: any;
   paymentInfo: any;
-  residentEmergency: any;
 
   constructor(private app: App,
   private viewCtrl: ViewController,

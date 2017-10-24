@@ -22,8 +22,8 @@
     <ion-segment-button value="medical">
       MEDICAL
     </ion-segment-button>
-    <ion-segment-button value="emergency">
-      EMERGENCY
+    <ion-segment-button value="contacts">
+      CONTACTS
     </ion-segment-button>
   </ion-segment>
 </ion-header>
@@ -268,17 +268,6 @@
           <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
       </ion-item>
-
-    </ion-card>
-
-    <ion-card class="info-card">
-      <ion-item class="card-header">
-        <h2 class="title">Physicians</h2>
-        <button ion-button clear icon-only item-right>
-          <custom-icon set="mdIcons" name="add"></custom-icon>
-        </button>
-      </ion-item>
-
     </ion-card>
 
     <ion-card class="info-card">
@@ -288,7 +277,6 @@
           <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
       </ion-item>
-
     </ion-card>
 
     <ion-card class="info-card">
@@ -298,90 +286,47 @@
           <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
       </ion-item>
-
     </ion-card>
 
   </div>
 
   <!--Emergency Contact Information-->
-  <div *ngSwitchCase="'emergency'">
-    <!--Weight Log Card-->
-    <ion-card class="info-card" *ngFor="let contact of resident.emergencyContacts; let i=index">
+  <div *ngSwitchCase="'contacts'">
+    <!--Emergency Contact Card-->
+    <ion-card class="info-card">
       <ion-item class="card-header">
-        <h2 class="title">Emergency Contact #{{i + 1}}</h2>
+        <h2 class="title">Emergency Contacts</h2>
         <button ion-button clear icon-only item-right>
           <custom-icon set="mdIcons" name="edit"></custom-icon>
         </button>
       </ion-item>
-      <ion-card-content class="card-content">
-
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>First Name</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.firstName}}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>Last Name</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.lastName}}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>Relationship</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.relationship}}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>Home Phone</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.homePhone}}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>Mobile Phone</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.cellPhone}}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>City</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.address.city}}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>State</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.address.state}}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="tabel-row">
-          <ion-col>
-            <p>Zip</p>
-          </ion-col>
-          <ion-col>
-            <p>{{contact.address.zip}}</p>
-          </ion-col>
-        </ion-row>
-
-      </ion-card-content>
-
+      <!-- <ion-item class="card-header" *ngFor="let contact of resident.emergencyContacts; let i=index">
+        <h3 class="title">{{ contact.firstName }} {{ contact.lastName }}</h3>
+        <p class="subtitle">{{ contact.relationship }}</p>
+      </ion-item> -->
+      
+      <accordion multi="true">
+        <panel displayMode="flat" *ngFor="let contact of resident.emergencyContacts; let i=index">
+          <ng-container panel-header-content>
+            <h3 class="title" >{{ contact.firstName }} {{ contact.lastName }}</h3>
+            <p class="subtitle">{{ contact.relationship }}</p>
+          </ng-container>
+          <panel-body-actions>
+            <button ion-button clear icon-only>
+              <custom-icon set="mdIcons" name="phone" color="money"></custom-icon>
+            </button>
+          </panel-body-actions>
+        </panel>
+      </accordion>
+    </ion-card>
+    <!-- Physicians/Specialists -->
+    <ion-card class="info-card">
+      <ion-item class="card-header">
+        <h2 class="title">Physicians/Specialists</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
+      </ion-item>
     </ion-card>
   </div>
 </ion-content>

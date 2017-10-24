@@ -84,17 +84,22 @@ panel {
   }
 
   // PANEL BODY
-  [panel-body-content] {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    text-align: justify;
-    text-transform: none;
-    
-    position: relative;
-    padding: 16px;
 
-    .panel-actions {
+  .panel-body {
+    padding: 0;
+
+    panel-body-content, [panel-body-content] {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      text-align: justify;
+      text-transform: none;
+      
+      position: relative;
+      padding: 16px;
+    }
+
+    panel-body-actions, [panel-body-actions] {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
@@ -103,8 +108,9 @@ panel {
       background-color: $forground;
       border-top: 1px solid $dark-text-12
     }
-   
   }
+  
+  
 
   &.opened {
     &.gutter {

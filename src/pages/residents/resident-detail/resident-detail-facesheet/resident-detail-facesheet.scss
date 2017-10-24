@@ -40,13 +40,24 @@ page-resident-detail-facesheet {
 
   .info-card .item ~ .card-content {
     padding-top: 13px;
+
+    
   }
   
+  .info-card {
+    .subtitle {
+      font-style: italic;
+      color: $dark-text-54;
+    }
+  }
 
   .table-header {
     font-weight: 500;
   }
 
+  .panel-body {
+    border-top: 1px solid $dark-text-12;
+  }
 
 
 }

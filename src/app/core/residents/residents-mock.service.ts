@@ -48,25 +48,57 @@ export class ResidentsMockService {
           firstName: 'Jill',
           lastName: 'Kenworkth',
           relationship: 'Daughter',
-          homePhone: '555-555-5555',
-          cellPhone: '444-444-4444',
-          address: {
-            city: 'Provo',
-            state: 'UT',
-            zip: '84602'
-          }
+          isEmergency: true,
+          phoneNumbers: [
+            {
+              number: '333-333-3333',
+              type: 'mobile',
+              isPrimary: true
+            },
+            {
+              number: '444-444-4444',
+              type: 'home',
+              isPrimary: false
+            }
+          ],
+          email: "jill@mail.com",
+          addresses: [
+            {
+              line1: '222 Right Side Ln',
+              city: 'Provo',
+              stateOrProvice: 'UT',
+              zipOrPostalCode: '84602',
+              country: 'USA'
+            }
+          ]
         },
         {
           firstName: 'Jake',
           lastName: 'Kenworkth',
           relationship: 'Son-in-Law',
-          homePhone: '111-111-1111',
-          cellPhone: '222-222-2222',
-          address: {
-            city: 'Provo',
-            state: 'UT',
-            zip: '84602'
-          }
+          isEmergency: true,
+          phoneNumbers: [
+            {
+              number: '111-111-1111',
+              type: 'mobile',
+              isPrimary: true
+            },
+            {
+              number: '222-222-2222',
+              type: 'home',
+              isPrimary: false
+            }
+          ],
+          email: 'jake@gmail.com',
+          addresses: [
+            {
+              line1: '222 Right Side Ln',
+              city: 'Provo',
+              stateOrProvice: 'UT',
+              zipOrPostalCode: '84602',
+              country: 'USA'
+            }
+          ]
         }
       ],
       facilityInfo: {

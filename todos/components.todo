@@ -1,6 +1,13 @@
 Planning:
   ☐ Onboarding Component
+  ☐ Resident Summary Page Componennt
 WIP:
+  ☐ Facesheet
+    ☐ Change "Emergency" to "Contacts"
+      ☐ Add Emergency Contacts Card
+        - card will list the contacts and have a phone icon if there is a current phone number and a message icon if it is mobile.
+        - When the icons are tapped the default phone or messaging app will be launched
+        - When the contact line is tapped... expand action buttons, expand info, or navigate to info?
 
 Bug Fixes:
 

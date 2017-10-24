@@ -22,6 +22,7 @@ export class Device {
 }
 
 export class PhoneNumber {
+  id?: number;
   name?: string;
   description?: string;
   number?: string;
@@ -50,11 +51,10 @@ export class Resident {
   religion?: string;
   profileUrl?: string;
   weightLog?: Object[];
-  emergencyContacts?: Object[];
+  emergencyContacts?: ResidentContact[];
   facilityInfo?: Object;
   paymentInfo?: Object;
-  medications?: MedicationRecord[] | number;
-  
+  medications?: MedicationRecord[] | number[];
 }
 
 export class PrnRecord {
@@ -189,11 +189,19 @@ export class Notification {
   };
 }
 
-export class Contact {
+export class ContactInfo {
   phoneNumbers: PhoneNumber[];
   email: string;
   addresses: Address[];
 
+}
+
+export class ResidentContact extends ContactInfo {
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  relationship: string;
+  isEmergency?: boolean = false;
 }
 
 export class Index {
@@ -207,7 +215,7 @@ export class Facility {
   status?: string; // whether the facility is active or not
   address?: Address;
   licenseNumber?: string;
-  contacts?: Contact[]; // These are the official contacts for the facility
+  contacts?: ContactInfo[]; // These are the official contacts for the facility
   users?: Array<any>;
 }
 

@@ -13,6 +13,8 @@ import { CustomIconsModule } from 'ionic2-custom-icons';
 // Native Plugins
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { CallNumber } from '@ionic-native/call-number';
+
 import { AlcomyAppComponent } from './app.component';
 // Login Page
 import { LoginPage } from '../pages/login/login';
@@ -181,6 +183,7 @@ const BASE_API = new InjectionToken<string>('baseApi');
   providers: [
     StatusBar,
     SplashScreen,
+    CallNumber,
     {provide: BASE_API, useValue: APIS.dev.base},
     {provide: AccountService, useClass: AccountMockService},
     {provide: AuthService, useClass: AuthMockService},

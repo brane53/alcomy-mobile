@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, App, ViewController, Events, ModalController } from 'ionic-angular';
 import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
-import { Resident } from '../../../../app/models/models';
+import { Resident, ResidentContact } from '../../../../app/models/models';
 import { NewResidentFormPage } from '../../../shared/forms/new-resident/new-resident';
+import { CallNumber } from '@ionic-native/call-number';
 
 @Component({
   selector: 'page-resident-detail-facesheet',
@@ -14,17 +15,21 @@ export class ResidentDetailFacesheetPage {
   resident: Resident;
   facilityInfo: any;
   paymentInfo: any;
+  emergencyContacts: ResidentContact[];
 
-  constructor(private app: App,
-  private viewCtrl: ViewController,
-  private modal: ModalController,
-  public navCtrl: NavController,
-  public navParams: NavParams,
-  private events: Events) {
+  constructor(
+    private app: App,
+    private callNumber: CallNumber,
+    private viewCtrl: ViewController,
+    private modal: ModalController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private events: Events) {
 
     this.resident = navParams.data.resident;
     this.facilityInfo = this.resident.facilityInfo;
     this.paymentInfo = this.resident.paymentInfo;
+    this.emergencyContacts = this.resident.emergencyContacts;
 
   }
 
@@ -52,12 +57,32 @@ export class ResidentDetailFacesheetPage {
     newResidentModal.present();
   }
 
-  goBack() {
+  callContact(contact: ResidentContact) {
+
+    let primaryPhone = contact.phoneNumbers.filter((phone) => {
+      return phone.isPrimary;
+    });
+    let numberToCall = primaryPhone[0].number;
+
+    this.callNumber.callNumber(numberToCall, true)
+    .then(() => console.log('Dialer Launched'))
+    .catch(() => console.log('Something when wrong when launching dialer'));
+  }
+
+  textContact() {
+
+  }
+
+  emailContact() {
+
+  }
+
+  private goBack() {
     // this.events.publish('resident-detail-closed');
     this.app.getRootNav().push(ResidentsTabsPage);
   }
 
-  yesOrNo(bool: boolean) {
+  private yesOrNo(bool: boolean) {
     if (typeof bool !== 'boolean') {
       throw 'parameter should be a boolean';
     }

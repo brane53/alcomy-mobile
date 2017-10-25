@@ -58,7 +58,12 @@
     "node-sass": "^4.5.3",
     "rxjs": "5.4.3",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.18"
+    "zone.js": "0.8.18",
+    "cordova-ios": "~4.3.1",
+    "cordova-android": "~6.1.2",
+    "ionic-plugin-keyboard": "~2.2.1",
+    "cordova-plugin-firebase": "~0.1.19",
+    "mx.ferreyra.callnumber": "~0.0.2"
   },
   "devDependencies": {
     "@ionic/app-scripts": "^3.0.1",
@@ -100,7 +105,13 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {},
-      "mx.ferreyra.callnumber": {}
-    }
+      "mx.ferreyra.callnumber": {},
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-firebase": {}
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ]
   }
 }

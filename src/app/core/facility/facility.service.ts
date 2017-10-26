@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
 import { BehaviorSubject } from 'rxjs';
 import { Facility } from '../../models/models';
 import { Observable } from 'rxjs/Observable';

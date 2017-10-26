@@ -25,13 +25,13 @@ export class LoginPage {
   }
 
   login(email: string, password) {
-    this.auth.login(email, password)
-      .then(() => {
-        this.navCtrl.setRoot(DashboardTabsPage);
-      })
-      .catch((err) => {
-        console.log('Problem');
-      });
+    // this.auth.login(email, password)
+    //   .then(() => {
+    //     this.navCtrl.setRoot(DashboardTabsPage);
+    //   })
+    //   .catch((err) => {
+    //     console.log('Problem');
+    //   });
   }
 
 

@@ -81,15 +81,6 @@
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <icon src="resources\android\icon\drawable-xhdpi-icon.png" />
     <plugin name="cordova-plugin-firebase" spec="~0.1.19" />
-<<<<<<< HEAD
-    <plugin name="cordova-plugin-ionic" spec="~1.1.9">
-        <variable name="APP_ID" value="9fcb205b" />
-        <variable name="CHANNEL_NAME" value="Alpha Preview" />
-        <variable name="UPDATE_METHOD" value="background" />
-        <variable name="UPDATE_API" value="https://api.ionicjs.com" />
-        <variable name="MAX_STORE" value="2" />
-    </plugin>
-=======
     <plugin name="cordova-plugin-ionic" spec="^2.0.1">
         <variable name="APP_ID" value="9fcb205b" />
         <variable name="CHANNEL_NAME" value="Production" />
@@ -101,5 +92,4 @@
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
->>>>>>> 21439f361cbcf52ce4ae422071ab4ecd85744851
 </widget>

@@ -18,10 +18,10 @@ import { ResidentsListPage } from '../pages/residents/residents-list/residents-l
   templateUrl: 'app.component.html'
 })
 export class AlcomyAppComponent implements OnInit {
-  // rootPage = DashboardTabsPage;
+  rootPage = DashboardTabsPage;
   // rootPage = LoginPage;
   // rootPage = NewResidentPage;
-  rootPage = ResidentsListPage;
+  // rootPage = ResidentsListPage;
 
 
   @ViewChild('appContent') nav: NavController;

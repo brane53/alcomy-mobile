@@ -4,7 +4,6 @@ import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA, InjectionToken } from '@angul
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 // 3rd Party Modules
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -95,7 +94,6 @@ const BASE_API = new InjectionToken<string>('baseApi');
     IonicModule.forRoot(AlcomyAppComponent, {
       iconMode: 'md'
     }),
-    FlexLayoutModule,
     NgPipesModule,
     NgxErrorsModule,
     MomentModule,

@@ -120,7 +120,8 @@ $colors: (
   light:      #f4f4f4,
   dark:       #263238,
   white: white,
-
+  contact-sms: $mdc-amber-500,
+  contact-email: $mdc-red-400,
 
 
   dashboard-primary: $dashboard-primary,
@@ -136,6 +137,10 @@ $colors: (
   company-accent: $company-accent,
 
   alcomy-toolbar: $alcomy-toolbar,
+
+  notification-alert: $alert,
+  notification-reminder: $reminder,
+  notification-message: $message,
 
 
   dark-text-87: $dark-text-87,

@@ -14,12 +14,12 @@
         <ion-icon name="add"></ion-icon>
       </button>
       <!--Notifications Button-->
-      <button ion-button icon-only menuButtonToggle="notificationst">
-        <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+      <button ion-button icon-only menuButtonToggle="notifications">
+        <custom-icon set="mdIcons" name="notifications"></custom-icon>
       </button>
-      <!--More Menu Button-->
+      <!--Filter Button-->
       <button ion-button icon-only>
-        <ion-icon name="more"></ion-icon>
+        <custom-icon set="mdIcons" name="tune"></custom-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -50,7 +50,7 @@
       <ion-avatar item-left>
         <ion-img [src]="resident.profileUrl"></ion-img>
       </ion-avatar>
-      <ion-label>{{ resident.firstName }} {{resident.lastName}}</ion-label>
+      <ion-label>{{ resident.firstName | ucfirst }} {{ resident.lastName | ucfirst }}</ion-label>
       <ion-badge color="dashboard-accent" item-right>{{ resident.medications.length }}</ion-badge>
     </button>
   </ion-list>
@@ -66,9 +66,7 @@
         </ion-title>
       </ion-toolbar>
 
-      <card-slider [prnRecords]="prnRecords">
-        
-      </card-slider>
+      <card-slider [prnRecords]="prnRecords"></card-slider>
 
     </div>
   </div>

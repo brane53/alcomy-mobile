@@ -8,10 +8,12 @@ export class Person {
 }
 
 export class Address {
-  street?: string = '';
+  line1?: string = '';
+  line2?: string = '';
   city?: string = '';
-  state?: string = '';
-  zip?: string = '';
+  stateOrProvice?: string = '';
+  zipOrPostalCode?: string = '';
+  country?: string = '';
 }
 
 export class Device {
@@ -20,6 +22,7 @@ export class Device {
 }
 
 export class PhoneNumber {
+  id?: number;
   name?: string;
   description?: string;
   number?: string;
@@ -48,11 +51,10 @@ export class Resident {
   religion?: string;
   profileUrl?: string;
   weightLog?: Object[];
-  emergencyContacts?: Object[];
+  emergencyContacts?: ResidentContact[];
   facilityInfo?: Object;
   paymentInfo?: Object;
-  medications?: MedicationRecord[] | number;
-  
+  medications?: MedicationRecord[] | number[];
 }
 
 export class PrnRecord {
@@ -70,7 +72,7 @@ export class Medication {
   brandName: string;
   genericName: string;
   description?: string;
-  strength?: {amount: number; measurement: string;};
+  strength?: { amount: number; measurement: string; }; // this is the strength of one unit of the medication form
   form?: string;
   imageUrl?: string;
 }
@@ -124,15 +126,15 @@ export class MedicationPrescription {
   prescriber: Specialist;
   medication: Medication;
   dosage: Dosage;
-  routeOfAdministration
-  schedule
-  instructions
+  routeOfAdministration: string;
+  schedule;
+  instructions;
 }
 
 export class Dosage {
-  amount: number; // amount of a drug taken at any one time
+  amount?: number; // amount of a drug taken at any one time
   measurement?: string;
-  form?: string // 
+  form?: string; // 
 
 }
 
@@ -180,18 +182,26 @@ export class Notification {
     summary?: string,
     createdBy?: string | User,
     createdFor?: string | Resident,
-    createdOn?: string,
+    createdAt?: string,
     images?: string[],
     notes?: string,
     lastBM?: string
   };
 }
 
-export class Contact {
+export class ContactInfo {
   phoneNumbers: PhoneNumber[];
   email: string;
   addresses: Address[];
 
+}
+
+export class ResidentContact extends ContactInfo {
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  relationship: string;
+  isEmergency?: boolean = false;
 }
 
 export class Index {
@@ -199,12 +209,13 @@ export class Index {
 }
 
 export class Facility {
+  id?: number
   legalName?: string;
   displayName?: string;
   status?: string; // whether the facility is active or not
   address?: Address;
   licenseNumber?: string;
-  contacts?: Contact[]; // These are the official contacts for the facility
+  contacts?: ContactInfo[]; // These are the official contacts for the facility
   users?: Array<any>;
 }
 

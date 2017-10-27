@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation,
-         HostBinding } from '@angular/core';
+         HostBinding, Optional, Host, forwardRef, ChangeDetectorRef } from '@angular/core';
 import { coerceBooleanProperty } from '../../utils/coercion';
-import { ContentChildren } from '@angular/core';
+import { ContentChildren, OnDestroy } from '@angular/core';
+import { AccordionComponent } from '../accordion/accordion.component';
+import { Subscription } from 'rxjs/Subscription';
+import {} from 'rxjs'
 
 @Component({
   selector: 'panel',
@@ -9,31 +12,22 @@ import { ContentChildren } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 
-export class PanelComponent implements OnInit {
+export class PanelComponent implements OnInit, OnDestroy {
 
   @Input()
   get isOpen(): boolean { return this._isOpen; };
   set isOpen(val: boolean) { this._isOpen = coerceBooleanProperty(val); };
   private _isOpen = false;
 
-  @Input() displayMode = 'default';
-  
   @Input()
-  get button(): boolean {
-    return this._hasButton;
-  }
-  set button(val: boolean) {
-    this._hasButton = coerceBooleanProperty(val);
-  }
+  get displayMode(): string { return this._displayMode; }
+  set displayMode(val: string) { this._displayMode = val; }
+  private _displayMode = 'default';
+
+  @Input()
+  get button(): boolean { return this._hasButton; }
+  set button(val: boolean) { this._hasButton = coerceBooleanProperty(val); }
   private _hasButton = true;
-
-
-  // @Input() title: string;
-  // @Input() summary: string;
-
-  // @ContentChildren()
-
-
 
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
 
@@ -46,21 +40,35 @@ export class PanelComponent implements OnInit {
 
   @HostBinding('class.gutter') get gutter(): boolean {
     if (this.displayMode === 'default') {
+      console.log(`Default True: ${this.displayMode}`);
       return true;
+
     }
+    console.log(`Default False: ${this.displayMode}`);
     return false;
   };
 
   @HostBinding('class.flat') get flat(): boolean {
     if (this.displayMode === 'flat') {
+      console.log(`Flat True: ${this.displayMode}`);
       return true;
     }
+    console.log(`Flat False: ${this.displayMode}`);
     return false;
   };
 
-  constructor() { }
+  constructor() {
 
-  ngOnInit() { }
+
+  }
+
+  ngOnInit() {
+    console.log('Panel Init');
+  }
+
+  ngOnDestroy() {
+    console.log('Panel Destroyed');
+  }
 
   expand() {
     this.toggle.emit();

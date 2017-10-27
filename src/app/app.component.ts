@@ -10,6 +10,7 @@ import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
 import { NotificationService } from './core/notification/notification.service';
 // import { LoginPage } from '../pages/login/login';
 import { NewResidentFormPage } from '../pages/shared/forms/new-resident/new-resident';
+import { ResidentsListPage } from '../pages/residents/residents-list/residents-list';
 
 
 @Component({
@@ -17,9 +18,10 @@ import { NewResidentFormPage } from '../pages/shared/forms/new-resident/new-resi
   templateUrl: 'app.component.html'
 })
 export class AlcomyAppComponent implements OnInit {
-   rootPage = DashboardTabsPage;
+  // rootPage = DashboardTabsPage;
   // rootPage = LoginPage;
   // rootPage = NewResidentPage;
+  rootPage = ResidentsListPage;
 
 
   @ViewChild('appContent') nav: NavController;

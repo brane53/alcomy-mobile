@@ -4,6 +4,7 @@ panel {
   display: block;
   border-bottom: 1px solid $dark-text-12;
   
+  // PANEL HEADER
   .panel-header {
     display: flex;
     flex-direction: row;
@@ -21,7 +22,7 @@ panel {
 
     custom-icon[panel-header-left] {
       display: flex;
-      width: 56px;
+      //width: 56px;
       max-width: 56px;
       padding: 0 16px;
       align-items: center;
@@ -43,11 +44,11 @@ panel {
         font-size: 14px;
         color: $dark-text-54;
         display: block; /* or inline-block */
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-        overflow: hidden;
-        max-height: 3.0rem;
-        line-height: 1.5rem;
+        // text-overflow: ellipsis;
+        // word-wrap: break-word;
+        // overflow: hidden;
+        // max-height: 3.0rem;
+        // line-height: 1.5rem;
         margin-top: 0.2rem;
       }
     }
@@ -82,27 +83,33 @@ panel {
     }
   }
 
-  [panel-body-content] {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    text-align: justify;
-    text-transform: none;
-    
-    position: relative;
-    padding: 16px;
+  // PANEL BODY
 
-    .panel-actions {
+  .panel-body {
+    padding: 0;
+
+    panel-body-content, [panel-body-content] {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      text-align: justify;
+      text-transform: none;
+      
+      position: relative;
+      padding: 16px;
+    }
+
+    panel-body-actions, [panel-body-actions] {
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
       align-items: center;
       height: 56px;
       background-color: $forground;
       border-top: 1px solid $dark-text-12
     }
-   
   }
+  
+  
 
   &.opened {
     &.gutter {
@@ -128,4 +135,10 @@ panel {
   }
 
 
+}
+
+notification-menu .panel-header {
+  custom-icon[panel-header-left] {
+    padding-right: 0;
+  }
 }

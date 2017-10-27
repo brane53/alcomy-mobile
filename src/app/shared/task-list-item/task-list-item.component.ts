@@ -10,6 +10,8 @@ export class TaskListItemComponent implements OnInit {
 
   @Input() task: Task;
 
+  @Input() checkbox: boolean;
+
   @Output() toggleComplete: EventEmitter<number> = new EventEmitter();
 
   @Output() delete: EventEmitter<number> = new EventEmitter();

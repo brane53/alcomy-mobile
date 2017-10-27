@@ -1,6 +1,6 @@
 <ion-item-sliding>
   <button ion-item>
-    <ion-checkbox color="dashboard-accent" [checked]="task.isComplete" (ionChange)="toggleTaskComplete()"></ion-checkbox>
+    <ion-checkbox color="dashboard-accent" [checked]="task.isComplete" (ionChange)="toggleTaskComplete()" *ngIf="checkbox"></ion-checkbox>
     <ion-label>
       <p>
         {{task.description}}

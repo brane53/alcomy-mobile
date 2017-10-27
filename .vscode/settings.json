@@ -25,7 +25,7 @@
     // WINDOW
         // Controls if a window should restore to full screen mode if it was exited in full screen mode.
         "window.restoreFullscreen": true,
-        "window.zoomLevel": 0,
+        "window.zoomLevel": 1,
     // SEARCH
         "search.exclude": {
             "**/node_modules": true,
@@ -116,4 +116,5 @@
 
         "vsicons.presets.angular": true,
         "typescript.check.tscVersion": false
+        //"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
     }

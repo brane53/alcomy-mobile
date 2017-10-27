@@ -48,25 +48,57 @@ export class ResidentsMockService {
           firstName: 'Jill',
           lastName: 'Kenworkth',
           relationship: 'Daughter',
-          homePhone: '555-555-5555',
-          cellPhone: '444-444-4444',
-          address: {
-            city: 'Provo',
-            state: 'UT',
-            zip: '84602'
-          }
+          isEmergency: true,
+          phoneNumbers: [
+            {
+              number: '333-333-3333',
+              type: 'mobile',
+              isPrimary: true
+            },
+            {
+              number: '444-444-4444',
+              type: 'home',
+              isPrimary: false
+            }
+          ],
+          email: 'jill@mail.com',
+          addresses: [
+            {
+              line1: '222 Right Side Ln',
+              city: 'Provo',
+              stateOrProvice: 'UT',
+              zipOrPostalCode: '84602',
+              country: 'USA'
+            }
+          ]
         },
         {
           firstName: 'Jake',
           lastName: 'Kenworkth',
           relationship: 'Son-in-Law',
-          homePhone: '111-111-1111',
-          cellPhone: '222-222-2222',
-          address: {
-            city: 'Provo',
-            state: 'UT',
-            zip: '84602'
-          }
+          isEmergency: true,
+          phoneNumbers: [
+            {
+              number: '111-111-1111',
+              type: 'mobile',
+              isPrimary: true
+            },
+            {
+              number: '222-222-2222',
+              type: 'home',
+              isPrimary: false
+            }
+          ],
+          email: 'jake@mail.com',
+          addresses: [
+            {
+              line1: '222 Right Side Ln',
+              city: 'Provo',
+              stateOrProvice: 'UT',
+              zipOrPostalCode: '84602',
+              country: 'USA'
+            }
+          ]
         }
       ],
       facilityInfo: {
@@ -84,7 +116,12 @@ export class ResidentsMockService {
           id: 1,
           brandName: 'lipitor',
           genericName: 'atorvastatin',
-          description: 'used along with a proper diet to help lower "bad" cholesterol and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) in the blood. It belongs to a group of drugs known as "statins." It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks.',
+          description: `used along with a proper diet to help lower "bad" cholesterol
+           and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) 
+           in the blood. It belongs to a group of drugs known as "statins." 
+           It works by reducing the amount of cholesterol made by the liver. 
+           Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol 
+           decreases the risk of heart disease and helps prevent strokes and heart attacks.`,
           imageUrl: 'assets/medications/lipitor.jpg',
           strength: {
             amount: 10,
@@ -145,12 +182,24 @@ export class ResidentsMockService {
           firstName: 'Sky',
           lastName: 'Kunz',
           relationship: 'Wife',
-          cellPhone: '444-444-4444',
-          address: {
-            city: 'Orem',
-            state: 'UT',
-            zip: '84602'
-          }
+          isEmergency: true,
+          phoneNumbers: [
+            {
+              number: '555-555-5555',
+              type: 'mobile',
+              isPrimary: true
+            }
+          ],
+          email: 'sky@mail.com',
+          addresses: [
+            {
+              line1: '333 Left Side Ln',
+              city: 'Provo',
+              stateOrProvice: 'UT',
+              zipOrPostalCode: '84602',
+              country: 'USA'
+            }
+          ]
         }
       ],
       medications: [
@@ -158,7 +207,12 @@ export class ResidentsMockService {
           id: 1,
           brandName: 'lipitor',
           genericName: 'atorvastatin',
-          description: 'used along with a proper diet to help lower "bad" cholesterol and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) in the blood. It belongs to a group of drugs known as "statins." It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks.',
+          description: `used along with a proper diet to help lower "bad" cholesterol
+            and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) 
+            in the blood. It belongs to a group of drugs known as "statins." 
+            It works by reducing the amount of cholesterol made by the liver. 
+            Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol 
+            decreases the risk of heart disease and helps prevent strokes and heart attacks.`,
           instructions: 'take 1 tablet by mouth every day',
           createDate: moment().subtract(6, 'months').format(),
           createdBy: {
@@ -217,13 +271,24 @@ export class ResidentsMockService {
           firstName: 'Jenna',
           lastName: 'Wood',
           relationship: 'Wife',
-          homePhone: '555-555-5555',
-          cellPhone: '444-444-4444',
-          address: {
-            city: 'Provo',
-            state: 'UT',
-            zip: '84602'
-          }
+          isEmergency: true,
+          phoneNumbers: [
+            {
+              number: '666-666-6666',
+              type: 'mobile',
+              isPrimary: true
+            }
+          ],
+          email: 'sky@mail.com',
+          addresses: [
+            {
+              line1: '444 Front Side Ln',
+              city: 'Provo',
+              stateOrProvice: 'UT',
+              zipOrPostalCode: '84602',
+              country: 'USA'
+            }
+          ]
         }
       ],
       medications: [
@@ -231,7 +296,12 @@ export class ResidentsMockService {
           id: 1,
           brandName: 'lipitor',
           genericName: 'atorvastatin',
-          description: 'used along with a proper diet to help lower "bad" cholesterol and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) in the blood. It belongs to a group of drugs known as "statins." It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks.',
+          description: `used along with a proper diet to help lower "bad" cholesterol
+            and fats (such as LDL, triglycerides) and raise "good" cholesterol (HDL) 
+            in the blood. It belongs to a group of drugs known as "statins." 
+            It works by reducing the amount of cholesterol made by the liver. 
+            Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol 
+            decreases the risk of heart disease and helps prevent strokes and heart attacks.`,
           instructions: 'take 1 tablet by mouth every day',
           createDate: moment().subtract(6, 'months').format(),
           createdBy: {
@@ -270,7 +340,7 @@ export class ResidentsMockService {
   }
 
   createResident(resident: Resident) {
-    return this.http.post('api/residents', resident)
+    return this.http.post('api/residents', resident);
       // .map(this.extractData);
   };
 

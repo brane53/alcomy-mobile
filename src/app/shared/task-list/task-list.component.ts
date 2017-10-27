@@ -12,6 +12,8 @@ export class TaskListComponent implements OnChanges {
 
   @Input() tasks: Observable<Task[]>;
 
+  @Input() checkbox: boolean;
+
   @Output() toggleTaskComplete: EventEmitter<number> = new EventEmitter();
 
   @Output() taskDelete: EventEmitter<number> = new EventEmitter();

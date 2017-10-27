@@ -1,6 +1,6 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA, InjectionToken } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
@@ -13,6 +13,8 @@ import { CustomIconsModule } from 'ionic2-custom-icons';
 // Native Plugins
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { CallNumber } from '@ionic-native/call-number';
+
 import { AlcomyAppComponent } from './app.component';
 // Login Page
 import { LoginPage } from '../pages/login/login';
@@ -79,7 +81,10 @@ import { TaskListComponent } from './shared/task-list/task-list.component';
 import { TaskListItemComponent } from './shared/task-list-item/task-list-item.component';
 import { AccordionComponent } from './shared/accordion/accordion.component';
 import { PanelComponent } from './shared/accordion-panel/panel.component';
+// Configurations
+import { APIS } from '../config/urls.config';
 
+const BASE_API = new InjectionToken<string>('baseApi');
 
 @NgModule({
   imports: [
@@ -178,6 +183,8 @@ import { PanelComponent } from './shared/accordion-panel/panel.component';
   providers: [
     StatusBar,
     SplashScreen,
+    CallNumber,
+    {provide: BASE_API, useValue: APIS.dev.base},
     {provide: AccountService, useClass: AccountMockService},
     {provide: AuthService, useClass: AuthMockService},
     {provide: EmployeeService, useClass: EmployeeMockService},

@@ -50,17 +50,9 @@ export class ResidentsListPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsListPage');
-    
-    this.facilityService.currentFacility$.subscribe(data => {
-      this.currentFacility = data;
-    })
   }
 
   ngOnInit() {
-    // this.residentsService.residents$.subscribe(residents => {
-    //   this.residents = residents;
-    // });
-
     this.residentsService.residents$
       .subscribe(
         residents => { this.residents = residents; },
@@ -76,7 +68,7 @@ export class ResidentsListPage implements OnInit {
     });
   }
 
-  openNewResidentModal(resident) {
+  openNewResidentModal() {
     let data;
 
     let newResidentModal = this.modal.create(NewResidentFormPage);

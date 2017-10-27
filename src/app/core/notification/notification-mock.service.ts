@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Notification } from '../../models/models';
 import * as moment from 'moment';
+import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -14,7 +18,7 @@ export const notificationIconLookup = {
 @Injectable()
 export class NotificationMockService {
 
-  notifications: Notification[] = [
+  fakeNotifications: Notification[] = [
     {
       id: 1,
       type: 'alert',
@@ -23,10 +27,10 @@ export class NotificationMockService {
       dismissed: false,
       data: {
         title: 'Skin Tear',
-        summary: 'This is some text to represent a skin tear',
+        summary: 'Created for Justin Kunz by Ilija Vrajich',
         createdBy: 'Ilija Vrajich',
         createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(30, 'minutes').format(),
+        createdAt: moment().subtract(30, 'minutes').format(),
         images: ['assets/watchlist/skin_tear.jpg'],
         notes: ''
       }
@@ -39,9 +43,9 @@ export class NotificationMockService {
       dismissed: false,
       data: {
         title: 'Bowel Movement',
-        summary: 'It\'s been 3 days since Brane Vrajich has had a bowel movement',
+        summary: '3 days since BM for Brane Vrajich',
         createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(40, 'minutes').format(),
+        createdAt: moment().subtract(40, 'minutes').format(),
         lastBM: moment().subtract(4, 'days').format()
       }
     },
@@ -53,14 +57,36 @@ export class NotificationMockService {
       dismissed: false,
       data: {
         title: 'Order Medication',
-        summary: 'Medication needs to be ordered',
+        summary: '3 medicaitons need to be ordered',
         createdFor: 'Brane Vrajich',
-        createdOn: moment().subtract(2, 'hours').format()
+        createdAt: moment().subtract(2, 'hours').format()
       }
     }
   ];
 
+  notifications$$: BehaviorSubject<Notification[]> = new BehaviorSubject<Notification[]>(this.fakeNotifications);
+  notifications$: Observable<Notification[]> = this.notifications$$.asObservable();
+  notificationFilter$$: BehaviorSubject<string> = new BehaviorSubject<string>('all');
+
+  unreadNotifications$: Observable<Notification[]> = this.notifications$.map(notifications => {
+    return notifications.filter(n => {
+        return n.dismissed !== true;
+    });
+  });
 
 
-  constructor() { }
+
+  constructor(private http: HttpClient) {
+  }
+
+  getNotifications() {
+    this.notifications$$.next(this.fakeNotifications);
+  }
+
+  dismissAllNotifications(){
+    this.fakeNotifications.forEach(n => {
+      n.dismissed = true;
+    });
+    this.getNotifications();
+  }
 }

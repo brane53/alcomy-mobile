@@ -14,34 +14,35 @@
 
       <!--Notifications Button-->
     <button ion-button icon-only menuButtonToggle="notifications" right>
-      <custom-icon set="mdIcons" name="sms_failed"></custom-icon>
+      <custom-icon set="mdIcons" name="notifications"></custom-icon>
     </button>
 
-    <!--More Menu Button-->
+    <!--Filters Button-->
       <button ion-button icon-only>
-        <ion-icon name="more"></ion-icon>
+        <custom-icon set="mdIcons" name="tune"></custom-icon>
       </button>
     </ion-buttons>
     
 
   </ion-navbar>
 
-  <!--Quick Add Task input and button-->
   <ion-toolbar color="white">
-
+    
     <ion-select [(ngModel)]="completionFilter" interface="popover" (ionChange)="onFilterChange($event)">
       <ion-option *ngFor="let option of completionOptions" [value]="option.value">{{option.text}}</ion-option>
     </ion-select>
-
+    
   </ion-toolbar>
-
-
+  
+  
+  <!--Quick Add Task input and button-->
   <task-header (quickTaskAdd)="onQuickTaskAdd($event)"></task-header>
 </ion-header>
 
 <ion-content>
 
-  <task-list [tasks]="tasks$" 
+  <task-list [tasks]="tasks$"
+             [checkbox]="hasCheckbox"
              (toggleTaskComplete)="onToggleTaskComplete($event)" 
              (taskDelete)="onTaskDelete($event)"></task-list>
   <!-- <ion-list>

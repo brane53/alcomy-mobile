@@ -1,4 +1,4 @@
-Forms:
+Forms Creation Process:
   ☐ Create Data Model
   ☐ Create Form Model via Form Builder
   ☐ Create validation rules
@@ -6,4 +6,11 @@ Forms:
   ☐ Create error messages for form elements
   ☐ Create submission error and success toasts
   ☐ Create form/data submission logic
-  ☐ Create accessability rule
+  ☐ Create accessability rules
+
+Component Creation Process:
+  ☐ Configuration
+  ☐ Dependencies?
+  ☐ Inputs?
+  ☐ Outputs?
+  ☐ 

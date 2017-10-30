@@ -116,5 +116,77 @@
 
         "vsicons.presets.angular": true,
         "typescript.check.tscVersion": false,
-        "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+        "todohighlight.keywords": [
+            // {
+            //     "text": "TODO:",
+            //     "color": "#fff",
+            //     "backgroundColor": "#FFC107"
+            // },
+            {
+                "text": "TODO:",
+                "color": "#FFD54F",
+                "backgroundColor": "rgba(0,0,0,0)",
+                "overviewRulerColor": "",
+                "cursor": "pointer",
+                "border": "1px solid #FFD54F",
+                "borderRadius": "2px"
+            },
+            // {
+            //     "text": "FIX:",
+            //     "color": "#fff",
+            //     "backgroundColor": "#F06292"
+            // },
+            {
+                "text": "FIX:",
+                "color": "#F06292",
+                "backgroundColor": "rgba(0,0,0,0)",
+                "overviewRulerColor": "",
+                "cursor": "pointer",
+                "border": "1px solid #F06292",
+                "borderRadius": "2px"
+            },
+            // {
+            //     "text": "REFACTOR:",
+            //     "color": "#fff",
+            //     "backgroundColor": "#BA68C8"
+            // },
+            {
+                "text": "REFACTOR:",
+                "color": "#BA68C8",
+                "backgroundColor": "rgba(0,0,0,0)",
+                "overviewRulerColor": "",
+                "cursor": "pointer",
+                "border": "1px solid #BA68C8",
+                "borderRadius": "2px"
+            },
+            // {
+            //     "text": "IMPLEMENT:",
+            //     "color": "#fff",
+            //     "backgroundColor": "#81D4FA"
+            // },
+            {
+                "text": "IMPLEMENT:",
+                "color": "#81D4FA",
+                "backgroundColor": "rgba(0,0,0,0)",
+                "overviewRulerColor": "",
+                "cursor": "pointer",
+                "border": "1px solid #81D4FA",
+                "borderRadius": "2px"
+            },
+            // {
+            //     "text": "TEMP:",
+            //     "color": "#fff",
+            //     "backgroundColor": "#9CCC65"
+            // },
+            {
+                "text": "TEMP:",
+                "color": "#9CCC65",
+                "backgroundColor": "rgba(0,0,0,0)",
+                "overviewRulerColor": "",
+                "cursor": "pointer",
+                "border": "1px solid #9CCC65",
+                "borderRadius": "2px"
+            }
+        ]
+        //"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
     }

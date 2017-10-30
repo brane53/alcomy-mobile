@@ -57,6 +57,7 @@ export class ResidentDetailFacesheetPage {
     newResidentModal.present();
   }
 
+  // FIX: call-number plugin seems to be having some issues when building
   callContact(contact: ResidentContact) {
 
     let primaryPhone = contact.phoneNumbers.filter((phone) => {
@@ -69,10 +70,12 @@ export class ResidentDetailFacesheetPage {
     .catch(() => console.log('Something when wrong when launching dialer'));
   }
 
+  // IMPLEMENT:
   textContact() {
 
   }
 
+  // IMPLEMENT:
   emailContact() {
 
   }

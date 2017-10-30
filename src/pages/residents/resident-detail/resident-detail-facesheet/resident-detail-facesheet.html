@@ -309,7 +309,7 @@
             <p class="subtitle">{{ contact.relationship }}</p>
           </ng-container>
           <!-- Contact Action Buttons -->
-          <panel-body-actions>
+          <panel-body-actions left>
             <button ion-button clear icon-only *ngIf="contact.phoneNumbers" (click)="callContact(contact)">
               <custom-icon set="mdIcons" name="phone" color="money"></custom-icon>
             </button>

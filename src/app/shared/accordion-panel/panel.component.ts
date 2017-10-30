@@ -1,23 +1,37 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation,
          HostBinding, Optional, Host, forwardRef, ChangeDetectorRef } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { coerceBooleanProperty } from '../../utils/coercion';
-import { ContentChildren, OnDestroy } from '@angular/core';
-import { AccordionComponent } from '../accordion/accordion.component';
-import { Subscription } from 'rxjs/Subscription';
-import {} from 'rxjs'
+import { OnDestroy } from '@angular/core';
+
+const EXPANSION_PANEL_ANIMATION_TIMING = '225ms cubic-bezier(0.4,0.0,0.2,1)';
 
 @Component({
   selector: 'panel',
   templateUrl: 'panel.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('expansion', [
+      state('closed', style({height: '0px', display: 'none'})),
+      state('opened', style({height: '*'})),
+      transition('closed <=> opened', animate(EXPANSION_PANEL_ANIMATION_TIMING))
+    ]),
+    trigger('indicatorRotate', [
+      state('closed', style({ transform: 'rotate(0deg)' })),
+      state('opened', style({ transform: 'rotate(180deg)' })),
+      transition('closed <=> opened', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
+    ])
+  ]
 })
 
 export class PanelComponent implements OnInit, OnDestroy {
 
-  @Input()
-  get isOpen(): boolean { return this._isOpen; };
-  set isOpen(val: boolean) { this._isOpen = coerceBooleanProperty(val); };
-  private _isOpen = false;
+  expansionState: string = 'closed';
+
+  // @Input()
+  // get isOpen(): boolean { return this._isOpen; };
+  // set isOpen(val: boolean) { this._isOpen = coerceBooleanProperty(val); };
+  // private _isOpen = false;
 
   @Input()
   get displayMode(): string { return this._displayMode; }
@@ -31,34 +45,21 @@ export class PanelComponent implements OnInit, OnDestroy {
 
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
 
-  @HostBinding('class.opened') get opened(): boolean {
-    if (this.isOpen) {
-      return true;
-    }
-    return false;
-  } ;
-
   @HostBinding('class.gutter') get gutter(): boolean {
     if (this.displayMode === 'default') {
-      console.log(`Default True: ${this.displayMode}`);
       return true;
-
     }
-    console.log(`Default False: ${this.displayMode}`);
     return false;
   };
 
   @HostBinding('class.flat') get flat(): boolean {
     if (this.displayMode === 'flat') {
-      console.log(`Flat True: ${this.displayMode}`);
       return true;
     }
-    console.log(`Flat False: ${this.displayMode}`);
     return false;
   };
 
   constructor() {
-
 
   }
 

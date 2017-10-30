@@ -1,11 +1,12 @@
 // Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA, InjectionToken } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// 3rd Party Modules
 import { MomentModule } from 'angular2-moment';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
-// 3rd Party Modules
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { NgPipesModule } from 'ngx-pipes';
 import { CustomIconsModule } from 'ionic2-custom-icons';
@@ -88,6 +89,7 @@ const BASE_API = new InjectionToken<string>('baseApi');
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

@@ -13,8 +13,7 @@
   
   <div class="header-button" *ngIf="button">
     <button ion-button icon-only clear color="dark-text-54" (click)="expand()">
-      <custom-icon set="mdIcons" name="expand_more" *ngIf="!isOpen"></custom-icon>
-      <custom-icon set="mdIcons" name="expand_less" *ngIf="isOpen"></custom-icon>
+      <custom-icon set="mdIcons" name="expand_more" [@indicatorRotate]="expansionState"></custom-icon>
     </button>
   </div>
 </div>
@@ -22,7 +21,7 @@
 
 
 <!-- Panel Body -->
-<div class="panel-body" *ngIf="isOpen">
+<div class="panel-body" [@expansion]="expansionState">
   <ng-content select="[panel-body-content]"></ng-content>
   <ng-content select="panel-body-actions"></ng-content>
 </div>

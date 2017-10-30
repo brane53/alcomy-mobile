@@ -38,21 +38,21 @@ export class AccordionComponent implements OnInit, AfterContentInit, OnDestroy {
           // if multi is set to true then the panel will be
           // toggled without affecting the other panels
           if (this.multi === true) {
-            panel.isOpen = !panel.isOpen;
+            panel.expansionState = panel.expansionState === 'closed' ? 'opened' : 'closed';
           } else {
             // if multi is set to false then opening one panel
             // with close the rest, but closing said panel will
             // do so with opening other panels
-            if (panel.isOpen) {
-              panel.isOpen = !panel.isOpen;
+            if (panel.expansionState === 'opened') {
+              panel.expansionState = 'closed';
             } else {
-              this.panels.toArray().forEach(p => p.isOpen = false);
-              panel.isOpen = true;
+              this.panels.toArray().forEach(p => p.expansionState = 'closed');
+              panel.expansionState = 'opened';
             }
           }
         });
 
-        panel.isOpen = false;
+        panel.expansionState = 'closed';
         // panel.displayMode = this.displayMode;
         // console.log(`Accordion displayMode: ${this.displayMode}`);
       }

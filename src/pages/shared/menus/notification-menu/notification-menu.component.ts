@@ -1,11 +1,17 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NotificationService } from '../../../../app/core/notification/notification.service';
 import { Notification } from '../../../../app/models/models';
 import { Content, Header } from 'ionic-angular';
 
 @Component({
   selector: 'notification-menu',
-  templateUrl: 'notification-menu.component.html'
+  templateUrl: 'notification-menu.component.html',
+  animations: [
+    trigger('notificationTabAnimations', [
+      state('all', style({}))
+    ])
+  ]
 })
 // tslint:disable-next-line:component-class-suffix
 export class NotificationMenuPage implements OnInit, AfterViewInit {

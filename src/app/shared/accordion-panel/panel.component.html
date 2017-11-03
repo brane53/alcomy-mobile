@@ -1,24 +1,24 @@
 <!--Panel Header-->
-<div class="panel-header">
+<ion-item>
+  <div class="panel-header">
+    <ng-content select="[panel-header-left]"></ng-content>
 
-  <ng-content select="[panel-header-left]"></ng-content>
+    <div class="panel-header-info">
+      <ng-content select="[panel-header-title]"></ng-content>
+      <ng-content select="[panel-header-summary]"></ng-content>
+      <ng-content select="[panel-header-content]"></ng-content>
+    </div>
 
-  <div class="panel-header-info" [ngClass]="{'expended': isOpen}">
-    <ng-content select="[panel-header-title]"></ng-content>
-    <ng-content select="[panel-header-summary]"></ng-content>
-    <ng-content select="[panel-header-content]"></ng-content>
+    <ng-content select="[panel-header-right]"></ng-content>
+    
+    <div class="header-button" *ngIf="button">
+      <button ion-button icon-only clear color="dark-text-54" (click)="expand()">
+        <custom-icon set="mdIcons" name="expand_more" [@indicatorRotate]="expansionState"></custom-icon>
+      </button>
+    </div>
+
   </div>
-
-  <ng-content select="[panel-header-right]"></ng-content>
-  
-  <div class="header-button" *ngIf="button">
-    <button ion-button icon-only clear color="dark-text-54" (click)="expand()">
-      <custom-icon set="mdIcons" name="expand_more" [@indicatorRotate]="expansionState"></custom-icon>
-    </button>
-  </div>
-</div>
-
-
+</ion-item>
 
 <!-- Panel Body -->
 <div class="panel-body" [@expansion]="expansionState">

@@ -1,16 +1,21 @@
 <!--Panel Header-->
 <ion-item>
   <div class="panel-header">
+
+    <!-- Left Area -->
     <ng-content select="[panel-header-left]"></ng-content>
 
+    <!-- Center Area -->
     <div class="panel-header-info">
       <ng-content select="[panel-header-title]"></ng-content>
       <ng-content select="[panel-header-summary]"></ng-content>
       <ng-content select="[panel-header-content]"></ng-content>
     </div>
 
+    <!-- Right Area -->
     <ng-content select="[panel-header-right]"></ng-content>
     
+    <!-- Right Expansion Button -->
     <div class="header-button" *ngIf="button">
       <button ion-button icon-only clear color="dark-text-54" (click)="expand()">
         <custom-icon set="mdIcons" name="expand_more" [@indicatorRotate]="expansionState"></custom-icon>

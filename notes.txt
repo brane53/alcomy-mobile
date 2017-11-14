@@ -1,0 +1,3 @@
+To delete folder recursively using git bash in windows
+
+rm -rf <dirname>

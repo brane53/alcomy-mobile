@@ -2,12 +2,25 @@
 
 panel {
   display: block;
+
   border-bottom: 1px solid $dark-text-12;
-  ion-item.item.item-block, .item-inner, .label {
+  width: 100%;
+  overflow: unset;
+  
+  item.item, .item-md.item-block .item-inner, .item-ios.item-block .item-inner, .label {
     padding: 0;
     margin: 0;
     border: none;
+    border-bottom: none;
   }
+
+  .item-block {
+    justify-content: flex-start;
+  }
+  .input-wrapper {
+    
+  }
+
   // PANEL HEADER
   .panel-header {
     display: flex;
@@ -38,8 +51,8 @@ panel {
     .panel-header-info {
       display: flex;
       flex-direction: column;
-      flex: 1;
       padding-left: 16px;
+
       [panel-header-title] {
         font-weight: 600;
         font-size: 16px;
@@ -49,6 +62,7 @@ panel {
         font-size: 14px;
         color: $dark-text-54;
         display: block; /* or inline-block */
+        overflow: visible;
         // text-overflow: ellipsis;
         // word-wrap: break-word;
         // overflow: hidden;
@@ -73,18 +87,6 @@ panel {
       span.button-inner {
         width: 2.4rem;
         height: 2.4rem;
-      }
-      custom-icon {
-        font-size: 2.4rem;
-        &.alert {
-          color: $alert;
-        }
-        &.reminder {
-          color: $reminder;
-        }
-        &.message {
-          color: $message;
-        }
       }
     }
   }

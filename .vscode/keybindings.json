@@ -47,30 +47,77 @@
   //   "command": "-task.new",
   //   "when": "editorTextFocus"
   // },
-
   // File Extension Switcher Keybindings
   {
     "key": "ctrl+shift+k",
     "command": "fileextswitch",
-    "args": { "extensions": [".html"] }, 
+    "args": {
+      "extensions": [
+        ".html"
+      ]
+    },
     "when": "editorTextFocus"
   },
   {
     "key": "ctrl+shift+j",
     "command": "fileextswitch",
-    "args": { "extensions": [".js", ".ts"] }, 
+    "args": {
+      "extensions": [
+        ".js",
+        ".ts"
+      ]
+    },
     "when": "editorTextFocus"
   },
   {
     "key": "ctrl+shift+l",
     "command": "fileextswitch",
-    "args": { "extensions": [".css", ".scss"] }, 
+    "args": {
+      "extensions": [
+        ".css",
+        ".scss"
+      ]
+    },
     "when": "editorTextFocus"
   },
   {
     "key": "ctrl+shift+;",
     "command": "fileextswitch",
-    "args": { "extensions": [".spec.ts"] }, 
+    "args": {
+      "extensions": [
+        ".spec.ts"
+      ]
+    },
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+a",
+    "command": "-editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+right",
+    "command": "editor.action.indentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+]",
+    "command": "-editor.action.indentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+left",
+    "command": "editor.action.outdentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "-editor.action.outdentLines",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]

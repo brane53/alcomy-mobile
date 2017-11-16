@@ -4,7 +4,6 @@ panel {
   display: block;
 
   border-bottom: 1px solid $dark-text-12;
-  width: 100%;
   
   .item.item-block.item-md, .item.item-block.item-ios, .item-md.item-block .item-inner, .item-ios.item-block .item-inner, .label {
     padding: 0;
@@ -12,12 +11,12 @@ panel {
     border: none;
   }
 
-  .item-block {
-    justify-content: flex-start;
-  }
-  
-  .input-wrapper {
-    
+  // .item-block {
+  //   justify-content: flex-start;
+  // }
+
+  ion-label.label {
+    white-space: normal;
   }
 
   // PANEL HEADER

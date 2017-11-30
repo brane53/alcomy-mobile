@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { FacilityService } from '../../../app/core/facility/facility.service';
 import { Facility } from '../../../app/models/models';
 import { FacilityTabsPage } from '../facility-detail/facility-tabs/facility-tabs';
+import { NewFacilityFormPage } from '../../shared/forms/new-facility/new-facility';
 
 /*
   Generated class for the ResidentsList page.
@@ -63,17 +64,18 @@ export class FacilityListPage implements OnInit {
   }
 
   openNewFacilityModal() {
-    // let data;
+    let data;
 
-    // let newFacilityModal = this.modal.create(NewFacilityFormPage);
+    let newFacilityModal = this.modal.create(NewFacilityFormPage);
 
-    // newFacilityModal.onDidDismiss(facility => {
-    //   if (facility) {
-    //     console.log(facility);
+    newFacilityModal.onDidDismiss(facility => {
+      if (facility) {
+        console.log(facility);
         
-    //   }
-    // });
-    // newFacilityModal.present();
+      }
+    });
+    
+    newFacilityModal.present();
   }
 
 }

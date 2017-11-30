@@ -210,10 +210,16 @@ export class Index {
 
 export class Facility {
   id?: number
-  legalName?: string;
+  //legalName?: string;
+  name: string;
   displayName?: string;
   status?: string; // whether the facility is active or not
-  address?: Address;
+  addressLine1?: string;
+  addressLine2?: string;
+  city?: string;
+  stateOrProvince?: string;
+  postalCode?: string;
+  facilityNumber?: number;
   licenseNumber?: string;
   contacts?: ContactInfo[]; // These are the official contacts for the facility
   users?: Array<any>;

@@ -14,7 +14,11 @@ export class NewResidentFormPage implements OnInit {
   resident: Resident;
 
   // Constructor
-  constructor(private viewCtrl: ViewController, public navParams: NavParams, private fb: FormBuilder, private toast: ToastController) {
+  constructor(
+    private viewCtrl: ViewController, 
+    public navParams: NavParams, 
+    private fb: FormBuilder, 
+    private toast: ToastController) {
 
     this.genders = ['male', 'female'];
 

@@ -28,13 +28,22 @@ import { TasksPage } from '../pages/dashboard/tasks/tasks';
 import { ResidentsTabsPage } from '../pages/residents/residents-tabs/residents-tabs';
 import { ResidentsListPage } from '../pages/residents/residents-list/residents-list';
 import { ResidentsGroupsPage } from '../pages/residents/residents-groups/residents-groups';
-// Resident Record Pages
+// Resident Detail Pages
 import { ResidentDetailTabsPage } from '../pages/residents/resident-detail/resident-detail-tabs/resident-detail-tabs';
 import { ResidentDetailFacesheetPage } from '../pages/residents/resident-detail/resident-detail-facesheet/resident-detail-facesheet';
 import { ResidentDetailMedicationsPage } from '../pages/residents/resident-detail/resident-detail-medications/resident-detail-medications';
 import { ResidentDetailCarePage } from '../pages/residents/resident-detail/resident-detail-care/resident-detail-care';
 import { ResidentDetailNotebookPage } from '../pages/residents/resident-detail/resident-detail-notebook/resident-detail-notebook';
 import { ResidentDetailReportsPage } from '../pages/residents/resident-detail/resident-detail-reports/resident-detail-reports';
+// Staff Pages
+import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
+import { StaffListPage } from '../pages/staff/staff-list/staff-list';
+import { StaffGroupsPage } from '../pages/staff/staff-groups/staff-groups';
+// Company Pages
+import { CompanyTabsPage } from '../pages/company/company-tabs/company-tabs';
+import { FacilityListPage } from '../pages/company/facility-list/facility-list';
+import { FacilityTabsPage } from '../pages/company/facility-detail/facility-tabs/facility-tabs';
+import { FacilityRoomsComponent } from '../pages/company/facility-detail/facility-rooms/facility-rooms';
 // Forms Pages
 import { NewTaskFormPage } from '../pages/shared/forms/new-task/new-task';
 import { NewWatchItemFormPage } from '../pages/shared/forms/new-watch-item/new-watch-item';
@@ -48,9 +57,6 @@ import { PrnCardComponent } from './shared/prn-card/prn-card.component';
 import { WatchItemDetailPage } from '../pages/dashboard/watch-item-detail/watch-item-detail';
 import { MenuButtonToggleDirective } from './shared/menu-button-toggle/menu-button-toggle.directive';
 import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
-import { StaffTabsPage } from '../pages/staff/staff-tabs/staff-tabs';
-import { StaffListPage } from '../pages/staff/staff-list/staff-list';
-import { StaffGroupsPage } from '../pages/staff/staff-groups/staff-groups';
 // Menu Pages
 import { NotificationMenuPage } from '../pages/shared/menus/notification-menu/notification-menu.component';
 // Real Services
@@ -118,13 +124,17 @@ const BASE_API = new InjectionToken<string>('baseApi');
     ResidentDetailCarePage,
     ResidentDetailNotebookPage,
     ResidentDetailReportsPage,
+    StaffTabsPage,
+    StaffListPage,
+    StaffGroupsPage,
+    CompanyTabsPage,
+    FacilityListPage,
+    FacilityTabsPage,
+    FacilityRoomsComponent,
     NewTaskFormPage,
     QuickAddMenuPage,
     PrnResponseFormPage,
     WatchItemDetailPage,
-    StaffTabsPage,
-    StaffListPage,
-    StaffGroupsPage,
     // Form Pages
     NewFacilityFormPage,
     NewWatchItemFormPage,
@@ -165,13 +175,16 @@ const BASE_API = new InjectionToken<string>('baseApi');
     ResidentDetailCarePage,
     ResidentDetailNotebookPage,
     ResidentDetailReportsPage,
-    QuickAddMenuPage,
-    PrnResponseFormPage,
-    WatchItemDetailPage,
     StaffTabsPage,
     StaffListPage,
     StaffGroupsPage,
-
+    CompanyTabsPage,
+    FacilityListPage,
+    FacilityTabsPage,
+    FacilityRoomsComponent,
+    QuickAddMenuPage,
+    PrnResponseFormPage,
+    WatchItemDetailPage,
     // Form Pages
     NewFacilityFormPage,
     NewResidentFormPage,

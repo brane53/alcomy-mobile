@@ -11,6 +11,7 @@ import { NotificationService } from './core/notification/notification.service';
 // import { LoginPage } from '../pages/login/login';
 import { NewResidentFormPage } from '../pages/shared/forms/new-resident/new-resident';
 import { ResidentsListPage } from '../pages/residents/residents-list/residents-list';
+import { CompanyTabsPage } from '../pages/company/company-tabs/company-tabs';
 
 
 @Component({
@@ -56,6 +57,11 @@ export class AlcomyAppComponent implements OnInit {
   staff() {
     this.menu.close('main');
     this.nav.setRoot(StaffTabsPage);
+  }
+
+  company() {
+    this.menu.close('main');
+    this.nav.setRoot(CompanyTabsPage);
   }
 
 }

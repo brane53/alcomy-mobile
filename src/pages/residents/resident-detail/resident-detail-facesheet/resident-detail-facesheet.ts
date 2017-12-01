@@ -19,7 +19,7 @@ export class ResidentDetailFacesheetPage {
 
   constructor(
     private app: App,
-    private callNumber: CallNumber,
+    //private callNumber: CallNumber,
     private viewCtrl: ViewController,
     private modal: ModalController,
     public navCtrl: NavController,
@@ -65,9 +65,9 @@ export class ResidentDetailFacesheetPage {
     });
     let numberToCall = primaryPhone[0].number;
 
-    this.callNumber.callNumber(numberToCall, true)
-    .then(() => console.log('Dialer Launched'))
-    .catch(() => console.log('Something when wrong when launching dialer'));
+    // this.callNumber.callNumber(numberToCall, true)
+    // .then(() => console.log('Dialer Launched'))
+    // .catch(() => console.log('Something when wrong when launching dialer'));
   }
 
   // IMPLEMENT:

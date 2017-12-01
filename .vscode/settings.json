@@ -187,6 +187,6 @@
                 "border": "1px solid #9CCC65",
                 "borderRadius": "2px"
             }
-        ]
-        //"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+        ],
+        "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
     }

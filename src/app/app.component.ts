@@ -20,11 +20,11 @@ import { NewFacilityFormPage } from '../pages/shared/forms/new-facility/new-faci
   templateUrl: 'app.component.html'
 })
 export class AlcomyAppComponent implements OnInit {
-  //rootPage = DashboardTabsPage;
+  rootPage = DashboardTabsPage;
   // rootPage = LoginPage;
   // rootPage = NewResidentPage;
   // rootPage = ResidentsListPage;
-  rootPage = NewFacilityFormPage;
+  //rootPage = NewFacilityFormPage;
 
   @ViewChild('appContent') nav: NavController;
 

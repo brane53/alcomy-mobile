@@ -9,19 +9,16 @@ export class FacilityMockService {
 
   private fakeFacilities: Facility[] = [
     {
-      legalName: 'Paradise Valley Care',
+      id: 1,
+      name: 'Paradise Valley Care',
       displayName: 'PVC',
       status: 'active',
-      address: {
-        line1: '9525 Gallina Ct',
-        line2: '',
-        city: 'atascadero',
-        stateOrProvice: 'CA',
-        zipOrPostalCode: '93422',
-        country: 'usa'
-      },
-      licenseNumber: '123456',
-      //contacts: ,
+      addressLine1: '9525 Gallina Ct',
+      addressLine2: '',
+      city: 'atascadero',
+      stateOrProvince: 'CA',
+      postalCode: '93422',
+      facilityNumber: 123456,
       users: [1, 2, 3]
     }
   ];

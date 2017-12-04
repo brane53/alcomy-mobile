@@ -54,4 +54,34 @@ export class NewFacilityFormPage {
     });
   }
 
+  close() {
+    this.viewCtrl.dismiss();
+  }
+
+  submit() {
+
+    console.log(this.newFacilityForm.errors);
+    let areErrors = false;
+
+    // submit implementation
+    if (areErrors) {
+      for (var control in this.newFacilityForm.controls) {
+
+        if (this.newFacilityForm.controls.hasOwnProperty(control)) {
+          this.newFacilityForm.get(control).markAsTouched({ onlySelf: false });
+        }
+      }
+
+      let toast = this.toast.create({
+        message: 'Required fields not valid',
+        duration: 3000,
+        position: 'top',
+        cssClass: 'toast-error'
+      });
+      toast.present();
+      return;
+    }
+    this.viewCtrl.dismiss(this.newFacilityForm.value);
+  }
+
 }

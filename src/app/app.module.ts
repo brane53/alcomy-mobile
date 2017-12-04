@@ -201,7 +201,7 @@ const BASE_API = new InjectionToken<string>('baseApi');
     {provide: AccountService, useClass: AccountMockService},
     {provide: AuthService, useClass: AuthMockService},
     {provide: EmployeeService, useClass: EmployeeMockService},
-    {provide: FacilityService, useClass: FacilityMockService},
+    {provide: FacilityService, useClass: FacilityService},
     {provide: MedicationsService, useClass: MedicationsMockService},
     {provide: NotificationService, useClass: NotificationMockService},
     {provide: ResidentsService, useClass: ResidentsMockService},

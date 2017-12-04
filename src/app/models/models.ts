@@ -220,7 +220,6 @@ export class Facility {
   stateOrProvince?: string;
   postalCode?: string;
   facilityNumber?: number;
-  licenseNumber?: string;
   contacts?: ContactInfo[]; // These are the official contacts for the facility
   users?: Array<any>;
 }

@@ -29,5 +29,23 @@
 </ion-header>
 
 <ion-content>
-  
+  <!--Facility List-->
+  <ion-list>
+    <button ion-item *ngFor="let facility of facilities" (click)="goToDetails(facility)">
+      <h2>
+        {{ facility.name | ucfirst }}
+      </h2>
+      <p>{{facility.city}}</p>
+
+      <!-- <span class="indicator active" item-right></span> -->
+    </button>
+  </ion-list>
+
+
+  <!--Create Facility Button-->
+  <ion-fab bottom right>
+    <button ion-fab color="company-accent" (click)="openNewFacilityModal()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

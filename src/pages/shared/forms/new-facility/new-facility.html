@@ -35,7 +35,44 @@
       <ion-input type="text" formControlName="facilityNumber"></ion-input>
     </ion-item>
     <p class="form-error-message" ngxErrors="facilityNumber" ngxError="digits" when="touched">Facility Number can only contain digits</p>
+    
+    <!-- Status -->
+    <ion-item>
+      <ion-label floating>Status</ion-label>
+      <ion-select>
+        <ion-option>Active</ion-option>
+        <ion-option>Inactive</ion-option>
+      </ion-select>
+    </ion-item>
 
+    <ion-list-header>Address</ion-list-header>
+    <!-- Address Line 1 -->
+    <ion-item>
+      <ion-label floating>Address Line 1</ion-label>
+      <ion-input type="text" formControlName="addressLine1"></ion-input>
+    </ion-item>
+    <!-- Address Line 2 -->
+    <ion-item>
+      <ion-label floating>Address Line 2</ion-label>
+      <ion-input type="text" formControlName="addressLine2"></ion-input>
+    </ion-item>
+    <!-- City -->
+    <ion-item>
+      <ion-label floating>City</ion-label>
+      <ion-input type="text" formControlName="city"></ion-input>
+    </ion-item>
+    <!-- State/Province -->
+    <ion-item>
+      <ion-label floating>State</ion-label>
+      <ion-select formControlName="stateOrProvince">
+        <ion-option></ion-option>
+      </ion-select>
+    </ion-item>
+    <!-- Zip/Postal Code -->
+    <ion-item>
+      <ion-label floating>Zip/Postal Code</ion-label>
+      <ion-input type="text" formControlName="postalCode"></ion-input>
+    </ion-item>
   </form>
 
 </ion-content>

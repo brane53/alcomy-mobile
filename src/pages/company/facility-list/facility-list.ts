@@ -8,6 +8,7 @@ import {
   ModalController,
   ToastController
 } from 'ionic-angular';
+import { Observable } from 'rxjs/observable';
 import { StatusBar } from '@ionic-native/status-bar';
 //import { NewResidentFormPage } from '../../shared/forms/new-resident/new-resident';
 import { FacilityService } from '../../../app/core/facility/facility.service';
@@ -15,19 +16,13 @@ import { Facility } from '../../../app/models/models';
 import { FacilityTabsPage } from '../facility-detail/facility-tabs/facility-tabs';
 import { NewFacilityFormPage } from '../../shared/forms/new-facility/new-facility';
 
-/*
-  Generated class for the ResidentsList page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-facility-list',
   templateUrl: 'facility-list.html'
 })
 export class FacilityListPage implements OnInit {
   title: string = 'Facility List';
-  facility: Facility;
+  facilities: Facility[];
 
   constructor(
     private app: App,
@@ -49,6 +44,10 @@ export class FacilityListPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FacilityListPage');
+    this.facilityService.getFacilities().subscribe((facilities)=>{
+      console.log(facilities);
+      this.facilities = facilities;
+    })
   }
 
   ngOnInit() {
@@ -71,11 +70,20 @@ export class FacilityListPage implements OnInit {
     newFacilityModal.onDidDismiss(facility => {
       if (facility) {
         console.log(facility);
-        
+        this.facilityService.addFacility(facility).subscribe(
+          (facility: Facility)=> {
+            this.facilities.push(facility);
+          },
+          (err) => {
+            console.log('Error calling addFacility', err);
+          }
+        );
       }
     });
     
     newFacilityModal.present();
   }
+
+  
 
 }

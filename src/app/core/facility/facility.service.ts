@@ -6,9 +6,12 @@ import { Observable } from 'rxjs/observable';
 import { AccountService } from '../account/account.service';
 import { HttpClient } from '@angular/common/http';
 
+export const BASE_URL = 'https://alcomy-backend-dev.herokuapp.com';
 
 @Injectable()
 export class FacilityService {
+
+  
   currentFacility$: BehaviorSubject<Facility>;
   facilities$: Observable<Facility[]>;
 
@@ -18,16 +21,19 @@ export class FacilityService {
 
   // Add a new facility to a company account
   addFacility(facility: Facility) {
-    return this.http.post('https://alcomy-backend-dev.herokuapp.com/api/facilities', facility);
+    return this.http.post(`${BASE_URL}/api/facilities`, facility);
   }
 
   // Update a facility's information
 
   // Get a list of facilities accessable by the current user
+  // TODO: handle errors
   getFacilities(): Observable<Facility[]> {
-    return this.http.get<Facility[]>('https://alcomy-backend-dev.herokuapp.com/api/facilities');
+    return this.http.get<Facility[]>(`${BASE_URL}/api/facilities`);
   }
   // Get a facility by it's id
-  
+  getFacility(id: number): Observable<Facility> {
+    return this.http.get<Facility>(`${BASE_URL}/api/facilities/${id}`);
+  }
 
 }

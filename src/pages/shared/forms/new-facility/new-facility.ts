@@ -13,6 +13,8 @@ export class NewFacilityFormPage {
   title: string;
   facility: Facility;
   newFacilityForm: FormGroup;
+  facilityStatuses: string[] = ['active', 'inactive'];
+  states: string[] = ['california', 'utah']
 
   constructor(
     private viewCtrl: ViewController,
@@ -45,7 +47,7 @@ export class NewFacilityFormPage {
       name: [this.facility.name || '', Validators.required],
       displayName: [this.facility.displayName || ''],
       facilityNumber: [this.facility.facilityNumber || '', CustomValidators.digits],
-      status: [this.facility.status || 'active', Validators.required],
+      status: [this.facility.status || this.facilityStatuses[0], Validators.required],
       addressLine1: [this.facility.addressLine1 || ''],
       addressLine2: [this.facility.addressLine2 || ''],
       city: [this.facility.city || ''],

@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="company-primary">
     <ion-title>{{title}}</ion-title>
     <ion-buttons right>
       <!--Close Button-->
@@ -13,9 +13,11 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <form [formGroup]="newFacilityForm" novalidate>
+    <ion-list>
+    <ion-list-header color="item-divider">Basic Info</ion-list-header>
     <!--Legal Name-->
     <ion-item>
       <ion-label floating>Legal Name</ion-label>
@@ -39,13 +41,12 @@
     <!-- Status -->
     <ion-item>
       <ion-label floating>Status</ion-label>
-      <ion-select>
-        <ion-option>Active</ion-option>
-        <ion-option>Inactive</ion-option>
+      <ion-select formControlName="status">
+        <ion-option *ngFor="let status of facilityStatuses" [value]="status">{{status | ucfirst}}</ion-option>
       </ion-select>
     </ion-item>
 
-    <ion-list-header>Address</ion-list-header>
+    <ion-item-divider color="item-divider">Address</ion-item-divider>
     <!-- Address Line 1 -->
     <ion-item>
       <ion-label floating>Address Line 1</ion-label>
@@ -65,7 +66,7 @@
     <ion-item>
       <ion-label floating>State</ion-label>
       <ion-select formControlName="stateOrProvince">
-        <ion-option></ion-option>
+        <ion-option *ngFor="let state of states" [value]="state">{{state | ucfirst}}</ion-option>
       </ion-select>
     </ion-item>
     <!-- Zip/Postal Code -->
@@ -73,6 +74,7 @@
       <ion-label floating>Zip/Postal Code</ion-label>
       <ion-input type="text" formControlName="postalCode"></ion-input>
     </ion-item>
+    </ion-list>
   </form>
 
 </ion-content>

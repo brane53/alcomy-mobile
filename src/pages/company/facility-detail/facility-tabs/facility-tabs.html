@@ -1,7 +1,9 @@
 <ion-tabs class="facility-tabs" tabsHighlight="true" tabsPlacement="bottom">
-  <ion-tab [root]="tab1Root" tabTitle="List" customIconSet="mdIcons" customIconName="location_city">
+
+  <ion-tab [root]="tab1Root" [rootParams]="facility" tabTitle="Profile" customIconSet="mdIcons" customIconName="location_city">
   </ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Reports" customIconSet="mdIcons" customIconName="insert_chart">
+  
+  <ion-tab [root]="tab2Root" [rootParams]="facility" tabTitle="Rooms" customIconSet="mdIcons" customIconName="hotel">
   </ion-tab>
 
 </ion-tabs>

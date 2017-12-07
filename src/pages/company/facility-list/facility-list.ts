@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   NavController,
   NavParams, MenuController,
@@ -20,7 +20,7 @@ import { NewFacilityFormPage } from '../../shared/forms/new-facility/new-facilit
   selector: 'page-facility-list',
   templateUrl: 'facility-list.html'
 })
-export class FacilityListPage implements OnInit {
+export class FacilityListPage {
   title: string = 'Facility List';
   facilities: Facility[];
 
@@ -50,11 +50,8 @@ export class FacilityListPage implements OnInit {
     })
   }
 
-  ngOnInit() {
-    
-  }
-
   goToDetails(facility: Facility) {
+    console.log('Facility-List-Facility', facility);
     let rootNav = this.app.getRootNav();
     let currentNav = this.app.getActiveNav();
     rootNav.push(FacilityTabsPage, {

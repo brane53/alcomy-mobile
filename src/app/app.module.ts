@@ -43,7 +43,8 @@ import { StaffGroupsPage } from '../pages/staff/staff-groups/staff-groups';
 import { CompanyTabsPage } from '../pages/company/company-tabs/company-tabs';
 import { FacilityListPage } from '../pages/company/facility-list/facility-list';
 import { FacilityTabsPage } from '../pages/company/facility-detail/facility-tabs/facility-tabs';
-import { FacilityRoomsComponent } from '../pages/company/facility-detail/facility-rooms/facility-rooms';
+import { FacilityProfilePage } from '../pages/company/facility-detail/facility-profile/facility-profile';
+import { FacilityRoomsPage } from '../pages/company/facility-detail/facility-rooms/facility-rooms';
 // Forms Pages
 import { NewTaskFormPage } from '../pages/shared/forms/new-task/new-task';
 import { NewWatchItemFormPage } from '../pages/shared/forms/new-watch-item/new-watch-item';
@@ -57,6 +58,7 @@ import { PrnCardComponent } from './shared/prn-card/prn-card.component';
 import { WatchItemDetailPage } from '../pages/dashboard/watch-item-detail/watch-item-detail';
 import { MenuButtonToggleDirective } from './shared/menu-button-toggle/menu-button-toggle.directive';
 import { QuickAddDirective } from './shared/quick-add/quick-add.directive';
+import { FacilityProfileMorePopover } from '../pages/shared/popovers/facility-profile-more/facility-profile-more';
 // Menu Pages
 import { NotificationMenuPage } from '../pages/shared/menus/notification-menu/notification-menu.component';
 // Real Services
@@ -130,11 +132,13 @@ const BASE_API = new InjectionToken<string>('baseApi');
     CompanyTabsPage,
     FacilityListPage,
     FacilityTabsPage,
-    FacilityRoomsComponent,
+    FacilityProfilePage,
+    FacilityRoomsPage,
     NewTaskFormPage,
     QuickAddMenuPage,
     PrnResponseFormPage,
     WatchItemDetailPage,
+    FacilityProfileMorePopover,
     // Form Pages
     NewFacilityFormPage,
     NewWatchItemFormPage,
@@ -181,10 +185,12 @@ const BASE_API = new InjectionToken<string>('baseApi');
     CompanyTabsPage,
     FacilityListPage,
     FacilityTabsPage,
-    FacilityRoomsComponent,
+    FacilityProfilePage,
+    FacilityRoomsPage,
     QuickAddMenuPage,
     PrnResponseFormPage,
     WatchItemDetailPage,
+    FacilityProfileMorePopover,
     // Form Pages
     NewFacilityFormPage,
     NewResidentFormPage,

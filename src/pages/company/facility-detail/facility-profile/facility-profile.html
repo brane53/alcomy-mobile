@@ -20,7 +20,7 @@
       </button>
 
       <!--Filter Button-->
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="presentMorePopover($event)">
         <custom-icon set="mdIcons" name="more_vert"></custom-icon>
       </button>
     </ion-buttons>
@@ -29,6 +29,7 @@
   </ion-navbar>
 
 </ion-header>
+
 <ion-content>
 
 </ion-content>

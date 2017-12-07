@@ -25,6 +25,9 @@ export class FacilityService {
   }
 
   // Update a facility's information
+  updateFacility(id: number, facility: Facility) {
+    return this.http.put(`${BASE_URL}/api/facilities/${id}`, facility);
+  }
 
   // Get a list of facilities accessable by the current user
   // TODO: handle errors
@@ -34,6 +37,10 @@ export class FacilityService {
   // Get a facility by it's id
   getFacility(id: number): Observable<Facility> {
     return this.http.get<Facility>(`${BASE_URL}/api/facilities/${id}`);
+  }
+
+  deleteFacility(id) {
+    return this.http.delete<Facility>(`${BASE_URL}/api/facilities/${id}`);
   }
 
 }

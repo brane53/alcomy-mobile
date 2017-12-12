@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   NavController,
   NavParams, MenuController,
@@ -24,7 +24,7 @@ import { FacilityService } from '../../../app/core/facility/facility.service';
   selector: 'page-residents-list',
   templateUrl: 'residents-list.html'
 })
-export class ResidentsListPage implements OnInit {
+export class ResidentsListPage {
   title: string = 'Resident List';
   residents: Resident[];
   currentFacility: Facility;
@@ -50,14 +50,32 @@ export class ResidentsListPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsListPage');
-  }
-
-  ngOnInit() {
     this.residentsService.residents$
       .subscribe(
-        residents => { this.residents = residents; },
-        error => { console.log('The Error: ', error); }
+      residents => { this.residents = residents; },
+      error => { console.log('The Error: ', error); }
       );
+  }
+
+  refreshFacilities(refresher) {
+    this.residentsService.getResidents().subscribe(
+      facilities => {
+        console.log(facilities);
+        this.facilities = facilities;
+        refresher.complete();
+      },
+      (err: HttpErrorResponse) => {
+        refresher.complete();
+        console.error(`FacilityList: refreshResidents: FacilityService.getFacilities`, err);
+        if (err.error instanceof Error) {
+          // Client-side or Network Error
+          console.log('Client-side/Network Error', err.error.message);
+        } else {
+          // Backend Error
+          console.log(`Backend returned error code ${err.status}. Body was ${err.error}`)
+        }
+      }
+    );
   }
 
   goToDetails(resident: Resident) {

@@ -30,6 +30,9 @@
 
 
 <ion-content>
+  <ion-refresher (ionRefresh)="refreshResidents($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <!--Resident LIst-->
   <ion-list>
     <button ion-item *ngFor="let resident of residents" (click)="goToDetails(resident)">

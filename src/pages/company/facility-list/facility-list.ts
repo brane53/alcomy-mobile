@@ -8,6 +8,7 @@ import {
   ModalController,
   ToastController
 } from 'ionic-angular';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
 import { StatusBar } from '@ionic-native/status-bar';
 //import { NewResidentFormPage } from '../../shared/forms/new-resident/new-resident';
@@ -44,14 +45,47 @@ export class FacilityListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FacilityListPage');
-    this.facilityService.getFacilities().subscribe((facilities)=>{
-      console.log(facilities);
-      this.facilities = facilities;
-    })
+    this.facilityService.getFacilities().subscribe(
+      facilities => {
+        console.log(facilities);
+        this.facilities = facilities;
+      },
+      (err: HttpErrorResponse)=> {
+        console.error(`FacilityList: ionViewDidLoad: FacilityService.getFacilities`, err);
+        if(err.error instanceof Error) {
+          // Client-side or Network Error
+          console.log('Client-side/Network Error', err.error.message);
+        } else {
+          // Backend Error
+          console.log(`Backend returned error code ${err.status}. Body was ${err.error}`)
+        }
+      }
+    );
+  }
+
+  refreshFacilities(refresher) {
+    this.facilityService.getFacilities().subscribe(
+      facilities => {
+        console.log(facilities);
+        this.facilities = facilities;
+        refresher.complete();
+      },
+      (err: HttpErrorResponse) => {
+        refresher.complete();
+        console.error(`FacilityList: refreshResidents: FacilityService.getFacilities`, err);
+        if (err.error instanceof Error) {
+          // Client-side or Network Error
+          console.log('Client-side/Network Error', err.error.message);
+        } else {
+          // Backend Error
+          console.log(`Backend returned error code ${err.status}. Body was ${err.error}`)
+        }
+      }
+    );
   }
 
   goToDetails(facility: Facility) {
-    console.log('Facility-List-Facility', facility);
+    console.log('FacilityList: goToDetails: facility param', facility);
     let rootNav = this.app.getRootNav();
     let currentNav = this.app.getActiveNav();
     rootNav.push(FacilityTabsPage, {
@@ -66,7 +100,7 @@ export class FacilityListPage {
 
     newFacilityModal.onDidDismiss(facility => {
       if (facility) {
-        console.log(facility);
+        console.log(`FacilityList: openNewFacilityModal: onDidDismiss: facility param ${facility}`);
         this.facilityService.addFacility(facility).subscribe(
           (facility: Facility)=> {
             this.facilities.push(facility);
@@ -80,6 +114,8 @@ export class FacilityListPage {
     
     newFacilityModal.present();
   }
+
+
 
   
 

@@ -29,6 +29,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="refreshFacilities($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <!--Facility List-->
   <ion-list>
     <button ion-item *ngFor="let facility of facilities" (click)="goToDetails(facility)">

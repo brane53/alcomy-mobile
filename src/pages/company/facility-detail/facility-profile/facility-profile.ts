@@ -50,9 +50,10 @@ export class FacilityProfilePage {
       (facility: Facility) => {
         console.log('delete facility', facility)
         let toast = this.toast.create({
-          message: `${facility.name} was successfully deleted`,
+          message: `Facility successfully deleted`,
           duration: 3000,
-          position: 'top'
+          position: 'bottom',
+          cssClass: 'toast-success toast-wrapper'
         });
 
         toast.present()

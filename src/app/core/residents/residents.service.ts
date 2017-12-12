@@ -5,8 +5,11 @@ import { BehaviorSubject } from 'rxjs';
 import { Resident } from '../../models/models';
 import { Observable } from 'rxjs/Observable';
 
+export const API_ENDPOINT = 'https://alcomy-backend-dev.herokuapp.com/api';
+
 @Injectable()
 export class ResidentsService {
+
 
   selectedResident: BehaviorSubject<Resident>;
 
@@ -20,27 +23,32 @@ export class ResidentsService {
 
   // GET /residents - Get all residents or filters set of residents
   public getResidents(query?) {
-    // will use this.http.get()
+    return this.http.get(`${API_ENDPOINT}/residents`)
+    .subscribe(
+      residents => {
+        
+      }
+    );
   }
 
   // GET /residents/:id - Get a single resident given their id
   public getResidentById(id: string) {
-
+    return this.http.get(`${API_ENDPOINT}/residents/${id}`);
   }
 
   // POST /residents - Creates a resident
-  public addResident(resident: Resident, facilityId: number) {
-
+  public addResident(resident: Resident) {
+    return this.http.post(`${API_ENDPOINT}/residents`, resident);
   }
 
   // PUT /residents/:id - Updates a resident
   public updateResident(resident: Resident) {
-
+    return this.http.put(`${API_ENDPOINT}/residents`, resident);
   }
 
   // DELETE /resident/:id - Deletes a resident (WARNING: Will delete all related records)
-  public deleteResident() {
-
+  public deleteResident(id: number) {
+    return this.http.delete(`${API_ENDPOINT}/residents/${id}`);
   }
 
 

@@ -13,6 +13,7 @@ import { ResidentsService } from '../../../app/core/residents/residents.service'
 import { ResidentDetailTabsPage } from '../resident-detail/resident-detail-tabs/resident-detail-tabs';
 import { NewResidentFormPage } from '../../shared/forms/new-resident/new-resident';
 import { FacilityService } from '../../../app/core/facility/facility.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 /*
   Generated class for the ResidentsList page.
@@ -50,23 +51,34 @@ export class ResidentsListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResidentsListPage');
-    this.residentsService.residents$
-      .subscribe(
-      residents => { this.residents = residents; },
-      error => { console.log('The Error: ', error); }
-      );
+    this.residentsService.residents$.subscribe(
+      residents => {
+        console.log(residents);
+        this.residents = residents;
+      },
+      (err: HttpErrorResponse) => {
+        console.error(`ResidentList: refreshResidents: ResidentsService.getFacilities`, err);
+        if (err.error instanceof Error) {
+          // Client-side or Network Error
+          console.log('Client-side/Network Error', err.error.message);
+        } else {
+          // Backend Error
+          console.log(`Backend returned error code ${err.status}. Body was ${err.error}`)
+        }
+      }
+    );
   }
 
   refreshFacilities(refresher) {
     this.residentsService.getResidents().subscribe(
-      facilities => {
-        console.log(facilities);
-        this.facilities = facilities;
+      residents => {
+        console.log(residents);
+        this.residents = residents;
         refresher.complete();
       },
       (err: HttpErrorResponse) => {
         refresher.complete();
-        console.error(`FacilityList: refreshResidents: FacilityService.getFacilities`, err);
+        console.error(`ResidentList: refreshResidents: ResidentsService.getFacilities`, err);
         if (err.error instanceof Error) {
           // Client-side or Network Error
           console.log('Client-side/Network Error', err.error.message);

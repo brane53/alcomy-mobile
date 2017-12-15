@@ -14,7 +14,9 @@ import { CustomIconsModule } from 'ionic2-custom-icons';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CallNumber } from '@ionic-native/call-number';
-
+// Environment Module
+import { EnvironmentsModule } from './environments/environments.module';
+// App Component
 import { AlcomyAppComponent } from './app.component';
 // Login Page
 import { LoginPage } from '../pages/login/login';
@@ -96,6 +98,7 @@ const BASE_API = new InjectionToken<string>('baseApi');
 
 @NgModule({
   imports: [
+    EnvironmentsModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -203,17 +206,16 @@ const BASE_API = new InjectionToken<string>('baseApi');
     StatusBar,
     SplashScreen,
     CallNumber,
-    {provide: BASE_API, useValue: APIS.dev.base},
-    {provide: AccountService, useClass: AccountMockService},
-    {provide: AuthService, useClass: AuthMockService},
-    {provide: EmployeeService, useClass: EmployeeMockService},
-    {provide: FacilityService, useClass: FacilityService},
-    {provide: MedicationsService, useClass: MedicationsMockService},
-    {provide: NotificationService, useClass: NotificationMockService},
-    {provide: ResidentsService, useClass: ResidentsMockService},
-    {provide: UserService, useClass: UserMockService},
-    {provide: TaskService, useClass: TaskMockService},
-    {provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: AccountService, useClass: AccountMockService },
+    { provide: AuthService, useClass: AuthMockService },
+    { provide: EmployeeService, useClass: EmployeeMockService },
+    { provide: FacilityService, useClass: FacilityService },
+    { provide: MedicationsService, useClass: MedicationsMockService },
+    { provide: NotificationService, useClass: NotificationMockService },
+    { provide: ResidentsService, useClass: ResidentsMockService },
+    { provide: UserService, useClass: UserMockService },
+    { provide: TaskService, useClass: TaskMockService },
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [IonicApp]

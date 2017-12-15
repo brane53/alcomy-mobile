@@ -346,12 +346,13 @@ export class ResidentsMockService {
 
 
   getResidents() {
-    this.http.get('api/residents')
+    return Observable.from(this.fakeResidents);
+    //this.http.get('api/residents')
       // .map(this.extractData)
-      .subscribe(
+     /*  .subscribe(
         residents => this.residents$$.next(this.fakeResidents),
         error => console.log('Error: ', error)
-      );
+      ); */
       
   }
 

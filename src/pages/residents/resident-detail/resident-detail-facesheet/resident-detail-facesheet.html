@@ -22,6 +22,9 @@
     <ion-segment-button value="medical">
       MEDICAL
     </ion-segment-button>
+    <ion-segment-button value="events">
+      EVENTS
+    </ion-segment-button>
     <ion-segment-button value="contacts">
       CONTACTS
     </ion-segment-button>
@@ -251,16 +254,8 @@
 
   <!--Medical Information-->
   <div *ngSwitchCase="'medical'">
-    <ion-card class="info-card">
-      <ion-item class="card-header">
-        <h2 class="title">Medical History</h2>
-        <button ion-button clear icon-only item-right>
-          <custom-icon set="mdIcons" name="add"></custom-icon>
-        </button>
-      </ion-item>
 
-    </ion-card>
-
+    <!-- Allergies -->
     <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Allergies</h2>
@@ -269,7 +264,7 @@
         </button>
       </ion-item>
     </ion-card>
-
+    <!-- Insurance Info -->
     <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Insurance Information</h2>
@@ -279,9 +274,14 @@
       </ion-item>
     </ion-card>
 
+  </div>
+
+  <!--Medical Events Information-->
+  <div *ngSwitchCase="'events'">
+
     <ion-card class="info-card">
       <ion-item class="card-header">
-        <h2 class="title">Medical Events</h2>
+        <h2 class="title">Medical History</h2>
         <button ion-button clear icon-only item-right>
           <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
@@ -333,4 +333,25 @@
       </ion-item>
     </ion-card>
   </div>
+
+
+  <ion-fab *ngSwitchCase="'events'" bottom right>
+    <button ion-fab color="residents-accent">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab>
+        <custom-icon set="mdIcons" name="local_hospital"></custom-icon>
+      </button>
+      <button ion-fab>
+        <custom-icon set="mdIcons" name="local_hospital"></custom-icon>
+      </button>
+      <button ion-fab>
+        <custom-icon set="mdIcons" name="local_hospital"></custom-icon>
+      </button>
+      <button ion-fab>
+        <custom-icon set="mdIcons" name="local_hospital"></custom-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

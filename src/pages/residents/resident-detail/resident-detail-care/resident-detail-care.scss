@@ -1,3 +1,5 @@
-page-resident-detail-care {
+@import '../../../../theme/mixins';
 
+page-resident-detail-care {
+  @include navbarWithSubtitle();
 }

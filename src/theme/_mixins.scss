@@ -10,3 +10,14 @@
 
   }
 }  
+
+@mixin navbarWithSubtitle(){
+  .toolbar-title {
+    font-size: 1.6rem;
+    .subtitle {
+      font-family: "Roboto Regular";
+      font-size: 75%;
+      margin: 0;
+    }
+  }
+}

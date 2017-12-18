@@ -1,3 +1,5 @@
-page-resident-detail-reports {
+@import '../../../../theme/mixins';
 
+page-resident-detail-reports {
+  @include navbarWithSubtitle();
 }

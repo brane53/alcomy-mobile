@@ -12,7 +12,10 @@
         <custom-icon set="mdIcons" name="arrow_back"></custom-icon>
       </button>
     </ion-buttons>
-    <ion-title>{{resident.firstName | ucfirst}} {{resident.lastName | ucfirst}}</ion-title>
+    <ion-title>
+      {{resident.firstName | ucfirst}} {{resident.lastName | ucfirst}}
+      <p class="subtitle">Medications</p>
+    </ion-title>
   </ion-navbar>
 
   <ion-segment mode="md" [(ngModel)]="medicationTabButton" color="residents-primary">

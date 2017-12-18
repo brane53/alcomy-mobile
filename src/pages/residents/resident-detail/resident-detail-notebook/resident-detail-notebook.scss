@@ -1,3 +1,5 @@
-page-resident-detail-notebook {
+@import '../../../../theme/mixins';
 
+page-resident-detail-notebook {
+  @include navbarWithSubtitle();
 }

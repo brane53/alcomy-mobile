@@ -1,4 +1,8 @@
+@import '../../../../theme/mixins';
+
 page-resident-detail-medications {
+
+  @include navbarWithSubtitle();
 
   div.scroll-content {
     background-color: $mdc-grey-100;
@@ -42,4 +46,6 @@ page-resident-detail-medications {
   .table-header {
     font-weight: 500;
   }
+
+  
 }

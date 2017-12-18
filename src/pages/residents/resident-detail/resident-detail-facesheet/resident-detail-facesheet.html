@@ -18,6 +18,8 @@
     </ion-title>
   </ion-navbar>
 
+  <!-- <expansion-header [scrollArea]="myContent" headerHeight="150"></expansion-header> -->
+
   <ion-segment mode="md" [(ngModel)]="facesheetTabButton" color="residents-primary">
     <ion-segment-button value="general">
       GENERAL
@@ -35,7 +37,7 @@
 </ion-header>
 
 
-<ion-content [ngSwitch]="facesheetTabButton">
+<ion-content #myContent [ngSwitch]="facesheetTabButton">
 
   <!--General Information-->
   <div *ngSwitchCase="'general'">

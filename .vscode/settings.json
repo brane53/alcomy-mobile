@@ -25,7 +25,7 @@
     // WINDOW
         // Controls if a window should restore to full screen mode if it was exited in full screen mode.
         "window.restoreFullscreen": true,
-        "window.zoomLevel": 1,
+        "window.zoomLevel": 0,
     // SEARCH
         "search.exclude": {
             "**/node_modules": true,

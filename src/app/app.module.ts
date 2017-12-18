@@ -91,6 +91,7 @@ import { TaskListComponent } from './shared/task-list/task-list.component';
 import { TaskListItemComponent } from './shared/task-list-item/task-list-item.component';
 import { AccordionComponent } from './shared/accordion/accordion.component';
 import { PanelComponent } from './shared/accordion-panel/panel.component';
+import { ExpansionHeaderComponent } from './shared/expansion-header/expansion-header.component';
 // Configurations
 import { APIS } from '../config/urls.config';
 
@@ -160,6 +161,7 @@ const BASE_API = new InjectionToken<string>('baseApi');
     TaskListItemComponent,
     AccordionComponent,
     PanelComponent,
+    ExpansionHeaderComponent,
     // Directives
     MenuButtonToggleDirective,
     QuickAddDirective,

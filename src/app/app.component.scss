@@ -83,3 +83,14 @@ ion-slides.card-slides {
 .toast-error .toast-wrapper {
     background-color: $danger;
 }
+
+// Set the bottom border of items to span the full width of the item
+[ion-item] {
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.item-md.item-block, .item-ios.item-block, .item-wp.item-block {
+    .item-inner {
+        border-bottom-width: 0;
+    }
+
+}

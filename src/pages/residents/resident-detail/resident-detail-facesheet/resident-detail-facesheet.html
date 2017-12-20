@@ -12,8 +12,9 @@
     </ion-title>
   </ion-navbar>
 
-  <!-- <expansion-header [scrollArea]="myContent" headerHeight="150"></expansion-header> -->
-
+  <!-- <expansion-header [scrollArea]="myContent" headerHeight="150">
+    <div>Content</div>
+  </expansion-header> -->
   <ion-segment mode="md" [(ngModel)]="facesheetTabButton" color="residents-primary">
     <ion-segment-button value="general">
       GENERAL
@@ -35,6 +36,8 @@
 
   <!--General Information-->
   <div *ngSwitchCase="'general'">
+
+    <!-- Basic Information -->
     <ion-card class="info-card">
       <!--Card Header-->
       <ion-item class="card-header">
@@ -138,7 +141,6 @@
 
     </ion-card>
 
-
     <!--Facility Card-->
     <ion-card class="info-card">
       <ion-item class="card-header">
@@ -219,6 +221,16 @@
 
     </ion-card>
 
+    <!-- Insurance Info -->
+    <ion-card class="info-card">
+      <ion-item class="card-header">
+        <h2 class="title">Insurance Information</h2>
+        <button ion-button clear icon-only item-right>
+          <custom-icon set="mdIcons" name="add"></custom-icon>
+        </button>
+      </ion-item>
+    </ion-card>
+
     <!--Weight Log Card-->
     <ion-card class="info-card">
       <ion-item class="card-header">
@@ -258,21 +270,29 @@
     <ion-card class="info-card">
       <ion-item class="card-header">
         <h2 class="title">Allergies</h2>
-        <button ion-button clear icon-only item-right>
+        <button ion-button clear icon-only item-right *ngIf="!allergyEditMode" (click)="toggleAllergyInput()">
           <custom-icon set="mdIcons" name="add"></custom-icon>
         </button>
-      </ion-item>
-    </ion-card>
-    <!-- Insurance Info -->
-    <ion-card class="info-card">
-      <ion-item class="card-header">
-        <h2 class="title">Insurance Information</h2>
-        <button ion-button clear icon-only item-right>
-          <custom-icon set="mdIcons" name="add"></custom-icon>
+        <button ion-button clear icon-only item-right *ngIf="allergyEditMode" (click)="toggleAllergyInput()">
+          <custom-icon color="danger" set="mdIcons" name="do_not_disturb"></custom-icon>
         </button>
       </ion-item>
+      <ion-list>
+        <ng-container *ngIf="true">
+          <ion-item *ngFor="let allergy of allergies">
+            {{allergy.title | ucfirst}}
+            <button ion-button clear icon-only item-right (click)="deleteAllergy(allergy)">
+              <custom-icon color="dark-text-54" set="mdIcons" name="delete"></custom-icon>
+            </button>
+          </ion-item>
+          <ion-item *ngIf="allergyEditMode">
+            <ion-input #allergyInput placeholder="New Allergy" clearInput (keyup.enter)="saveAllergy(allergyInput.value); allergyInput.clearTextInput()"></ion-input>
+            <button color="residents-accent" ion-button item-right (click)="saveAllergy(allergyInput.value); allergyInput.clearTextInput()">Save</button>
+          </ion-item>
+        </ng-container>
+      </ion-list>
     </ion-card>
-
+    
   </div>
 
   <!--Medical Events Information-->

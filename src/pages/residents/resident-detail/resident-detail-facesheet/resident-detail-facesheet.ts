@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, App, ViewController, Events, ModalController } from 'ionic-angular';
 import { ResidentsTabsPage } from '../../residents-tabs/residents-tabs';
-import { Resident, ResidentContact } from '../../../../app/models/models';
+import { Resident, ResidentContact, Allergy } from '../../../../app/models/models';
 import { NewResidentFormPage } from '../../../shared/forms/new-resident/new-resident';
 import { CallNumber } from '@ionic-native/call-number';
 
@@ -16,6 +16,19 @@ export class ResidentDetailFacesheetPage {
   facilityInfo: any;
   paymentInfo: any;
   emergencyContacts: ResidentContact[];
+  allergies: Allergy[] = [
+    {
+      type: 'medication',
+      title: 'advil',
+      level: 'high'
+    },
+    {
+      type: 'general',
+      title: 'dogs',
+      level: 'low'
+    }
+  ];
+  allergyEditMode: boolean = false;
 
   constructor(
     private app: App,
@@ -94,6 +107,24 @@ export class ResidentDetailFacesheetPage {
     } else if (bool === false) {
       return 'No';
     }
+  }
+
+  toggleAllergyInput() {
+    this.allergyEditMode = !this.allergyEditMode;
+  }
+
+  saveAllergy(allergy) {
+    if(allergy) {
+      console.log(allergy)
+      this.allergies = [...this.allergies, allergy];
+    }
+    this.allergyEditMode = false;
+  }
+
+  deleteAllergy(allergy) {
+    this.allergies = this.allergies.filter((_allergy) => {
+      return allergy !== _allergy;
+    });
   }
 
 }

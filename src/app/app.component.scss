@@ -102,9 +102,14 @@ ion-slides.card-slides {
     background-color: map-get($colors, residents-accent);
     border-radius: 50%;
     margin-right: 24px;
-    height: 48px;
-    width: 48px;
+    height: 40px;
+    width: 40px;
     &[item-start] {
         margin-right: 16px;
     }
+}
+
+// remove the thin gray border at the bottom of non active segment buttons
+.segment-md .segment-button, .segment-ios .segment-button, .segment-wp .segment-button {
+    border-bottom-color: rgba(0,0,0,0);
 }

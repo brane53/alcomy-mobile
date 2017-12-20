@@ -138,6 +138,14 @@ export class Dosage {
 
 }
 
+export class Allergy {
+  id?: number;
+  type: string;
+  title: string;
+  reaction?: string;
+  level: string;
+}
+
 export class Specialist {
 
 }

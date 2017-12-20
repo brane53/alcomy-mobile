@@ -11,9 +11,20 @@ page-resident-detail-facesheet {
   }
 
   .card-header {
-    border-bottom: 0.55px solid $dark-text-12;
     padding-top: 0;
-    //background-color: $mdc-light-blue-500;
+    &.item-md {
+      border-bottom: 1px solid $dark-text-12;
+    }
+    &.item-ios {
+      border-bottom: 0.55px solid $dark-text-12;
+    }
+    &.item-wp {
+      border-bottom: 1px solid $dark-text-12;
+    }
+  }
+
+  .card-header + ion-list {
+    margin-top: 0px;
   }
 
   ion-card-header {
@@ -59,6 +70,13 @@ page-resident-detail-facesheet {
 
   .event-details {
     height: 100px;
+  }
+
+
+  expansion-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 }

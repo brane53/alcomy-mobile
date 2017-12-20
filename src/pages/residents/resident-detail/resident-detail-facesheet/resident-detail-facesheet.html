@@ -1,9 +1,3 @@
-<!--
-  Generated template for the ResidentDetailFacesheet page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="residents-primary">
@@ -286,11 +280,25 @@
 
     <ion-card class="info-card">
       <ion-item class="card-header">
-        <h2 class="title">Medical History</h2>
+        <div class="avatar-icon" item-start>
+          <custom-icon color="white" set="mdIcons" name="local_hospital"></custom-icon>
+        </div>
+        <h2 class="title">Hospital Visit</h2>
+        <p>Dec 14</p>
         <button ion-button clear icon-only item-right>
-          <custom-icon set="mdIcons" name="add"></custom-icon>
+          <custom-icon set="mdIcons" name="more_vert"></custom-icon>
         </button>
       </ion-item>
+      <ion-grid class="event-details">
+        <ion-row>
+          <ion3-col>
+
+          </ion3-col>
+        </ion-row>
+      </ion-grid>
+      <ion-toolbar>
+        <button ion-button clear left>DETAILS</button>
+      </ion-toolbar>
     </ion-card>
 
   </div>

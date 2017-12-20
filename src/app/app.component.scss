@@ -94,3 +94,17 @@ ion-slides.card-slides {
     }
 
 }
+
+.avatar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: map-get($colors, residents-accent);
+    border-radius: 50%;
+    margin-right: 24px;
+    height: 48px;
+    width: 48px;
+    &[item-start] {
+        margin-right: 16px;
+    }
+}

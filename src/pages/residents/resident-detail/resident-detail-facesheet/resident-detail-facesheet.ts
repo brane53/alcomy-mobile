@@ -116,9 +116,15 @@ export class ResidentDetailFacesheetPage {
   saveAllergy(allergy) {
     if(allergy) {
       console.log(allergy)
-      this.allergies = [...this.allergies, allergy];
+      let newAllergy = {
+        type: 'general',
+        title: allergy,
+        level: 'low'
+      }
+      this.allergies = [...this.allergies, newAllergy];
     }
     this.allergyEditMode = false;
+
   }
 
   deleteAllergy(allergy) {

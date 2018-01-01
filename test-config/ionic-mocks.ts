@@ -5,6 +5,8 @@
 import { EventEmitter } from '@angular/core';
 
 import { FormBuilder } from '@angular/forms';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 export class AlertMock {
 
@@ -92,6 +94,10 @@ export class NavMock {
   public popToRoot(): any {
     return true;
   }
+
+  public registerChildNav(nav: any): void {
+    return;
+  }
 }
 
 export class PlatformMock {
@@ -165,7 +171,7 @@ export class PlatformMock {
   }
 
   public getQueryParam(): any {
-
+    return true;
   }
 
   public platforms(): any {
@@ -226,6 +232,20 @@ export class AppMock {
   }
 }
 
+export class StatusBarMock extends StatusBar {
+  styleDefault() {
+    return;
+  }
+}
 
+export class SplashScreenMock extends SplashScreen {
+  hide() {
+    return;
+  }
+}
+
+export class DeepLinkerMock {
+
+}
 
 /* tslint:enable */

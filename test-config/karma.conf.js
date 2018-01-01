@@ -3,11 +3,24 @@ var webpackConfig = require('./webpack.test.js');
 module.exports = function (config) {
 
   var _config = {
-    basePath: '',
+    basePath: './',
     frameworks: ['jasmine'],
     files: [
-      { pattern: './karma-test-shim.js', watched: true }
+      {
+        pattern: './karma-test-shim.js', 
+        watched: true
+      },
+      {
+        pattern: './src/assets/**/*',
+        watched: false,
+        included: false,
+        served: true,
+        nocache: false
+      }
     ],
+    proxies: {
+      '/assets/': '/base/src/assets/'
+    },
     preprocessors: {
       './karma-test-shim.js': ['webpack', 'sourcemap']
     },
@@ -23,7 +36,11 @@ module.exports = function (config) {
       format: '%b %T: %m',
       terminal: true
     },
-    reporters: ['kjhtml', 'dots'],
+    coverageIstanbulReporter: {
+      reports: ['html', 'lcovonly'],
+      fixWebpackSourcePaths: true
+    },
+    reporters: config.coverage ? ['kjhtml', 'dots', 'coverage-istanbul'] : ['kjhtml', 'dots'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
@@ -32,8 +49,5 @@ module.exports = function (config) {
     singleRun: false
   };
 
-
-
   config.set(_config);
-
 };

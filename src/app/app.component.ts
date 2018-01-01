@@ -24,7 +24,7 @@ export class AlcomyAppComponent implements OnInit {
   // rootPage = LoginPage;
   // rootPage = NewResidentPage;
   // rootPage = ResidentsListPage;
-  //rootPage = NewFacilityFormPage;
+  // rootPage = NewFacilityFormPage;
 
   @ViewChild('appContent') nav: NavController;
 

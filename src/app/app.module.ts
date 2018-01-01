@@ -102,7 +102,6 @@ const BASE_API = new InjectionToken<string>('baseApi');
 
 @NgModule({
   imports: [
-    EnvironmentsModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -111,7 +110,7 @@ const BASE_API = new InjectionToken<string>('baseApi');
     IonicModule.forRoot(AlcomyAppComponent, {
       iconMode: 'md'
     }),
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
     NgPipesModule,
     NgxErrorsModule,
     MomentModule,

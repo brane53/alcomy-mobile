@@ -1,4 +1,4 @@
-/*
+  /*
  * This webpack config is a copy of the ionic projects config
  * 
  * The webpack config exports an object that has a valid webpack configuration

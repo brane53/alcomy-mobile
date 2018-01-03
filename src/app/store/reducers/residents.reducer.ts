@@ -4,7 +4,7 @@ import { Resident } from '../../models/models';
 import * as ResidentsActions from './residents.actions';
 import { fakeResidents } from '../fakes/residents.fake';
 
-export type Action = ResidentsActions.Actions;
+export type Action = ResidentsActions.ALL;
 
 export function residentsReducer(state: Resident[] = fakeResidents, action: Action) {
   switch(action.type) {

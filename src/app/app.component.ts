@@ -17,7 +17,7 @@ import { NewFacilityFormPage } from '../pages/shared/forms/new-facility/new-faci
 
 @Component({
   selector: 'app-component',
-  templateUrl: 'app.component.html'
+  templateUrl: './app.component.html'
 })
 export class AlcomyAppComponent implements OnInit {
   rootPage = DashboardTabsPage;

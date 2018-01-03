@@ -92,11 +92,12 @@ import { TaskListItemComponent } from './shared/task-list-item/task-list-item.co
 import { AccordionComponent } from './shared/accordion/accordion.component';
 import { PanelComponent } from './shared/accordion-panel/panel.component';
 import { ExpansionHeaderComponent } from './shared/expansion-header/expansion-header.component';
-import { StoreModule } from '@ngrx/store/src/store_module';
+import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
 
 // Configurations
 import { APIS } from '../config/urls.config';
+import { fakeResidents } from './store/fakes/residents.fake';
 
 const BASE_API = new InjectionToken<string>('baseApi');
 
@@ -110,7 +111,11 @@ const BASE_API = new InjectionToken<string>('baseApi');
     IonicModule.forRoot(AlcomyAppComponent, {
       iconMode: 'md'
     }),
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, {
+      initialState: {
+        residents: fakeResidents
+      }
+    }),
     NgPipesModule,
     NgxErrorsModule,
     MomentModule,

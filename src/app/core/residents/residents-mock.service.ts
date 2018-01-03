@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
 import { Resident } from '../../models/models';
 import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
@@ -7,11 +9,13 @@ import { Observer } from 'rxjs/Observer';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { LOAD_RESIDENTS } from '../../store/reducers/residents.actions';
+import { fakeResidents } from '../../store/fakes/residents.fake';
 
 @Injectable()
 export class ResidentsMockService {
 
-  private fakeResidents: Resident[] = [
+  /* private fakeResidents: Resident[] = [
     {
       id: 1,
       firstName: 'blake',
@@ -326,17 +330,20 @@ export class ResidentsMockService {
       ]
     }
 
-  ];
+  ]; */
 
-  currentResident$: BehaviorSubject<Resident>;
+  currentResident$
 
 
   // Behavior Subject of type resident array whose starting value is mockResidents
-  private residents$$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(this.fakeResidents);
-  residents$: Observable<Resident[]> = this.residents$$.asObservable();
+  //private residents$$: BehaviorSubject<Resident[]> = new BehaviorSubject<Resident[]>(this.fakeResidents);
+  //residents$: Observable<Resident[]> = this.residents$$.asObservable();
 
-  constructor(private http: HttpClient) {
-    this.getResidents();
+  residents$;
+
+  constructor(private http: HttpClient, private store: Store<AppState>) {
+    store.dispatch({type: LOAD_RESIDENTS, payload: fakeResidents})
+    this.residents$ = store.select('residents');
   }
 
   createResident(resident: Resident) {
@@ -346,7 +353,7 @@ export class ResidentsMockService {
 
 
   getResidents() {
-    return Observable.from(this.fakeResidents);
+    //return Observable.from(this.fakeResidents);
     //this.http.get('api/residents')
       // .map(this.extractData)
      /*  .subscribe(

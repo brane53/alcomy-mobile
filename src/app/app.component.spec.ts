@@ -1,6 +1,7 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { IonicModule, 
+import { 
+  IonicModule, 
   Platform, 
   MenuController, 
   App,
@@ -11,9 +12,6 @@ import { IonicModule,
   Config } from 'ionic-angular';
 import { AlcomyAppComponent } from './app.component';
 import { DashboardTabsPage } from '../pages/dashboard/dashboard-tabs/dashboard-tabs';
-import { NgPipesModule } from 'ngx-pipes';
-import { MomentModule } from 'angular2-moment';
-import { CustomIconsModule } from 'ionic2-custom-icons';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlatformMock, 
   MenuMock,
@@ -21,24 +19,22 @@ import { PlatformMock,
   ConfigMock, 
   StatusBarMock, 
   SplashScreenMock } from '../../test-config/ionic-mocks';
-import { NotificationMockService } from './core/notification/notification-mock.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { NotificationService } from './core/notification/notification.service';
-import { EnvironmentsModule } from './environments/environments.module';
+//import '@types/jasmine';
 
 
 let component: AlcomyAppComponent;
 let fixture: ComponentFixture<AlcomyAppComponent>;
 
-describe('Component: Root Component', () => {
+describe('AlcomyAppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        IonicModule.forRoot(AlcomyAppComponent, {
-          iconMode: 'md'
-        }),
+        FormsModule,
+        ReactiveFormsModule,
+        IonicModule.forRoot(AlcomyAppComponent),
       ],
       declarations: [
         AlcomyAppComponent,
@@ -76,13 +72,13 @@ describe('Component: Root Component', () => {
     expect(1+1).toBe(2);
   });
 
-  it('should be created', () => {
+  it('should be created', async(() => {
     expect(component).toBeUndefined();
-  });
+  }));
 
-  it('initialises with a root page of DashboardTabsPage', () => {
+  it('initialises with a root page of DashboardTabsPage', async(() => {
     expect(component['rootPage']).toBe(DashboardTabsPage);
-  });
+  }));
 
 
 });

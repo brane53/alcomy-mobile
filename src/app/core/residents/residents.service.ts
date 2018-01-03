@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Resident } from '../../models/models';
 import { Observable } from 'rxjs/Observable';
 import { APP_CONFIG } from '../../environments/environments.token';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
 
 @Injectable()
 export class ResidentsService {
@@ -16,7 +18,10 @@ export class ResidentsService {
   private residents$$: BehaviorSubject<Resident[]>;
   residents$: Observable<Resident[]>;
 
-  constructor(private http: HttpClient, @Inject(APP_CONFIG) private CONFIG) {
+  constructor(
+    private http: HttpClient, 
+    @Inject(APP_CONFIG) private CONFIG,
+    private store: Store<AppState>) {
 
   }
 

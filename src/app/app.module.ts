@@ -96,10 +96,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
 
 // Configurations
-import { APIS } from '../config/urls.config';
 import { fakeResidents } from './store/fakes/residents.fake';
-
-const BASE_API = new InjectionToken<string>('baseApi');
 
 @NgModule({
   imports: [
@@ -111,11 +108,8 @@ const BASE_API = new InjectionToken<string>('baseApi');
     IonicModule.forRoot(AlcomyAppComponent, {
       iconMode: 'md'
     }),
-    StoreModule.forRoot(reducers, {
-      initialState: {
-        residents: fakeResidents
-      }
-    }),
+    StoreModule.forRoot(reducers),
+    EnvironmentsModule,
     NgPipesModule,
     NgxErrorsModule,
     MomentModule,

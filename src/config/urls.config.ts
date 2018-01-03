@@ -1,8 +1,4 @@
  export const APIS = {
-   dev: {
-     base: 'http://localhost:8100/api'
-   },
-   prod: {
-     base: 'https://www.alcomy.com/api'
-   }
- }
+   dev: 'https://alcomy-backend-dev.herokuapp.com/api',
+   prod: 'https://www.alcomy.com/api'
+ };

@@ -44,14 +44,15 @@ export class FacilityListPage {
   }
 
   ionViewDidLoad() {
+    this.facilityService.getFacilities();
     console.log('ionViewDidLoad FacilityListPage');
-    this.facilityService.getFacilities().subscribe(
+    this.facilityService.facilities$.subscribe(
       facilities => {
         console.log(facilities);
         this.facilities = facilities;
       },
-      (err: HttpErrorResponse)=> {
-        console.error(`FacilityList: ionViewDidLoad: FacilityService.getFacilities`, err);
+      (err)=> {
+        console.error(`FacilityList: ionViewDidLoad: FacilityService.facilities$`, err);
         if(err.error instanceof Error) {
           // Client-side or Network Error
           console.log('Client-side/Network Error', err.error.message);

@@ -57,7 +57,7 @@ export class ResidentsListPage {
         this.residents = residents;
       },
       (err: HttpErrorResponse) => {
-        console.error(`ResidentList: refreshResidents: ResidentsService.getFacilities`, err);
+        console.error(`ResidentList: refreshResidents: ResidentsService.getResidents`, err);
         if (err.error instanceof Error) {
           // Client-side or Network Error
           console.log('Client-side/Network Error', err.error.message);

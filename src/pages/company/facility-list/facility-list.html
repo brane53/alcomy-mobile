@@ -34,7 +34,7 @@
   </ion-refresher>
   <!--Facility List-->
   <ion-list>
-    <button ion-item *ngFor="let facility of facilities" (click)="goToDetails(facility)">
+    <button ion-item *ngFor="let facility of facilities | async" (click)="goToDetails(facility)">
       <h2>
         {{ facility.name | ucfirst }}
       </h2>

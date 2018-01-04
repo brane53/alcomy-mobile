@@ -23,7 +23,7 @@ import { NewFacilityFormPage } from '../../shared/forms/new-facility/new-facilit
 })
 export class FacilityListPage {
   title: string = 'Facility List';
-  facilities: Facility[];
+  facilities: Observable<Facility[]> = this.facilityService.facilities$;
 
   constructor(
     private app: App,
@@ -44,15 +44,14 @@ export class FacilityListPage {
   }
 
   ionViewDidLoad() {
-    this.facilityService.getFacilities();
     console.log('ionViewDidLoad FacilityListPage');
-    this.facilityService.facilities$.subscribe(
+
+    this.facilityService.getFacilities().subscribe(
       facilities => {
         console.log(facilities);
-        this.facilities = facilities;
       },
       (err)=> {
-        console.error(`FacilityList: ionViewDidLoad: FacilityService.facilities$`, err);
+        console.error(`FacilityListPage: ionViewDidLoad: FacilityService.getFacilities`, err);
         if(err.error instanceof Error) {
           // Client-side or Network Error
           console.log('Client-side/Network Error', err.error.message);
@@ -68,10 +67,9 @@ export class FacilityListPage {
     this.facilityService.getFacilities().subscribe(
       facilities => {
         console.log(facilities);
-        this.facilities = facilities;
         refresher.complete();
       },
-      (err: HttpErrorResponse) => {
+      (err) => {
         refresher.complete();
         console.error(`FacilityList: refreshResidents: FacilityService.getFacilities`, err);
         if (err.error instanceof Error) {
@@ -99,15 +97,37 @@ export class FacilityListPage {
 
     let newFacilityModal = this.modal.create(NewFacilityFormPage);
 
-    newFacilityModal.onDidDismiss(facility => {
+    newFacilityModal.onDidDismiss((facility: Facility) => {
       if (facility) {
         console.log(`FacilityList: openNewFacilityModal: onDidDismiss: facility param ${facility}`);
         this.facilityService.addFacility(facility).subscribe(
-          (facility: Facility)=> {
-            this.facilities.push(facility);
+          (newFacility: Facility)=> {
+            let toast = this.toast.create({
+              message: `Facility successfully created`,
+              duration: 3000,
+              position: 'bottom',
+              cssClass: 'toast-success toast-wrapper'
+            });
+
+            toast.present()
           },
-          (err) => {
+          (err: HttpErrorResponse) => {
             console.log('Error calling addFacility', err);
+            let toastObj = {
+              message: '',
+              duration: 3000,
+              position: 'bottom',
+              cssClass: 'toast-error toast-wrapper'
+            };
+
+            if(err.status === 500) {
+              toastObj.message = `Facility failed to save due to ${err.statusText}`;
+            } else {
+              toastObj.message = `Error code: ${err.status}; Error Message: ${err.statusText}`
+            }
+            let toast = this.toast.create(toastObj);
+
+            toast.present();
           }
         );
       }

@@ -4,7 +4,7 @@ import { Facility } from '../../models/models';
 
 export type Action = FacilitiesActions.ALL;
 
-export function facilitiesReducer(state: Facility[] = [], action: Action): Facility {
+export function facilitiesReducer(state: Facility[] = [], action: Action): Facility[] {
     switch (action.type) {
 
         case FacilitiesActions.ADD_FACILITY: {

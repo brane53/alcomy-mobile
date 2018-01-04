@@ -45,8 +45,8 @@ export class NewFacilityFormPage {
   createForm() {
     this.newFacilityForm = this.fb.group({
       name: [this.facility.name || '', Validators.required],
-      displayName: [this.facility.displayName || ''],
-      facilityNumber: [this.facility.facilityNumber || '', CustomValidators.digits],
+      displayName: [this.facility.displayName || this.facility.name],
+      facilityNumber: [this.facility.facilityNumber || null, CustomValidators.digits],
       status: [this.facility.status || this.facilityStatuses[0], Validators.required],
       addressLine1: [this.facility.addressLine1 || ''],
       addressLine2: [this.facility.addressLine2 || ''],

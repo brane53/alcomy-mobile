@@ -5,7 +5,7 @@ import { fakeResidents } from '../fakes/residents.fake';
 
 export type Action = ResidentsActions.ALL;
 
-export function residentsReducer(state: Resident[] = [], action: Action) {
+export function residentsReducer(state: Resident[] = [], action: Action): Resident[] {
   switch(action.type) {
 
     case ResidentsActions.ADD_RESIDENT: {

@@ -6,7 +6,7 @@
       </button>
     </ion-buttons>
 
-    <ion-title>{{title}}</ion-title>
+    <ion-title></ion-title>
 
     <ion-buttons right>
       <!--Quick Add Button-->
@@ -27,6 +27,15 @@
 
 
   </ion-navbar>
+  <ion-toolbar color="company-primary">
+    <ion-grid>
+      <ion-row justify-content-center class="facility-profile-header">
+        <ion-col align-self-center>
+          <ion-title>{{facility.name}}</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
 
 </ion-header>
 

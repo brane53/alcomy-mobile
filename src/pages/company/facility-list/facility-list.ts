@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   NavController,
   NavParams, MenuController,
@@ -6,7 +6,8 @@ import {
   App,
   Platform,
   ModalController,
-  ToastController
+  ToastController,
+  LoadingController
 } from 'ionic-angular';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
@@ -16,12 +17,13 @@ import { FacilityService } from '../../../app/core/facility/facility.service';
 import { Facility } from '../../../app/models/models';
 import { FacilityTabsPage } from '../facility-detail/facility-tabs/facility-tabs';
 import { NewFacilityFormPage } from '../../shared/forms/new-facility/new-facility';
+import { setTimeout } from 'timers';
 
 @Component({
   selector: 'page-facility-list',
   templateUrl: 'facility-list.html'
 })
-export class FacilityListPage {
+export class FacilityListPage implements OnInit {
   title: string = 'Facility List';
   facilities: Observable<Facility[]> = this.facilityService.facilities$;
 
@@ -35,7 +37,8 @@ export class FacilityListPage {
     private modal: ModalController,
     public popCtrl: PopoverController,
     private facilityService: FacilityService,
-    private statusBar: StatusBar) {
+    private statusBar: StatusBar,
+    private loading: LoadingController) {
 
     this.platform.ready().then(() => {
       statusBar.backgroundColorByHexString('#C62828');
@@ -43,16 +46,28 @@ export class FacilityListPage {
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FacilityListPage');
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    let asyncComplete = false;
+    let loading = this.loading.create({
+      showBackdrop: false
+    });
 
+    setTimeout(() => {
+      if(!asyncComplete) {
+        loading.present();
+      }
+
+    }, 1500)
     this.facilityService.getFacilities().subscribe(
       facilities => {
+        asyncComplete = true;
         console.log(facilities);
+        loading.dismiss();
       },
-      (err)=> {
+      (err) => {
         console.error(`FacilityListPage: ionViewDidLoad: FacilityService.getFacilities`, err);
-        if(err.error instanceof Error) {
+        if (err.error instanceof Error) {
           // Client-side or Network Error
           console.log('Client-side/Network Error', err.error.message);
         } else {
@@ -61,6 +76,25 @@ export class FacilityListPage {
         }
       }
     );
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FacilityListPage');
+    // this.facilityService.getFacilities().subscribe(
+    //   facilities => {
+    //     console.log(facilities);
+    //   },
+    //   (err)=> {
+    //     console.error(`FacilityListPage: ionViewDidLoad: FacilityService.getFacilities`, err);
+    //     if(err.error instanceof Error) {
+    //       // Client-side or Network Error
+    //       console.log('Client-side/Network Error', err.error.message);
+    //     } else {
+    //       // Backend Error
+    //       console.log(`Backend returned error code ${err.status}. Body was ${err.error}`)
+    //     }
+    //   }
+    // );
   }
 
   refreshFacilities(refresher) {
@@ -94,9 +128,8 @@ export class FacilityListPage {
 
   openNewFacilityModal() {
     let data;
-
     let newFacilityModal = this.modal.create(NewFacilityFormPage);
-
+    
     newFacilityModal.onDidDismiss((facility: Facility) => {
       if (facility) {
         console.log(`FacilityList: openNewFacilityModal: onDidDismiss: facility param ${facility}`);

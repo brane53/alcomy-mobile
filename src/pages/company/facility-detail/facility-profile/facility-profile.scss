@@ -1,8 +1,22 @@
 page-facility-profile {
 
-  .facility-profile-header {
+  .profile-header {
     height: 18rem;
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .title, .subtitle, .address {
+      color: white;
+      font-family: "Roboto Regular"
+    }
+
+    .address {
+      font-size: 1rem;
+    }
   }
+
 
 
 }

@@ -29,9 +29,15 @@
   </ion-navbar>
   <ion-toolbar color="company-primary">
     <ion-grid>
-      <ion-row justify-content-center class="facility-profile-header">
+      <ion-row justify-content-center class="profile-header">
         <ion-col align-self-center>
-          <ion-title>{{facility.name}}</ion-title>
+          <ion-row justify-content-center>
+            <div class="header-content">
+              <h6 class="title">{{facility.name}}</h6>
+              <p class="address">{{facility.addressLine1}} {{facility.addressLine2}} {{facility.city}}, {{facility.stateOrProvince | ucfirst}} {{facility.postalCode}}</p>
+              <p class="subtitle">{{facility.displayName}}</p>
+            </div>
+          </ion-row>
         </ion-col>
       </ion-row>
     </ion-grid>

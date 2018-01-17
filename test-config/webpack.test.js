@@ -14,10 +14,11 @@ module.exports = {
     {
       test: /\.ts$/,
       loaders: [
-      {
-        loader: 'ts-loader'
-      },
-      'angular2-template-loader']
+        {
+          loader: 'ts-loader'
+        },
+        'angular2-template-loader'
+      ]
     },
     {
       test: /.+\.ts$/,
